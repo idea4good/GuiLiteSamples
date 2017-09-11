@@ -1,0 +1,38 @@
+#For Android(Android studio)
+*.iml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+/libs
+/obj
+
+#For Windows(Visual stduio)
+.vs
+ipch
+*.suo
+Debug
+Release
+obj
+*.sdf
+*.opendb
+*.db
+*.dir
+*.user
+Generated Files
+AppPackages
+BundleArtifacts
+
+#For Linux(GCC)
+*.d
+*.o
+*.map
+*.mk
+#For cmake
+CMakeCache.txt
+CMakeFiles
+cmake_install.cmake
+Makefile

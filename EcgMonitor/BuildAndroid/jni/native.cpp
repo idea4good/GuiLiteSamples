@@ -22,14 +22,14 @@ typedef struct
 	unsigned int dwParam2;
 }OUTMSGINFO;
 
-JNIEXPORT jint JNICALL Java_noodle_ui_sample_ThreadNative_start_1native(JNIEnv * ev, jobject obj, jint main_cnt, jint sub_cnt)
+JNIEXPORT jint JNICALL Java_GuiLiteSample_ThreadNative_start_1native(JNIEnv * ev, jobject obj, jint main_cnt, jint sub_cnt)
 {
 	InitJavaEnv(ev, obj);
 	gAndroidPlayWav = OnAndroidPlayWav;
 	return run_native(main_cnt, sub_cnt);
 }
 
-JNIEXPORT jint JNICALL Java_noodle_ui_sample_ThreadNative_WriteHidFifo( JNIEnv* env, jobject thiz, jint type, jint x, jint y, jint display_id)
+JNIEXPORT jint JNICALL Java_GuiLiteSample_ThreadNative_WriteHidFifo( JNIEnv* env, jobject thiz, jint type, jint x, jint y, jint display_id)
 {
 	OUTMSGINFO msg;
 	msg.dwMsgId = type;
@@ -38,7 +38,7 @@ JNIEXPORT jint JNICALL Java_noodle_ui_sample_ThreadNative_WriteHidFifo( JNIEnv* 
 	return send_hid_msg(&msg, sizeof(msg), display_id);
 }
 
-JNIEXPORT jint  JNICALL Java_noodle_ui_sample_ThreadNative_GetBitmapWidth(JNIEnv * env, jobject obj, jint display_id)
+JNIEXPORT jint  JNICALL Java_GuiLiteSample_ThreadNative_GetBitmapWidth(JNIEnv * env, jobject obj, jint display_id)
 {
 	int width, height;
 	width = height = -1;
@@ -46,7 +46,7 @@ JNIEXPORT jint  JNICALL Java_noodle_ui_sample_ThreadNative_GetBitmapWidth(JNIEnv
 	return width;
 }
 
-JNIEXPORT jint  JNICALL Java_noodle_ui_sample_ThreadNative_GetBitmapHeight(JNIEnv * env, jobject obj, jint display_id)
+JNIEXPORT jint  JNICALL Java_GuiLiteSample_ThreadNative_GetBitmapHeight(JNIEnv * env, jobject obj, jint display_id)
 {
 	int width, height;
 	width = height = -1;
@@ -56,7 +56,7 @@ JNIEXPORT jint  JNICALL Java_noodle_ui_sample_ThreadNative_GetBitmapHeight(JNIEn
 
 #include <android/bitmap.h>
 #include <string.h>
-JNIEXPORT jint  JNICALL Java_noodle_ui_sample_ThreadNative_UpdateBitmap(JNIEnv * env, jobject obj, jobject bitmap, jint display_id, jint width, jint height)
+JNIEXPORT jint  JNICALL Java_GuiLiteSample_ThreadNative_UpdateBitmap(JNIEnv * env, jobject obj, jobject bitmap, jint display_id, jint width, jint height)
 {
 	AndroidBitmapInfo  	infocolor;
 	void*              	pixelscolor;

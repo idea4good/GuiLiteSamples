@@ -2,60 +2,60 @@
 <items version="2" >
 
     <item
-        jar="D:\private\Noodle\GuiLiteSamples\EcgMonitor\BuildAndroid\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        revision="24.0.1"
-        sha1="67c1fb672efc088b2004ad6a2b46f3a12aa4bb4d">
-        <dex dex="D:\private\Noodle\GuiLiteSamples\EcgMonitor\BuildAndroid\app\build\intermediates\pre-dexed\debug\instant-run_6472dd8feed49220de61d526e161942f37f95661.jar" />
-    </item>
-    <item
-        jar="D:\private\Noodle\GuiLiteSamples\EcgMonitor\BuildAndroid\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\libs\internal_impl-24.0.0.jar"
+        jar="E:\Noodle\GuiLiteSamples\EcgMonitor\BuildAndroid\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\libs\internal_impl-24.0.0.jar"
         jumboMode="true"
         revision="24.0.1"
         sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
-        <dex dex="D:\private\Noodle\GuiLiteSamples\EcgMonitor\BuildAndroid\app\build\intermediates\pre-dexed\debug\internal_impl-24.0.0_fffe34059e3fec65e4d1734b2192a5da5189126d.jar" />
+        <dex dex="E:\Noodle\GuiLiteSamples\EcgMonitor\BuildAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_bc3886c5b7f54dfb15ddee62990f61b8c3a35b72\classes.dex" />
     </item>
     <item
-        jar="D:\private\Noodle\GuiLiteSamples\EcgMonitor\BuildAndroid\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.0.0\jars\classes.jar"
+        jar="E:\Noodle\GuiLiteSamples\EcgMonitor\BuildAndroid\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         revision="24.0.1"
-        sha1="e70f608219ed6b974644c333249ab2bb7b71de98">
-        <dex dex="D:\private\Noodle\GuiLiteSamples\EcgMonitor\BuildAndroid\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-24.0.0_6c965eaa196f2565e276feb7c2d49696f643f79f.jar" />
+        sha1="41dfa0e2d2d908a867636477d2b07bc33427eb14">
+        <dex dex="E:\Noodle\GuiLiteSamples\EcgMonitor\BuildAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_298b2e3e13c43de4cf369970a2d9a8f29b47be2a\classes.dex" />
     </item>
     <item
-        jar="D:\private\Noodle\GuiLiteSamples\EcgMonitor\BuildAndroid\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\classes.jar"
+        jar="E:\Noodle\GuiLiteSamples\EcgMonitor\BuildAndroid\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\classes.jar"
         jumboMode="true"
         revision="24.0.1"
         sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
-        <dex dex="D:\private\Noodle\GuiLiteSamples\EcgMonitor\BuildAndroid\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-24.0.0_ca6f39f9db49494df662595d75488a50f4734ee4.jar" />
+        <dex dex="E:\Noodle\GuiLiteSamples\EcgMonitor\BuildAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.0.0_0c3b167b1aa3636aeda60094c86a2bc71846a628\classes.dex" />
     </item>
     <item
-        jar="C:\Users\blyan\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.0.0\support-annotations-24.0.0.jar"
-        jumboMode="true"
-        revision="24.0.1"
-        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
-        <dex dex="D:\private\Noodle\GuiLiteSamples\EcgMonitor\BuildAndroid\app\build\intermediates\pre-dexed\debug\support-annotations-24.0.0_037acdec9a48bed89efdd772ab4333092db154ee.jar" />
-    </item>
-    <item
-        jar="D:\private\Noodle\GuiLiteSamples\EcgMonitor\BuildAndroid\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        revision="24.0.1"
-        sha1="2f0abaec4bdbcdd20743a4ca265c7a324548aa3e">
-        <dex dex="D:\private\Noodle\GuiLiteSamples\EcgMonitor\BuildAndroid\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_ee9805f0c4df4bdcc1b29b99c0979e5dd0b01646.jar" />
-    </item>
-    <item
-        jar="D:\private\Noodle\GuiLiteSamples\EcgMonitor\BuildAndroid\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.0.0\jars\classes.jar"
+        jar="E:\Noodle\GuiLiteSamples\EcgMonitor\BuildAndroid\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.0.0\jars\classes.jar"
         jumboMode="true"
         revision="24.0.1"
         sha1="0874286cc2fd88d54fdf130e9d5372730da6de97">
-        <dex dex="D:\private\Noodle\GuiLiteSamples\EcgMonitor\BuildAndroid\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-24.0.0_a74dc0b1032aa27497aa269ec02ccafafe88c6e4.jar" />
+        <dex dex="E:\Noodle\GuiLiteSamples\EcgMonitor\BuildAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.0.0_35f1d13b2bb25878c2e540a88adc2dadc91df561\classes.dex" />
     </item>
     <item
-        jar="D:\private\Noodle\GuiLiteSamples\EcgMonitor\BuildAndroid\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.0.0\jars\classes.jar"
+        jar="E:\Noodle\GuiLiteSamples\EcgMonitor\BuildAndroid\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.0.0\jars\classes.jar"
         jumboMode="true"
         revision="24.0.1"
         sha1="3bd97cfefd783e9de1dd1c30574a6adb44b4409b">
-        <dex dex="D:\private\Noodle\GuiLiteSamples\EcgMonitor\BuildAndroid\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-24.0.0_ff3fdb198966d61e9f3a29dfa622bca43c1a55b8.jar" />
+        <dex dex="E:\Noodle\GuiLiteSamples\EcgMonitor\BuildAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.0.0_31f52361395c0c6485eb4f3316130ed543634555\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Zorro\.gradle\caches\modules-2\files-2.1\com.android.support\support-annotations\24.0.0\2943c74db6d4346ab8c6531adac91fa05c137c40\support-annotations-24.0.0.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="E:\Noodle\GuiLiteSamples\EcgMonitor\BuildAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.0.0_6f1a9c26af41728fc6263daf3767edd1ae0c848f\classes.dex" />
+    </item>
+    <item
+        jar="E:\Noodle\GuiLiteSamples\EcgMonitor\BuildAndroid\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="e70f608219ed6b974644c333249ab2bb7b71de98">
+        <dex dex="E:\Noodle\GuiLiteSamples\EcgMonitor\BuildAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.0.0_300e4daa00a7b6dd9e1ea86bbe6fd549a9fa4219\classes.dex" />
+    </item>
+    <item
+        jar="E:\Noodle\GuiLiteSamples\EcgMonitor\BuildAndroid\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="24.0.1"
+        sha1="11944c886c85435605110ae85343afafa6fa0f83">
+        <dex dex="E:\Noodle\GuiLiteSamples\EcgMonitor\BuildAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_edb1b2c3992f6f08d1d577395c254affeca747cc\classes.dex" />
     </item>
 
 </items>

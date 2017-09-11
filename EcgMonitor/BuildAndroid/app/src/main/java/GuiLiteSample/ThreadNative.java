@@ -1,4 +1,4 @@
-package noodle.ui.sample;
+package GuiLiteSample;
 import android.graphics.Bitmap;
 import android.media.MediaPlayer;
 

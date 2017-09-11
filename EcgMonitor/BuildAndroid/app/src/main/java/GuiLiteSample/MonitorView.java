@@ -1,16 +1,13 @@
-package noodle.ui.sample;
+package GuiLiteSample;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
-import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.view.View;
-
 import java.io.IOException;
 
 public class MonitorView extends SurfaceView implements SurfaceHolder.Callback{

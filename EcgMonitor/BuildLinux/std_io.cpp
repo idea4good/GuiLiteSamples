@@ -51,7 +51,8 @@ static void press_down(int x, int y, int display_id)
 {
 	MSG_INFO msg;
 	msg.dwMsgId = 0x4700;
-	msg.dwParam1 = x | (y << 16);
+	msg.dwParam1 = x;
+	msg.dwParam2 = y;
 	send_hid_msg(&msg, sizeof(msg), display_id);
 }
 
@@ -59,7 +60,8 @@ static void press_release(int x, int y, int display_id)
 {
 	MSG_INFO msg;
 	msg.dwMsgId = 0x4600;
-	msg.dwParam1 = x | (y << 16);
+	msg.dwParam1 = x;
+	msg.dwParam2 = y;
 	send_hid_msg(&msg, sizeof(msg), display_id);
 }
 

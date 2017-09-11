@@ -112,7 +112,7 @@ static const char *s_end = ".....end.....\n";
 
 void do_assert(const char* file, int line)
 {
-	printf("assert:file:%s,line:%d,error no: %d\n", file, line, errno);
+	printf("assert! file:%s,line:%d,error no: %d\n", file, line, errno);
 
 	int num;
 	char **calls;
@@ -220,6 +220,7 @@ static void* make_fb_shared_by_display_app(int shared_id)
 
 void do_assert(const char* file, int line)
 {
+	printf("assert! file:%s,line:%d\n", file, line);
 	assert(false);
 }
 

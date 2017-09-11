@@ -33,7 +33,8 @@ JNIEXPORT jint JNICALL Java_noodle_ui_sample_ThreadNative_WriteHidFifo( JNIEnv* 
 {
 	OUTMSGINFO msg;
 	msg.dwMsgId = type;
-	msg.dwParam1 = x|(y<<16);
+	msg.dwParam1 = x;
+	msg.dwParam2 = y;
 	return send_hid_msg(&msg, sizeof(msg), display_id);
 }
 

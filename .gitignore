@@ -30,7 +30,7 @@ BundleArtifacts
 *.d
 *.o
 *.map
-*.mk
+#*.mk  android jni need it.
 #For cmake
 CMakeCache.txt
 CMakeFiles

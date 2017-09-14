@@ -1,14 +1,14 @@
 #For Android(Android studio)
 *.iml
 .gradle
-/local.properties
-/.idea/workspace.xml
-/.idea/libraries
 .DS_Store
-/build
-/captures
-/libs
-/obj
+/EcgMonitor/BuildAndroid/local.properties
+/EcgMonitor/BuildAndroid/.idea/workspace.xml
+/EcgMonitor/BuildAndroid/.idea/libraries
+/EcgMonitor/BuildAndroid/build
+/EcgMonitor/BuildAndroid/captures
+/EcgMonitor/BuildAndroid/libs
+/EcgMonitor/BuildAndroid/obj
 
 #For Windows(Visual stduio)
 .vs

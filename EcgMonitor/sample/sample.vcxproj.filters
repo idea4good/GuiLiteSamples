@@ -1,0 +1,513 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="core_include">
+      <UniqueIdentifier>{d52ad2ab-8ffa-422f-83bb-1671d937e080}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gui_include">
+      <UniqueIdentifier>{2fbd6acc-33c0-490c-a282-f015cb1db56b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source">
+      <UniqueIdentifier>{d36c1d0f-4bac-4202-8aeb-d5621b53b10d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\manager">
+      <UniqueIdentifier>{e48249b6-f588-4258-a618-02108ca1b8b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\modules">
+      <UniqueIdentifier>{ff8341a7-753f-4883-94e2-1cc89547bb2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{5d7162ba-40dc-4203-a259-a87fca549618}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\start">
+      <UniqueIdentifier>{fdd605d0-5dc1-41f2-bb03-b27ef1ed3ed0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\resource">
+      <UniqueIdentifier>{c5a0e7ca-102a-43f2-8854-3ded4bc10b77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\ui_ctrl_ex">
+      <UniqueIdentifier>{b0c8b34d-75e2-43f1-8d2b-3d521bf45a1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\ui_tree">
+      <UniqueIdentifier>{5166a1f0-bb6d-482b-92b3-dd612b5142a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\resource\font">
+      <UniqueIdentifier>{874a8e64-9086-4805-98af-4132209cff0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\resource\bitmap">
+      <UniqueIdentifier>{0155a7ef-1d0c-48da-be34-ee095354b9af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\ui_tree\Dialog">
+      <UniqueIdentifier>{e6c2d2e9-c10e-4b50-8e65-cfac87f7c737}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\ui_tree\View">
+      <UniqueIdentifier>{e35a5a27-745c-4754-bcb9-03c5d294ce11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\ui_tree\ViewMini">
+      <UniqueIdentifier>{83d49cda-5778-426b-83f3-7bb1c96429d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\data">
+      <UniqueIdentifier>{c922db45-01ad-43b2-b2e4-22f7ab8fafe7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="core_include\display.h">
+      <Filter>core_include</Filter>
+    </ClInclude>
+    <ClInclude Include="core_include\msg.h">
+      <Filter>core_include</Filter>
+    </ClInclude>
+    <ClInclude Include="core_include\rect.h">
+      <Filter>core_include</Filter>
+    </ClInclude>
+    <ClInclude Include="core_include\resource_type.h">
+      <Filter>core_include</Filter>
+    </ClInclude>
+    <ClInclude Include="core_include\surface.h">
+      <Filter>core_include</Filter>
+    </ClInclude>
+    <ClInclude Include="core_include\wave_buffer.h">
+      <Filter>core_include</Filter>
+    </ClInclude>
+    <ClInclude Include="core_include\wave_ctrl.h">
+      <Filter>core_include</Filter>
+    </ClInclude>
+    <ClInclude Include="core_include\wnd.h">
+      <Filter>core_include</Filter>
+    </ClInclude>
+    <ClInclude Include="core_include\word.h">
+      <Filter>core_include</Filter>
+    </ClInclude>
+    <ClInclude Include="core_include\alarm_queue.h">
+      <Filter>core_include</Filter>
+    </ClInclude>
+    <ClInclude Include="core_include\api.h">
+      <Filter>core_include</Filter>
+    </ClInclude>
+    <ClInclude Include="core_include\audio.h">
+      <Filter>core_include</Filter>
+    </ClInclude>
+    <ClInclude Include="core_include\bitmap.h">
+      <Filter>core_include</Filter>
+    </ClInclude>
+    <ClInclude Include="core_include\cmd_target.h">
+      <Filter>core_include</Filter>
+    </ClInclude>
+    <ClInclude Include="core_include\database.h">
+      <Filter>core_include</Filter>
+    </ClInclude>
+    <ClInclude Include="gui_include\list_box.h">
+      <Filter>gui_include</Filter>
+    </ClInclude>
+    <ClInclude Include="gui_include\shape_resource.h">
+      <Filter>gui_include</Filter>
+    </ClInclude>
+    <ClInclude Include="gui_include\spinbox.h">
+      <Filter>gui_include</Filter>
+    </ClInclude>
+    <ClInclude Include="gui_include\table.h">
+      <Filter>gui_include</Filter>
+    </ClInclude>
+    <ClInclude Include="gui_include\button.h">
+      <Filter>gui_include</Filter>
+    </ClInclude>
+    <ClInclude Include="gui_include\dialog.h">
+      <Filter>gui_include</Filter>
+    </ClInclude>
+    <ClInclude Include="gui_include\edit.h">
+      <Filter>gui_include</Filter>
+    </ClInclude>
+    <ClInclude Include="gui_include\font.h">
+      <Filter>gui_include</Filter>
+    </ClInclude>
+    <ClInclude Include="gui_include\gesture.h">
+      <Filter>gui_include</Filter>
+    </ClInclude>
+    <ClInclude Include="gui_include\keyboard.h">
+      <Filter>gui_include</Filter>
+    </ClInclude>
+    <ClInclude Include="gui_include\label.h">
+      <Filter>gui_include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\msg_id.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ctrl_id.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\define.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="source\modules\demo_module.h">
+      <Filter>source\modules</Filter>
+    </ClInclude>
+    <ClInclude Include="source\resource\font\strings.h">
+      <Filter>source\resource\font</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_ctrl_ex\trend_graph.h">
+      <Filter>source\ui_ctrl_ex</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_ctrl_ex\trend_table.h">
+      <Filter>source\ui_ctrl_ex</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_ctrl_ex\value_ctrl.h">
+      <Filter>source\ui_ctrl_ex</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_ctrl_ex\value_sub_ctrl.h">
+      <Filter>source\ui_ctrl_ex</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_ctrl_ex\value_view.h">
+      <Filter>source\ui_ctrl_ex</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_ctrl_ex\ecg_wave_ctrl.h">
+      <Filter>source\ui_ctrl_ex</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_ctrl_ex\time_bar.h">
+      <Filter>source\ui_ctrl_ex</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_ctrl_ex\time_label.h">
+      <Filter>source\ui_ctrl_ex</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\Dialog\patient_setup\patient_setup_dlg.h">
+      <Filter>source\ui_tree\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\Dialog\about\about_dlg.h">
+      <Filter>source\ui_tree\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\View\spo2_wave\spo2_wave_view.h">
+      <Filter>source\ui_tree\View</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\View\spo2_wave\spo2_wave_xml.h">
+      <Filter>source\ui_tree\View</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\View\temp_value\temp_value_view.h">
+      <Filter>source\ui_tree\View</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\View\temp_value\temp_value_xml.h">
+      <Filter>source\ui_tree\View</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\View\top_bar\patient\patient_view.h">
+      <Filter>source\ui_tree\View</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\View\top_bar\top_bar.h">
+      <Filter>source\ui_tree\View</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\View\top_bar\top_bar_xml.h">
+      <Filter>source\ui_tree\View</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\View\trend\trend_view.h">
+      <Filter>source\ui_tree\View</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\View\ecg_7wave\ecg_7wave_view.h">
+      <Filter>source\ui_tree\View</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\View\ecg_value\ecg_value_view.h">
+      <Filter>source\ui_tree\View</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\View\ecg_value\ecg_value_xml.h">
+      <Filter>source\ui_tree\View</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\View\ecg_wave\ecg_wave_view.h">
+      <Filter>source\ui_tree\View</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\View\ecg_wave\ecg_wave_xml.h">
+      <Filter>source\ui_tree\View</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\View\nibp_list\nibp_list_view.h">
+      <Filter>source\ui_tree\View</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\View\nibp_list\nibp_list_xml.h">
+      <Filter>source\ui_tree\View</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\View\nibp_value\nibp_value_view.h">
+      <Filter>source\ui_tree\View</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\View\nibp_value\nibp_value_xml.h">
+      <Filter>source\ui_tree\View</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\View\resp_value\resp_value_view.h">
+      <Filter>source\ui_tree\View</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\View\resp_value\resp_value_xml.h">
+      <Filter>source\ui_tree\View</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\View\resp_wave\resp_wave_view.h">
+      <Filter>source\ui_tree\View</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\View\resp_wave\resp_wave_xml.h">
+      <Filter>source\ui_tree\View</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\View\spo2_value\spo2_value_view.h">
+      <Filter>source\ui_tree\View</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\View\spo2_value\spo2_value_xml.h">
+      <Filter>source\ui_tree\View</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\ViewMini\wav\mini_wave_view.h">
+      <Filter>source\ui_tree\ViewMini</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\ViewMini\wav\mini_wave_xml.h">
+      <Filter>source\ui_tree\ViewMini</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\ViewMini\trend\mini_trend_view.h">
+      <Filter>source\ui_tree\ViewMini</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\ViewMini\trend\mini_trend_xml.h">
+      <Filter>source\ui_tree\ViewMini</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\ViewMini\value\mini_value_view.h">
+      <Filter>source\ui_tree\ViewMini</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\ViewMini\value\mini_value_xml.h">
+      <Filter>source\ui_tree\ViewMini</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\Dialog\about\about_dlg_xml.h">
+      <Filter>source\ui_tree\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ui_tree\Dialog\patient_setup\patient_setup_dlg_xml.h">
+      <Filter>source\ui_tree\Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="source\data\data_source.h">
+      <Filter>source\data</Filter>
+    </ClInclude>
+    <ClInclude Include="source\manager\value_ctrl_manager.h">
+      <Filter>source\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="source\manager\wave_manager.h">
+      <Filter>source\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="source\manager\value_manager.h">
+      <Filter>source\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="gui_include\slide_group.h">
+      <Filter>gui_include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\modules\demo_module.cpp">
+      <Filter>source\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="source\resource\bitmap\spin_down_button_focus.cpp">
+      <Filter>source\resource\bitmap</Filter>
+    </ClCompile>
+    <ClCompile Include="source\resource\bitmap\spin_down_button_normal.cpp">
+      <Filter>source\resource\bitmap</Filter>
+    </ClCompile>
+    <ClCompile Include="source\resource\bitmap\spin_down_button_push.cpp">
+      <Filter>source\resource\bitmap</Filter>
+    </ClCompile>
+    <ClCompile Include="source\resource\bitmap\spin_up_button_disable.cpp">
+      <Filter>source\resource\bitmap</Filter>
+    </ClCompile>
+    <ClCompile Include="source\resource\bitmap\spin_up_button_focus.cpp">
+      <Filter>source\resource\bitmap</Filter>
+    </ClCompile>
+    <ClCompile Include="source\resource\bitmap\spin_up_button_normal.cpp">
+      <Filter>source\resource\bitmap</Filter>
+    </ClCompile>
+    <ClCompile Include="source\resource\bitmap\spin_up_button_push.cpp">
+      <Filter>source\resource\bitmap</Filter>
+    </ClCompile>
+    <ClCompile Include="source\resource\bitmap\spin_down_button_disable.cpp">
+      <Filter>source\resource\bitmap</Filter>
+    </ClCompile>
+    <ClCompile Include="source\resource\font\Arial_Narrow_15B_20.cpp">
+      <Filter>source\resource\font</Filter>
+    </ClCompile>
+    <ClCompile Include="source\resource\font\Arial_Narrow_17B_23.cpp">
+      <Filter>source\resource\font</Filter>
+    </ClCompile>
+    <ClCompile Include="source\resource\font\Arial_Narrow_26B_35.cpp">
+      <Filter>source\resource\font</Filter>
+    </ClCompile>
+    <ClCompile Include="source\resource\font\Arial_Narrow_40B_53.cpp">
+      <Filter>source\resource\font</Filter>
+    </ClCompile>
+    <ClCompile Include="source\resource\font\Arial_Narrow_64B_85.cpp">
+      <Filter>source\resource\font</Filter>
+    </ClCompile>
+    <ClCompile Include="source\resource\font\Arial_Narrow_104B_139.cpp">
+      <Filter>source\resource\font</Filter>
+    </ClCompile>
+    <ClCompile Include="source\resource\font\font.cpp">
+      <Filter>source\resource\font</Filter>
+    </ClCompile>
+    <ClCompile Include="source\resource\font\strings.cpp">
+      <Filter>source\resource\font</Filter>
+    </ClCompile>
+    <ClCompile Include="source\resource\font\Arial_Narrow_8_11.cpp">
+      <Filter>source\resource\font</Filter>
+    </ClCompile>
+    <ClCompile Include="source\resource\font\Arial_Narrow_9B_12.cpp">
+      <Filter>source\resource\font</Filter>
+    </ClCompile>
+    <ClCompile Include="source\resource\font\Arial_Narrow_10B_13.cpp">
+      <Filter>source\resource\font</Filter>
+    </ClCompile>
+    <ClCompile Include="source\resource\font\Arial_Narrow_12_16.cpp">
+      <Filter>source\resource\font</Filter>
+    </ClCompile>
+    <ClCompile Include="source\resource\font\Arial_Narrow_13B_17.cpp">
+      <Filter>source\resource\font</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_ctrl_ex\trend_graph.cpp">
+      <Filter>source\ui_ctrl_ex</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_ctrl_ex\trend_table.cpp">
+      <Filter>source\ui_ctrl_ex</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_ctrl_ex\value_ctrl.cpp">
+      <Filter>source\ui_ctrl_ex</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_ctrl_ex\value_sub_ctrl.cpp">
+      <Filter>source\ui_ctrl_ex</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_ctrl_ex\value_view.cpp">
+      <Filter>source\ui_ctrl_ex</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_ctrl_ex\ecg_wave_ctrl.cpp">
+      <Filter>source\ui_ctrl_ex</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_ctrl_ex\time_bar.cpp">
+      <Filter>source\ui_ctrl_ex</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_ctrl_ex\time_label.cpp">
+      <Filter>source\ui_ctrl_ex</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\root.cpp">
+      <Filter>source\ui_tree</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\Dialog\patient_setup\patient_setup_dlg.cpp">
+      <Filter>source\ui_tree\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\View\spo2_wave\spo2_wave_view.cpp">
+      <Filter>source\ui_tree\View</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\View\spo2_wave\spo2_wave_xml.cpp">
+      <Filter>source\ui_tree\View</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\View\temp_value\temp_value_view.cpp">
+      <Filter>source\ui_tree\View</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\View\temp_value\temp_value_xml.cpp">
+      <Filter>source\ui_tree\View</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\View\top_bar\patient\patient_view.cpp">
+      <Filter>source\ui_tree\View</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\View\top_bar\top_bar.cpp">
+      <Filter>source\ui_tree\View</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\View\top_bar\top_bar_xml.cpp">
+      <Filter>source\ui_tree\View</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\View\trend\trend_view.cpp">
+      <Filter>source\ui_tree\View</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\View\ecg_7wave\ecg_7wave_view.cpp">
+      <Filter>source\ui_tree\View</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\View\ecg_value\ecg_value_view.cpp">
+      <Filter>source\ui_tree\View</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\View\ecg_value\ecg_value_xml.cpp">
+      <Filter>source\ui_tree\View</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\View\ecg_wave\ecg_wave_view.cpp">
+      <Filter>source\ui_tree\View</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\View\ecg_wave\ecg_wave_xml.cpp">
+      <Filter>source\ui_tree\View</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\View\nibp_list\nibp_list_view.cpp">
+      <Filter>source\ui_tree\View</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\View\nibp_list\nibp_list_xml.cpp">
+      <Filter>source\ui_tree\View</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\View\nibp_value\nibp_value_view.cpp">
+      <Filter>source\ui_tree\View</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\View\nibp_value\nibp_value_xml.cpp">
+      <Filter>source\ui_tree\View</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\View\resp_value\resp_value_view.cpp">
+      <Filter>source\ui_tree\View</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\View\resp_value\resp_value_xml.cpp">
+      <Filter>source\ui_tree\View</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\View\resp_wave\resp_wave_view.cpp">
+      <Filter>source\ui_tree\View</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\View\resp_wave\resp_wave_xml.cpp">
+      <Filter>source\ui_tree\View</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\View\spo2_value\spo2_value_view.cpp">
+      <Filter>source\ui_tree\View</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\View\spo2_value\spo2_value_xml.cpp">
+      <Filter>source\ui_tree\View</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\ViewMini\wav\mini_wave_view.cpp">
+      <Filter>source\ui_tree\ViewMini</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\ViewMini\wav\mini_wave_xml.cpp">
+      <Filter>source\ui_tree\ViewMini</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\ViewMini\trend\mini_trend_view.cpp">
+      <Filter>source\ui_tree\ViewMini</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\ViewMini\trend\mini_trend_xml.cpp">
+      <Filter>source\ui_tree\ViewMini</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\ViewMini\value\mini_value_view.cpp">
+      <Filter>source\ui_tree\ViewMini</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\ViewMini\value\mini_value_xml.cpp">
+      <Filter>source\ui_tree\ViewMini</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\Dialog\about\about_dlg_xml.cpp">
+      <Filter>source\ui_tree\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\Dialog\patient_setup\patient_setup_dlg_xml.cpp">
+      <Filter>source\ui_tree\Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="source\start\start.cpp">
+      <Filter>source\start</Filter>
+    </ClCompile>
+    <ClCompile Include="source\start\start_jni.cpp">
+      <Filter>source\start</Filter>
+    </ClCompile>
+    <ClCompile Include="source\data\data_source.cpp">
+      <Filter>source\data</Filter>
+    </ClCompile>
+    <ClCompile Include="source\manager\value_ctrl_manager.cpp">
+      <Filter>source\manager</Filter>
+    </ClCompile>
+    <ClCompile Include="source\manager\wave_manager.cpp">
+      <Filter>source\manager</Filter>
+    </ClCompile>
+    <ClCompile Include="source\manager\value_manager.cpp">
+      <Filter>source\manager</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\slide_config.cpp">
+      <Filter>source\ui_tree</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\slide_ecg_7wave.cpp">
+      <Filter>source\ui_tree</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\slide_main.cpp">
+      <Filter>source\ui_tree</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\slide_mini_trend.cpp">
+      <Filter>source\ui_tree</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\slide_mini_wav.cpp">
+      <Filter>source\ui_tree</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_tree\slide_trend.cpp">
+      <Filter>source\ui_tree</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

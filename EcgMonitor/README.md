@@ -1,6 +1,3 @@
- # GuiLite Sample
-Welcome GuiLite Sample repo!
-
 ## How to build/run for Windows?
 1. build sample.lib:
 - Open "sample\sample.sln" by Visual studio 2017

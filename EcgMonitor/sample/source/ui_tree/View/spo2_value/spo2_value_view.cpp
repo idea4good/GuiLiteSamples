@@ -30,8 +30,5 @@ void c_spo2_value_view::on_init_children(void)
 	p_value_spo2->set_value_font_type(FONT_ENG_LLLB());
 	p_value_pr->set_value_font_type(FONT_ENG_LLB());
 
-	p_value_pr->set_high_limit(XXX, 0);
-	p_value_pr->set_low_limit(XXX, 0);
-
 	c_value_view::register_value_view(this);
 }

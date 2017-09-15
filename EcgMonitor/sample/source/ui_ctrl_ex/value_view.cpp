@@ -20,8 +20,8 @@ void c_value_view::refresh_value(bool flash_or_not, unsigned int flash_color)
 	{
 		if (0 == strcmp(p_child->get_class_name(),"c_value_ctrl"))
 		{
-			value_id = ((c_value_ctrl*)p_child)->get_realdata_id();
-			p_real_data_mag->get_real_data(value_id, value);
+			value_id = ((c_value_ctrl*)p_child)->get_value_id();
+			p_real_data_mag->get_value(value_id, value);
 			((c_value_ctrl*)p_child)->refurbish_value(value, p_real_data_mag->get_real_data_digit(value_id), flash_or_not, flash_color);
 		}
 		p_child = p_child->get_next_sibling();

@@ -2,7 +2,7 @@
 #include <string.h>
 #include "value_manager.h"
 
-VALUE_INFO c_value_manager::ms_real_data_info[VALUE_MAX] = 
+VALUE_INFO c_value_manager::ms_value_info[VALUE_MAX] = 
 {
 	{VALUE_HR,		XXX},
 	{VALUE_PVCs,	XXX},
@@ -28,9 +28,9 @@ VALUE_INFO c_value_manager::ms_real_data_info[VALUE_MAX] =
 	{VALUE_NIBP_DIA,    XXX}
 };
 
-int c_value_manager::save_real_data(unsigned int id, short value)
+int c_value_manager::save_value(unsigned int id, short value)
 {
-	if (ms_real_data_info[id].id != id)
+	if (ms_value_info[id].id != id)
 	{
 		ASSERT(FALSE);
 		return -1;
@@ -40,16 +40,16 @@ int c_value_manager::save_real_data(unsigned int id, short value)
 	{
 		return -1;
 	}
-	ms_real_data_info[id].value = value;
+	ms_value_info[id].value = value;
 	return 1;
 }
 
-void c_value_manager::get_real_data(unsigned int id, short &value)
+void c_value_manager::get_value(unsigned int id, short &value)
 {
-	value = ms_real_data_info[id].value;
+	value = ms_value_info[id].value;
 }
 
-short c_value_manager::get_real_data(unsigned int id)
+short c_value_manager::get_value(unsigned int id)
 {
-	return ms_real_data_info[id].value;
+	return ms_value_info[id].value;
 }

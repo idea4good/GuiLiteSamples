@@ -210,14 +210,14 @@ void c_demo_module::unpackage()
 	unpack_resp();
 
 	int delta = (rand() % 5);
-	c_value_manager::get_instance()->save_real_data(VALUE_TEMP_T1, 368 + delta);
-	c_value_manager::get_instance()->save_real_data(VALUE_TEMP_T2, 365 + delta);
-	c_value_manager::get_instance()->save_real_data(VALUE_TEMP_TD, 3);
+	c_value_manager::get_instance()->save_value(VALUE_TEMP_T1, 368 + delta);
+	c_value_manager::get_instance()->save_value(VALUE_TEMP_T2, 365 + delta);
+	c_value_manager::get_instance()->save_value(VALUE_TEMP_TD, 3);
 
 	delta = (rand() % 20);
-	c_value_manager::get_instance()->save_real_data(VALUE_NIBP_SYS,  120 + delta);
-	c_value_manager::get_instance()->save_real_data(VALUE_NIBP_MEAN, 90 + delta);
-	c_value_manager::get_instance()->save_real_data(VALUE_NIBP_DIA,  80 + delta);
+	c_value_manager::get_instance()->save_value(VALUE_NIBP_SYS,  120 + delta);
+	c_value_manager::get_instance()->save_value(VALUE_NIBP_MEAN, 90 + delta);
+	c_value_manager::get_instance()->save_value(VALUE_NIBP_DIA,  80 + delta);
 }
 
 void c_demo_module::unpack_ecg()
@@ -225,15 +225,15 @@ void c_demo_module::unpack_ecg()
 	static int step_index;
 	static int sample_index;
 
-	c_value_manager::get_instance()->save_real_data(VALUE_HR, 60 + (rand() % 50));
-	c_value_manager::get_instance()->save_real_data(VALUE_PVCs, 0);
-	c_value_manager::get_instance()->save_real_data(VALUE_ST_II, 0);
-	c_value_manager::get_instance()->save_real_data(VALUE_ST_I, 0);
-	c_value_manager::get_instance()->save_real_data(VALUE_ST_III, 0);
-	c_value_manager::get_instance()->save_real_data(VALUE_ST_AVF, 0);
-	c_value_manager::get_instance()->save_real_data(VALUE_ST_AVR, 0);
-	c_value_manager::get_instance()->save_real_data(VALUE_ST_AVL, 0);
-	c_value_manager::get_instance()->save_real_data(VALUE_ST_V1, 0);
+	c_value_manager::get_instance()->save_value(VALUE_HR, 60 + (rand() % 50));
+	c_value_manager::get_instance()->save_value(VALUE_PVCs, 0);
+	c_value_manager::get_instance()->save_value(VALUE_ST_II, 0);
+	c_value_manager::get_instance()->save_value(VALUE_ST_I, 0);
+	c_value_manager::get_instance()->save_value(VALUE_ST_III, 0);
+	c_value_manager::get_instance()->save_value(VALUE_ST_AVF, 0);
+	c_value_manager::get_instance()->save_value(VALUE_ST_AVR, 0);
+	c_value_manager::get_instance()->save_value(VALUE_ST_AVL, 0);
+	c_value_manager::get_instance()->save_value(VALUE_ST_V1, 0);
 
 	short temp1,temp2;
 	short demo_iii,demo_avr,demo_avl,demo_avf;
@@ -279,8 +279,8 @@ void c_demo_module::unpack_spo2()
 	static int step_index;
 	static unsigned int sample_index;
 
-	c_value_manager::get_instance()->save_real_data(VALUE_PR, 60);
-	c_value_manager::get_instance()->save_real_data(VALUE_SPO2, 98 + (rand() % 2));
+	c_value_manager::get_instance()->save_value(VALUE_PR, 60);
+	c_value_manager::get_instance()->save_value(VALUE_SPO2, 98 + (rand() % 2));
 
 	int cnt_per_step = m_spo2_write_len_array[step_index++];
 	step_index %= sizeof(m_spo2_write_len_array);
@@ -297,7 +297,7 @@ void c_demo_module::unpack_spo2()
 
 void c_demo_module::unpack_resp()
 {
-	c_value_manager::get_instance()->save_real_data(VALUE_RESP, 30 + (rand() % 20));
+	c_value_manager::get_instance()->save_value(VALUE_RESP, 30 + (rand() % 20));
 
 	static int step_index;
 	static unsigned int sample_index;

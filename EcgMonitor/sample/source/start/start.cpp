@@ -107,12 +107,12 @@ static void database_timer_callback(void* ptmr, void* parg)
 	c_value_manager* real_data_mgr = c_value_manager::get_instance();
 
 	data.time = get_time_in_second();
-	data.hr = data.pr = real_data_mgr->get_real_data(VALUE_HR);
-	data.spo2 = real_data_mgr->get_real_data(VALUE_SPO2);
-	data.rr = real_data_mgr->get_real_data(VALUE_RESP);
-	data.nibp_sys = real_data_mgr->get_real_data(VALUE_NIBP_SYS);
-	data.nibp_dia = real_data_mgr->get_real_data(VALUE_NIBP_DIA);
-	data.nibp_mean = real_data_mgr->get_real_data(VALUE_NIBP_MEAN);
+	data.hr = data.pr = real_data_mgr->get_value(VALUE_HR);
+	data.spo2 = real_data_mgr->get_value(VALUE_SPO2);
+	data.rr = real_data_mgr->get_value(VALUE_RESP);
+	data.nibp_sys = real_data_mgr->get_value(VALUE_NIBP_SYS);
+	data.nibp_dia = real_data_mgr->get_value(VALUE_NIBP_DIA);
+	data.nibp_mean = real_data_mgr->get_value(VALUE_NIBP_MEAN);
 	c_database::get_instance()->write(data);
 
 	MSG_INFO msg;

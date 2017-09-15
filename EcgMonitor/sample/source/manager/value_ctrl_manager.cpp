@@ -9,7 +9,7 @@
 #include "../include/ctrl_id.h"
 #include "value_ctrl_manager.h"
 
-static VALUE_CTRL_XML s_all_param_ctrl_disp[] =
+static VALUE_CTRL_XML s_all_value_ctrl_xml[] =
 {		/*name_id*/			/*unit_id*/			/*value_id*/	/*name_font_type*//*unit_font_type*//*limit_font_type*//*value_font_type*/   /*value_big_font_type*/ 	/*name_color*/		/*unit_color*/		/*limit_color*/
 
 	{	STR_HR,		       STR_UNIT_BPM,		VALUE_HR,		FONT_ENG_SMB_AA, FONT_ENG_SB,		FONT_ENG_SMB,		FONT_ENG_MB,	    FONT_ENG_LLLLB,     	GLT_RGB(0,255,0),	GLT_RGB(0,255,0),		GLT_RGB(0,255,0)},
@@ -47,7 +47,7 @@ void c_value_ctrl_manage::config_param_ctrl_att(E_VALUE_TYPE value_id, c_value_c
 		return;
 	}
 
-	VALUE_CTRL_XML* p_cur_disc = s_all_param_ctrl_disp;
+	VALUE_CTRL_XML* p_cur_disc = s_all_value_ctrl_xml;
 
 	while (p_cur_disc && p_cur_disc->value_id != VALUE_MAX)
 	{
@@ -55,7 +55,7 @@ void c_value_ctrl_manage::config_param_ctrl_att(E_VALUE_TYPE value_id, c_value_c
 		{
 			p_value_ctrl->set_name(p_cur_disc->name_id);
 			p_value_ctrl->set_unit_strid(p_cur_disc->unit_id);
-			p_value_ctrl->set_realdata_id(p_cur_disc->value_id);
+			p_value_ctrl->set_value_id(p_cur_disc->value_id);
 
 			p_value_ctrl->set_high_limit(200, 0);
 			p_value_ctrl->set_low_limit(0, 0);

@@ -23,8 +23,7 @@ void c_value_sub_ctrl::on_paint(void)
 	p->set_font(m_name_font_type);
 	p->set_color(m_name_color, m_bg_color);
 	p->draw_string(m_name_id, rect.m_left + 1, rect.m_top);
-
-
+	
 	//show value
 	p->set_font(m_value_font_type);
 	p->set_color(m_name_color, m_bg_color);

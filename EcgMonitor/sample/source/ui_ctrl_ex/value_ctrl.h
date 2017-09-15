@@ -27,11 +27,11 @@ public:
 	virtual const char* get_class_name(void) const {return "c_value_ctrl";}
 	void set_name(unsigned short str_id){m_name_id = str_id;}
 	void set_unit_strid(unsigned short str_id){m_unit_strid = str_id;}
-	void set_realdata_id(unsigned int value_id){ m_realdata_id = value_id;}
-	unsigned int get_realdata_id(void){ return m_realdata_id;}
+	void set_value_id(unsigned int value_id){ m_value_id = value_id;}
+	unsigned int get_value_id(void){ return m_value_id;}
 
-	void set_high_limit(unsigned short value, unsigned short dot_position){m_high_limit = value; m_limit_dot_position = dot_position;}
-	void set_low_limit(unsigned short value, unsigned short dot_position){m_low_limit = value; m_limit_dot_position = dot_position;}
+	void set_high_limit(short value, short dot_position){m_high_limit = value; m_limit_dot_position = dot_position;}
+	void set_low_limit(short value, short dot_position){m_low_limit = value; m_limit_dot_position = dot_position;}
 	void set_value_dot_position(unsigned short dot_position){m_value_dot_position = m_limit_dot_position = dot_position;}
 	virtual void refurbish_value(short value, unsigned short dot_position, bool flash_or_not, unsigned int flash_color);
 
@@ -46,8 +46,8 @@ public:
 protected:
 	virtual void on_paint(void);
 
-	short m_value;
-	unsigned short m_value_dot_position;
+	short			m_value;
+	unsigned short	m_value_dot_position;
 
 	char            m_value_in_str[8];
 	unsigned int	m_value_align_type;
@@ -55,13 +55,13 @@ protected:
 	c_rect			m_value_rect;
 	c_rect          m_max_value_rect;
 
-	unsigned short m_name_id;
-	unsigned short m_unit_strid;
-	unsigned int   m_realdata_id;
+	unsigned short	m_name_id;
+	unsigned short	m_unit_strid;
+	unsigned int	m_value_id;
 
-	short m_high_limit;
-	short m_low_limit;
-	unsigned short	m_limit_dot_position;
+	short			m_high_limit;
+	short			m_low_limit;
+	short			m_limit_dot_position;
 	c_rect			m_limit_rect;
 
 	const GUI_FONT *m_value_font_type;

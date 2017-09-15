@@ -50,17 +50,17 @@ typedef struct struct_data_info
 class c_value_manager
 {
 public:
-	int save_real_data(unsigned int id, short value);
-	void get_real_data(unsigned int id, short &value);
-	short get_real_data(unsigned int id);
-	short get_real_data_digit(unsigned int id){return ms_real_data_info[id].digit;}
+	int save_value(unsigned int id, short value);
+	void get_value(unsigned int id, short &value);
+	short get_value(unsigned int id);
+	short get_real_data_digit(unsigned int id){return ms_value_info[id].digit;}
 	static c_value_manager* get_instance()
 	{
-		static c_value_manager s_the_real_data_manager;
-		return &s_the_real_data_manager;
+		static c_value_manager s_the_value_manager;
+		return &s_the_value_manager;
 	}
 private:
-	static VALUE_INFO ms_real_data_info[VALUE_MAX];
+	static VALUE_INFO ms_value_info[VALUE_MAX];
 	c_value_manager(){};
 	c_value_manager(const c_value_manager&);
 	~c_value_manager(){}

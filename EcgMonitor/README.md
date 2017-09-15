@@ -1,4 +1,4 @@
-# GuiLite Sample
+ # GuiLite Sample
 Welcome GuiLite Sample repo!
 
 ## How to build/run for Windows?
@@ -28,7 +28,7 @@ Welcome GuiLite Sample repo!
 - `./display-x64 | ./sample_native shared-fb` for Linux 64 bits.
 
 ## How to build/run for Android?
-###Install software:
+### Install software:
 - `sudo apt-get install gcc-arm-linux-androideabi`
 - Install Android NDK.
 

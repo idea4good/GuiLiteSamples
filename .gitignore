@@ -36,3 +36,4 @@ CMakeCache.txt
 CMakeFiles
 cmake_install.cmake
 Makefile
+EcgMonitor\sample\source\libsample.a

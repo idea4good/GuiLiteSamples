@@ -20,6 +20,7 @@ namespace sample_uwp_cpp
 	protected:
 		void OnPointerPressed(Platform::Object^ sender, Windows::UI::Xaml::Input::PointerRoutedEventArgs^ e);
 		void OnPointerRelease(Platform::Object^ sender, Windows::UI::Xaml::Input::PointerRoutedEventArgs^ e);
+		void OnPointerMoved(Platform::Object^ sender, Windows::UI::Xaml::Input::PointerRoutedEventArgs^ e);
 	private:
 		int m_index;
 		void initScreen();
@@ -27,5 +28,6 @@ namespace sample_uwp_cpp
 		Windows::UI::Xaml::Media::Imaging::WriteableBitmap^ m_fb_bitmap = nullptr;
 		int m_fb_width;
 		int m_fb_height;
+		bool m_is_dragging;
 	};
 }

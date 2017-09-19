@@ -45,6 +45,7 @@ void SubScreen::initScreen()
 {
 	m_screen_sub->PointerPressed += ref new PointerEventHandler(this, &SubScreen::OnPointerPressed);
 	m_screen_sub->PointerReleased += ref new PointerEventHandler(this, &SubScreen::OnPointerRelease);
+	m_screen_sub->PointerMoved += ref new PointerEventHandler(this, &SubScreen::OnPointerMoved);
 }
 
 void SubScreen::set_attr(int index)
@@ -113,6 +114,8 @@ void SubScreen::OnPointerPressed(Platform::Object^ sender, Windows::UI::Xaml::In
 	msg.dwParam1 = native_x;
 	msg.dwParam2 = native_y;
 	send_hid_msg(&msg, sizeof(msg), m_index);
+
+	m_is_dragging = true;
 }
 
 void SubScreen::OnPointerRelease(Platform::Object^ sender, Windows::UI::Xaml::Input::PointerRoutedEventArgs^ e)
@@ -126,4 +129,14 @@ void SubScreen::OnPointerRelease(Platform::Object^ sender, Windows::UI::Xaml::In
 	msg.dwParam1 = native_x;
 	msg.dwParam2 = native_y;
 	send_hid_msg(&msg, sizeof(msg), m_index);
+
+	m_is_dragging = false;
+}
+
+void SubScreen::OnPointerMoved(Platform::Object^ sender, Windows::UI::Xaml::Input::PointerRoutedEventArgs^ e)
+{
+	if (m_is_dragging)
+	{
+		OnPointerPressed(sender, e);
+	}
 }

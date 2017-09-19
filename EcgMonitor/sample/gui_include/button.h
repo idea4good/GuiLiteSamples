@@ -17,7 +17,6 @@ protected:
 	virtual void on_kill_focus(void);
 	virtual void handle_mouse_down_msg(int x, int y);
 	virtual void handle_mouse_up_msg(int x, int y);
-	virtual int handle_push_key_down_msg(unsigned int w_param, long l_param);
 	virtual void pre_create_wnd();
 private:
 };

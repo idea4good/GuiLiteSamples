@@ -10,10 +10,10 @@ Any feedback will be appreciated, Thanks!
 Here is some preivew of samples, enjoy it!
 
 Run on Android:
-https://github.com/idea4good/GuiLiteSamples/preview-Android.png
+![preview Android](https://github.com/idea4good/GuiLiteSamples/preview-Android.png)
 
 Run on Windows mixed reality device:
-https://github.com/idea4good/GuiLiteSamples/preview-WinMixedReality.png
+![preview Win MR](https://github.com/idea4good/GuiLiteSamples/preview-WinMixedReality.png)
 
 Run on Linux:
-https://github.com/idea4good/GuiLiteSamples/preview-Linux.png
+![preview Linux](https://github.com/idea4good/GuiLiteSamples/preview-Linux.png)

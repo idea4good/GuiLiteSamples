@@ -1,13 +1,13 @@
-# GuiLite Sample
+# GuiLite Sample(Join us to make it better! QQ group: 527251257)
 Welcome GuiLite Sample repo!
 
 We hope you can learn how GuiLite work by this samples.
 
-You can get GuiLite code in repo "GuiLite" very soon. It's pretty simple code, no more than 6000 lines.
+You can get GuiLite code in repo "GuiLite" now. It's pretty simple code, no more than 6000 lines.
 
-Any feedback will be appreciated, Thanks!
+Any feedback(to QQ group: 527251257) will be appreciated, Thanks!
 
-Here is some preivew of samples, enjoy it!
+Here are snapshots when running, enjoy it!
 
 Run on Android:![preview Android](preview-Android.png)
 

@@ -1,22 +1,22 @@
 ## How to build/run for Windows?
 1. build sample.lib:
-- Open "sample\sample.sln" by Visual studio 2017
+- Open "SampleCode\sample.sln" by Visual studio 2017
 - Click `build` 
 
 2. build/run Windows APP(universal windows platform, you can run it with "Mixed Reality Portal"):
-- Copy "sample\debug\sample.lib" you build to "BuildWindows\sample_uwp_cpp\libs\x86(or x64)"
+- Copy "SampleCode\debug\sample.lib" you build to "BuildWindows\sample_uwp_cpp\libs\x86(or x64)"
 - Open "BuildWindows\sample.sln" by Visual studio 2017
 - Click `build`
 - Click `debug/run`
 
 ## How to build/run for Linux?
 1. build sample.lib:
-- `cd sample`
+- `cd SampleCode`
 - `cmake .`
 - `make`
 
 2. build/run Linux APP:
-- Copy "sample\source\sample.lib" you build to "BuildLinux\libs"
+- Copy "SampleCode\source\sample.lib" you build to "BuildLinux\libs"
 - `cd BuildLinux`
 - `cmake .`
 - `make`
@@ -30,12 +30,12 @@
 - Install Android NDK.
 
 1. build sample.lib:
-- `cd sample`
+- `cd SampleCode`
 - `cmake cmake -D CMAKE_C_COMPILER="/usr/bin/arm-linux-androideabi-gcc" -D CMAKE_CXX_COMPILER="/usr/bin/arm-linux-androideabi-g++" .`
 - `make`
 
 2. build Android APP:
-- Copy "sample\source\sample.lib" you build to "BuildAndroid\jni\libs"
+- Copy "SampleCode\source\sample.lib" you build to "BuildAndroid\jni\libs"
 - `cd BuildAndroid\jni\libs`
 - `./merge_libs.sh`
 - `cd BuildAndroid\jni`

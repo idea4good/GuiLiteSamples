@@ -20,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
     m_height = 768;
     m_hid_fd = -1;
     memset(m_hid_pipe_name, 0, sizeof(m_hid_pipe_name));
+    m_is_pressed = false;
 
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(update()));
@@ -86,12 +87,22 @@ void MainWindow::paintEvent(QPaintEvent* p)
 
 void MainWindow::mousePressEvent(QMouseEvent *e)
 {
+    m_is_pressed = true;
     printf("press(%d,%d)\n", e->pos().x(), e->pos().y());
     fflush(stdout);
 }
 
 void MainWindow::mouseReleaseEvent(QMouseEvent *e)
 {
+    m_is_pressed = false;
     printf("release(%d,%d)\n", e->pos().x(), e->pos().y());
     fflush(stdout);
+}
+
+void MainWindow::mouseMoveEvent(QMouseEvent *e)
+{
+    if(m_is_pressed)
+    {
+        mousePressEvent(e);
+    }
 }

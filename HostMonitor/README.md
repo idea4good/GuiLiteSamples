@@ -21,8 +21,7 @@
 - `cmake .`
 - `make`
 - `chmod 777 *`
-- `./display-x86 | ./sample_native shared-fb` for Linux 32 bits.
-- `./display-x64 | ./sample_native shared-fb` for Linux 64 bits.
+- `./display | ./sample_native shared-fb`
 
 ## How to build/run for Android?
 ### Install software:

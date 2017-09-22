@@ -9,7 +9,7 @@
 - Click `build`
 - Click `debug/run`
 
-## How to build/run for Linux?
+## How to build/run for Linux（x64 only）?
 1. build sample.lib:
 - `cd SampleCode`
 - `cmake .`

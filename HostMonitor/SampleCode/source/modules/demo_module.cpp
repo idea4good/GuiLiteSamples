@@ -241,7 +241,7 @@ void c_demo_module::unpack_ecg()
 	int cnt_per_step = m_ecg_write_len_array[step_index++];
 	step_index %= sizeof(m_ecg_write_len_array);
 
-	for (int i = 0; i < cnt_per_step; i++ )
+	for (int i = 0; i < cnt_per_step; i++)
 	{
 		temp2 = s_ecg_i_data[sample_index] - 0x80;
 		temp1 = s_ecg_ii_data[sample_index] - 0x80;
@@ -266,6 +266,12 @@ void c_demo_module::unpack_ecg()
 		c_wave_manage::get_instance()->save_curve_data(WAVE_ECG5, demo_avl);					//AVL
 		c_wave_manage::get_instance()->save_curve_data(WAVE_ECG6, demo_avf);					//AVR
 		c_wave_manage::get_instance()->save_curve_data(WAVE_ECG7, s_ecg_v_data[sample_index]);  //V
+		
+		if (s_ecg_ii_data[sample_index] == 0xA2)
+		{
+			c_audio::get_instance()->play(AUDIO_HEART_BEAT);
+		}
+
 		sample_index++;
 		if (sample_index == sizeof(s_ecg_ii_data))
 		{

@@ -42,7 +42,7 @@ void c_value_ctrl::refurbish_value(short value, unsigned short dot_position, boo
 	{
 		m_value_rect.m_right = rect.m_right - 2;
 	}
-	m_max_value_rect.m_right = MAX(m_value_rect.m_right, m_max_value_rect.m_right);
+	m_max_value_rect.m_right = ((m_value_rect.m_right > m_max_value_rect.m_right) ? m_value_rect.m_right : m_max_value_rect.m_right);
 
 	p->set_font(m_value_font_type);
 	if (flash_or_not)

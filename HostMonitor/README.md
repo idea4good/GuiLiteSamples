@@ -1,11 +1,24 @@
-## How to build/run for Windows?
+## How to build/run for Win32?
 1. build sample.lib:
 - Open "SampleCode\sample.sln" by Visual studio 2017
 - Click `build` 
 
-2. build/run Windows APP(universal windows platform, you can run it with "Mixed Reality Portal"):
-- Copy "SampleCode\debug\sample.lib" you build to "BuildWindows\sample_uwp_cpp\libs\x86(or x64)"
-- Open "BuildWindows\sample.sln" by Visual studio 2017
+2. build/run Windows APP:
+- Copy "SampleCode\debug\sample.lib" you build to "BuildWin32\sample_uwp_cpp\libs\x86(or x64)"
+- Open "BuildWin32\GuiLite.sln" by Visual studio 2017
+- Click `build`
+- Click `debug/run`
+
+## How to build/run for Windows UWP?
+depdency: Windows 10(RS2), visul stdio 2015/2017
+
+1. build sample.lib:
+- Open "SampleCode\sample.sln" by Visual studio 2017
+- Click `build` 
+
+2. build/run Windows APP(you can run it with "Mixed Reality Portal"):
+- Copy "SampleCode\debug\sample.lib" you build to "BuildUWP\sample_uwp_cpp\libs\x86(or x64)"
+- Open "BuildUWP\GuiLite.sln" by Visual studio 2017
 - Click `build`
 - Click `debug/run`
 

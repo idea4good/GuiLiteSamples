@@ -8,6 +8,8 @@
 - Open "BuildWin32\GuiLite.sln" by Visual studio 2017
 - Click `build`
 - Click `debug/run`
+- Command `ss` you will get snapshot in BuildWin32\sample_native\snapshotx.bmp
+- Command `sslp` and open "BuildWin32\sample_native\Display.html" with internet browser(such like: IE, chrome)
 
 ## How to build/run for Windows UWP?
 depdency: Windows 10(RS2), visul stdio 2015/2017
@@ -34,7 +36,11 @@ depdency: Windows 10(RS2), visul stdio 2015/2017
 - `cmake .`
 - `make`
 - `chmod 777 *`
-- `./display | ./sample_native shared-fb`
+- `./display | ./sample_native shared-fb`  -- display is QT APP for display, you should install QT libs.
+or:
+- `./sample_native 1 8`
+- Command `ss` you will get snapshot in BuildLinux\sample_native\snapshotx.bmp
+- Command `sslp` and open "BuildLinux\Display.html" with internet browser(such like: Firefox, chrome)
 
 ## How to build/run for Android?
 ### Install software:

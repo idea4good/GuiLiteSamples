@@ -72,8 +72,8 @@ void create_page_config(c_slide_group* group)
 {
 	group->add_slide(&s_root, ID_PAGE_CONFIG, 0, 0, PAGE_WIDTH, PAGE_HEIGHT, s_config_children,Z_ORDER_LEVEL_2);
 
-	s_patient_setup_dlg.create(&s_root, IDD_SETUP_DLG,STR_SETUP_DLG_TITLE, 0, DIALOG_Y, PAGE_WIDTH, DIALOG_HEIGHT, g_patient_setup_children);
-	s_about.create(&s_root, IDD_ABOUT_DLG,STR_ABOUT_SOFTWARE, 0, DIALOG_Y, PAGE_WIDTH, DIALOG_HEIGHT,g_about_children);
+	s_patient_setup_dlg.connect(&s_root, IDD_SETUP_DLG,STR_SETUP_DLG_TITLE, 0, DIALOG_Y, PAGE_WIDTH, DIALOG_HEIGHT, g_patient_setup_children);
+	s_about.connect(&s_root, IDD_ABOUT_DLG,STR_ABOUT_SOFTWARE, 0, DIALOG_Y, PAGE_WIDTH, DIALOG_HEIGHT,g_about_children);
 	c_dialog::open_dialog(&s_patient_setup_dlg);
 }
 
@@ -83,7 +83,7 @@ void create_clone_page_config(c_slide_group* group)
 
 	c_config_root* page_config = (c_config_root*)group->get_wnd_ptr(ID_PAGE_CONFIG);
 
-	c_dialog* dlg = (c_dialog*)s_patient_setup_dlg.create_clone(page_config,IDD_SETUP_DLG,STR_SETUP_DLG_TITLE,0, DIALOG_Y, PAGE_WIDTH, DIALOG_HEIGHT, g_patient_setup_children);
-	s_about.create_clone(page_config, IDD_ABOUT_DLG, STR_ABOUT_SOFTWARE, 0, DIALOG_Y, PAGE_WIDTH, DIALOG_HEIGHT,g_about_children);
+	c_dialog* dlg = (c_dialog*)s_patient_setup_dlg.connect_clone(page_config,IDD_SETUP_DLG,STR_SETUP_DLG_TITLE,0, DIALOG_Y, PAGE_WIDTH, DIALOG_HEIGHT, g_patient_setup_children);
+	s_about.connect_clone(page_config, IDD_ABOUT_DLG, STR_ABOUT_SOFTWARE, 0, DIALOG_Y, PAGE_WIDTH, DIALOG_HEIGHT,g_about_children);
 	c_dialog::open_dialog(dlg);
 }

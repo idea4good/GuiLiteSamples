@@ -37,10 +37,10 @@ void c_time_bar::on_init_children()
 
 	c_rect rect;
 	get_screen_rect(rect);
-	m_fast_backward.create(this, ID_FAST_BACKWARD_BTN, STR_TIME_SCALE_BAR_FAST_BACKWARD, 0, 0, BUTTON_LENGTH, rect.Height());
-	m_backward.create(this, ID_BACKWARD_BTN, STR_TIME_SCALE_BAR_BACKWARD, (BUTTON_LENGTH + 1), 0, BUTTON_LENGTH, rect.Height());
-	m_forward.create(this, ID_FORWARD_BTN, STR_TIME_SCALE_BAR_FORWARD, (rect.Width() - 2 * BUTTON_LENGTH - 6), 0, BUTTON_LENGTH, rect.Height());
-	m_fast_forward.create(this, ID_FAST_FORWARD_BTN, STR_TIME_SCALE_BAR_FAST_FORWARD, (rect.Width() - BUTTON_LENGTH - 5), 0, BUTTON_LENGTH, rect.Height());
+	m_fast_backward.connect(this, ID_FAST_BACKWARD_BTN, STR_TIME_SCALE_BAR_FAST_BACKWARD, 0, 0, BUTTON_LENGTH, rect.Height());
+	m_backward.connect(this, ID_BACKWARD_BTN, STR_TIME_SCALE_BAR_BACKWARD, (BUTTON_LENGTH + 1), 0, BUTTON_LENGTH, rect.Height());
+	m_forward.connect(this, ID_FORWARD_BTN, STR_TIME_SCALE_BAR_FORWARD, (rect.Width() - 2 * BUTTON_LENGTH - 6), 0, BUTTON_LENGTH, rect.Height());
+	m_fast_forward.connect(this, ID_FAST_FORWARD_BTN, STR_TIME_SCALE_BAR_FAST_FORWARD, (rect.Width() - BUTTON_LENGTH - 5), 0, BUTTON_LENGTH, rect.Height());
 }
 
 void c_time_bar::on_paint(void)

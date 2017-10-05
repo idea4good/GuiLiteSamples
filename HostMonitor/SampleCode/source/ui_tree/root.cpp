@@ -72,7 +72,7 @@ void load_ui_single(void* phy_fb)
 	c_surface* surface = display->create_surface(&s_root, Z_ORDER_LEVEL_0);
 	surface->set_active(true);
 	s_root.set_surface(surface);
-	s_root.create(NULL, ID_ROOT, 0, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, s_root_children);
+	s_root.connect(NULL, ID_ROOT, 0, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, s_root_children);
 
 	create_page_ecg_7wave(&s_slide_group);
 	create_page_main(&s_slide_group);
@@ -90,7 +90,7 @@ void load_ui_multi(void* phy_fb)
 	c_surface* surface = display->create_surface(&s_root, Z_ORDER_LEVEL_0);
 	surface->set_active(true);
 	s_root.set_surface(surface);
-	c_wnd* root = s_root.create_clone(NULL, ID_ROOT, 0, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, s_root_children);
+	c_wnd* root = s_root.connect_clone(NULL, ID_ROOT, 0, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, s_root_children);
 
 	c_slide_group* page_group = (c_slide_group*)(root->get_wnd_ptr(ID_PAGE_GROUP));
 
@@ -131,7 +131,7 @@ void load_mini_ui_single(void* phy_fb)
 	c_surface* surface = display->create_surface(&s_mini_root, Z_ORDER_LEVEL_0);
 	surface->set_active(true);
 	s_mini_root.set_surface(surface);
-	s_mini_root.create(NULL, ID_ROOT, 0, 0, 0, MINI_SCREEN_WIDTH, MINI_SCREEN_HEIGHT, s_mini_root_children);
+	s_mini_root.connect(NULL, ID_ROOT, 0, 0, 0, MINI_SCREEN_WIDTH, MINI_SCREEN_HEIGHT, s_mini_root_children);
 
 	create_page_mini_wav(&s_mini_slide_group);
 	create_page_mini_trend(&s_mini_slide_group);
@@ -147,7 +147,7 @@ void load_mini_ui_multi(void* phy_fb)
 	c_surface* surface = display->create_surface(&s_mini_root, Z_ORDER_LEVEL_0);
 	surface->set_active(true);
 	s_mini_root.set_surface(surface);
-	c_wnd* root = s_mini_root.create_clone(NULL, ID_ROOT, 0, 0, 0, MINI_SCREEN_WIDTH, MINI_SCREEN_HEIGHT, s_mini_root_children);
+	c_wnd* root = s_mini_root.connect_clone(NULL, ID_ROOT, 0, 0, 0, MINI_SCREEN_WIDTH, MINI_SCREEN_HEIGHT, s_mini_root_children);
 
 	c_slide_group* page_group = (c_slide_group*)(root->get_wnd_ptr(ID_PAGE_GROUP));
 

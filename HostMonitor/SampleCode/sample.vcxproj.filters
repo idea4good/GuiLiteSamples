@@ -93,9 +93,6 @@
     <ClInclude Include="core_include\cmd_target.h">
       <Filter>core_include</Filter>
     </ClInclude>
-    <ClInclude Include="core_include\database.h">
-      <Filter>core_include</Filter>
-    </ClInclude>
     <ClInclude Include="gui_include\list_box.h">
       <Filter>gui_include</Filter>
     </ClInclude>
@@ -281,6 +278,12 @@
     </ClInclude>
     <ClInclude Include="gui_include\slide_group.h">
       <Filter>gui_include</Filter>
+    </ClInclude>
+    <ClInclude Include="source\data\sqlite3.h">
+      <Filter>source\data</Filter>
+    </ClInclude>
+    <ClInclude Include="source\data\database.h">
+      <Filter>source\data</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -508,6 +511,12 @@
     </ClCompile>
     <ClCompile Include="source\ui_tree\slide_trend.cpp">
       <Filter>source\ui_tree</Filter>
+    </ClCompile>
+    <ClCompile Include="source\data\sqlite3-win-store.c">
+      <Filter>source\data</Filter>
+    </ClCompile>
+    <ClCompile Include="source\data\database.cpp">
+      <Filter>source\data</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

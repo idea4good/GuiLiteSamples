@@ -24,7 +24,6 @@
     <ClInclude Include="core_include\audio.h" />
     <ClInclude Include="core_include\bitmap.h" />
     <ClInclude Include="core_include\cmd_target.h" />
-    <ClInclude Include="core_include\database.h" />
     <ClInclude Include="core_include\display.h" />
     <ClInclude Include="core_include\msg.h" />
     <ClInclude Include="core_include\rect.h" />
@@ -49,7 +48,9 @@
     <ClInclude Include="include\ctrl_id.h" />
     <ClInclude Include="include\define.h" />
     <ClInclude Include="include\msg_id.h" />
+    <ClInclude Include="source\data\database.h" />
     <ClInclude Include="source\data\data_source.h" />
+    <ClInclude Include="source\data\sqlite3.h" />
     <ClInclude Include="source\manager\value_manager.h" />
     <ClInclude Include="source\manager\value_ctrl_manager.h" />
     <ClInclude Include="source\manager\wave_manager.h" />
@@ -98,7 +99,9 @@
     <ClInclude Include="source\ui_tree\View\trend\trend_view.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\data\database.cpp" />
     <ClCompile Include="source\data\data_source.cpp" />
+    <ClCompile Include="source\data\sqlite3-win-store.c" />
     <ClCompile Include="source\manager\value_manager.cpp" />
     <ClCompile Include="source\manager\value_ctrl_manager.cpp" />
     <ClCompile Include="source\manager\wave_manager.cpp" />

@@ -5,7 +5,6 @@
 #include "../core_include/cmd_target.h"
 #include "../source/manager/wave_manager.h"
 #include "../source/manager/value_manager.h"
-#include "../core_include/database.h"
 #include <string.h>
 #include <stdlib.h>
 #include "demo_module.h"

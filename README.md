@@ -14,4 +14,4 @@ Run on Windows mixed reality device:![preview Win MR](preview-WinMixedReality.pn
 
 Run on Linux:![preview Linux](preview-Linux.png)
 
-Run on RaspberryPi:![preview RaspberryPi](preview-RaspberryPi.png)
+Run on RaspberryPi:![preview RaspberryPi](preview-RaspberryPi.jpg)

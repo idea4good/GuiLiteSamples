@@ -1,6 +1,6 @@
 # GuiLite Sample
 ## Join us to make it better! QQ group: `527251257`
-We hope you can learn how GuiLite work by this samples.
+We hope you can learn how [GuiLite](https://github.com/idea4good/GuiLite) work by this samples.
 
 You also can get GuiLite code in repo "GuiLite" now. It's pretty simple code, no more than 6000 lines.
 

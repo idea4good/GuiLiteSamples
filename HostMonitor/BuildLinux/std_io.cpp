@@ -14,9 +14,9 @@ typedef struct
 extern "C" int send_hid_msg(void* buf, int len, int display_id);
 extern void create_thread(unsigned long* thread_id, void* attr, void *(*start_routine) (void *), void* arg);
 extern void thread_sleep(unsigned int milli_seconds);
-extern int get_std_input(char *buffer, int size);
 extern int snap_shot(int display);
 
+static int get_std_input(char *buffer, int size);
 static const char* s_tip_help =
 "-------------------- Help ------------------------\n"
 "ss: 	Snapshot all screens in snapshot_N.bmp.\n"
@@ -163,4 +163,22 @@ void init_std_io(int display_cnt)
 	unsigned long pid;
 	static int s_display_cnt = display_cnt;
 	create_thread(&pid, NULL, stdin_thread, &s_display_cnt);
+}
+
+int get_std_input(char *buffer, int size)
+{
+	if (!fgets(buffer, (int)size - 1, stdin))
+	{
+		thread_sleep(10000);
+		printf("Warning: fgets() failed!\n");
+		fflush(stdout);
+		return -1;
+	}
+
+	int len = (int)strlen(buffer) - 1;
+	if (buffer[len] == '\n')
+	{
+		buffer[len] = '\0';
+	}
+	return len;
 }

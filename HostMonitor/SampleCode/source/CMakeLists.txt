@@ -3,7 +3,7 @@ FILE(GLOB MODULES modules/*.cpp)
 FILE(GLOB RESOURCE resource/font/*.cpp
 	resource/bitmap/*.cpp)
 FILE(GLOB START start/*.cpp)
-FILE(GLOB DATA data/*.cpp)
+FILE(GLOB DATA data/*.cpp data/*.c)
 FILE(GLOB UI_CTRL_EX ui_ctrl_ex/*.cpp)
 FILE(GLOB UI_TREE ui_tree/*.cpp
 

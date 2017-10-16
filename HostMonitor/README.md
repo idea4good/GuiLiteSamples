@@ -25,13 +25,13 @@ depdency: Windows 10(RS2), visul stdio 2015/2017
 - Click `debug/run`
 
 ## How to build/run for Linux（x64 & arm）?
-1. build sample.lib:
+1. build libsample.a:
 - `cd SampleCode`
 - `cmake .`
 - `make`
 
 2. build/run Linux APP:
-- Copy "SampleCode\source\sample.lib" you build to "BuildLinux\libs"
+- Copy "SampleCode\source\libsample.a" you build to "BuildLinux\libs"
 - If ARM: Copy "BuildLinux\libs\arm\libcore.a libgui.a" to overwrite "BuildLinux\libs\libcore.a libgui.a"
 - `cd BuildLinux`
 - `cmake .`

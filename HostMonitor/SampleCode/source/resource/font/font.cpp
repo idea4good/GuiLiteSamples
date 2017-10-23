@@ -16,7 +16,7 @@ extern  const GUI_FONT GUI_FontHZ_Arial_Narrow_104B_139;
 
 const GUI_FONT *font_select(const GUI_FONT *font_gbk,const GUI_FONT *font_turkish)
 {
-	E_LANGUAGE language = ENGLISH;
+	LANGUAGE_TYPE language = ENGLISH;
 	const GUI_FONT *font = NULL;
 
 	switch(language){

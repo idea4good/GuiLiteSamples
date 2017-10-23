@@ -19,21 +19,15 @@ void c_ecg_wave_ctrl::on_paint()
 {
 	draw_grid();
 
-	c_word *p = c_word::get_instance(m_z_order, m_surface);
+	c_word *p = c_word::get_instance();
 	c_rect rect;
 	get_screen_rect(rect);
 	//show name
-	p->set_font(m_wave_name_font_type);
-	p->set_color(m_wave_name_color, COLOR_TRANPARENT);
-	p->draw_string(m_wave_name, m_wave_left + 10, rect.m_top, ALIGN_LEFT);
+	p->draw_string(m_surface, m_z_order, m_wave_name, m_wave_left + 10, rect.m_top, m_wave_name_font_type, m_wave_name_color, COLOR_TRANPARENT);
 	//show unit
-	p->set_font(m_wave_unit_font_type);
-	p->set_color(m_wave_unit_color, COLOR_TRANPARENT);
-	p->draw_string(m_wave_unit, m_wave_left + 60, rect.m_top, ALIGN_LEFT);
+	p->draw_string(m_surface, m_z_order, m_wave_unit, m_wave_left + 60, rect.m_top, m_wave_unit_font_type, m_wave_unit_color, COLOR_TRANPARENT);
 	//show gain
-	p->set_font(FONT_ENG_SBM());
-	p->set_color(m_wave_color, COLOR_TRANPARENT);
-	p->draw_string("X1", m_wave_left + 70 , rect.m_top,ALIGN_LEFT);
+	p->draw_string(m_surface, m_z_order, "X1", m_wave_left + 70 , rect.m_top, FONT_ENG_SBM(), m_wave_color, COLOR_TRANPARENT);
 
 	//show scale rule
 	int base_line = (m_wave_top + m_wave_bottom) / 2;
@@ -49,11 +43,8 @@ void c_ecg_wave_ctrl::on_paint()
 	mvRect.m_right = mvRect.m_left + 100;
 	mvRect.m_bottom = mvRect.m_top + 30;
 
-	p->set_z_oder(m_z_order);
-	p->set_font(m_wave_unit_font_type);
-	p->set_color(m_wave_color, COLOR_TRANPARENT);
 	//show unit
-	p->draw_string_in_rect("1mv", mvRect, ALIGN_LEFT);
+	p->draw_string_in_rect(m_surface, m_z_order, "1mv", mvRect, m_wave_unit_font_type, m_wave_color, COLOR_TRANPARENT);
 
 	save_foreground();
 }

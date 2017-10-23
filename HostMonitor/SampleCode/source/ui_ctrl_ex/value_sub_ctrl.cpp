@@ -17,17 +17,11 @@ void c_value_sub_ctrl::on_paint(void)
 	get_screen_rect(rect);
 	fill_rect(rect.m_left,rect.m_top,rect.m_right,rect.m_bottom,m_bg_color);
 
-	c_word *p = c_word::get_instance(m_z_order, m_surface);
-
+	c_word *p = c_word::get_instance();
 	//show name
-	p->set_font(m_name_font_type);
-	p->set_color(m_name_color, m_bg_color);
-	p->draw_string(m_name_id, rect.m_left + 1, rect.m_top);
+	p->draw_string(m_surface, m_z_order, m_name_id, rect.m_left + 1, rect.m_top, m_name_font_type, m_name_color, m_bg_color);
 	
-	//show value
-	p->set_font(m_value_font_type);
-	p->set_color(m_name_color, m_bg_color);
-	
+	//show value	
 	m_value_rect.m_left = rect.m_left + 32;
 	m_value_rect.m_top = rect.m_top + (rect.Height() - p->get_font_ysize(m_value_font_type)) / 2;
 	if (m_value_rect.m_top < rect.m_top)
@@ -35,7 +29,9 @@ void c_value_sub_ctrl::on_paint(void)
 		m_value_rect.m_top = rect.m_top + 2;
 	}
 
-	int strLen = p->get_str_pixel_length(p->get_string(m_high_limit, m_limit_dot_position));
+	char buf[16];
+	p->value_2_string(m_high_limit, m_limit_dot_position, buf);
+	int strLen = p->get_str_pixel_length(buf, m_value_font_type);
 	m_value_rect.m_right = m_value_rect.m_left + strLen;
 
 	if (m_value_rect.m_right > rect.m_right)
@@ -50,5 +46,5 @@ void c_value_sub_ctrl::on_paint(void)
 
 	value_2_string(m_value, m_value_in_str, m_limit_dot_position);
 	m_max_value_rect = m_value_rect;
-	p->draw_string_in_rect(m_value_in_str, m_value_rect, m_value_align_type);
+	p->draw_string_in_rect(m_surface, m_z_order, m_value_in_str, m_value_rect, m_value_font_type, m_name_color, m_bg_color, m_value_align_type);
 }

@@ -30,12 +30,10 @@ void c_value_ctrl::refurbish_value(short value, unsigned short dot_position, boo
 	c_rect rect;
 	get_screen_rect(rect);
 
-	c_word *p = c_word::get_instance(m_z_order, m_surface);
-	p->set_font(m_value_font_type);
-
+	c_word *p = c_word::get_instance();
 	memset(m_value_in_str, 0, sizeof(m_value_in_str));
 	value_2_string(value, m_value_in_str, dot_position);
-	int strLen = p->get_str_pixel_length(m_value_in_str);
+	int strLen = p->get_str_pixel_length(m_value_in_str, m_value_font_type);
 
 	m_value_rect.m_right = m_value_rect.m_left + strLen;
 	if (m_value_rect.m_right > rect.m_right)
@@ -44,27 +42,24 @@ void c_value_ctrl::refurbish_value(short value, unsigned short dot_position, boo
 	}
 	m_max_value_rect.m_right = ((m_value_rect.m_right > m_max_value_rect.m_right) ? m_value_rect.m_right : m_max_value_rect.m_right);
 
-	p->set_font(m_value_font_type);
 	if (flash_or_not)
 	{
 		fill_rect(m_max_value_rect.m_left, m_max_value_rect.m_top, m_max_value_rect.m_right, m_max_value_rect.m_bottom, m_bg_color);
 		if (flash_color)
 		{
-			p->set_color(m_bg_color, flash_color, 0);
+			p->draw_string_in_rect(m_surface, m_z_order, m_value_in_str, m_value_rect, m_value_font_type, m_bg_color, flash_color, m_value_align_type);
 		}
 		else
 		{
-			p->set_color(m_name_color, m_bg_color);
+			p->draw_string_in_rect(m_surface, m_z_order, m_value_in_str, m_value_rect, m_value_font_type, m_name_color, m_bg_color, m_value_align_type);
 		}
-		p->draw_string_in_rect(m_value_in_str, m_value_rect, m_value_align_type);
 		goto EXIT;
 	}
 	
 	if ((m_value != value) || (m_value_dot_position != dot_position))
 	{
 		fill_rect(m_max_value_rect.m_left, m_max_value_rect.m_top, m_max_value_rect.m_right, m_max_value_rect.m_bottom, m_bg_color);
-		p->set_color(m_name_color, m_bg_color);
-		p->draw_string_in_rect(m_value_in_str, m_value_rect, m_value_align_type);
+		p->draw_string_in_rect(m_surface, m_z_order, m_value_in_str, m_value_rect, m_value_font_type, m_name_color, m_bg_color, m_value_align_type);
 	}
 
 EXIT:
@@ -89,18 +84,14 @@ void c_value_ctrl::on_paint(void)
 	width = rect.m_right - rect.m_left;
 	height = rect.m_bottom - rect.m_top;
 
-	c_word *p = c_word::get_instance(m_z_order, m_surface);
+	c_word *p = c_word::get_instance();
 
 	//show name
-	p->set_font(m_name_font_type);
-	p->set_color(m_name_color, m_bg_color);
-	p->draw_string(m_name_id, rect.m_left + 1, rect.m_top);
+	p->draw_string(m_surface, m_z_order, m_name_id, rect.m_left + 1, rect.m_top, m_name_font_type, m_name_color, m_bg_color);
 
 	//show unit
-	p->set_font(m_unit_font_type);
-	p->set_color(m_unit_color, m_bg_color);
 	int unitY = rect.m_top + p->get_font_ysize(m_name_font_type)+1;
-	p->draw_string(m_unit_strid, rect.m_left + 1, unitY);
+	p->draw_string(m_surface, m_z_order, m_unit_strid, rect.m_left + 1, unitY, m_unit_font_type, m_unit_color, m_bg_color);
 
 	//show high limit
 	char limit[16] = { 0 };
@@ -111,10 +102,8 @@ void c_value_ctrl::on_paint(void)
 	int temp_high_limit_bottom = m_limit_rect.m_bottom;
 	if (m_high_limit != XXX)
 	{
-		p->set_font(m_limit_font_type);
-		p->set_color(m_limit_color, m_bg_color);
 		value_2_string(m_high_limit, limit, m_limit_dot_position);
-		p->draw_string_in_rect(limit, m_limit_rect, m_value_align_type);
+		p->draw_string_in_rect(m_surface, m_z_order, limit, m_limit_rect, m_limit_font_type, m_limit_color, m_bg_color, m_value_align_type);
 	}
 
 	//show low limit
@@ -124,24 +113,20 @@ void c_value_ctrl::on_paint(void)
 	m_limit_rect.m_bottom = m_limit_rect.m_top +p->get_font_ysize(m_limit_font_type);
 	if (m_low_limit != XXX)
 	{
-		p->set_font(m_limit_font_type);
-		p->set_color(m_limit_color, m_bg_color);
 		value_2_string(m_low_limit, limit, m_limit_dot_position);
-		p->draw_string_in_rect(limit, m_limit_rect, m_value_align_type);
+		p->draw_string_in_rect(m_surface, m_z_order, limit, m_limit_rect, m_limit_font_type, m_limit_color, m_bg_color, m_value_align_type);
 	}
 
 	//show value
-	p->set_font(m_value_font_type);
-	p->set_color(m_name_color, m_bg_color);
 	m_value_rect.m_left = rect.m_left + 50;
 	m_value_rect.m_top = rect.m_top +(height-p->get_font_ysize(m_value_font_type)) / 2;
 
 	value_2_string(m_value, m_value_in_str, m_limit_dot_position);
-	int strLen = p->get_str_pixel_length(m_value_in_str);
+	int strLen = p->get_str_pixel_length(m_value_in_str, m_value_font_type);
 
 	m_value_rect.m_right = m_value_rect.m_left + strLen;
 	m_value_rect.m_bottom = m_value_rect.m_top + p->get_font_ysize(m_value_font_type);
 
 	m_max_value_rect = m_value_rect;
-	p->draw_string_in_rect(m_value_in_str, m_value_rect, m_value_align_type);
+	p->draw_string_in_rect(m_surface, m_z_order, m_value_in_str, m_value_rect, m_value_font_type, m_name_color, m_bg_color, m_value_align_type);
 }

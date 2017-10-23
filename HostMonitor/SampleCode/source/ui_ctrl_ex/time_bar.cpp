@@ -144,7 +144,6 @@ void c_time_bar::draw_mark()
 
 	c_rect rect;
 	get_screen_rect(rect);
-	c_word *p = c_word::get_instance();
 
 	char buf[8];
 	for (int i = 0; i  < TIME_MARK_CNT; i++ )
@@ -152,7 +151,7 @@ void c_time_bar::draw_mark()
 		long time_in_seconds = m_scale_resolution * i + m_start_seconds;
 		T_TIME st_time = second_to_day(time_in_seconds);
 		sprintf( buf, "%02d:%02d", st_time.hour, st_time.minute );
-		p->draw_string(m_surface, m_z_order, buf, (time_2_pos_x(time_in_seconds) - 15), rect.m_top + NORMAL_SCALE_HEIGHT + 2, m_mark_font, m_scale_color, m_bg_color);
+		c_word::draw_string(m_surface, m_z_order, buf, (time_2_pos_x(time_in_seconds) - 15), rect.m_top + NORMAL_SCALE_HEIGHT + 2, m_mark_font, m_scale_color, m_bg_color);
 	}
 }
 

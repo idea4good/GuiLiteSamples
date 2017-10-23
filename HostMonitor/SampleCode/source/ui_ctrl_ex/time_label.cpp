@@ -23,7 +23,6 @@ void c_time_label::on_paint(void)
 	T_TIME cur_time = get_time();
 	char tmp_str[20];
 
-	c_word *p = c_word::get_instance();
 	c_rect  rect;
 	c_rect temp_rect;
 	get_screen_rect(rect);
@@ -40,7 +39,7 @@ void c_time_label::on_paint(void)
 		memset(tmp_str,0,sizeof(tmp_str));
 		sprintf(tmp_str, "%04d-%02d-%02d", cur_time.year, cur_time.month, cur_time.day);
 		fill_rect(temp_rect.m_left, temp_rect.m_top, temp_rect.m_right, temp_rect.m_bottom, m_bg_color);
-		p->draw_string_in_rect(m_surface, m_z_order, tmp_str, temp_rect, m_font_type, m_font_color, m_bg_color, ALIGN_LEFT);
+		c_word::draw_string_in_rect(m_surface, m_z_order, tmp_str, temp_rect, m_font_type, m_font_color, m_bg_color, ALIGN_LEFT);
 	}
 
 	temp_rect.m_left = rect.m_left;// + 25;
@@ -50,6 +49,6 @@ void c_time_label::on_paint(void)
 	memset(tmp_str,0,sizeof(tmp_str));
 	sprintf(tmp_str, "%02d:%02d:%02d", cur_time.hour, cur_time.minute, cur_time.second);
 	fill_rect(temp_rect.m_left, temp_rect.m_top, temp_rect.m_right, temp_rect.m_bottom, m_bg_color);
-	p->draw_string_in_rect(m_surface, m_z_order, tmp_str,temp_rect, m_font_type, m_font_color, m_bg_color, ALIGN_LEFT);
+	c_word::draw_string_in_rect(m_surface, m_z_order, tmp_str,temp_rect, m_font_type, m_font_color, m_bg_color, ALIGN_LEFT);
 	m_time = cur_time;
 }

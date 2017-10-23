@@ -120,7 +120,6 @@ void c_trend_graph::draw_h_axis(void)
 	draw_hline((rect.m_left + m_org_x_of_h_axis), (rect.m_left + m_org_x_of_h_axis + m_h_axis_width), (rect.m_top + m_org_y_of_h_axis + 1), H_AXIS_COLOR);
 
 	//Draw mark
-	c_word *p = c_word::get_instance();
 	char str_scale_value[16];
 	int x_start, y_start, y_end;
 	T_TIME st_time;
@@ -138,7 +137,7 @@ void c_trend_graph::draw_h_axis(void)
 		draw_vline( x_start, y_start, y_end, H_AXIS_COLOR);
 		draw_vline( x_start+1, y_start, y_end, H_AXIS_COLOR);
 		//Draw mark
-		p->draw_string(m_surface, m_z_order, str_scale_value, x_start - 20, y_start + 5, m_h_axis_mark_font, H_AXIS_COLOR, BACKGROUND_COLOR);
+		c_word::draw_string(m_surface, m_z_order, str_scale_value, x_start - 20, y_start + 5, m_h_axis_mark_font, H_AXIS_COLOR, BACKGROUND_COLOR);
 	}
 }
 
@@ -184,7 +183,6 @@ void c_trend_graph::draw_v_axis(int index)
 	draw_vline(axis_line_x, (line_bottom - m_v_axis_height), line_bottom, m_v_axis_color[index]);
 
 	//draw mark & scale line
-	c_word *p = c_word::get_instance();
 	char str_scale_value[8];
 	float y_pixel_per_value = (float)(m_v_axis_height) / (float)(m_v_axis_max[index] - m_v_axis_min[index]);
 	for ( int i = 0; i < m_v_scale_cnt[index]; i++ )
@@ -192,7 +190,7 @@ void c_trend_graph::draw_v_axis(int index)
 		sprintf(str_scale_value,"%d",  m_v_scale_value[index][i]);
 		int scale_line_y = rect.m_top + m_org_y_of_v_axis - (int)( y_pixel_per_value * (m_v_scale_value[index][i] - m_v_axis_min[index]));
 		draw_hline( scale_line_left, scale_line_right, scale_line_y, m_v_axis_color[index] );//scale line
-		p->draw_string(m_surface, m_z_order, str_scale_value, mark_text_x, (scale_line_y - 8), m_v_axis_mark_font[index], m_v_axis_color[index], BACKGROUND_COLOR);//mark
+		c_word::draw_string(m_surface, m_z_order, str_scale_value, mark_text_x, (scale_line_y - 8), m_v_axis_mark_font[index], m_v_axis_color[index], BACKGROUND_COLOR);//mark
 	}
 }
 
@@ -236,8 +234,7 @@ void c_trend_graph::draw_title(unsigned int row_index, unsigned int str_id, unsi
 	}
 	c_rect rect;
 	get_screen_rect(rect);
-	c_word *p = c_word::get_instance();
-	p->draw_string(m_surface, m_z_order, str_id, rect.m_left + MARGIN_OF_TITLE, (rect.m_top + TITLE_HEIGHT * row_index + 5), font, color, BACKGROUND_COLOR);
+	c_word::draw_string(m_surface, m_z_order, str_id, rect.m_left + MARGIN_OF_TITLE, (rect.m_top + TITLE_HEIGHT * row_index + 5), font, color, BACKGROUND_COLOR);
 }
 
 void c_trend_graph::draw_line_by_pixel(int* line_x_buf, int* line_y_buf, int len, unsigned int color)

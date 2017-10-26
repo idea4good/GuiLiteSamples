@@ -15,6 +15,7 @@ depdency: Windows 10, visul stdio 2015/2017
 - If VR: run `Mixed Reality Portal`on PC side.
 - Take VR/MR device on head, or run simulator.
 - press `start`, find the UWP you build and run.
+
 Note: Windows RS3(fall creators update) is needed.
 
 ## How to build/run for Win32?

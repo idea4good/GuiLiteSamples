@@ -12,17 +12,21 @@
 - Command `sslp` and open "BuildWin32\sample_native\Display.html" with internet browser(such like: IE, chrome)
 
 ## How to build/run for Windows UWP?
-depdency: Windows 10(RS2), visul stdio 2015/2017
+depdency: Windows 10(prefer RS3), visul stdio 2015/2017
 
 1. build sample.lib:
 - Open "SampleCode\sample.sln" by Visual studio 2017
 - Click `build` 
 
-2. build/run Windows APP(you can run it with "Mixed Reality Portal"):
+2. build/run Windows APP
 - Copy "SampleCode\debug\sample.lib" you build to "BuildUWP\sample_uwp_cpp\libs\x86(or x64)"
 - Open "BuildUWP\GuiLite.sln" by Visual studio 2017
 - Click `build`
 - Click `debug/run`
+
+3. run on Windows Mixed reality(VR)
+- run `Mixed Reality Portal`
+- press `start`, find the UWP you build and run.
 
 ## How to build/run for Linux（x64 & arm）?
 1. build libsample.a:

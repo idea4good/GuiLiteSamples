@@ -61,7 +61,7 @@ Note: Windows RS3(fall creators update) is needed.
 
 1. build sample.lib:
 - `cd SampleCode`
-- `cmake cmake -D CMAKE_C_COMPILER="/usr/bin/arm-linux-androideabi-gcc" -D CMAKE_CXX_COMPILER="/usr/bin/arm-linux-androideabi-g++" .`
+- `cmake -D CMAKE_C_COMPILER="/usr/bin/arm-linux-androideabi-gcc" -D CMAKE_CXX_COMPILER="/usr/bin/arm-linux-androideabi-g++" .`
 - `make`
 
 2. build Android APP:

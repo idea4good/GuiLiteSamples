@@ -22,7 +22,7 @@ using namespace Windows::UI::Xaml::Navigation;
 
 using namespace concurrency;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
-extern int run(int main_cnt, int sub_cnt);
+extern "C" int run_native(int main_cnt, int sub_cnt);
 
 MainPage::MainPage()
 {
@@ -53,7 +53,7 @@ void MainPage::init()
 	m_screen_sub_6->set_attr(7);
 	m_screen_sub_7->set_attr(8);
 	create_async([this]() {
-		run(1, 8);
+		run_native(1, 8);
 	});
 }
 

@@ -92,9 +92,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\start\start_jni.cpp">
-      <Filter>source\start</Filter>
-    </ClCompile>
     <ClCompile Include="source\start\snake.cpp">
       <Filter>source\start</Filter>
     </ClCompile>

@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\start\snake.cpp" />
-    <ClCompile Include="source\start\start_jni.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{289E64C1-73C4-4533-9A06-9DDBF52235BB}</ProjectGuid>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context="gui_lite_sample.MainActivity">
+
+    <gui_lite_sample.MonitorView
+        android:id="@+id/id_monitor_view_0"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:id="@+id/linear_layout_left"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <gui_lite_sample.MonitorView
+            android:id="@+id/id_monitor_view_1"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <gui_lite_sample.MonitorView
+            android:id="@+id/id_monitor_view_2"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="2dp"
+            android:layout_weight="1"/>
+        <gui_lite_sample.MonitorView
+            android:id="@+id/id_monitor_view_3"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="2dp"
+            android:layout_weight="1"/>
+        <gui_lite_sample.MonitorView
+            android:id="@+id/id_monitor_view_4"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="2dp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_layout_right"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="2dp"
+        android:layout_weight="1">
+
+        <gui_lite_sample.MonitorView
+            android:id="@+id/id_monitor_view_5"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <gui_lite_sample.MonitorView
+            android:id="@+id/id_monitor_view_6"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="2dp"
+            android:layout_weight="1"/>
+        <gui_lite_sample.MonitorView
+            android:id="@+id/id_monitor_view_7"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="2dp"
+            android:layout_weight="1"/>
+        <gui_lite_sample.MonitorView
+            android:id="@+id/id_monitor_view_8"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="2dp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+</LinearLayout>

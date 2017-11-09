@@ -1,0 +1,39 @@
+﻿<Page
+    x:Class="sample_uwp_cpp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:sample_uwp_cpp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <local:SubScreen x:Name="m_screen_sub_0" Grid.Column="0" Grid.Row="0"/>
+            <local:SubScreen x:Name="m_screen_sub_1" Grid.Column="0" Grid.Row="1"/>
+            <local:SubScreen x:Name="m_screen_sub_2" Grid.Column="0" Grid.Row="2"/>
+            <local:SubScreen x:Name="m_screen_sub_3" Grid.Column="0" Grid.Row="3"/>
+            <local:SubScreen x:Name="m_screen_sub_4" Grid.Column="1" Grid.Row="0"/>
+            <local:SubScreen x:Name="m_screen_sub_5" Grid.Column="1" Grid.Row="1"/>
+            <local:SubScreen x:Name="m_screen_sub_6" Grid.Column="1" Grid.Row="2"/>
+            <local:SubScreen x:Name="m_screen_sub_7" Grid.Column="1" Grid.Row="3"/>
+        </Grid>
+        <local:SubScreen x:Name="m_screen_main" Visibility="Collapsed"/>
+        <StackPanel Margin="276,609,0,0" Orientation="Vertical" VerticalAlignment="Bottom">
+            <HyperlinkButton Content="Source code" FontWeight="Bold" FontSize="14"  Background="Yellow" 
+                HorizontalAlignment="Right" NavigateUri="https://github.com/idea4good"/>
+            <HyperlinkButton Content="How to use?" FontWeight="Bold" FontSize="14"  Background="Yellow" 
+                HorizontalAlignment="Right" NavigateUri="https://www.youtube.com/watch?v=F_Ok2VBzB8E"/>
+        </StackPanel>
+    </Grid>
+</Page>

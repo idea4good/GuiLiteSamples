@@ -1,0 +1,142 @@
+﻿//
+// SubScreen.xaml.cpp
+// Implementation of the SubScreen class
+//
+
+#include "pch.h"
+#include "SubScreen.xaml.h"
+#include <robuffer.h>
+
+using namespace sample_uwp_cpp;
+
+using namespace Platform;
+using namespace Windows::Foundation;
+using namespace Windows::Foundation::Collections;
+using namespace Windows::UI::Xaml;
+using namespace Windows::UI::Xaml::Controls;
+using namespace Windows::UI::Xaml::Controls::Primitives;
+using namespace Windows::UI::Xaml::Data;
+using namespace Windows::UI::Xaml::Input;
+using namespace Windows::UI::Xaml::Media;
+using namespace Windows::UI::Xaml::Navigation;
+
+using namespace Microsoft::WRL;
+using namespace concurrency;
+using namespace Windows::UI::ViewManagement;
+// The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
+
+typedef struct
+{
+	unsigned int dwMsgId;
+	unsigned int dwParam1;
+	unsigned int dwParam2;
+}OUTMSGINFO;
+
+extern "C" void* get_frame_buffer(int display_id, int* width, int* height);
+extern "C" int send_hid_msg(void* buf, int len, int display_id);
+
+SubScreen::SubScreen()
+{
+	InitializeComponent();
+	initScreen();
+}
+
+void SubScreen::initScreen()
+{
+	m_screen_sub->PointerPressed += ref new PointerEventHandler(this, &SubScreen::OnPointerPressed);
+	m_screen_sub->PointerReleased += ref new PointerEventHandler(this, &SubScreen::OnPointerRelease);
+	m_screen_sub->PointerMoved += ref new PointerEventHandler(this, &SubScreen::OnPointerMoved);
+}
+
+void SubScreen::set_attr(int index)
+{
+	m_index = index;
+}
+
+byte* SubScreen::get_pixel_data(IBuffer^ pixelBuffer, unsigned int *length)
+{
+	if (length != nullptr)
+	{
+		*length = pixelBuffer->Length;
+	}
+	// Query the IBufferByteAccess interface.
+	ComPtr<IBufferByteAccess> bufferByteAccess;
+	reinterpret_cast<IInspectable*>(pixelBuffer)->QueryInterface(IID_PPV_ARGS(&bufferByteAccess));
+
+	// Retrieve the buffer data.
+	byte* pixels = nullptr;
+	bufferByteAccess->Buffer(&pixels);
+	return pixels;
+}
+
+void SubScreen::update_screen()
+{
+	if (nullptr == m_fb_bitmap)
+	{
+		unsigned short* raw_data = (unsigned short*)get_frame_buffer(m_index, &m_fb_width, &m_fb_height);
+		if (raw_data)
+		{
+			m_fb_bitmap = ref new Windows::UI::Xaml::Media::Imaging::WriteableBitmap(m_fb_width, m_fb_height);
+			m_screen_sub->Source = m_fb_bitmap;
+		}
+		return;
+	}
+
+	unsigned int length;
+	byte* sourcePixels = get_pixel_data(m_fb_bitmap->PixelBuffer, &length);
+
+	unsigned short* raw_data = (unsigned short*)get_frame_buffer(m_index, NULL, NULL);
+	if (!raw_data)
+	{
+		return;
+	}
+
+	for (int i = 0; i < length; i += 4)
+	{
+		unsigned short rgb = *raw_data++;
+
+		sourcePixels[i + 3] = 0xff;//transport
+		sourcePixels[i] = ((rgb << 3) & 0xF8);
+		sourcePixels[i + 1] = ((rgb >> 3) & 0xFC);
+		sourcePixels[i + 2] = ((rgb >> 8) & 0xF8);
+	}
+	m_fb_bitmap->Invalidate();
+}
+
+void SubScreen::OnPointerPressed(Platform::Object^ sender, Windows::UI::Xaml::Input::PointerRoutedEventArgs^ e)
+{
+	auto pointer = e->GetCurrentPoint(this);
+	int native_x = (pointer->Position.X * m_fb_width / ActualWidth);
+	int native_y = (pointer->Position.Y * m_fb_height / ActualHeight);
+
+	OUTMSGINFO msg;
+	msg.dwMsgId = 0x4700;
+	msg.dwParam1 = native_x;
+	msg.dwParam2 = native_y;
+	send_hid_msg(&msg, sizeof(msg), m_index);
+
+	m_is_dragging = true;
+}
+
+void SubScreen::OnPointerRelease(Platform::Object^ sender, Windows::UI::Xaml::Input::PointerRoutedEventArgs^ e)
+{
+	auto pointer = e->GetCurrentPoint(this);
+	int native_x = (pointer->Position.X * m_fb_width / ActualWidth);
+	int native_y = (pointer->Position.Y * m_fb_height / ActualHeight);
+
+	OUTMSGINFO msg;
+	msg.dwMsgId = 0x4600;
+	msg.dwParam1 = native_x;
+	msg.dwParam2 = native_y;
+	send_hid_msg(&msg, sizeof(msg), m_index);
+
+	m_is_dragging = false;
+}
+
+void SubScreen::OnPointerMoved(Platform::Object^ sender, Windows::UI::Xaml::Input::PointerRoutedEventArgs^ e)
+{
+	if (m_is_dragging)
+	{
+		OnPointerPressed(sender, e);
+	}
+}

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient monitor</title>
+    <meta http-equiv="Content-Type" Content="text/html; charset=utf-8;">
+    <meta name="author" content="idea4good" />
+    <meta name="keywords" content="Noodle UI" />
+    <meta name="description" content="Show UI by Browser" />
+    <style>
+        *{margin:0;padding:0;}
+        li{list-style:none;}
+        .list li{ float:left; min-height:10px; margin:0 0 0 10px;}
+        .list img{ margin:0 0 5px; }
+        .list img{ display:block; width: 100%; }
+    </style>
+</head>
+
+<body>
+<div class="content" id="pictures">
+    <img src="snapshot_1.bmp" />
+    <img src="snapshot_2.bmp" />
+    <img src="snapshot_3.bmp" />
+    <img src="snapshot_4.bmp" />
+    <img src="snapshot_5.bmp" />
+    <img src="snapshot_6.bmp" />
+    <img src="snapshot_7.bmp" />
+    <img src="snapshot_8.bmp" />
+    <img src="snapshot_0.bmp" />
+</div>
+<div class="list" id="mainScreen"></div>
+
+<script>
+var screens = {
+    pictureArray:document.getElementById('pictures'),
+    htmlMainScreen:document.getElementById('mainScreen'),
+
+    setColumn:function(colNum, colWidth){
+        var self = this;
+
+        self.colNum = colNum;
+        self.colWidth = colWidth;
+
+        var html = '';
+        for(var i = 0, l = self.colNum; i < l; i++){
+            html += '<li style="width:'+ self.colWidth +'px;"></li>';
+        }
+        
+        self.htmlMainScreen.innerHTML = html;
+        self.column = self.htmlMainScreen.getElementsByTagName('li');
+    },
+    
+    getLowestCol:function(){
+        var self = this;
+
+        var heightArray = [];
+        for(var i = 0, l = self.colNum; i < l; i++){
+            heightArray[i] = self.column[i].offsetHeight;
+        }
+
+        var minIndex = 0,index  = 1;
+        while(heightArray[index]){
+            if(heightArray[index] < heightArray[minIndex]){
+                minIndex = index;
+            }
+            index ++;
+        }
+        
+        return self.column[minIndex];
+    },
+
+    isExsitForEdge:function(picture){
+        var http = new XMLHttpRequest();
+        http.open('HEAD', picture.src, false);
+        
+        try{
+            http.send();
+        }catch(error){
+            return false;
+        }
+        return true;        
+    },
+
+    isExsitForChrome:function(picture){
+    	if(picture.height > 100)
+    	{
+			return true;
+    	}
+    	else
+    	{
+			return false;
+    	}
+    	
+    },
+
+    isExsit:function(picture) {
+        var self = this;
+        if("Edge" == getBrowserType())
+        {
+            return self.isExsitForEdge(picture);
+        }
+        else
+        {
+            return self.isExsitForChrome(picture);
+        }
+    },
+    
+    layout:function(picture){
+        var self = this;
+        var column = self.getLowestCol();
+
+        if(self.isExsit(picture))
+        {
+			column.appendChild(picture);//Will remove picture from pictureArray
+        }
+        else
+        {
+			self.pictureArray.removeChild(picture);
+        }
+        
+        if(self.pictureArray.children[0]){
+            self.layout(self.pictureArray.children[0]);
+        }
+    },
+    
+    init:function(colCnt){
+        var self = this;
+        window.onload = function(){
+            self.setColumn(colCnt, ((document.body.clientWidth / colCnt - 10 - 1)));
+            self.layout(self.pictureArray.children[0]);
+        }
+    }
+};
+
+/////////////////////////// refresh /////////////////////////
+var squence_num = 0;
+
+function updateImgSrc() {
+	var imgArray = document.getElementsByTagName('img');
+    for (var i = 0; i < imgArray.length; i++) {
+        var address;
+        if (imgArray[i].src.indexOf('?') > -1) {
+            imgArray[i].src = imgArray[i].src.split('?')[0] + "?" + squence_num++;
+        }
+        else
+        {
+        	imgArray[i].src = imgArray[i].src + "?" + squence_num++;
+        }
+    }
+}
+
+function getBrowserType(){
+    var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+    var isFirefox = typeof InstallTrigger !== 'undefined';
+    var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
+    var isIE = /*@cc_on!@*/false || !!document.documentMode;
+    var isEdge = !isIE && !!window.StyleMedia;
+    var isChrome = !!window.chrome && !!window.chrome.webstore;
+    if(isEdge)
+    {
+        return "Edge"
+    }
+    return "Others"
+}
+
+function refreshPage()
+{
+    console.log("refreshPage()");
+    window.location.reload();
+    setTimeout("refreshPage()", 1000);
+}
+
+function refreshSnapshots()
+{
+    updateImgSrc();
+    setTimeout("refreshSnapshots()", 1000);
+};
+
+function refreshSnapshotsByInterval()//	screen maybe flash!
+{
+	updateImgSrc();
+}
+
+screens.init(2);
+//setInterval("refreshSnapshotsByInterval()", 30);
+setTimeout("refreshSnapshots()", 30);
+
+</script>
+</body>
+
+</html>

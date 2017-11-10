@@ -2,7 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-extern "C" int run_native(int main_cnt, int sub_cnt);
+#define SCREEN_WIDTH	1024
+#define SCREEN_HEIGHT	768
+
+extern "C" int run_native(int width, int height, void* phy_fb);
 extern void init_std_io(int display_cnt);
 
 static void init_dump();
@@ -21,8 +24,6 @@ int main(int argc, char** argv)
 	printf(s_tip_welcome);
 	init_dump();
 
-	int main_cnt = 1;
-	int sub_cnt = 0;
 	bool is_shared_fb = false;
 	int share_id = 1;//should be same with display app.
 
@@ -37,26 +38,18 @@ int main(int argc, char** argv)
 		is_shared_fb = true;
 	}
 
-	init_std_io((main_cnt + sub_cnt));
+	init_std_io(1);
 
-	void** main_fbs = (void**)malloc(sizeof(void*) * main_cnt);
-	void** sub_fbs = (void**)malloc(sizeof(void*) * sub_cnt);
-	for (int i = 0; i < main_cnt; i++)
+	void* phy_fb = 0;
+	if(is_shared_fb)
 	{
-		if(is_shared_fb)
-		{
-			main_fbs[i] = make_fb_shared_by_display_app(share_id);
-		}
-		else
-		{
-			main_fbs[i] = calloc(1024 * 768 * 2, 1);
-		}	
+		phy_fb = make_fb_shared_by_display_app(share_id);
 	}
-	for (int i = 0; i < sub_cnt; i++)
+	else
 	{
-		sub_fbs[i] = calloc(1024 * 370 * 2, 1);
+		phy_fb = calloc(SCREEN_WIDTH * SCREEN_HEIGHT * 2, 1);
 	}
-	return run_native(main_cnt, sub_cnt);//never return;
+	return run_native(SCREEN_WIDTH, SCREEN_HEIGHT, phy_fb);//never return;
 }
 
 #ifdef __linux__
@@ -177,6 +170,7 @@ static void* make_fb_shared_by_display_app(int shared_id)
 		}
 		sleep(1);
 	}
+	sleep(1);//wait display app init.
 	return ret;
 }
 #else

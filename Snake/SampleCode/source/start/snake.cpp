@@ -10,11 +10,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define SCREEN_WIDTH	600
-#define SCREEN_HEIGHT	600
 #define BLOCK_SIZE		20
 #define GRASS_COLOR		GLT_RGB(170, 215, 81)
 
+int SCREEN_WIDTH = 1024;
+int SCREEN_HEIGHT = 768;
 static c_slide_root	s_root;
 static c_surface*	s_surface;
 void* s_phy_fb;
@@ -220,7 +220,7 @@ void c_snake::run()
 	draw();
 }
 
-void single_game()
+void game_loop()
 {
 	c_snake the_snake;
 	while (1)
@@ -232,18 +232,26 @@ void single_game()
 
 void create_ui()
 {
-	void* s_phy_fb = (void*)malloc(SCREEN_WIDTH * SCREEN_HEIGHT * 2);
 	c_display* display = new c_display(s_phy_fb, SCREEN_WIDTH, SCREEN_HEIGHT, 0);
 	s_surface = display->create_surface(&s_root, Z_ORDER_LEVEL_0);
 	s_surface->set_active(true);
 
-	s_surface->fill_rect(1, 1, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1, GRASS_COLOR, Z_ORDER_LEVEL_0);
+	s_surface->fill_rect(0, 0, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1, GRASS_COLOR, Z_ORDER_LEVEL_0);
 }
 
-extern "C" int run_native(int main_cnt, int sub_cnt)
+//////////////////// UWP/Android interface ////////////////////////////
+extern "C" int run_native(int width, int height, void* phy_fb)
 {
+	SCREEN_WIDTH = width;
+	SCREEN_HEIGHT = height;
+	if (!phy_fb)
+	{
+		ASSERT(FALSE);
+	}
+	
+	s_phy_fb = phy_fb;
 	create_ui();
-	single_game();
+	game_loop();
 	return 0;
 }
 

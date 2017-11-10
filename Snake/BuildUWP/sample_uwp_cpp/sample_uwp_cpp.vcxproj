@@ -166,14 +166,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="$(SolutionDir)resource\heart_beat.wav">
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</DeploymentContent>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="AudioRender.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="App.xaml.h">

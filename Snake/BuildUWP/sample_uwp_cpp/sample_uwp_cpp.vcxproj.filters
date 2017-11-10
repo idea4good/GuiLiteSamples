@@ -56,7 +56,6 @@
     <None Include="sample_uwp_cpp_TemporaryKey.pfx" />
     <None Include="Package.StoreAssociation.xml" />
     <None Include="sample_uwp_cpp_StoreKey.pfx" />
-    <None Include="$(SolutionDir)resource\heart_beat.wav" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="MainPage.xaml" />

@@ -24,7 +24,7 @@ class c_config_root : public c_wnd {
 	GLT_DECLARE_MESSAGE_MAP()
 };
 
-GLT_BEGIN_MESSAGE_MAP(c_config_root,c_wnd)
+GLT_BEGIN_MESSAGE_MAP(c_config_root)
 ON_GLT_BN_CLICKED(5, c_config_root::on_clicked)
 ON_GLT_BN_CLICKED(7, c_config_root::on_clicked)
 GLT_END_MESSAGE_MAP()

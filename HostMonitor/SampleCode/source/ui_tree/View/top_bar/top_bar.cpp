@@ -11,7 +11,7 @@
 #include "top_bar.h"
 #include "top_bar_xml.h"
 
-GLT_BEGIN_MESSAGE_MAP(c_top_bar,c_wnd)
+GLT_BEGIN_MESSAGE_MAP(c_top_bar)
 ON_GLT_USER_MSG(USR_MSG_UPDATE_TIME,c_top_bar::on_refurbish_time)
 GLT_END_MESSAGE_MAP()
 

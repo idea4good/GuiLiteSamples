@@ -268,7 +268,7 @@ void c_demo_module::unpack_ecg()
 		
 		if (s_ecg_ii_data[sample_index] == 0xA2)
 		{
-			c_audio::get_instance()->play(AUDIO_HEART_BEAT);
+			c_audio::play(AUDIO_HEART_BEAT);
 		}
 
 		sample_index++;

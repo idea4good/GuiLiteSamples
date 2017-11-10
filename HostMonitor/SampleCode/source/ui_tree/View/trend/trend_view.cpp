@@ -22,7 +22,7 @@
 #define H_AXIS_MARK_CNT			7
 #define H_AXIS_MARK_INTERVAL	(60 * 10)	//10 minutes between 2 marks
 
-GLT_BEGIN_MESSAGE_MAP(c_trend_view,c_wnd)
+GLT_BEGIN_MESSAGE_MAP(c_trend_view)
 ON_ND_SACLE_CLICKED(ID_TREND_SCREEN_TIME_SCALE_BAR_CTRL, c_trend_view::on_time_bar_change)
 ON_GLT_USER_MSG(USR_MSG_UPDATE_TREND_VIEW, c_trend_view::on_update_trend_view)
 GLT_END_MESSAGE_MAP()

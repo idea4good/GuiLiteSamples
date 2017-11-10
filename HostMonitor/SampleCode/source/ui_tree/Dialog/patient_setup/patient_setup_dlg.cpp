@@ -16,7 +16,7 @@
 #include <string.h>
 #include "patient_setup_dlg.h"
 
-GLT_BEGIN_MESSAGE_MAP(c_patient_setup_dlg, c_wnd)
+GLT_BEGIN_MESSAGE_MAP(c_patient_setup_dlg)
 ON_SPIN_CONFIRM(ID_SETUP_DLG_SB_BIRTHDAY_DAY, c_patient_setup_dlg::on_spinbox_confirm)
 GLT_END_MESSAGE_MAP()
 

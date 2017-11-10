@@ -23,7 +23,7 @@
 #define	ID_FORWARD_BTN			3
 #define	ID_FAST_FORWARD_BTN		4
 
-GLT_BEGIN_MESSAGE_MAP(c_time_bar,c_wnd)
+GLT_BEGIN_MESSAGE_MAP(c_time_bar)
 ON_GLT_BN_CLICKED(ID_BACKWARD_BTN, c_time_bar::on_btn_click)
 ON_GLT_BN_CLICKED(ID_FAST_BACKWARD_BTN, c_time_bar::on_btn_click)
 ON_GLT_BN_CLICKED(ID_FORWARD_BTN, c_time_bar::on_btn_click)

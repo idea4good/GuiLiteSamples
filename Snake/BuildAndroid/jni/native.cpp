@@ -1,11 +1,12 @@
 #include <jni.h>
 #include <android/log.h>
 #include <errno.h>
+#include <stdlib.h>
 
 #ifdef __cplusplus
 extern "C" { 
 
-extern int run_native(int main_cnt, int sub_cnt);
+extern int run_native(int width, int height, void* phy_fb);
 extern int send_hid_msg(void* buf, int len, unsigned int display_id);
 extern void* get_frame_buffer(unsigned int display_id, int* width, int* height);
 
@@ -26,7 +27,7 @@ JNIEXPORT jint JNICALL Java_gui_1lite_1sample_ThreadNative_start_1native(JNIEnv 
 {
 	InitJavaEnv(ev, obj);
 	gAndroidPlayWav = OnAndroidPlayWav;
-	return run_native(main_cnt, sub_cnt);
+	return run_native(1024, 768, calloc(1024 * 768 * 2, 1));
 }
 
 JNIEXPORT jint JNICALL Java_gui_1lite_1sample_ThreadNative_WriteHidFifo( JNIEnv* env, jobject thiz, jint type, jint x, jint y, jint display_id)

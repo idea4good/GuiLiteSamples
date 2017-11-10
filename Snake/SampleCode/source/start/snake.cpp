@@ -282,3 +282,8 @@ extern "C" int send_hid_msg(void* buf, int len, int display_id)
 	}
 	return 0;
 }
+
+int snap_shot(int display)
+{
+	return c_display::snap_shot(display);
+}

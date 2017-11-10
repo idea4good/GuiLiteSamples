@@ -9,7 +9,7 @@ static void init_dump();
 static void* make_fb_shared_by_display_app(int shared_id);
 static const char* s_tip_welcome =
 "-------------------------------------------------------------------\n"
-"*  Noodle UI Sample code [Version 1.6]                            *\n"
+"*  GuiLite Sample code [Version 1.6]                              *\n"
 "*  Any feedback will be appreciated. Email: idea4good@outlook.com *\n"
 "-------------------------------------------------------------------\n"
 "How to run on PC/Desktop?\n"

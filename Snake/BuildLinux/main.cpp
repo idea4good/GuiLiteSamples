@@ -2,42 +2,23 @@
 #include <stdlib.h>
 #include <string.h>
 
-extern int run(void** main_fbs, int main_cnt, void** sub_fbs, int sub_cnt);
+extern "C" int run_native(int main_cnt, int sub_cnt);
 extern void init_std_io(int display_cnt);
 
 static void init_dump();
 static void* make_fb_shared_by_display_app(int shared_id);
 static const char* s_tip_welcome =
 "-------------------------------------------------------------------\n"
-"*  Noodle UI Sample code [Version 1.6]                            *\n"
+"*  GuiLite Sample code [Version 1.6]                              *\n"
 "*  Any feedback will be appreciated. Email: idea4good@outlook.com *\n"
 "-------------------------------------------------------------------\n"
 "How to run on PC/Desktop?\n"
 "1. Run Display.html with your internet browser:\n"
-"2. Type command: sslp\n\n"
-
-"How to run on embedded Linux device?\n"
-"Type command: sample_native/bin/sample_native path W H M N\n"
-"  path: file path of frame buffer, for example: /dev/fb\n"
-"  W:    Width of frame buffer, for example: 1024\n"
-"  H:    Height of frame buffer, for example: 768\n"
-"  M:    0\n"
-"  N:    0~8\n\n";
+"2. Type command: sslp\n\n";
 
 int main(int argc, char** argv)
 {
 	printf(s_tip_welcome);
-
-	remove("snapshot_0.bmp");
-	remove("snapshot_1.bmp");
-	remove("snapshot_2.bmp");
-	remove("snapshot_3.bmp");
-	remove("snapshot_4.bmp");
-	remove("snapshot_5.bmp");
-	remove("snapshot_6.bmp");
-	remove("snapshot_7.bmp");
-	remove("snapshot_8.bmp");
-
 	init_dump();
 
 	int main_cnt = 1;
@@ -45,23 +26,7 @@ int main(int argc, char** argv)
 	bool is_shared_fb = false;
 	int share_id = 1;//should be same with display app.
 
-	if (argc == 3)
-	{
-		main_cnt = atoi(argv[1]);
-		sub_cnt = atoi(argv[2]);
-
-		if (main_cnt < 0 || main_cnt > 1)
-		{
-			printf("Invalid argument: main_cnt(0~1)\n");
-			return -1;
-		}
-		if (sub_cnt < 0 || sub_cnt > 8)
-		{
-			printf("Invalid argument: sub_cnt(0~8)\n");
-			return -1;
-		}
-	}
-	else if(argc == 2)
+	if(argc == 2)
 	{
 		char* argument = argv[1];
 		if(strcmp(argument,"shared-fb") != 0)
@@ -91,7 +56,7 @@ int main(int argc, char** argv)
 	{
 		sub_fbs[i] = calloc(1024 * 370 * 2, 1);
 	}
-	return run(main_fbs, main_cnt, sub_fbs, sub_cnt);	//never return;
+	return run_native(main_cnt, sub_cnt);//never return;
 }
 
 #ifdef __linux__

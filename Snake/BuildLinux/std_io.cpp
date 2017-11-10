@@ -21,8 +21,6 @@ static const char* s_tip_help =
 "-------------------- Help ------------------------\n"
 "ss: 	Snapshot all screens in snapshot_N.bmp.\n"
 "sslp: 	Snapshot in loop\n"
-"aaN: 	Screen N flip left		N: 0-8\n"
-"ddN: 	Screen N flip right		N: 0-8\n"
 "exit: 	Exit the App.\n"
 "--------------------------------------------------\n";
 
@@ -65,20 +63,6 @@ static void press_release(int x, int y, int display_id)
 	send_hid_msg(&msg, sizeof(msg), display_id);
 }
 
-static void left_flip(int display_id)
-{
-	press_down(0, 100, display_id);
-	press_release(200, 100, display_id);
-	printf("Screen %d left flip done.", display_id);
-}
-
-static void right_flip(int display_id)
-{
-	press_down(200, 100, display_id);
-	press_release(0, 100, display_id);
-	printf("Screen %d right flip done.", display_id);
-}
-
 static void* stdin_thread(void* param)
 {
 	int display_cnt = *(int*)(param);
@@ -115,26 +99,6 @@ static void* stdin_thread(void* param)
 				unsigned long pid;
 				create_thread(&pid, NULL, loop_snapshot, param);
 			}
-		}
-		else if (strstr(buffer, "aa") == buffer)
-		{
-			int display_id = atoi(&buffer[2]);
-			if (display_id < 0 || display_id > 8)
-			{
-				printf("Bad screen ID, should be in 0~8");
-				continue;
-			}
-			left_flip(display_id);
-		}
-		else if (strstr(buffer, "dd") == buffer)
-		{
-			int display_id = atoi(&buffer[2]);
-			if (display_id < 0 || display_id > 8)
-			{
-				printf("Bad screen ID, should be in 0~8");
-				continue;
-			}
-			right_flip(display_id);
 		}
 		else if (strstr(buffer, "press") == buffer)
 		{

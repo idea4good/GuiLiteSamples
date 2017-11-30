@@ -512,10 +512,10 @@
     <ClCompile Include="source\ui_tree\slide_trend.cpp">
       <Filter>source\ui_tree</Filter>
     </ClCompile>
-    <ClCompile Include="source\data\sqlite3-win-store.c">
+    <ClCompile Include="source\data\database.cpp">
       <Filter>source\data</Filter>
     </ClCompile>
-    <ClCompile Include="source\data\database.cpp">
+    <ClCompile Include="source\data\sqlite3.c">
       <Filter>source\data</Filter>
     </ClCompile>
   </ItemGroup>

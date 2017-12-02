@@ -98,7 +98,7 @@ $ xmake
 #### Android
 
 ```console
-$ xmake f -p android --ndk=/home/xxx/android-ndk-r10e
+$ xmake f -p android --ndk=/home/xxx/android-ndk-r10e --sdk=/home/xxx/android-sdk
 $ xmake
 ```
 

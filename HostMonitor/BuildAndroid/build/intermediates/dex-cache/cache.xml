@@ -2,46 +2,46 @@
 <items version="2" >
 
     <item
-        jar="D:\private\Noodle\GuiLiteSamples\HostMonitor\BuildAndroid\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.0.0\jars\classes.jar"
-        jumboMode="false"
-        revision="24.0.1"
-        sha1="3bd97cfefd783e9de1dd1c30574a6adb44b4409b">
-        <dex dex="D:\private\Noodle\GuiLiteSamples\HostMonitor\BuildAndroid\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-24.0.0_2d2e16457987e0cbacea937f632afb24bdb12e6c.jar" />
-    </item>
-    <item
-        jar="D:\private\Noodle\GuiLiteSamples\HostMonitor\BuildAndroid\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.0.0\jars\classes.jar"
+        jar="/Users/ruki/projects/working/GuiLiteSamples/HostMonitor/BuildAndroid/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.0.0/jars/classes.jar"
         jumboMode="false"
         revision="24.0.1"
         sha1="e70f608219ed6b974644c333249ab2bb7b71de98">
-        <dex dex="D:\private\Noodle\GuiLiteSamples\HostMonitor\BuildAndroid\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-24.0.0_64dc0d4e0443fd6f92b153cb46e292ee8f48a1c9.jar" />
+        <dex dex="/Users/ruki/projects/working/GuiLiteSamples/HostMonitor/BuildAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.0.0_99cf8709740358855fa2ecceba2997b5fc1508a1.jar" />
     </item>
     <item
-        jar="C:\Users\blyan\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.0.0\support-annotations-24.0.0.jar"
-        jumboMode="false"
-        revision="24.0.1"
-        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
-        <dex dex="D:\private\Noodle\GuiLiteSamples\HostMonitor\BuildAndroid\app\build\intermediates\pre-dexed\debug\support-annotations-24.0.0_037acdec9a48bed89efdd772ab4333092db154ee.jar" />
-    </item>
-    <item
-        jar="D:\private\Noodle\GuiLiteSamples\HostMonitor\BuildAndroid\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.0.0\jars\classes.jar"
+        jar="/Users/ruki/projects/working/GuiLiteSamples/HostMonitor/BuildAndroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.0.0/jars/classes.jar"
         jumboMode="false"
         revision="24.0.1"
         sha1="0874286cc2fd88d54fdf130e9d5372730da6de97">
-        <dex dex="D:\private\Noodle\GuiLiteSamples\HostMonitor\BuildAndroid\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-24.0.0_cf0b5715c4465ce373c4235967432cdee86f6426.jar" />
+        <dex dex="/Users/ruki/projects/working/GuiLiteSamples/HostMonitor/BuildAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.0.0_a0968327cf7ebb41b40b03224e4c306604b0cf97.jar" />
     </item>
     <item
-        jar="D:\private\Noodle\GuiLiteSamples\HostMonitor\BuildAndroid\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\classes.jar"
-        jumboMode="false"
-        revision="24.0.1"
-        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
-        <dex dex="D:\private\Noodle\GuiLiteSamples\HostMonitor\BuildAndroid\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-24.0.0_b8b17dffbf826ab1d099b291398bab0a5735f049.jar" />
-    </item>
-    <item
-        jar="D:\private\Noodle\GuiLiteSamples\HostMonitor\BuildAndroid\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\libs\internal_impl-24.0.0.jar"
+        jar="/Users/ruki/projects/working/GuiLiteSamples/HostMonitor/BuildAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/libs/internal_impl-24.0.0.jar"
         jumboMode="false"
         revision="24.0.1"
         sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
-        <dex dex="D:\private\Noodle\GuiLiteSamples\HostMonitor\BuildAndroid\app\build\intermediates\pre-dexed\debug\internal_impl-24.0.0_d316f86bfd75bad9cb0b8521ac056b31eda95090.jar" />
+        <dex dex="/Users/ruki/projects/working/GuiLiteSamples/HostMonitor/BuildAndroid/app/build/intermediates/pre-dexed/debug/internal_impl-24.0.0_072e956434c92388d45072ad8c72713fddd1fb9c.jar" />
+    </item>
+    <item
+        jar="/Users/ruki/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.0.0/support-annotations-24.0.0.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="/Users/ruki/projects/working/GuiLiteSamples/HostMonitor/BuildAndroid/app/build/intermediates/pre-dexed/debug/support-annotations-24.0.0_109bd4428a627b29002a42e4d46b223cc4e03e4d.jar" />
+    </item>
+    <item
+        jar="/Users/ruki/projects/working/GuiLiteSamples/HostMonitor/BuildAndroid/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="3bd97cfefd783e9de1dd1c30574a6adb44b4409b">
+        <dex dex="/Users/ruki/projects/working/GuiLiteSamples/HostMonitor/BuildAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.0.0_85e74734db13e01ebb2dd146da0bbea226d37ce3.jar" />
+    </item>
+    <item
+        jar="/Users/ruki/projects/working/GuiLiteSamples/HostMonitor/BuildAndroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.1"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="/Users/ruki/projects/working/GuiLiteSamples/HostMonitor/BuildAndroid/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.0.0_d210cbe0bb9de4acf38b2cd66bbbe831c8442dcd.jar" />
     </item>
 
 </items>

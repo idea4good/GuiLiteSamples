@@ -1,7 +1,7 @@
 target("HostMonitor")
     set_kind("binary")
     add_packages("sqlite3")
-    add_includedirs("include")
+    add_includedirs("SampleCode/include", "SampleCode/source")
     add_files("SampleCode/**.cpp")
     if is_plat("linux") then
         add_files("BuildLinux/*.cpp")

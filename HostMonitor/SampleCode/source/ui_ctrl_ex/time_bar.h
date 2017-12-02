@@ -1,7 +1,7 @@
 #ifndef _SCALE_BAR_H_
 #define _SCALE_BAR_H_
 
-#include "button.h"
+#include "gui_include/button.h"
 
 #define ND_SCALE_CLICKED							0x2013
 

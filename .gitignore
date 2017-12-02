@@ -37,3 +37,8 @@ CMakeFiles
 cmake_install.cmake
 Makefile
 EcgMonitor\sample\source\libsample.a
+
+# xmake
+.xmake
+build
+.DS_Store

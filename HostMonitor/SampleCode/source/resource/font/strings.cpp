@@ -1,4 +1,4 @@
-#include "../core_include/resource_type.h"
+#include "core_include/resource_type.h"
 #include "strings.h"
 
 

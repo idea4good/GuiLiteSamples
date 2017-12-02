@@ -1,5 +1,5 @@
-#include "../core_include/api.h"
-#include "../core_include/resource_type.h"
+#include "core_include/api.h"
+#include "core_include/resource_type.h"
 
 extern  const GUI_FONT GUI_FontHZ_Arial_Narrow_8_11;
 extern  const GUI_FONT GUI_FontHZ_Arial_Narrow_9B_12;

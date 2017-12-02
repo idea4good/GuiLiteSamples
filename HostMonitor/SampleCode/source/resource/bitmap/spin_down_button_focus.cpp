@@ -1,6 +1,6 @@
 #include "stdlib.h"
 
-#include "../core_include/resource_type.h"
+#include "core_include/resource_type.h"
 
 #ifndef GUI_CONST_STORAGE
   #define GUI_CONST_STORAGE const

@@ -78,9 +78,6 @@
     <ClInclude Include="core_include\word.h">
       <Filter>core_include</Filter>
     </ClInclude>
-    <ClInclude Include="core_include\alarm_queue.h">
-      <Filter>core_include</Filter>
-    </ClInclude>
     <ClInclude Include="core_include\api.h">
       <Filter>core_include</Filter>
     </ClInclude>

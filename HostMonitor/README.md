@@ -48,6 +48,7 @@ Note: Windows RS3(fall creators update) is needed.
 - `chmod 777 *`
 - If x64:`./display-x64 | ./sample_native shared-fb`
 - If ARM:`./display-arm | ./sample_native shared-fb`
+- The source code of display-xxx here: HostMonitor/BuildLinux/display.src
 
 4. Run with internet explore:
 - `./sample_native 1 8`

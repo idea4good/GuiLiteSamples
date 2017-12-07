@@ -8,7 +8,8 @@ Any feedback(to QQ group: `527251257`) will be appreciated, Thanks!
 
 Here are snapshots when running, enjoy it!
 
-Run on Android:![preview Android](preview-Android.png)
+Run on Android:
+![preview Android](preview-Android.png)
 
 Run on Windows mixed reality device:![preview Win MR](preview-WinMixedReality.png)
 

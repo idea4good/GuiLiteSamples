@@ -1,6 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/shm.h>
+#include <unistd.h>
+#include <signal.h>
+#include <execinfo.h>
+#include <assert.h>
+#include <errno.h>
 
 extern int run(void** main_fbs, int main_cnt, void** sub_fbs, int sub_cnt);
 extern void init_std_io(int display_cnt);
@@ -27,16 +33,6 @@ static const char* s_tip_welcome =
 int main(int argc, char** argv)
 {
 	printf(s_tip_welcome);
-
-	remove("snapshot_0.bmp");
-	remove("snapshot_1.bmp");
-	remove("snapshot_2.bmp");
-	remove("snapshot_3.bmp");
-	remove("snapshot_4.bmp");
-	remove("snapshot_5.bmp");
-	remove("snapshot_6.bmp");
-	remove("snapshot_7.bmp");
-	remove("snapshot_8.bmp");
 
 	init_dump();
 
@@ -93,14 +89,6 @@ int main(int argc, char** argv)
 	}
 	return run(main_fbs, main_cnt, sub_fbs, sub_cnt);	//never return;
 }
-
-#ifdef __linux__
-#include <sys/shm.h>
-#include <unistd.h>
-#include <signal.h>
-#include <execinfo.h>
-#include <assert.h>
-#include <errno.h>
 
 #define DUMP_BUF_SIZE 1024
 #define DUMP_FILE_PATH "dump.txt"
@@ -214,32 +202,3 @@ static void* make_fb_shared_by_display_app(int shared_id)
 	}
 	return ret;
 }
-#else
-
-#include <windows.h>
-#include <assert.h>
-
-void do_assert(const char* file, int line)
-{
-	printf("assert! file:%s,line:%d\n", file, line);
-	assert(false);
-}
-
-void log_out(const char* log)
-{
-	printf(log);
-	fflush(stdout);
-	OutputDebugStringA(log);
-}
-
-static void* make_fb_shared_by_display_app(int shared_id)
-{
-	printf("shared frame buffer support Linux only!\n");
-	exit(-4);
-	return NULL;
-}
-
-static void init_dump()
-{
-}
-#endif

@@ -2,13 +2,13 @@
 *.iml
 .gradle
 .DS_Store
-/EcgMonitor/BuildAndroid/local.properties
-/EcgMonitor/BuildAndroid/.idea/workspace.xml
-/EcgMonitor/BuildAndroid/.idea/libraries
-/EcgMonitor/BuildAndroid/build
-/EcgMonitor/BuildAndroid/captures
-/EcgMonitor/BuildAndroid/libs
-/EcgMonitor/BuildAndroid/obj
+/HostMonitor/BuildAndroid/local.properties
+/HostMonitor/BuildAndroid/.idea/workspace.xml
+/HostMonitor/BuildAndroid/.idea/libraries
+/HostMonitor/BuildAndroid/build
+/HostMonitor/BuildAndroid/captures
+/HostMonitor/BuildAndroid/libs
+/HostMonitor/BuildAndroid/obj
 
 #For Windows(Visual stduio)
 .vs
@@ -36,4 +36,3 @@ CMakeCache.txt
 CMakeFiles
 cmake_install.cmake
 Makefile
-EcgMonitor\sample\source\libsample.a

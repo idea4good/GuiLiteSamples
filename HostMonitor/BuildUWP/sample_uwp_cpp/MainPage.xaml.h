@@ -25,6 +25,7 @@ namespace sample_uwp_cpp
 		void init();
 		void update_screen(Platform::Object^ sender, Platform::Object^ e);
 	private:
+		int					m_color_bytes;
 		DispatcherTimer		m_timer;
 		ComPtr<AudioRender>	m_audio_render;
 	};

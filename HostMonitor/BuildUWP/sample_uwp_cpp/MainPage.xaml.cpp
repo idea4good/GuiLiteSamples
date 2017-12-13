@@ -22,10 +22,11 @@ using namespace Windows::UI::Xaml::Navigation;
 
 using namespace concurrency;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
-extern int run(int main_cnt, int sub_cnt);
+extern "C" int run_native(int main_cnt, int main_width, int main_height, int sub_cnt, int sub_width, int sub_height, int color_bytes);
 
 MainPage::MainPage()
 {
+	m_color_bytes = 2;
 	InitializeComponent();
 	init();
 }
@@ -41,19 +42,19 @@ void MainPage::init()
 	m_timer.Tick += ref new EventHandler<Object^>(this, &MainPage::update_screen);
 	m_timer.Start();
 
-	m_screen_main->set_attr(0);
+	m_screen_main->set_attr(0, m_color_bytes);
 	//left
-	m_screen_sub_0->set_attr(1);
-	m_screen_sub_1->set_attr(2);
-	m_screen_sub_2->set_attr(3);
-	m_screen_sub_3->set_attr(4);
+	m_screen_sub_0->set_attr(1, m_color_bytes);
+	m_screen_sub_1->set_attr(2, m_color_bytes);
+	m_screen_sub_2->set_attr(3, m_color_bytes);
+	m_screen_sub_3->set_attr(4, m_color_bytes);
 	//right
-	m_screen_sub_4->set_attr(5);
-	m_screen_sub_5->set_attr(6);
-	m_screen_sub_6->set_attr(7);
-	m_screen_sub_7->set_attr(8);
+	m_screen_sub_4->set_attr(5, m_color_bytes);
+	m_screen_sub_5->set_attr(6, m_color_bytes);
+	m_screen_sub_6->set_attr(7, m_color_bytes);
+	m_screen_sub_7->set_attr(8, m_color_bytes);
 	create_async([this]() {
-		run(1, 8);
+		run_native(1, 1024, 768, 8, 1024, 370, m_color_bytes);
 	});
 }
 

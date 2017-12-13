@@ -48,9 +48,10 @@ void SubScreen::initScreen()
 	m_screen_sub->PointerMoved += ref new PointerEventHandler(this, &SubScreen::OnPointerMoved);
 }
 
-void SubScreen::set_attr(int index)
+void SubScreen::set_attr(int index, int color_bytes)
 {
 	m_index = index;
+	m_color_bytes = color_bytes;
 }
 
 byte* SubScreen::get_pixel_data(IBuffer^ pixelBuffer, unsigned int *length)
@@ -85,20 +86,37 @@ void SubScreen::update_screen()
 	unsigned int length;
 	byte* sourcePixels = get_pixel_data(m_fb_bitmap->PixelBuffer, &length);
 
-	unsigned short* raw_data = (unsigned short*)get_frame_buffer(m_index, NULL, NULL);
+	void* raw_data = get_frame_buffer(m_index, NULL, NULL);
 	if (!raw_data)
 	{
 		return;
 	}
 
-	for (int i = 0; i < length; i += 4)
+	if (m_color_bytes == 4)
 	{
-		unsigned short rgb = *raw_data++;
+		unsigned int* p_data = (unsigned int*)raw_data;
+		for (int i = 0; i < length; i += 4)
+		{
+			unsigned int rgb = *p_data++;
 
-		sourcePixels[i + 3] = 0xff;//transport
-		sourcePixels[i] = ((rgb << 3) & 0xF8);
-		sourcePixels[i + 1] = ((rgb >> 3) & 0xFC);
-		sourcePixels[i + 2] = ((rgb >> 8) & 0xF8);
+			sourcePixels[i + 3] = 0xff;//transport
+			sourcePixels[i] = (rgb & 0xFF);
+			sourcePixels[i + 1] = ((rgb >> 8) & 0xFF);
+			sourcePixels[i + 2] = ((rgb >> 16) & 0xFF);
+		}
+	}
+	else//16 bits
+	{
+		unsigned short* p_data = (unsigned short*)raw_data;
+		for (int i = 0; i < length; i += 4)
+		{
+			unsigned short rgb = *p_data++;
+
+			sourcePixels[i + 3] = 0xff;//transport
+			sourcePixels[i] = ((rgb << 3) & 0xF8);
+			sourcePixels[i + 1] = ((rgb >> 3) & 0xFC);
+			sourcePixels[i + 2] = ((rgb >> 8) & 0xF8);
+		}
 	}
 	m_fb_bitmap->Invalidate();
 }

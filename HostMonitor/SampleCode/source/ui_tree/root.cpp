@@ -66,9 +66,9 @@ static WND_TREE s_root_children[] =
 	{	NULL,0,0,0,0,0,0}
 };
 
-void load_ui_single(void* phy_fb)
+void load_ui_single(void* phy_fb, int width, int height, int color_bytes)
 {
-	c_display* display = new c_display(phy_fb, SCREEN_WIDTH, SCREEN_HEIGHT, 4);
+	c_display* display = new c_display(phy_fb, width, height, SCREEN_WIDTH, SCREEN_HEIGHT, color_bytes, 4);
 	c_surface* surface = display->create_surface(&s_root, Z_ORDER_LEVEL_0);
 	surface->set_active(true);
 	s_root.set_surface(surface);
@@ -84,9 +84,9 @@ void load_ui_single(void* phy_fb)
 	new c_gesture(&s_root, &s_slide_group, display->get_hid_pipe());
 }
 
-void load_ui_multi(void* phy_fb)
+void load_ui_multi(void* phy_fb, int width, int height, int color_bytes)
 {
-	c_display* display = new c_display(phy_fb, SCREEN_WIDTH, SCREEN_HEIGHT, 4);
+	c_display* display = new c_display(phy_fb, width, height, SCREEN_WIDTH, SCREEN_HEIGHT, color_bytes, 4);
 	c_surface* surface = display->create_surface(&s_root, Z_ORDER_LEVEL_0);
 	surface->set_active(true);
 	s_root.set_surface(surface);
@@ -125,9 +125,9 @@ extern void create_page_mini_trend(c_slide_group* group);
 extern void create_clone_page_mini_trend(c_slide_group* group);
 extern void create_clone_page_mini_wav(c_slide_group* group);
 
-void load_mini_ui_single(void* phy_fb)
+void load_mini_ui_single(void* phy_fb, int width, int height, int color_bytes)
 {
-	c_display* display = new c_display(phy_fb, MINI_SCREEN_WIDTH, MINI_SCREEN_HEIGHT, 2);
+	c_display* display = new c_display(phy_fb, width, height, MINI_SCREEN_WIDTH, MINI_SCREEN_HEIGHT, color_bytes, 2);
 	c_surface* surface = display->create_surface(&s_mini_root, Z_ORDER_LEVEL_0);
 	surface->set_active(true);
 	s_mini_root.set_surface(surface);
@@ -141,9 +141,9 @@ void load_mini_ui_single(void* phy_fb)
 	new c_gesture(&s_mini_root, &s_mini_slide_group, display->get_hid_pipe());
 }
 
-void load_mini_ui_multi(void* phy_fb)
+void load_mini_ui_multi(void* phy_fb, int width, int height, int color_bytes)
 {
-	c_display* display = new c_display(phy_fb, MINI_SCREEN_WIDTH, MINI_SCREEN_HEIGHT, 2);
+	c_display* display = new c_display(phy_fb, width, height, MINI_SCREEN_WIDTH, MINI_SCREEN_HEIGHT, color_bytes, 2);
 	c_surface* surface = display->create_surface(&s_mini_root, Z_ORDER_LEVEL_0);
 	surface->set_active(true);
 	s_mini_root.set_surface(surface);

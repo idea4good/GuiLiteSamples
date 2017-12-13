@@ -5,7 +5,7 @@
 #include <string.h>
 #include <shellapi.h>
 
-extern int run(void** main_fbs, int main_cnt, void** sub_fbs, int sub_cnt);
+extern int run(void** main_fbs, int main_cnt, int main_width, int main_height, void** sub_fbs, int sub_cnt, int sub_width, int sub_height, int color_bytes);
 extern void init_std_io(int display_cnt);
 static const char* s_tip_welcome =
 "-------------------------------------------------------------------\n"
@@ -13,10 +13,8 @@ static const char* s_tip_welcome =
 "*  Any feedback will be appreciated. Email: idea4good@outlook.com *\n"
 "-------------------------------------------------------------------\n";
 
-int main(int argc, char** argv)
+static void launchIE()
 {
-	printf(s_tip_welcome);
-
 	int ret = (int)ShellExecute(0, L"open", L"Display.html", L"", L"", SW_SHOWNORMAL);
 	if (SE_ERR_NOASSOC >= ret)
 	{
@@ -33,9 +31,20 @@ int main(int argc, char** argv)
 			break;
 		}
 	}
-	
+}
+
+int main(int argc, char** argv)
+{
 	int main_cnt = 1;
 	int sub_cnt = 0;
+	int color_bytes = 2;
+	int main_screen_width = 1024;
+	int main_screen_height = 768;
+	int sub_screen_width = 1024;
+	int sub_screen_height = 370;
+
+	printf(s_tip_welcome);
+	launchIE();
 
 	if (argc == 3)
 	{
@@ -60,13 +69,13 @@ int main(int argc, char** argv)
 	void** sub_fbs = (void**)malloc(sizeof(void*) * sub_cnt);
 	for (int i = 0; i < main_cnt; i++)
 	{
-		main_fbs[i] = calloc(1024 * 768 * 2, 1);
+		main_fbs[i] = calloc(main_screen_width * main_screen_height, color_bytes);
 	}
 	for (int i = 0; i < sub_cnt; i++)
 	{
-		sub_fbs[i] = calloc(1024 * 370 * 2, 1);
+		sub_fbs[i] = calloc(sub_screen_width * sub_screen_height, color_bytes);
 	}
-	return run(main_fbs, main_cnt, sub_fbs, sub_cnt);	//never return;
+	return run(main_fbs, main_cnt, main_screen_width, main_screen_height, sub_fbs, sub_cnt, sub_screen_width, sub_screen_height, color_bytes);	//never return;
 }
 
 void do_assert(const char* file, int line)

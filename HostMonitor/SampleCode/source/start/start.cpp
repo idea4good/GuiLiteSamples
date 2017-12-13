@@ -17,16 +17,16 @@
 #include <string.h>
 #include <stdlib.h>
 
-extern void load_ui_multi(void* phy_fb);
-extern void load_ui_single(void* phy_fb);
-extern void load_mini_ui_single(void* phy_fb);
-extern void load_mini_ui_multi(void* phy_fb);
+extern void load_ui_single(void* phy_fb, int width, int height, int color_bytes);
+extern void load_ui_multi(void* phy_fb, int width, int height, int color_bytes);
+extern void load_mini_ui_single(void* phy_fb, int width, int height, int color_bytes);
+extern void load_mini_ui_multi(void* phy_fb, int width, int height, int color_bytes);
 
 static void init(int display_cnt);
 static void real_timer_routine(void* arg);
 static void database_timer_callback(void* ptmr, void* parg);
 
-int run(void** main_fbs, int main_cnt, void** sub_fbs, int sub_cnt)
+int run(void** main_fbs, int main_cnt, int main_width, int main_height, void** sub_fbs, int sub_cnt, int sub_width, int sub_height, int color_bytes)
 {
 	init(main_cnt + sub_cnt);
 
@@ -35,22 +35,22 @@ int run(void** main_fbs, int main_cnt, void** sub_fbs, int sub_cnt)
 	{
 		if ((main_cnt == 1) || (i == (main_cnt - 1)))
 		{
-			load_ui_single(main_fbs[i]);
+			load_ui_single(main_fbs[i], main_width, main_height, color_bytes);
 		}
 		else
 		{
-			load_ui_multi(main_fbs[i]);
+			load_ui_multi(main_fbs[i], main_width, main_height, color_bytes);
 		}
 	}
 	for (int i = 0; i < sub_cnt; i++)
 	{
 		if ((sub_cnt == 1) || (i == (sub_cnt - 1)))
 		{
-			load_mini_ui_single(sub_fbs[i]);
+			load_mini_ui_single(sub_fbs[i], sub_width, sub_height, color_bytes);
 		}
 		else
 		{
-			load_mini_ui_multi(sub_fbs[i]);
+			load_mini_ui_multi(sub_fbs[i], sub_width, sub_height, color_bytes);
 		}
 	}
 
@@ -73,19 +73,19 @@ int run(void** main_fbs, int main_cnt, void** sub_fbs, int sub_cnt)
 	return 0;
 }
 
-int run(int main_cnt, int sub_cnt)
+int run(int main_cnt, int main_width, int main_height, int sub_cnt, int sub_width, int sub_height, int color_bytes)
 {
 	void** main_fbs = (void**)malloc(sizeof(void*) * main_cnt);
 	void** sub_fbs = (void**)malloc(sizeof(void*) * sub_cnt);
 	for (int i = 0; i < main_cnt; i++)
 	{
-		main_fbs[i] = calloc(1024 * 768 * 2, 1);
+		main_fbs[i] = calloc(main_width * main_height, color_bytes);
 	}
 	for (int i = 0; i < sub_cnt; i++)
 	{
-		sub_fbs[i] = calloc(1024 * 370 * 2, 1);
+		sub_fbs[i] = calloc(sub_width * sub_height, color_bytes);
 	}
-	return run(main_fbs, main_cnt, sub_fbs, sub_cnt);
+	return run(main_fbs, main_cnt, main_width, main_height, sub_fbs, sub_cnt, sub_width, sub_height, color_bytes);
 }
 
 static void init(int display_cnt)

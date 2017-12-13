@@ -44,7 +44,7 @@ Note: Windows RS3(fall creators update) is needed.
 - `cmake .`
 - `make`
 
-3. Run with QT APP(display-xxx is a QT APP for display, skip this if you haven't installed QT):
+3. Run inside QT APP(display-xxx is a QT APP for display, skip this if you haven't installed QT):
 - `chmod 777 *`
 - If x64:`./display-x64 | ./sample_native shared-fb`
 - If ARM:`./display-arm | ./sample_native shared-fb`

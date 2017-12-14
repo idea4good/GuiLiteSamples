@@ -170,6 +170,7 @@ static void* get_dev_fb(char* path, int &width, int &height, int &color_bytes)
 		printf("mmap fb failed!\n");  
 		_exit(-1);
 	}
+	memset(fbp, 0, (vinfo.xres * vinfo.yres * color_bytes));
 	return fbp;
 }
 

@@ -165,6 +165,11 @@
   <ItemGroup>
     <ResourceFiles Include="$(SolutionDir)resource\*.*" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SampleCode\sample.vcxproj">
+      <Project>{289e64c1-73c4-4533-9a06-9ddbf52235bb}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Target Name="_CopyResources" AfterTargets="Build">
     <Copy SourceFiles="@(ResourceFiles)" DestinationFolder="$(OutDir)" />
     <Copy SourceFiles="@(ResourceFiles)" DestinationFolder="." />

@@ -1,13 +1,65 @@
-## How to build/run for Windows UWP?
+## How to build for Win32?
+- Open "HostMonitor\BuildWin32\HostMonitor.sln" by Visual studio 2017
+- Click `build` sample
+- `copy BuildWin32/Debug(Release)/sample.lib BuildWin32\sample_native\libs\x86(x64)\sample.lib`
+- Click `build` sample_native
+- Click `F5` to run sample_native
+
+## How to build for ARM Linux device?
+### Install cross compiler:
+For example: arm-linux-gnueabi-gcc
+
+- `cd HostMonitor\BuildLinux`
+- `cmake -D CMAKE_C_COMPILER="/usr/bin/arm-linux-gnueabi-gcc" -D CMAKE_CXX_COMPILER="/usr/bin/arm-linux-gnueabi-g++" -D TARGET_ARCH="ARM" .`
+- `make`
+- `chmod 777 *`
+- `./sample_native /dev/fb0`	/dev/fb0: The path of framebuffer device file.
+
+## How to build for x64 Linux or Rasperry Pi?
+1. Build target:
+- `cd HostMonitor\BuildLinux`
+- `cmake .`
+- `make`
+- `chmod 777 *`
+
+2. Run with internet explore:
+- `./sample_native 1 8`
+- Command `ss` you will get snapshot in BuildLinux\sample_native\snapshotx.bmp
+- Command `sslp` and open "BuildLinux\Display.html" with internet browser(such like: Firefox, chrome)
+
+3. Run inside QT APP(display-xxx is a QT APP for display, skip this if you haven't installed QT):
+- If x64:`./display-x64 | ./sample_native shared-fb`
+- If raspberry pi:`./display-arm | ./sample_native shared-fb`
+- The source code of display-xxx here: HostMonitor/BuildLinux/display.src
+
+## How to build/run for Android?
+### Install software:
+- `sudo apt-get install gcc-arm-linux-androideabi`
+- Install Android NDK.
+
+- `cd HostMonitor\BuildLinux`
+- `cmake -D CMAKE_C_COMPILER="/usr/bin/arm-linux-androideabi-gcc" -D CMAKE_CXX_COMPILER="/usr/bin/arm-linux-androideabi-g++" .`
+- `make`
+- `cp SampleCode\sample.lib  BuildAndroid\jni\libs`
+- `cd BuildAndroid\jni\libs`
+- `./merge_libs.sh`
+- `cd BuildAndroid\jni`
+- `ndk-build clean`
+- `ndk-build`
+- `cp BuildAndroid\libs\armeabi-v7a\libnative.so BuildAndroid\app\libs\armeabi-v7a\
+- Open "BuildAndroid" with Android studio
+- Click `build/debug/run`
+
+Note:
+Run `./merge_libs.sh` meet error, maybe you need run `dos2unix merge_libs.sh`
+
+## How to build for Windows UWP?
 depdency: Windows 10, visul stdio 2015/2017
 
-1. build sample.lib:
 - Open "SampleCode\sample.sln" by Visual studio 2017
 - Click `build` 
-
-2. build/run Windows APP
-- Copy "SampleCode\debug\sample.lib" you build to "BuildUWP\sample_uwp_cpp\libs\x86(or x64)"
-- Open "BuildUWP\GuiLite.sln" by Visual studio 2017
+- `copy SampleCode\debug\sample.lib BuildUWP\sample_uwp_cpp\libs\x86(x64)\`
+- Open "BuildUWP\HostMonitor.sln" by Visual studio 2017
 - Click `build`
 - Click `debug/run`
 
@@ -17,64 +69,3 @@ depdency: Windows 10, visul stdio 2015/2017
 - press `start`, find the UWP you build and run.
 
 Note: Windows RS3(fall creators update) is needed.
-
-## How to build/run for Win32?
-1. build sample.lib:
-- Open "SampleCode\sample.sln" by Visual studio 2017
-- Click `build` 
-
-2. build/run Windows APP:
-- Copy "SampleCode\debug\sample.lib" you build to "BuildWin32\sample_uwp_cpp\libs\x86(or x64)"
-- Open "BuildWin32\GuiLite.sln" by Visual studio 2017
-- Click `build`
-- Click `debug/run`
-- Command `ss` you will get snapshot in BuildWin32\sample_native\snapshotx.bmp
-- Command `sslp` and open "BuildWin32\sample_native\Display.html" with internet browser(such like: IE, chrome)
-
-## How to build/run for Linux（x64 & arm）?
-1. build libsample.a:
-- `cd SampleCode`
-- `cmake .`
-- `make`
-
-2. build Linux APP:
-- Copy "SampleCode\source\libsample.a" you build to "BuildLinux\libs"
-- If ARM: Copy "BuildLinux\libs\arm\libcore.a libgui.a" to overwrite "BuildLinux\libs\libcore.a libgui.a"
-- `cd BuildLinux`
-- `cmake .`
-- `make`
-
-3. Run inside QT APP(display-xxx is a QT APP for display, skip this if you haven't installed QT):
-- `chmod 777 *`
-- If x64:`./display-x64 | ./sample_native shared-fb`
-- If ARM:`./display-arm | ./sample_native shared-fb`
-- The source code of display-xxx here: HostMonitor/BuildLinux/display.src
-
-4. Run with internet explore:
-- `./sample_native 1 8`
-- Command `ss` you will get snapshot in BuildLinux\sample_native\snapshotx.bmp
-- Command `sslp` and open "BuildLinux\Display.html" with internet browser(such like: Firefox, chrome)
-
-## How to build/run for Android?
-### Install software:
-- `sudo apt-get install gcc-arm-linux-androideabi`
-- Install Android NDK.
-
-1. build sample.lib:
-- `cd SampleCode`
-- `cmake -D CMAKE_C_COMPILER="/usr/bin/arm-linux-androideabi-gcc" -D CMAKE_CXX_COMPILER="/usr/bin/arm-linux-androideabi-g++" .`
-- `make`
-
-2. build Android APP:
-- Copy "SampleCode\source\sample.lib" you build to "BuildAndroid\jni\libs"
-- `cd BuildAndroid\jni\libs`
-- `./merge_libs.sh`
-- `cd BuildAndroid\jni`
-- `ndk-build clean`
-- `ndk-build`
-- Copy "BuildAndroid\libs\armeabi-v7a\libnative.so" you build to "BuildAndroid\app\libs\armeabi-v7a"
-- Open "BuildAndroid" with Android studio
-- Click `build/debug/run`
-
-Note:
-Run `./merge_libs.sh` meet error, maybe you need run `dos2unix merge_libs.sh`

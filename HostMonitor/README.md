@@ -8,18 +8,22 @@
 ## How to build for ARM Linux device?
 ### Install cross compiler:
 For example: arm-linux-gnueabi-gcc
+`sudo apt-get install g++-arm-linux-gnueabi`
+`sudo apt-get install gcc-arm-linux-gnueabi`
 
-- `cd HostMonitor\BuildLinux`
+- `cd HostMonitor`
 - `cmake -D CMAKE_C_COMPILER="/usr/bin/arm-linux-gnueabi-gcc" -D CMAKE_CXX_COMPILER="/usr/bin/arm-linux-gnueabi-g++" -D TARGET_ARCH="ARM" .`
 - `make`
+- `cd BuildLinux`
 - `chmod 777 *`
 - `./sample_native /dev/fb0`	/dev/fb0: The path of framebuffer device file.
 
 ## How to build for x64 Linux or Rasperry Pi?
 1. Build target:
-- `cd HostMonitor\BuildLinux`
+- `cd HostMonitor`
 - `cmake .`
 - `make`
+- `cd BuildLinux`
 - `chmod 777 *`
 
 2. Run with internet explore:

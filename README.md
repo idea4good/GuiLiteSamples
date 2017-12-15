@@ -14,7 +14,7 @@ Run on Android:
 
 Run on Mac:
 
-![preview Mac](preview-Mac.png)
+![preview Mac](preview-Mac.jpg)
 
 Run on Windows mixed reality device:![preview Win MR](preview-WinMixedReality.png)
 

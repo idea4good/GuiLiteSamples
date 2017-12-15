@@ -40,6 +40,7 @@ For example: arm-linux-gnueabi-gcc
 - The source code of display-xxx here: HostMonitor/BuildLinux/display.src
 
 ## How to build for Mac?
+### libcore.a libgui.a should be in BuildMac\libs, rebuild them if meet link error.
 - `cd HostMonitor`
 - `cmake -D TARGET_OS="MAC" .`
 - `make`

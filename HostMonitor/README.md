@@ -1,4 +1,5 @@
 ## How to build for Win32?
+### core.lib gui.lib should be in BuildWin32\sample_native\libs\x86(x64)\
 - Open "HostMonitor\BuildWin32\HostMonitor.sln" by Visual studio 2017
 - Click `build` sample
 - `copy BuildWin32/Debug(Release)/sample.lib BuildWin32\sample_native\libs\x86(x64)\sample.lib`
@@ -6,10 +7,11 @@
 - Click `F5` to run sample_native
 
 ## How to build for ARM Linux device?
+### libcore.a libgui.a should be in BuildLinux\libs\arm\
 ### Install cross compiler:
 For example: arm-linux-gnueabi-gcc
-`sudo apt-get install g++-arm-linux-gnueabi`
-`sudo apt-get install gcc-arm-linux-gnueabi`
+
+`sudo apt-get install gcc-arm-linux-gnueabi g++-arm-linux-gnueabi`
 
 - `cd HostMonitor`
 - `cmake -D CMAKE_C_COMPILER="/usr/bin/arm-linux-gnueabi-gcc" -D CMAKE_CXX_COMPILER="/usr/bin/arm-linux-gnueabi-g++" -D TARGET_ARCH="ARM" .`
@@ -19,6 +21,7 @@ For example: arm-linux-gnueabi-gcc
 - `./sample_native /dev/fb0`	/dev/fb0: The path of framebuffer device file.
 
 ## How to build for x64 Linux or Rasperry Pi?
+### libcore.a libgui.a should be in BuildLinux\libs\
 1. Build target:
 - `cd HostMonitor`
 - `cmake .`

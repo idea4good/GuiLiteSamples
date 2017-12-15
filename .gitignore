@@ -31,8 +31,12 @@ BundleArtifacts
 *.o
 *.map
 #*.mk  android jni need it.
+
 #For cmake
 CMakeCache.txt
 CMakeFiles
 cmake_install.cmake
 Makefile
+
+#For output
+libsample.a

@@ -1,4 +1,5 @@
 #For Android(Android studio)
+build
 *.iml
 .gradle
 .DS_Store

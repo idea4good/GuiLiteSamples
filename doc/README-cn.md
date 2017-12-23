@@ -6,14 +6,14 @@ UI的本质不过6千行的[GuiLite](https://github.com/idea4good/GuiLite)而已
 
 Android上的运行效果:
 
-![preview Android](doc/preview-Android.png)
+![preview Android](preview-Android.png)
 
 Mac上的运行效果:
 
-![preview Mac](doc/preview-Mac.jpg)
+![preview Mac](preview-Mac.jpg)
 
-虚拟现实上的运行效果:![preview Win MR](doc/preview-WinMixedReality.png)
+虚拟现实上的运行效果:![preview Win MR](preview-WinMixedReality.png)
 
-Linux上的运行效果:![preview Linux](doc/preview-Linux.png)
+Linux上的运行效果:![preview Linux](preview-Linux.png)
 
-树莓派上的运行效果:![preview RaspberryPi](doc/preview-RaspberryPi.jpg)
+树莓派上的运行效果:![preview RaspberryPi](preview-RaspberryPi.jpg)

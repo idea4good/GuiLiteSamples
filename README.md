@@ -10,13 +10,13 @@ Here are snapshots when running, enjoy it!
 
 Run on Android:
 
-![preview Android](doc/preview-Android.png)
+![preview Android](doc/preview-Android.gif)
 
 Run on Mac:
 
-![preview Mac](doc/preview-Mac.jpg)
+![preview Mac](doc/preview-Mac.gif)
 
-Run on Windows mixed reality device:![preview Win MR](doc/preview-WinMixedReality.png)
+Run on Windows mixed reality device:![preview Win MR](doc/preview-WinMixedReality.gif)
 
 Run on Linux:![preview Linux](doc/preview-Linux.png)
 

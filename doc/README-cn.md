@@ -3,7 +3,7 @@
 - 你看过[GuiLite](https://github.com/idea4good/GuiLite)的运行效果了吗？如果没看，可以先了解一下。
 - 是不是感觉很复杂？我只是一个资质平庸的开发者，我能做到的，你也可以！
 
-## 自己动手，让炫酷的效果跑在你的 Mac电脑，Android手机，Linux设备上
+## 自己动手，让炫酷的效果跑在你的 Mac/Windows电脑，Android手机，Linux设备上
 HostMonitor 只有2千行代码与UI相关，用来解释如何进行UI布局和自定义控件。
 
 [如何编译 "host monitor"](../HostMonitor/README.md)

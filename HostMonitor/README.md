@@ -40,14 +40,21 @@ For example: arm-linux-gnueabi-gcc
 - The source code of display-xxx here: HostMonitor/BuildLinux/display.src
 
 ## How to build for Mac?
-### libcore.a libgui.a should be in BuildMac\libs, rebuild them if meet link error.
 - `cd HostMonitor`
 - `cmake -D TARGET_OS="MAC" .`
 - `make`
-- `cd BuildMac`
+
+### Run as command line
+#### libcore.a libgui.a should be in BuildMacCmd\libs, rebuild them if meet link error.
+- `cd BuildMacCmd`
 - `./sample_native 1 8`
-- Command `ss` you will get snapshot in BuildMac\sample_native\snapshotx.bmp
-- Command `sslp` and open "BuildMac\Display.html" with internet browser(such like: Safari, chrome)
+- Command `ss` you will get snapshot in BuildMacCmd\sample_native\snapshotx.bmp
+- Command `sslp` and open "BuildMacCmd\Display.html" with internet browser(such like: Safari, chrome)
+
+### Run as UI APP
+#### libcore.a libgui.a libsample.a should be in BuildMacCocoa\GuiLiteDemo\libs, rebuild them if meet link error.
+- Open `BuildMacCocoa\GuiLiteDemo.xcodeproj` with Xcode
+- Build and Run
 
 ## How to build/run for Android?
 ### Install software:

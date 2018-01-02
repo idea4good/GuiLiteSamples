@@ -1,4 +1,4 @@
-#For Android(Android studio)
+# For Android(Android studio)
 build
 *.iml
 .gradle
@@ -11,7 +11,7 @@ build
 /HostMonitor/BuildAndroid/libs
 /HostMonitor/BuildAndroid/obj
 
-#For Windows(Visual stduio)
+# For Windows(Visual stduio)
 .vs
 ipch
 *.suo
@@ -27,17 +27,24 @@ Generated Files
 AppPackages
 BundleArtifacts
 
-#For Linux(GCC)
+# For Linux(GCC)
 *.d
 *.o
 *.map
-#*.mk  android jni need it.
+*.mk  android jni need it.
 
-#For cmake
+# For cmake
 CMakeCache.txt
 CMakeFiles
 cmake_install.cmake
 Makefile
 
-#For output
+# For Xcode
+.DS_store
+*.swp
+*.lock
+profile
+xcuserdata
+
+# For output
 libsample.a

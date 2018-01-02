@@ -1,0 +1,365 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F47C125D1FEBDD3F005D635A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47C125C1FEBDD3F005D635A /* AppDelegate.swift */; };
+		F47C125F1FEBDD3F005D635A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47C125E1FEBDD3F005D635A /* ViewController.swift */; };
+		F47C12611FEBDD3F005D635A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F47C12601FEBDD3F005D635A /* Assets.xcassets */; };
+		F47C12641FEBDD3F005D635A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F47C12621FEBDD3F005D635A /* Main.storyboard */; };
+		F47C126D1FEBDD84005D635A /* NativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47C126C1FEBDD84005D635A /* NativeView.swift */; };
+		F47C126F1FEBDDFD005D635A /* NativeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F47C126E1FEBDDFD005D635A /* NativeView.xib */; };
+		F4E9B0081FF239CD006CD49F /* native.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F4E9B0061FF239CD006CD49F /* native.cpp */; };
+		F4E9B00B1FF23AF1006CD49F /* libcore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E9B00A1FF23AF1006CD49F /* libcore.a */; };
+		F4E9B00D1FF23AFC006CD49F /* libgui.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E9B00C1FF23AFC006CD49F /* libgui.a */; };
+		F4E9B00F1FF23B07006CD49F /* libsample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E9B00E1FF23B07006CD49F /* libsample.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F47C12591FEBDD3F005D635A /* GuiLiteDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuiLiteDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F47C125C1FEBDD3F005D635A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F47C125E1FEBDD3F005D635A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F47C12601FEBDD3F005D635A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F47C12631FEBDD3F005D635A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F47C12651FEBDD3F005D635A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F47C12661FEBDD3F005D635A /* GuiLiteDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GuiLiteDemo.entitlements; sourceTree = "<group>"; };
+		F47C126C1FEBDD84005D635A /* NativeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeView.swift; sourceTree = "<group>"; };
+		F47C126E1FEBDDFD005D635A /* NativeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NativeView.xib; sourceTree = "<group>"; };
+		F4E9B0051FF239CD006CD49F /* GuiLiteDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GuiLiteDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		F4E9B0061FF239CD006CD49F /* native.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = native.cpp; sourceTree = "<group>"; };
+		F4E9B0071FF239CD006CD49F /* native.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = native.hpp; sourceTree = "<group>"; };
+		F4E9B00A1FF23AF1006CD49F /* libcore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcore.a; path = GuiLiteDemo/libs/libcore.a; sourceTree = "<group>"; };
+		F4E9B00C1FF23AFC006CD49F /* libgui.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgui.a; path = GuiLiteDemo/libs/libgui.a; sourceTree = "<group>"; };
+		F4E9B00E1FF23B07006CD49F /* libsample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsample.a; path = GuiLiteDemo/libs/libsample.a; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F47C12561FEBDD3F005D635A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4E9B00F1FF23B07006CD49F /* libsample.a in Frameworks */,
+				F4E9B00D1FF23AFC006CD49F /* libgui.a in Frameworks */,
+				F4E9B00B1FF23AF1006CD49F /* libcore.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F47C12501FEBDD3F005D635A = {
+			isa = PBXGroup;
+			children = (
+				F47C125B1FEBDD3F005D635A /* GuiLiteDemo */,
+				F47C125A1FEBDD3F005D635A /* Products */,
+				F4E9B0091FF23AF1006CD49F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F47C125A1FEBDD3F005D635A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F47C12591FEBDD3F005D635A /* GuiLiteDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F47C125B1FEBDD3F005D635A /* GuiLiteDemo */ = {
+			isa = PBXGroup;
+			children = (
+				F47C125C1FEBDD3F005D635A /* AppDelegate.swift */,
+				F47C125E1FEBDD3F005D635A /* ViewController.swift */,
+				F47C12601FEBDD3F005D635A /* Assets.xcassets */,
+				F47C12621FEBDD3F005D635A /* Main.storyboard */,
+				F47C12651FEBDD3F005D635A /* Info.plist */,
+				F47C12661FEBDD3F005D635A /* GuiLiteDemo.entitlements */,
+				F47C126C1FEBDD84005D635A /* NativeView.swift */,
+				F47C126E1FEBDDFD005D635A /* NativeView.xib */,
+				F4E9B0061FF239CD006CD49F /* native.cpp */,
+				F4E9B0071FF239CD006CD49F /* native.hpp */,
+				F4E9B0051FF239CD006CD49F /* GuiLiteDemo-Bridging-Header.h */,
+			);
+			path = GuiLiteDemo;
+			sourceTree = "<group>";
+		};
+		F4E9B0091FF23AF1006CD49F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F4E9B00E1FF23B07006CD49F /* libsample.a */,
+				F4E9B00C1FF23AFC006CD49F /* libgui.a */,
+				F4E9B00A1FF23AF1006CD49F /* libcore.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F47C12581FEBDD3F005D635A /* GuiLiteDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F47C12691FEBDD3F005D635A /* Build configuration list for PBXNativeTarget "GuiLiteDemo" */;
+			buildPhases = (
+				F47C12551FEBDD3F005D635A /* Sources */,
+				F47C12561FEBDD3F005D635A /* Frameworks */,
+				F47C12571FEBDD3F005D635A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GuiLiteDemo;
+			productName = GuiLiteDemo;
+			productReference = F47C12591FEBDD3F005D635A /* GuiLiteDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F47C12511FEBDD3F005D635A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				TargetAttributes = {
+					F47C12581FEBDD3F005D635A = {
+						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = F47C12541FEBDD3F005D635A /* Build configuration list for PBXProject "GuiLiteDemo" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F47C12501FEBDD3F005D635A;
+			productRefGroup = F47C125A1FEBDD3F005D635A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F47C12581FEBDD3F005D635A /* GuiLiteDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F47C12571FEBDD3F005D635A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F47C126F1FEBDDFD005D635A /* NativeView.xib in Resources */,
+				F47C12611FEBDD3F005D635A /* Assets.xcassets in Resources */,
+				F47C12641FEBDD3F005D635A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F47C12551FEBDD3F005D635A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F47C125F1FEBDD3F005D635A /* ViewController.swift in Sources */,
+				F47C125D1FEBDD3F005D635A /* AppDelegate.swift in Sources */,
+				F4E9B0081FF239CD006CD49F /* native.cpp in Sources */,
+				F47C126D1FEBDD84005D635A /* NativeView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F47C12621FEBDD3F005D635A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F47C12631FEBDD3F005D635A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F47C12671FEBDD3F005D635A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F47C12681FEBDD3F005D635A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		F47C126A1FEBDD3F005D635A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = GuiLiteDemo/GuiLiteDemo.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = GuiLiteDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GuiLiteDemo/libs",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = idea4good.GuiLiteDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GuiLiteDemo/GuiLiteDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		F47C126B1FEBDD3F005D635A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = GuiLiteDemo/GuiLiteDemo.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = GuiLiteDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GuiLiteDemo/libs",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = idea4good.GuiLiteDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GuiLiteDemo/GuiLiteDemo-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F47C12541FEBDD3F005D635A /* Build configuration list for PBXProject "GuiLiteDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F47C12671FEBDD3F005D635A /* Debug */,
+				F47C12681FEBDD3F005D635A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F47C12691FEBDD3F005D635A /* Build configuration list for PBXNativeTarget "GuiLiteDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F47C126A1FEBDD3F005D635A /* Debug */,
+				F47C126B1FEBDD3F005D635A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F47C12511FEBDD3F005D635A /* Project object */;
+}

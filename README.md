@@ -1,6 +1,15 @@
 # GuiLite Samples - Do it yourself! QQ group: `527251257`
-![Mac](doc/Mac.gif) ![Win MR](doc/WinMR.gif)
+Mac & IOS:
+
+![Mac](doc/Mac.gif) ![IOS](doc/Ios.landscape.gif)
+
+Android & Linux embeded:
+
 ![Android](doc/Android.gif) ![Linux](doc/Linux.gif)
+
+Windows:
+
+![Win MR](doc/WinMR.gif)
 
 [中文](doc/README-cn.md)
 

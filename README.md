@@ -43,3 +43,6 @@ Looks complex? Trust me, We're normal guys, you can do everything we do.
 - Dare to build
 - Dare to modification
 - Dare to create your UI framework
+
+## Repository Mirror
+[Link to Gitee in China](https://gitee.com/idea4good/GuiLiteSamples)

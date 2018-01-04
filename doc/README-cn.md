@@ -40,3 +40,6 @@ Snake只有200+行代码，用来解释如何绘制、渲染，通过对它的�
 - 敢于编译、运行
 - 敢于修改代码
 - 敢于开创自己的UI
+
+## 代码镜像
+[国内码云链接](https://gitee.com/idea4good/GuiLiteSamples)

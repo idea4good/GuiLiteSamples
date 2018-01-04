@@ -1,13 +1,13 @@
 # GuiLite Samples - Do it yourself! QQ group: `527251257`
-Mac & IOS:
+Runs on Mac & IOS:
 
 ![Mac](doc/Mac.gif) ![IOS](doc/Ios.landscape.gif)
 
-Android & Linux embeded:
+Runs on Android & ARM Linux embeded:
 
 ![Android](doc/Android.gif) ![Linux](doc/Linux.gif)
 
-Windows:
+Runs on Windows Mixed Reality:
 
 ![Win MR](doc/WinMR.gif)
 

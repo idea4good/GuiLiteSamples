@@ -1,13 +1,13 @@
 # GuiLite Samples - 你自己的精彩 - 开发者qq群: `527251257`
-Mac & IOS:
+在IOS，Mac下的运行效果:
 
 ![Mac](Mac.gif) ![IOS](Ios.landscape.gif)
 
-Android & Linux embeded:
+在Android，嵌入式ARM Linux下的运行效果:
 
 ![Android](Android.gif) ![Linux](Linux.gif)
 
-Windows:
+在Windows混合现实下的运行效果:
 
 ![Win MR](WinMR.gif)
 

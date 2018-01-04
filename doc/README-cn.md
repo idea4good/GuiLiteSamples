@@ -11,7 +11,7 @@ Windows:
 
 ![Win MR](WinMR.gif)
 
-- GuiLite samples包括2个跨平台工程，一个是“Host monitor”，另一个是“Snake”；他们都是基于GuiLite编写的实际应用，用来说明GuiLite的接口使用方法，并让你的程序同时运行在：IOS，Android，Linux，Windows，Mac平台上。
+- GuiLite samples包括2个跨平台工程，一个是“Host monitor”，另一个是“Snake”；他们都是基于[GuiLite](https://github.com/idea4good/GuiLite)编写的实际应用，用来说明GuiLite的接口使用方法，并让你的程序同时运行在：IOS，Android，Linux，Windows，Mac平台上。
 - GuiLite samples极易编译，在QQ开发群的帮助下，现在的编译通过率接近100%
 
 ## Host Monitor
@@ -24,9 +24,10 @@ HostMonitor有2千行UI代码, 用来布局UI和自定义控件
 - HostMonitor\BuildAndroid: **Java 语言, 用于Android平台**
 - HostMonitor\BuildIOS: **Swift code, 用于 IOS平台**
 - HostMonitor\BuildLinux: **C 语言, 用于Linux平台**
-- HostMonitor\BuildWin32: **C 语言, 用于Windows console**
+- HostMonitor\BuildWin32: **C 语言, 用于Windows控制台**
 - HostMonitor\BuildUWP: **CX 语言, 用于通用Windows平台(包括：虚拟/混合现实)**
-- HostMonitor\BuildMac: **Swift 语言, 用于Mac平台**
+- HostMonitor\BuildMacCmd: **Swift语言, 用于Mac命令行模式**
+- HostMonitor\BuildMacCocoa: **Swift语言, 用于Mac图形应用**
 
 [编译"host monitor"](HostMonitor/README.md)
 

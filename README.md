@@ -1,7 +1,7 @@
 # GuiLite Samples - Do it yourself! QQ group: `527251257`
-Runs on Mac & IOS:
+Runs on Mac & iOS:
 
-![Mac](doc/Mac.gif) ![IOS](doc/Ios.landscape.gif)
+![Mac](doc/Mac.gif) ![iOS](doc/Ios.landscape.gif)
 
 Runs on Android & ARM Linux embeded:
 
@@ -13,7 +13,7 @@ Runs on Windows Mixed Reality:
 
 [中文](doc/README-cn.md)
 
-- GuiLite samples has 2 cross platform projects. one is "host monitor", the other is "snake"; they all base on [GuiLite](https://github.com/idea4good/GuiLite), they show you how to use GuiLite interface, and how GuiLite works on IOS, Android, Linux, Windows, Mac platform.
+- GuiLite samples has 2 cross platform projects. one is "host monitor", the other is "snake"; they all base on [GuiLite](https://github.com/idea4good/GuiLite), they show you how to use GuiLite interface, and how GuiLite works on iOS, Android, Linux, Windows, Mac platform.
 - GuiLite samples are easy to compile & run. With the help of QQ group, you will pass the compiling nearly 100%
 
 ## Host Monitor
@@ -24,7 +24,7 @@ HostMonitor has 2,000 lines code related to UI, will show you how to layout UI, 
 
 ### Cross platform
 - HostMonitor\BuildAndroid: **Java code, for Android**
-- HostMonitor\BuildIOS: **Swift code, for IOS**
+- HostMonitor\BuildIOS: **Swift code, for iOS**
 - HostMonitor\BuildLinux: **C code, for Linux**
 - HostMonitor\BuildWin32: **C code, for Windows command mode**
 - HostMonitor\BuildUWP: **CX code, for UWP(include Mixed/Virtual Reality)**

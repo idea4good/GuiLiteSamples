@@ -1,7 +1,7 @@
 # GuiLite Samples - 你自己的精彩 - 开发者qq群: `527251257`
-在IOS，Mac下的运行效果:
+在iOS，Mac下的运行效果:
 
-![Mac](Mac.gif) ![IOS](Ios.landscape.gif)
+![Mac](Mac.gif) ![iOS](Ios.landscape.gif)
 
 在Android，嵌入式ARM Linux下的运行效果:
 
@@ -22,7 +22,7 @@ HostMonitor有2千行UI代码, 用来布局UI和自定义控件
 
 ### 跨平台办法
 - HostMonitor\BuildAndroid: **Java 语言, 用于Android平台**
-- HostMonitor\BuildIOS: **Swift code, 用于 IOS平台**
+- HostMonitor\BuildIOS: **Swift code, 用于 iOS平台**
 - HostMonitor\BuildLinux: **C 语言, 用于Linux平台**
 - HostMonitor\BuildWin32: **C 语言, 用于Windows控制台**
 - HostMonitor\BuildUWP: **CX 语言, 用于通用Windows平台(包括：虚拟/混合现实)**

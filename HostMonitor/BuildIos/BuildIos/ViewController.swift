@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var imgView: UIImageView!
+    let nativeUiWidth: CGFloat = 1024
+    let nativeUiHeight: CGFloat = 768
     var isMouseDown = false
     
     override func viewDidLoad() {
@@ -26,21 +28,15 @@ class ViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first{
-            let pos = touch.location(in: self.imgView)
-        
-            mouse_down(Int32(pos.x), Int32(pos.y))
-            self.isMouseDown = true
-        }
+        let pos = touchPosToNative(touches: touches)
+        mouse_down((pos[0]), (pos[1]))
+        self.isMouseDown = true
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first{
-            let pos = touch.location(in: self.imgView)
-            
-            mouse_up(Int32(pos.x), Int32(pos.y))
-            self.isMouseDown = false
-        }
+        let pos = touchPosToNative(touches: touches)
+        mouse_up((pos[0]), (pos[1]))
+        self.isMouseDown = false
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -48,13 +44,22 @@ class ViewController: UIViewController {
             return
         }
         
+        let pos = touchPosToNative(touches: touches)
+        mouse_down((pos[0]), (pos[1]))
+    }
+
+    func touchPosToNative(touches: Set<UITouch>)->Array<Int32>{
+        let viewWidth = self.imgView.frame.size.width
+        let viewHeight = self.imgView.frame.size.height
+        
         if let touch = touches.first{
             let pos = touch.location(in: self.imgView)
             
-            mouse_down(Int32(pos.x), Int32(pos.y))
+            return [Int32(self.nativeUiWidth * pos.x / viewWidth), Int32(self.nativeUiHeight * pos.y / viewHeight)]
         }
+        return [0, 0]
     }
-
+    
     func buildImage(imgWidth: Int, imgHeight: Int) -> UIImage?{
         let pixData = getPixels(imgWidth: imgWidth, imgHeight: imgHeight)
         if(pixData == nil){
@@ -93,7 +98,7 @@ class ViewController: UIViewController {
         if(self.imgView == nil){
             return
         }
-        self.imgView.image = buildImage(imgWidth: 1024, imgHeight: 768)
+        self.imgView.image = buildImage(imgWidth: Int(self.nativeUiWidth), imgHeight: Int(self.nativeUiHeight))
         self.imgView.setNeedsDisplay()
     }
     

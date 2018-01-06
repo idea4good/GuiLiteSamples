@@ -29,13 +29,13 @@ class ViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let pos = touchPosToNative(touches: touches)
-        mouse_down((pos[0]), (pos[1]))
+        mouse_down(pos.0, pos.1)
         self.isMouseDown = true
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         let pos = touchPosToNative(touches: touches)
-        mouse_up((pos[0]), (pos[1]))
+        mouse_up(pos.0, pos.1)
         self.isMouseDown = false
     }
     
@@ -45,19 +45,19 @@ class ViewController: UIViewController {
         }
         
         let pos = touchPosToNative(touches: touches)
-        mouse_down((pos[0]), (pos[1]))
+        mouse_down(pos.0, pos.1)
     }
 
-    func touchPosToNative(touches: Set<UITouch>)->Array<Int32>{
+    func touchPosToNative(touches: Set<UITouch>)->(Int32, Int32){
         let viewWidth = self.imgView.frame.size.width
         let viewHeight = self.imgView.frame.size.height
         
         if let touch = touches.first{
             let pos = touch.location(in: self.imgView)
             
-            return [Int32(self.nativeUiWidth * pos.x / viewWidth), Int32(self.nativeUiHeight * pos.y / viewHeight)]
+            return (Int32(self.nativeUiWidth * pos.x / viewWidth), Int32(self.nativeUiHeight * pos.y / viewHeight))
         }
-        return [0, 0]
+        return (0, 0)
     }
     
     func buildImage(imgWidth: Int, imgHeight: Int) -> UIImage?{

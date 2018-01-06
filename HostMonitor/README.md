@@ -39,19 +39,25 @@ For example: arm-linux-gnueabi-gcc
 - If raspberry pi:`./display-arm | ./sample_native shared-fb`
 - The source code of display-xxx here: HostMonitor/BuildLinux/display.src
 
+## How to build for iOS?
+#### libcore.a libgui.a libsample.a should be in \BuildIos\BuildIos\libs, rebuild them if meet link error.
+- `cd HostMonitor\BuildIos`
+- Open `BuildIos.xcodeproj` with Xcode
+- Build and Run
+
 ## How to build for Mac?
 - `cd HostMonitor`
 - `cmake -D TARGET_OS="MAC" .`
 - `make`
 
-### Run as command line
+### Run in command mode
 #### libcore.a libgui.a should be in BuildMacCmd\libs, rebuild them if meet link error.
 - `cd BuildMacCmd`
 - `./sample_native 1 8`
 - Command `ss` you will get snapshot in BuildMacCmd\sample_native\snapshotx.bmp
 - Command `sslp` and open "BuildMacCmd\Display.html" with internet browser(such like: Safari, chrome)
 
-### Run as UI APP
+### Run in UI mode
 #### libcore.a libgui.a libsample.a should be in BuildMacCocoa\GuiLiteDemo\libs, rebuild them if meet link error.
 - Open `BuildMacCocoa\GuiLiteDemo.xcodeproj` with Xcode
 - Build and Run

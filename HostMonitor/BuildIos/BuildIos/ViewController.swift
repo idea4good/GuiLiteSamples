@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  BuildIos
-//
-//  Created by Zorro Young on 2/1/18.
-//  Copyright © 2018 Zorro Young. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {

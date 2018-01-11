@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 
-PROJECT(NoodleUI)
+PROJECT(HostMonitor)
 
 ADD_SUBDIRECTORY(SampleCode)
 

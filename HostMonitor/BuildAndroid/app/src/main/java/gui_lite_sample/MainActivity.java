@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(DialogInterface dialog,
                                     int which) {
-                    Uri uri = Uri.parse("http://v.youku.com/v_show/id_XMjc2MjA4MDgzMg");
+                    Uri uri = Uri.parse("http://v.youku.com/v_show/id_XMzA5NTMzMTYyOA");
                     Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                     startActivity(intent);
                 }

@@ -67,16 +67,18 @@ For example: arm-linux-gnueabi-gcc
 - `sudo apt-get install gcc-arm-linux-androideabi`
 - Install Android NDK.
 
-- `cd HostMonitor\BuildLinux`
+- `cd HostMonitor`
 - `cmake -D CMAKE_C_COMPILER="/usr/bin/arm-linux-androideabi-gcc" -D CMAKE_CXX_COMPILER="/usr/bin/arm-linux-androideabi-g++" .`
 - `make`
 - `cp SampleCode\sample.lib  BuildAndroid\jni\libs`
 - `cd BuildAndroid\jni\libs`
 - `./merge_libs.sh`
+
+### Use NDK command, for example: Windows command
 - `cd BuildAndroid\jni`
 - `ndk-build clean`
 - `ndk-build`
-- `cp BuildAndroid\libs\armeabi-v7a\libnative.so BuildAndroid\app\libs\armeabi-v7a\
+- `copy ..\libs\armeabi-v7a\libnative.so ..\app\libs\armeabi-v7a\
 - Open "BuildAndroid" with Android studio
 - Click `build/debug/run`
 

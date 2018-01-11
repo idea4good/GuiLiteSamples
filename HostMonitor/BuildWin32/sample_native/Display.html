@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Patient monitor</title>
+    <title>Host Monitor</title>
     <meta http-equiv="Content-Type" Content="text/html; charset=utf-8;">
-    <meta name="author" content="idea4good" />
-    <meta name="keywords" content="Noodle UI" />
-    <meta name="description" content="Show UI by Browser" />
     <style>
         *{margin:0;padding:0;}
         li{list-style:none;}
@@ -21,129 +18,50 @@
 <p>input: sslp	&nbsp;&nbsp;&nbsp;&nbsp;//Start or stop capture snapshots</p>
 <p>input: aa    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Left flip page</p>
 <p>input: dd    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Right flip page</p>
-</body>
 
-<body>
-<div class="content" id="pictures">
-    <img src="snapshot_1.bmp" />
-    <img src="snapshot_2.bmp" />
-    <img src="snapshot_3.bmp" />
-    <img src="snapshot_4.bmp" />
-    <img src="snapshot_5.bmp" />
-    <img src="snapshot_6.bmp" />
-    <img src="snapshot_7.bmp" />
-    <img src="snapshot_8.bmp" />
-    <img src="snapshot_0.bmp" />
-</div>
 <div class="list" id="mainScreen"></div>
 
 <script>
-var screens = {
-    pictureArray:document.getElementById('pictures'),
-    htmlMainScreen:document.getElementById('mainScreen'),
+var snapshotGroup = {
+    images:[//"snapshot_1.bmp", "snapshot_2.bmp",
+            //"snapshot_3.bmp", "snapshot_4.bmp",
+            //"snapshot_5.bmp", "snapshot_6.bmp",
+            //"snapshot_7.bmp", "snapshot_8.bmp",
+            "snapshot_0.bmp"],
+    colNum: 0,
+    snapshotHtml: [],//array length = colNum
 
     setColumn:function(colNum, colWidth){
-        var self = this;
-
-        self.colNum = colNum;
-        self.colWidth = colWidth;
-
-        var html = '';
-        for(var i = 0, l = self.colNum; i < l; i++){
-            html += '<li style="width:'+ self.colWidth +'px;"></li>';
-        }
-        
-        self.htmlMainScreen.innerHTML = html;
-        self.column = self.htmlMainScreen.getElementsByTagName('li');
+        this.colNum = colNum;
+        var docMainScreen = document.getElementById('mainScreen');
+        for(var i = 0; i < colNum; i++){
+            docMainScreen.innerHTML += '<li style="width:'+ colWidth +'px;"></li>';
+         }
+        this.snapshotHtml = docMainScreen.getElementsByTagName('li');
     },
     
-    getLowestCol:function(){
-        var self = this;
-
-        var heightArray = [];
-        for(var i = 0, l = self.colNum; i < l; i++){
-            heightArray[i] = self.column[i].offsetHeight;
-        }
-
-        var minIndex = 0,index  = 1;
-        while(heightArray[index]){
-            if(heightArray[index] < heightArray[minIndex]){
-                minIndex = index;
-            }
-            index ++;
-        }
-        
-        return self.column[minIndex];
-    },
-
-    isExsitForEdge:function(picture){
-        var http = new XMLHttpRequest();
-        http.open('HEAD', picture.src, false);
-        
-        try{
-            http.send();
-        }catch(error){
-            return false;
-        }
-        return true;        
-    },
-
-    isExsitForChrome:function(picture){
-    	if(picture.height > 100)
-    	{
-			return true;
-    	}
-    	else
-    	{
-			return false;
-    	}
-    	
-    },
-
-    isExsit:function(picture) {
-        var self = this;
-        if("Edge" == getBrowserType())
-        {
-            return self.isExsitForEdge(picture);
-        }
-        else
-        {
-            return self.isExsitForChrome(picture);
-        }
-    },
-    
-    layout:function(picture){
-        var self = this;
-        var column = self.getLowestCol();
-
-        if(self.isExsit(picture))
-        {
-			column.appendChild(picture);//Will remove picture from pictureArray
-        }
-        else
-        {
-			self.pictureArray.removeChild(picture);
-        }
-        
-        if(self.pictureArray.children[0]){
-            self.layout(self.pictureArray.children[0]);
+    layout:function(){
+        for (var i = 0; i < this.images.length; i++) {
+            var domImg = document.createElement("img");
+            domImg.src = this.images[i];
+            this.snapshotHtml[i % this.colNum].appendChild(domImg);
         }
     },
     
     init:function(colCnt){
-        var self = this;
+        var theObject = this;
         window.onload = function(){
-            self.setColumn(colCnt, ((document.body.clientWidth / colCnt - 10 - 1)));
-            self.layout(self.pictureArray.children[0]);
+            theObject.setColumn(colCnt, ((document.body.clientWidth / colCnt - 25)));
+            theObject.layout();
         }
     }
 };
 
 /////////////////////////// refresh /////////////////////////
 var squence_num = 0;
-
-function updateImgSrc() {
-	var imgArray = document.getElementsByTagName('img');
+function refreshSnapshots()
+{
+    var imgArray = document.getElementsByTagName('img');
     for (var i = 0; i < imgArray.length; i++) {
         var address;
         if (imgArray[i].src.indexOf('?') > -1) {
@@ -151,48 +69,15 @@ function updateImgSrc() {
         }
         else
         {
-        	imgArray[i].src = imgArray[i].src + "?" + squence_num++;
+            imgArray[i].src = imgArray[i].src + "?" + squence_num++;
         }
     }
-}
-
-function getBrowserType(){
-    var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
-    var isFirefox = typeof InstallTrigger !== 'undefined';
-    var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
-    var isIE = /*@cc_on!@*/false || !!document.documentMode;
-    var isEdge = !isIE && !!window.StyleMedia;
-    var isChrome = !!window.chrome && !!window.chrome.webstore;
-    if(isEdge)
-    {
-        return "Edge"
-    }
-    return "Others"
-}
-
-function refreshPage()
-{
-    console.log("refreshPage()");
-    window.location.reload();
-    setTimeout("refreshPage()", 1000);
-}
-
-function refreshSnapshots()
-{
-    updateImgSrc();
     setTimeout("refreshSnapshots()", 1000);
 };
 
-function refreshSnapshotsByInterval()//	screen maybe flash!
-{
-	updateImgSrc();
-}
-
-screens.init(2);
-//setInterval("refreshSnapshotsByInterval()", 30);
+snapshotGroup.init(2);
 setTimeout("refreshSnapshots()", 30);
 
 </script>
 </body>
-
 </html>

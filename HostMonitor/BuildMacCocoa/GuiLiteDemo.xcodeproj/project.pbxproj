@@ -14,9 +14,9 @@
 		F47C126D1FEBDD84005D635A /* NativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47C126C1FEBDD84005D635A /* NativeView.swift */; };
 		F47C126F1FEBDDFD005D635A /* NativeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F47C126E1FEBDDFD005D635A /* NativeView.xib */; };
 		F4E9B0081FF239CD006CD49F /* native.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F4E9B0061FF239CD006CD49F /* native.cpp */; };
-		F4F298FB1FFB4546001A7ED1 /* libcore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E9B00A1FF23AF1006CD49F /* libcore.a */; };
-		F4F298FC1FFB4552001A7ED1 /* libgui.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E9B00C1FF23AFC006CD49F /* libgui.a */; };
-		F4F298FD1FFB455E001A7ED1 /* libsample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E9B00E1FF23B07006CD49F /* libsample.a */; };
+		F4E9B00B1FF23AF1006CD49F /* libcore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E9B00A1FF23AF1006CD49F /* libcore.a */; };
+		F4E9B00D1FF23AFC006CD49F /* libgui.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E9B00C1FF23AFC006CD49F /* libgui.a */; };
+		F4E9B00F1FF23B07006CD49F /* libsample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E9B00E1FF23B07006CD49F /* libsample.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,9 +42,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4F298FD1FFB455E001A7ED1 /* libsample.a in Frameworks */,
-				F4F298FC1FFB4552001A7ED1 /* libgui.a in Frameworks */,
-				F4F298FB1FFB4546001A7ED1 /* libcore.a in Frameworks */,
+				F4E9B00F1FF23B07006CD49F /* libsample.a in Frameworks */,
+				F4E9B00D1FF23AFC006CD49F /* libgui.a in Frameworks */,
+				F4E9B00B1FF23AF1006CD49F /* libcore.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

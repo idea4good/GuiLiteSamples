@@ -5,7 +5,7 @@
 #include <string.h>
 #include <shellapi.h>
 
-extern int run(void** main_fbs, int main_cnt, int main_width, int main_height, void** sub_fbs, int sub_cnt, int sub_width, int sub_height, int color_bytes);
+extern int startHostMonitor(void** main_fbs, int main_cnt, int main_width, int main_height, void** sub_fbs, int sub_cnt, int sub_width, int sub_height, int color_bytes);
 extern void init_std_io(int display_cnt);
 static const char* s_tip_welcome =
 "-------------------------------------------------------------------\n"
@@ -75,7 +75,7 @@ int main(int argc, char** argv)
 	{
 		sub_fbs[i] = calloc(sub_screen_width * sub_screen_height, color_bytes);
 	}
-	return run(main_fbs, main_cnt, main_screen_width, main_screen_height, sub_fbs, sub_cnt, sub_screen_width, sub_screen_height, color_bytes);	//never return;
+	return startHostMonitor(main_fbs, main_cnt, main_screen_width, main_screen_height, sub_fbs, sub_cnt, sub_screen_width, sub_screen_height, color_bytes);	//never return;
 }
 
 void do_assert(const char* file, int line)

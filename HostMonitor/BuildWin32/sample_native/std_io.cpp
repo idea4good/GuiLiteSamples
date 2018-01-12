@@ -11,10 +11,11 @@ typedef struct
 
 #define LOOP_SNAPSHOT_INTERVAL	50	//milli seconds.
 
-extern "C" int send_hid_msg(void* buf, int len, int display_id);
 extern void create_thread(unsigned long* thread_id, void* attr, void *(*start_routine) (void *), void* arg);
 extern void thread_sleep(unsigned int milli_seconds);
-extern int snap_shot(int display);
+
+extern int captureUiOfHostMonitor(int display);
+extern int sendTouch2HostMonitor(void* buf, int len, int display_id);
 
 static int get_std_input(char *buffer, int size);
 static const char* s_tip_help =
@@ -39,7 +40,7 @@ static void* loop_snapshot(void* param)
 	{
 		for (int i = 0; i < display_cnt; i++)
 		{
-			snap_shot(i);
+			captureUiOfHostMonitor(i);
 		}
 		thread_sleep(LOOP_SNAPSHOT_INTERVAL);
 	}
@@ -54,7 +55,7 @@ static void press_down(int x, int y, int display_id)
 	msg.dwMsgId = 0x4700;
 	msg.dwParam1 = x;
 	msg.dwParam2 = y;
-	send_hid_msg(&msg, sizeof(msg), display_id);
+	sendTouch2HostMonitor(&msg, sizeof(msg), display_id);
 }
 
 static void press_release(int x, int y, int display_id)
@@ -63,7 +64,7 @@ static void press_release(int x, int y, int display_id)
 	msg.dwMsgId = 0x4600;
 	msg.dwParam1 = x;
 	msg.dwParam2 = y;
-	send_hid_msg(&msg, sizeof(msg), display_id);
+	sendTouch2HostMonitor(&msg, sizeof(msg), display_id);
 }
 
 static void left_flip(int display_id)
@@ -104,7 +105,7 @@ static void* stdin_thread(void* param)
 		{
 			for (int i = 0; i < display_cnt; i++)
 			{
-				snap_shot(i);
+				captureUiOfHostMonitor(i);
 			}
 			printf("snapshot done.");
 		}

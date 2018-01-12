@@ -22,7 +22,7 @@ using namespace Windows::UI::Xaml::Navigation;
 
 using namespace concurrency;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
-extern "C" int run_native(int main_cnt, int main_width, int main_height, int sub_cnt, int sub_width, int sub_height, int color_bytes);
+extern int startHostMonitor(int main_cnt, int main_width, int main_height, int sub_cnt, int sub_width, int sub_height, int color_bytes);
 
 MainPage::MainPage()
 {
@@ -54,7 +54,7 @@ void MainPage::init()
 	m_screen_sub_6->set_attr(7, m_color_bytes);
 	m_screen_sub_7->set_attr(8, m_color_bytes);
 	create_async([this]() {
-		run_native(1, 1024, 768, 8, 1024, 370, m_color_bytes);
+		startHostMonitor(1, 1024, 768, 8, 1024, 370, m_color_bytes);
 	});
 }
 

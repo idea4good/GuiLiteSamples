@@ -22,7 +22,7 @@
     <ProjectGuid>{68DE856B-07CE-4CCA-B62A-DCC9F9281E93}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>sample_win32</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
     <ProjectName>sample_native</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

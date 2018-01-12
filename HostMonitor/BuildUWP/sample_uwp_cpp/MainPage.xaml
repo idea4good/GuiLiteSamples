@@ -32,8 +32,8 @@
         <StackPanel Margin="276,609,0,0" Orientation="Vertical" VerticalAlignment="Bottom">
             <HyperlinkButton Content="Source code" FontWeight="Bold" FontSize="14"  Background="Yellow" 
                 HorizontalAlignment="Right" NavigateUri="https://github.com/idea4good"/>
-            <HyperlinkButton Content="How to use?" FontWeight="Bold" FontSize="14"  Background="Yellow" 
-                HorizontalAlignment="Right" NavigateUri="https://www.youtube.com/watch?v=F_Ok2VBzB8E"/>
+            <HyperlinkButton Content="Who am I?" FontWeight="Bold" FontSize="14"  Background="Yellow" 
+                HorizontalAlignment="Right" NavigateUri="http://v.youku.com/v_show/id_XMzA5NTMzMTYyOA"/>
         </StackPanel>
     </Grid>
 </Page>

@@ -6,14 +6,20 @@ typedef struct {
     unsigned int dwParam2;
 }OUTMSGINFO;
 
-extern int run(int main_cnt, int main_width, int main_height,
+extern int startHostMonitor(int main_cnt, int main_width, int main_height,
                int sub_cnt, int sub_width, int sub_height,
                int color_bytes);
-extern "C" int send_hid_msg(void* buf, int len, int display_id);
+extern int sendTouch2HostMonitor(void* buf, int len, int display_id);
+extern void* getUiOfHostMonitor(int display_id, int* width, int* height);
 
 void run_host_monitor()
 {
-    run(1, 1024, 768, 0, 1024, 370, 2);
+    startHostMonitor(1, 1024, 768, 0, 1024, 370, 2);
+}
+
+void* get_frame_buffer(int display_id, int* width, int* height)
+{
+    return getUiOfHostMonitor(display_id, width, height);
 }
 
 void mouse_down(int x, int y)
@@ -22,7 +28,7 @@ void mouse_down(int x, int y)
     msg.dwMsgId = 0x4700;
     msg.dwParam1 = x;
     msg.dwParam2 = y;
-    send_hid_msg(&msg, sizeof(msg), 0);
+    sendTouch2HostMonitor(&msg, sizeof(msg), 0);
 }
 
 void mouse_up(int x, int y)
@@ -31,7 +37,7 @@ void mouse_up(int x, int y)
     msg.dwMsgId = 0x4600;
     msg.dwParam1 = x;
     msg.dwParam2 = y;
-    send_hid_msg(&msg, sizeof(msg), 0);
+    sendTouch2HostMonitor(&msg, sizeof(msg), 0);
 }
 ///////////////////////////////
 void do_assert(const char* file, int line)

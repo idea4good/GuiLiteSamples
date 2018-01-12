@@ -126,8 +126,8 @@
     <ClCompile Include="source\resource\font\Arial_Narrow_9B_12.cpp" />
     <ClCompile Include="source\resource\font\font.cpp" />
     <ClCompile Include="source\resource\font\strings.cpp" />
-    <ClCompile Include="source\start\start.cpp" />
-    <ClCompile Include="source\start\start_jni.cpp" />
+    <ClCompile Include="source\start\app_entry.cpp" />
+    <ClCompile Include="source\start\host_monitor.cpp" />
     <ClCompile Include="source\ui_ctrl_ex\ecg_wave_ctrl.cpp" />
     <ClCompile Include="source\ui_ctrl_ex\time_bar.cpp" />
     <ClCompile Include="source\ui_ctrl_ex\time_label.cpp" />
@@ -180,7 +180,7 @@
     <ProjectGuid>{289E64C1-73C4-4533-9A06-9DDBF52235BB}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>sample</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

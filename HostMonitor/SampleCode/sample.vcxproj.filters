@@ -473,12 +473,6 @@
     <ClCompile Include="source\ui_tree\Dialog\patient_setup\patient_setup_dlg_xml.cpp">
       <Filter>source\ui_tree\Dialog</Filter>
     </ClCompile>
-    <ClCompile Include="source\start\start.cpp">
-      <Filter>source\start</Filter>
-    </ClCompile>
-    <ClCompile Include="source\start\start_jni.cpp">
-      <Filter>source\start</Filter>
-    </ClCompile>
     <ClCompile Include="source\data\data_source.cpp">
       <Filter>source\data</Filter>
     </ClCompile>
@@ -514,6 +508,12 @@
     </ClCompile>
     <ClCompile Include="source\data\sqlite3.c">
       <Filter>source\data</Filter>
+    </ClCompile>
+    <ClCompile Include="source\start\app_entry.cpp">
+      <Filter>source\start</Filter>
+    </ClCompile>
+    <ClCompile Include="source\start\host_monitor.cpp">
+      <Filter>source\start</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

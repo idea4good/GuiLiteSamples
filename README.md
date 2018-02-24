@@ -3,22 +3,22 @@ Runs on Mac & iOS:
 
 ![Mac](doc/Mac.gif) ![iOS](doc/Ios.landscape.gif)
 
-Runs on Android & ARM Linux embeded:
+Runs on Android & ARM Linux embedded:
 
 ![Android](doc/Android.gif) ![Linux](doc/Linux.gif)
 
-Runs on Windows Mixed Reality & QQ developers group:
+Runs on Windows Mixed Reality & QQ developers' group:
 
 ![Win MR](doc/WinMR.gif) ![QQ group: 527251257](doc/qq.group.jpg)
 
 [中文](doc/README-cn.md)
 
-- GuiLite samples has 2 cross platform projects. one is "host monitor", the other is "snake"; they all base on [GuiLite](https://github.com/idea4good/GuiLite), they show you how to use GuiLite interface, and how GuiLite works on iOS, Android, Linux, Windows, Mac platform.
-- GuiLite samples are easy to compile & run. With the help of QQ group, you will pass the compiling nearly 100%
+- GuiLite samples contain 2 cross-platform projects. One is *Host Monitor* while the other is *Snake*. They are both based on [GuiLite](https://github.com/idea4good/GuiLite). They show you how to use GuiLite's interface, and how GuiLite works on iOS, Android, GNU/Linux, Windows and macOS platform.
+- GuiLite samples are easy to compile & run. With the help of QQ group, you will pass the compiling nearly 100%.
 
 ## Host Monitor
-HostMonitor has 2,000 lines code related to UI, will show you how to layout UI, and customize/extend your UI widgets.
-### Code walkthrough
+Host Monitor has 2,000 lines of code related to UI, showing you how to layout UI, and customize/extend your UI widgets.
+### Code Walkthrough
 - HostMonitor\SampleCode\source\ui_tree: **Layout UI**
 - HostMonitor\SampleCode\source\ui_ctrl_ex: **Customize your widgets**
 
@@ -34,14 +34,14 @@ HostMonitor has 2,000 lines code related to UI, will show you how to layout UI, 
 [Build "host monitor"](HostMonitor/README.md)
 
 ## Snake
-Snake has only 200+ lines code, will show you how to render. It will help you run GuiLite on MCU.
+Snake has only 200+ lines of code, showing you how to render. It will help you run GuiLite on MCU.
 
 [Build "snake"](Snake/README.md)
 
 ## Suggestions
-Looks complex? Trust me, We're normal guys, you can do everything we do.
+Looks complex? Trust me that you can do everything we did since we are ordinary guys.
 - Dare to build
-- Dare to modification
+- Dare to make modification
 - Dare to create your UI framework
 
 ## Repository Mirror

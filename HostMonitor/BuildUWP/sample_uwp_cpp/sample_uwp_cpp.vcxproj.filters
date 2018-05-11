@@ -57,6 +57,9 @@
     <None Include="Package.StoreAssociation.xml" />
     <None Include="sample_uwp_cpp_StoreKey.pfx" />
     <None Include="$(SolutionDir)resource\heart_beat.wav" />
+    <None Include="Assets\3dLauncher.glb">
+      <Filter>Assets</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Page Include="MainPage.xaml" />

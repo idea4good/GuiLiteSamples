@@ -51,9 +51,6 @@
     <None Include="res\BuildMFC.rc2">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="ClassDiagram.cd" />
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\BuildMFC.ico">

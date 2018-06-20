@@ -1,10 +1,16 @@
-## How to build for Win32?
+## How to build for Win MFC?
+### core.lib gui.lib sample.lib should be in BuildMFC\BuildMFC\libs\x86(x64), rebuild them if meet link error.
+- Open "HostMonitor\BuildMFC\BuildMFC.sln" by Visual studio 2017
+- Click `F5` to build/run GuiLiteSample.exe
+
+## How to build for Win console mode?
 ### core.lib gui.lib should be in BuildWin32\sample_native\libs\x86(x64), rebuild them if meet link error.
 - Open "HostMonitor\BuildWin32\HostMonitor.sln" by Visual studio 2017
 - Click `build` sample
 - `copy BuildWin32/Debug(Release)/sample.lib BuildWin32\sample_native\libs\x86(x64)\sample.lib`
 - Click `build` sample_native
-- Click `F5` to run sample_native
+- Click `F5` to run sample_native.exe
+- Check UI: Command `sslp`, and run BuildWin32\sample_native\Display.html with internet browser.
 
 ## How to build for ARM Linux device?
 ### libcore.a libgui.a should be in BuildLinux\libs\arm, rebuild them if meet link error.
@@ -18,7 +24,7 @@ For example: arm-linux-gnueabi-gcc
 - `make`
 - `cd BuildLinux`
 - `chmod 777 *`
-- `./sample_native /dev/fb0`	/dev/fb0: The path of framebuffer device file.
+- `./sample_native /dev/fb0`   /dev/fb0: The path of framebuffer device file.
 
 ## How to build for x64 Linux or Rasperry Pi?
 ### libcore.a libgui.a should be in BuildLinux\libs, rebuild them if meet link error.
@@ -32,7 +38,7 @@ For example: arm-linux-gnueabi-gcc
 2. Run with internet explore:
 - `./sample_native 1 8`
 - Command `ss` you will get snapshot in BuildLinux\sample_native\snapshotx.bmp
-- Command `sslp` and open "BuildLinux\Display.html" with internet browser(such like: Firefox, chrome)
+- Command `sslp` and open "BuildLinux\Display.html" with internet browser(such like: Firefox, Chrome)
 
 3. Run inside QT APP(display-xxx is a QT APP for display, skip this if you haven't installed QT):
 - If x64:`./display-x64 | ./sample_native shared-fb`

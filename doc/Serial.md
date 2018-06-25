@@ -1,4 +1,4 @@
-# How to use serial with Android phone
+# How to use serial with Android phone？
 With the help of serial calbe, you can connect external device with Android phone. In this case, the external device is PC,
 
 ## Prerequisite

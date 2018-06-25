@@ -30,6 +30,7 @@ HostMonitor有2千行UI代码, 用来布局UI和自定义控件
 - HostMonitor\BuildMacCocoa: **Swift语言, 用于Mac图形应用**
 
 [编译"host monitor"](HostMonitor/README.md)
+[手机连串口设备](Serial.md)
 
 ## Snake
 Snake只有200+行代码，用来解释如何绘制、渲染，通过对它的学习，你可以把GuiLite运行在单片机上。

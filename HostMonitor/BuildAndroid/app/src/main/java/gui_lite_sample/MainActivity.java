@@ -1,8 +1,11 @@
 package gui_lite_sample;
 
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.hardware.usb.UsbManager;
 import android.net.Uri;
 import android.os.Environment;
 import android.support.v7.app.AlertDialog;
@@ -11,6 +14,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -24,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        manager = (UsbManager) getSystemService(Context.USB_SERVICE);
+        permissionIntent = PendingIntent.getBroadcast(this, 0, new Intent("com.example.blyan.usbserial.USB_PERMISSION"), 0);
 
         Initialize();
         if(null == ms_thread_native){
@@ -43,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
         }else{
             view_0.setVisibility(View.GONE);
         }
+
+        ConnectUsbSerial();
     }
 
     private void CopyAssetsToWorkFolder(String work_folder)
@@ -146,7 +155,26 @@ public class MainActivity extends AppCompatActivity {
             Log.e("tag", "Make work folder failed!");
         }
     }
+
+    private void ConnectUsbSerial(){
+        if(cp2102.connection != null){
+            return;
+        }
+
+        String ret = cp2102.connect(manager, permissionIntent, new UsbReadCallback() {
+            @Override
+            public void onReceive(byte[] data, int length) {
+                ThreadNative.OnReceiveData(data, length);
+            }
+        }) + "\n";
+        ret += cp2102.setUsbCom(9600);
+        Toast.makeText(this, ret, Toast.LENGTH_LONG).show();
+    }
     
     private static ThreadNative ms_thread_native = null;
     public static String ms_work_folder = null;
+
+    private UsbManager manager;
+    private PendingIntent permissionIntent;
+    private UsbSerialCP210x cp2102 = new UsbSerialCP210x();
 }

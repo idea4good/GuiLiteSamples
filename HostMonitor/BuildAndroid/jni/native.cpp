@@ -5,6 +5,7 @@
 extern int startHostMonitor(int main_cnt, int main_width, int main_height, int sub_cnt, int sub_width, int sub_height, int color_bytes);
 extern int sendTouch2HostMonitor(void* buf, int len, int display_id);
 extern void* getUiOfHostMonitor(int display_id, int* width, int* height);
+extern void on_receive_data(void* data, int length);
 
 extern void InitJavaEnv(JNIEnv* env, jobject obj);
 extern void OnAndroidPlayWav(const char* fileName);
@@ -70,6 +71,14 @@ extern "C" JNIEXPORT jint  JNICALL Java_gui_1lite_1sample_ThreadNative_UpdateBit
 		memcpy(pixelscolor, src, width * height * 2);
 	}
 	AndroidBitmap_unlockPixels(env, bitmap);
+	return 0;
+}
+
+extern "C" JNIEXPORT jint  JNICALL Java_gui_1lite_1sample_ThreadNative_OnReceiveData(JNIEnv * env, jobject obj, jbyteArray data, jint length)
+{
+	jbyte* bytedata =env->GetByteArrayElements(data, 0);
+	on_receive_data(bytedata, length);
+	//env->ReleaseByteArrayElements(data, bytedata, JNI_ABORT);
 	return 0;
 }
 

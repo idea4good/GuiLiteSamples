@@ -1,16 +1,13 @@
 ## How to build for Win MFC?
 ### core.lib gui.lib sample.lib should be in BuildMFC\BuildMFC\libs\x86(x64), rebuild them if meet link error.
-- Open "HostMonitor\BuildMFC\BuildMFC.sln" by Visual studio 2017
-- Click `F5` to build/run GuiLiteSample.exe
+- Open "HostMonitor\BuildMFC\HostMonitor.sln" by Visual studio 2017
+- Click `F5` to build/run `HostMonitor`
 
 ## How to build for Win console mode?
 ### core.lib gui.lib should be in BuildWin32\sample_native\libs\x86(x64), rebuild them if meet link error.
 - Open "HostMonitor\BuildWin32\HostMonitor.sln" by Visual studio 2017
-- Click `build` sample
-- `copy BuildWin32/Debug(Release)/sample.lib BuildWin32\sample_native\libs\x86(x64)\sample.lib`
-- Click `build` sample_native
-- Click `F5` to run sample_native.exe
-- Check UI: Command `sslp`, and run BuildWin32\sample_native\Display.html with internet browser.
+- Click `F5` to build/run `sample_native`
+- Check UI: Run BuildWin32\sample_native\Display.html with internet browser.
 
 ## How to build for ARM Linux device?
 ### libcore.a libgui.a should be in BuildLinux\libs\arm, rebuild them if meet link error.
@@ -35,15 +32,15 @@ For example: arm-linux-gnueabi-gcc
 - `cd BuildLinux`
 - `chmod 777 *`
 
-2. Run with internet explore:
-- `./sample_native 1 8`
-- Command `ss` you will get snapshot in BuildLinux\sample_native\snapshotx.bmp
-- Command `sslp` and open "BuildLinux\Display.html" with internet browser(such like: Firefox, Chrome)
-
-3. Run inside QT APP(display-xxx is a QT APP for display, skip this if you haven't installed QT):
+2. Run inside QT APP(display-xxx is a QT APP for display, skip this if you haven't installed QT):
 - If x64:`./display-x64 | ./sample_native shared-fb`
 - If raspberry pi:`./display-arm | ./sample_native shared-fb`
 - The source code of display-xxx here: HostMonitor/BuildLinux/display.src
+
+3. Run with internet explore:
+- `./sample_native 1 8`
+- Command `ss` you will get snapshot in BuildLinux\sample_native\snapshotx.bmp
+- Command `sslp` and open "BuildLinux\Display.html" with internet browser(such like: Firefox, Chrome)
 
 ## How to build for iOS?
 #### libcore.a libgui.a libsample.a should be in \BuildIos\BuildIos\libs, rebuild them if meet link error.
@@ -76,8 +73,8 @@ For example: arm-linux-gnueabi-gcc
 - `cd HostMonitor`
 - `cmake -D CMAKE_C_COMPILER="/usr/bin/arm-linux-androideabi-gcc" -D CMAKE_CXX_COMPILER="/usr/bin/arm-linux-androideabi-g++" .`
 - `make`
-- `cp SampleCode\sample.lib  BuildAndroid\jni\libs`
-- `cd BuildAndroid\jni\libs`
+- `cp SampleCode/libsample.a  BuildAndroid/jni/libs`
+- `cd BuildAndroid/jni/libs`
 - `./merge_libs.sh`
 
 ### Use NDK command, for example: Windows command
@@ -106,4 +103,4 @@ depdency: Windows 10, visul stdio 2015/2017
 - Take VR/MR device on head, or run simulator.
 - press `start`, find the UWP you build and run.
 
-Note: Windows RS3(fall creators update) is needed.
+Note: Windows RS3(Build 16299) is needed.

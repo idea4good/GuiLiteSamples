@@ -38,6 +38,7 @@ public class ThreadNative extends Thread {
 
     static private MediaPlayer ms_player = new MediaPlayer();
 
+    native static public int OnReceiveData(byte[] data, int length);
     native static public int GetBitmapWidth(int display_id);
     native static public int GetBitmapHeight(int display_id);
     native static public int UpdateBitmap(Bitmap bitmap, int display_id, int width, int height);

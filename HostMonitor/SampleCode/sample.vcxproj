@@ -48,12 +48,12 @@
     <ClInclude Include="include\define.h" />
     <ClInclude Include="include\msg_id.h" />
     <ClInclude Include="source\data\database.h" />
-    <ClInclude Include="source\data\data_source.h" />
     <ClInclude Include="source\data\sqlite3.h" />
     <ClInclude Include="source\manager\value_manager.h" />
     <ClInclude Include="source\manager\value_ctrl_manager.h" />
     <ClInclude Include="source\manager\wave_manager.h" />
     <ClInclude Include="source\modules\demo_module.h" />
+    <ClInclude Include="source\modules\module_group.h" />
     <ClInclude Include="source\resource\font\strings.h" />
     <ClInclude Include="source\ui_ctrl_ex\ecg_wave_ctrl.h" />
     <ClInclude Include="source\ui_ctrl_ex\time_bar.h" />
@@ -99,12 +99,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\data\database.cpp" />
-    <ClCompile Include="source\data\data_source.cpp" />
     <ClCompile Include="source\data\sqlite3.c" />
     <ClCompile Include="source\manager\value_manager.cpp" />
     <ClCompile Include="source\manager\value_ctrl_manager.cpp" />
     <ClCompile Include="source\manager\wave_manager.cpp" />
     <ClCompile Include="source\modules\demo_module.cpp" />
+    <ClCompile Include="source\modules\module_group.cpp" />
     <ClCompile Include="source\resource\bitmap\spin_down_button_disable.cpp" />
     <ClCompile Include="source\resource\bitmap\spin_down_button_focus.cpp" />
     <ClCompile Include="source\resource\bitmap\spin_down_button_normal.cpp" />
@@ -126,7 +126,7 @@
     <ClCompile Include="source\resource\font\Arial_Narrow_9B_12.cpp" />
     <ClCompile Include="source\resource\font\font.cpp" />
     <ClCompile Include="source\resource\font\strings.cpp" />
-    <ClCompile Include="source\start\app_entry.cpp" />
+    <ClCompile Include="source\start\app_interface.cpp" />
     <ClCompile Include="source\start\host_monitor.cpp" />
     <ClCompile Include="source\ui_ctrl_ex\ecg_wave_ctrl.cpp" />
     <ClCompile Include="source\ui_ctrl_ex\time_bar.cpp" />

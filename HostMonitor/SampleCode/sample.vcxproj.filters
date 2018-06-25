@@ -261,9 +261,6 @@
     <ClInclude Include="source\ui_tree\Dialog\patient_setup\patient_setup_dlg_xml.h">
       <Filter>source\ui_tree\Dialog</Filter>
     </ClInclude>
-    <ClInclude Include="source\data\data_source.h">
-      <Filter>source\data</Filter>
-    </ClInclude>
     <ClInclude Include="source\manager\value_ctrl_manager.h">
       <Filter>source\manager</Filter>
     </ClInclude>
@@ -281,6 +278,9 @@
     </ClInclude>
     <ClInclude Include="source\data\database.h">
       <Filter>source\data</Filter>
+    </ClInclude>
+    <ClInclude Include="source\modules\module_group.h">
+      <Filter>source\modules</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -473,9 +473,6 @@
     <ClCompile Include="source\ui_tree\Dialog\patient_setup\patient_setup_dlg_xml.cpp">
       <Filter>source\ui_tree\Dialog</Filter>
     </ClCompile>
-    <ClCompile Include="source\data\data_source.cpp">
-      <Filter>source\data</Filter>
-    </ClCompile>
     <ClCompile Include="source\manager\value_ctrl_manager.cpp">
       <Filter>source\manager</Filter>
     </ClCompile>
@@ -509,11 +506,14 @@
     <ClCompile Include="source\data\sqlite3.c">
       <Filter>source\data</Filter>
     </ClCompile>
-    <ClCompile Include="source\start\app_entry.cpp">
-      <Filter>source\start</Filter>
-    </ClCompile>
     <ClCompile Include="source\start\host_monitor.cpp">
       <Filter>source\start</Filter>
+    </ClCompile>
+    <ClCompile Include="source\start\app_interface.cpp">
+      <Filter>source\start</Filter>
+    </ClCompile>
+    <ClCompile Include="source\modules\module_group.cpp">
+      <Filter>source\modules</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

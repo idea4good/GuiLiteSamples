@@ -12,7 +12,7 @@
 
 #include "../manager/value_manager.h"
 #include "../manager/wave_manager.h"
-#include "../data/data_source.h"
+#include "../modules/module_group.h"
 #include "../data/database.h"
 #include <string.h>
 #include <stdlib.h>
@@ -92,7 +92,7 @@ static void init(int display_cnt)
 
 static void real_timer_routine(void* arg)
 {
-	c_data_source::get_instance()->read_serial();
+	on_receive_data(0, 0);
 	c_wave_manage::get_instance()->refurbish_all_curve();
 }
 

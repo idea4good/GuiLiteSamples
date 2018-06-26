@@ -2,7 +2,7 @@
 With the help of serial calbe, you can connect external device with Android phone. In this case, the external device is PC.
 
 ## Prerequisite
-In order to tranform USB singal of Android phone to serial signal, you need some hardeare here.
+In order to tranform USB singal of Android phone to serial signal, you need some hardware here.
 ### Android phone with micro USB port(support OTG)
 OTG to UART bridge(手机USB转串口TTL适配器) -- CP210x-Silicon Labs will be recommended.
 ### Or Android phone with type-c USB port
@@ -10,13 +10,13 @@ OTG to UART bridge(手机USB转串口TTL适配器) -- CP210x-Silicon Labs will b
 2. USB to UART bridge -- CP210x-Silicon Labs will be recommended.
 3. Connet 1 & 2, you got a type-c to UART bridge.
 ### PC side
-USB to UART bridge -- CP210x-Silicon Labs will be recommended.
+USB to UART bridge
 
 **Note: UART has TTL/RS232 types, choose one of them to use**
 
 ## How to connect?
 Connect them like this:
-![connect](connect.png)
+![connect](connect.jpg)
 
 ## Send data on PC
 Run serial tool on PC like this:

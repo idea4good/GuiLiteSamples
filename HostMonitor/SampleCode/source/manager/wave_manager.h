@@ -49,8 +49,8 @@ class c_wave_manage : public c_cmd_target
 {
 public:
 	int register_wave_ctrl(WAVE_TYPE wave_ctrl_type, c_wave_ctrl* p_wave);
-	int save_curve_data(WAVE_TYPE wave_type, short data);
-	void refurbish_all_curve();
+	int save_wave_data(WAVE_TYPE wave_type, short data);
+	void refurbish_all_waves();
 	void clean_all_wave(bool redraw = true);
 	static c_wave_manage* get_instance()
 	{

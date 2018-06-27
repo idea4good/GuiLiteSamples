@@ -93,7 +93,7 @@ static void init(int display_cnt)
 static void real_timer_routine(void* arg)
 {
 	on_receive_data(0, 0);
-	c_wave_manage::get_instance()->refurbish_all_curve();
+	c_wave_manage::get_instance()->refurbish_all_waves();
 }
 
 static void database_timer_callback(void* ptmr, void* parg)

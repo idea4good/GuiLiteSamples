@@ -73,7 +73,7 @@ int c_wave_manage::register_wave_ctrl(WAVE_TYPE wave_type, c_wave_ctrl* p_wave)
 	return 1;
 }
 
-int c_wave_manage::save_curve_data(WAVE_TYPE wave_type, short data)
+int c_wave_manage::save_wave_data(WAVE_TYPE wave_type, short data)
 {
 	if(wave_type >= WAVE_TYPE_MAX)
 	{
@@ -83,18 +83,17 @@ int c_wave_manage::save_curve_data(WAVE_TYPE wave_type, short data)
 	return 0;
 }
 
-void c_wave_manage::refurbish_all_curve()
+void c_wave_manage::refurbish_all_waves()
 {
 	static unsigned char s_frame_num;
 	s_frame_num++;
 
 	int i;
 	for (i = 0; i < WAVE_TYPE_MAX; i++)
-	{//for speed up the routine, I skip a complete checking.
-		if (m_wave_ctrls[i][0] && m_wave_ctrls[i][0]->is_visible() &&
-		   (m_wave_ctrls[i][0]->is_data_enough() == false))
+	{
+		if (m_wave_ctrls[i][0] && (m_wave_ctrls[i][0]->is_data_enough() == false))
 		{
-			return;
+			log_out("Out of wave data\n");
 		}
 	}
 

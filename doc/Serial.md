@@ -27,3 +27,9 @@ Send wave data: `7D 7D 7D 7D 7D 7D 7D 7D 7D 7D 7D 7D 7D 7D 7D 7D 7D 7D 7D 7D 7D 
 
 ## Receive data on Android phone
 Double click APP([source code](https://github.com/idea4good/GuiLiteSamples/tree/master/HostMonitor/BuildAndroid)), it will connect USB serial automaticlly.
+You will see this if everything is ok:
+
+![UsbConnected](UsbConnected.png)
+
+## Video link
+[Demo video](https://v.youku.com/v_show/id_XMzY4OTYwMzk1Mg)

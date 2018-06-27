@@ -33,6 +33,6 @@ void c_ecg_7wave_screen_view::on_init_children(void)
 		{
 			c_wave_manage::get_instance()->register_wave_ctrl(WAVE_TYPE(WAVE_ECG1 + index), p_ecg_wave);
 		}
-		p_ecg_wave->set_wave_gain(GAIN_100);
+		p_ecg_wave->set_wave_gain(ZOOM_100);
 	}
 }

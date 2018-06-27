@@ -33,16 +33,16 @@ static void parse_your_data(void* data, int length)
 	c_wave_manage* wave_manager = c_wave_manage::get_instance();
 	for (int i = 0; i < length; i++)
 	{
-		wave_manager->save_curve_data(WAVE_ECG1, *tmp_data);	//I
-		wave_manager->save_curve_data(WAVE_ECG2, *tmp_data);	//II
-		wave_manager->save_curve_data(WAVE_ECG3, *tmp_data);	//III
-		wave_manager->save_curve_data(WAVE_ECG4, *tmp_data);	//AVR
-		wave_manager->save_curve_data(WAVE_ECG5, *tmp_data);	//AVL
-		wave_manager->save_curve_data(WAVE_ECG6, *tmp_data);	//AVR
-		wave_manager->save_curve_data(WAVE_ECG7, *tmp_data);	//V
+		wave_manager->save_wave_data(WAVE_ECG1, *tmp_data);	//I
+		wave_manager->save_wave_data(WAVE_ECG2, *tmp_data);	//II
+		wave_manager->save_wave_data(WAVE_ECG3, *tmp_data);	//III
+		wave_manager->save_wave_data(WAVE_ECG4, *tmp_data);	//AVR
+		wave_manager->save_wave_data(WAVE_ECG5, *tmp_data);	//AVL
+		wave_manager->save_wave_data(WAVE_ECG6, *tmp_data);	//AVR
+		wave_manager->save_wave_data(WAVE_ECG7, *tmp_data);	//V
 
-		wave_manager->save_curve_data(WAVE_SPO2, *tmp_data);	//SPO2
-		wave_manager->save_curve_data(WAVE_RESP, *tmp_data);	//RESP
+		wave_manager->save_wave_data(WAVE_SPO2, *tmp_data);	//SPO2
+		wave_manager->save_wave_data(WAVE_RESP, *tmp_data);	//RESP
 
 		tmp_data++;
 	}

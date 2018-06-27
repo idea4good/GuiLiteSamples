@@ -12,16 +12,16 @@ void c_mini_wave_view::on_init_children(void)
 {
 	c_wave_ctrl *pWave = (c_wave_ctrl*)get_wnd_ptr(ID_MINI_WAV_VIEW_ECG_WAVE);
 	c_wave_manage::get_instance()->register_wave_ctrl(WAVE_ECG2, pWave);
-	pWave->set_wave_gain(GAIN_100);
+	pWave->set_wave_gain(ZOOM_100);
 	pWave->set_wave_speed(SPEED_X3);
 	
 	pWave = (c_wave_ctrl*)get_wnd_ptr(ID_MINI_WAV_VIEW_SPO2_WAVE);
 	c_wave_manage::get_instance()->register_wave_ctrl(WAVE_SPO2, pWave);
-	pWave->set_wave_gain(GAIN_100);
+	pWave->set_wave_gain(ZOOM_100);
 	pWave->set_wave_speed(SPEED_X3);
 
 	pWave = (c_wave_ctrl*)get_wnd_ptr(ID_MINI_WAV_VIEW_RESP_WAVE);
 	c_wave_manage::get_instance()->register_wave_ctrl(WAVE_RESP, pWave);
-	pWave->set_wave_gain(GAIN_050);
+	pWave->set_wave_gain(ZOOM_050);
 	pWave->set_wave_speed(SPEED_X3);
 }

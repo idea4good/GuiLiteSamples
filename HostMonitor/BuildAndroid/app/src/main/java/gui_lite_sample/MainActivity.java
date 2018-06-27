@@ -29,13 +29,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        manager = (UsbManager) getSystemService(Context.USB_SERVICE);
-        permissionIntent = PendingIntent.getBroadcast(this, 0, new Intent("com.example.blyan.usbserial.USB_PERMISSION"), 0);
-
         Initialize();
         if(null == ms_thread_native){
             ms_thread_native = new ThreadNative();
             ms_thread_native.start();
+        }
+
+        if(null == ms_manager){
+            ms_manager = (UsbManager) getSystemService(Context.USB_SERVICE);
+        }
+
+        if (null == ms_permissionIntent){
+            ms_permissionIntent = PendingIntent.getBroadcast(this, 0, new Intent("com.example.blyan.usbserial.USB_PERMISSION"), 0);
+        }
+
+        if (null == ms_cp210x){
+            ms_cp210x = new UsbSerialCP210x();
         }
     }
 
@@ -54,8 +63,7 @@ public class MainActivity extends AppCompatActivity {
         ConnectUsbSerial();
     }
 
-    private void CopyAssetsToWorkFolder(String work_folder)
-    {
+    private void CopyAssetsToWorkFolder(String work_folder) {
         AssetManager assetManager = getAssets();
         String[] files = null;
         try {
@@ -103,8 +111,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void OpenHelpDialog()
-    {
+    private void OpenHelpDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Help");
         builder.setMessage("Watch the video?");
@@ -157,24 +164,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void ConnectUsbSerial(){
-        if(cp2102.connection != null){
+        if(ms_cp210x.connection != null){
             return;
         }
 
-        String ret = cp2102.connect(manager, permissionIntent, new UsbReadCallback() {
+        String ret = ms_cp210x.connect(ms_manager, ms_permissionIntent, new UsbReadCallback() {
             @Override
             public void onReceive(byte[] data, int length) {
                 ThreadNative.OnReceiveData(data, length);
             }
         }) + "\n";
-        ret += cp2102.setUsbCom(9600);
+        ret += ms_cp210x.setUsbCom(9600);
         Toast.makeText(this, ret, Toast.LENGTH_LONG).show();
     }
     
     private static ThreadNative ms_thread_native = null;
     public static String ms_work_folder = null;
 
-    private UsbManager manager;
-    private PendingIntent permissionIntent;
-    private UsbSerialCP210x cp2102 = new UsbSerialCP210x();
+    private static UsbManager ms_manager = null;
+    private static PendingIntent ms_permissionIntent = null;
+    private static UsbSerialCP210x ms_cp210x = null;
 }

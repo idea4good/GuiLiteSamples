@@ -9,3 +9,7 @@ INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/core_include
 					${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 ADD_SUBDIRECTORY(source)
+
+execute_process(
+    COMMAND ${CMAKE_SOURCE_DIR}/connect.sh HostMonitor
+)

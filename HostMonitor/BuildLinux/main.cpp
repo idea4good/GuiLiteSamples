@@ -54,6 +54,7 @@ int main(int argc, char** argv)
 	int sub_screen_width = 1024;
 	int sub_screen_height = 370;
     gSendDataToCloud = send_data_to_clound;
+    send_data_to_clound(60, 98, 30, 120, 80, 100);
 
 	FRAMEBUFFER_MODE fb_mode = FB_NULL_MODE;
 	char *fb_dev_path = NULL;

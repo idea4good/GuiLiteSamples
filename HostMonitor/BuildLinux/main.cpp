@@ -16,6 +16,10 @@ extern void init_std_io(int display_cnt);
 static void* get_embeded_fb_in_display_app(int shared_id);
 static void* get_dev_fb(char* path, int &width, int &height, int &color_bytes);
 
+typedef int(*SEND_DATA_TO_CLOUD)(int hr, int spo2, int rr, int nibp_sys, int nibp_dia, int nibp_mean);
+extern SEND_DATA_TO_CLOUD gSendDataToCloud;
+static int send_data_to_clound(int hr, int spo2, int rr, int nibp_sys, int nibp_dia, int nibp_mean);
+
 enum FRAMEBUFFER_MODE
 {
 	FB_NULL_MODE,
@@ -49,6 +53,7 @@ int main(int argc, char** argv)
 	int main_screen_height = 768;
 	int sub_screen_width = 1024;
 	int sub_screen_height = 370;
+    gSendDataToCloud = send_data_to_clound;
 
 	FRAMEBUFFER_MODE fb_mode = FB_NULL_MODE;
 	char *fb_dev_path = NULL;
@@ -172,6 +177,17 @@ static void* get_dev_fb(char* path, int &width, int &height, int &color_bytes)
 	}
 	memset(fbp, 0, (vinfo.xres * vinfo.yres * color_bytes));
 	return fbp;
+}
+
+int send_data_to_clound(int hr, int spo2, int rr, int nibp_sys, int nibp_dia, int nibp_mean)
+{
+    char cmd_line[128];
+    memset(cmd_line, 0, sizeof(cmd_line));
+    sprintf(cmd_line, "%s %d %d %d %d %d %d",
+            "./send_data_to_cloud.sh ",
+            hr, spo2, rr,
+            nibp_sys, nibp_dia, nibp_mean);
+    return system(cmd_line);
 }
 
 //////////////////////////////////////////

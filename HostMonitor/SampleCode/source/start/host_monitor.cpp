@@ -96,6 +96,8 @@ static void real_timer_routine(void* arg)
 	c_wave_manage::get_instance()->refurbish_all_waves();
 }
 
+typedef int(*SEND_DATA_TO_CLOUD)(int hr, int spo2, int rr, int nibp_sys, int nibp_dia, int nibp_mean);
+extern SEND_DATA_TO_CLOUD gSendDataToCloud;
 static void database_timer_callback(void* ptmr, void* parg)
 {
 	VALUE_SET data;
@@ -114,4 +116,9 @@ static void database_timer_callback(void* ptmr, void* parg)
 	MSG_INFO msg;
 	msg.dwMsgId = USR_MSG_UPDATE_TREND_VIEW;
 	write_usr_msg(&msg);
+
+	if(gSendDataToCloud)
+	{
+		gSendDataToCloud(data.hr, data.spo2, data.rr, data.nibp_sys, data.nibp_dia, data.nibp_mean);
+	}
 }

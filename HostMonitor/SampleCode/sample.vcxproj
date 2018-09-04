@@ -260,7 +260,7 @@
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>call "$(MSBuildProjectDirectory)\build.bat" "HostMonitor"</Command>
+      <Command>call "$(MSBuildProjectDirectory)\sync_build.bat" "HostMonitor"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -278,7 +278,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>call "$(MSBuildProjectDirectory)\build.bat" "HostMonitor"</Command>
+      <Command>call "$(MSBuildProjectDirectory)\sync_build.bat" "HostMonitor"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -300,7 +300,7 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>call "$(MSBuildProjectDirectory)\build.bat" "HostMonitor"</Command>
+      <Command>call "$(MSBuildProjectDirectory)\sync_build.bat" "HostMonitor"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -322,7 +322,7 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <PostBuildEvent>
-      <Command>call "$(MSBuildProjectDirectory)\build.bat" "HostMonitor"</Command>
+      <Command>call "$(MSBuildProjectDirectory)\sync_build.bat" "HostMonitor"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -15,7 +15,7 @@ static const char* s_tip_welcome =
 
 static void launchIE()
 {
-	ShellExecute(NULL, L"open",	L"send_data_to_cloud.bat",
+	ShellExecute(NULL, L"open",	L"sync_data.bat",
 				L"60 98 30 120 80 100", NULL, SW_HIDE);//Ping cloud
 	int ret = (int)ShellExecute(0, L"open", L"Display.html", L"", L"", SW_SHOWNORMAL);
 	if (SE_ERR_NOASSOC >= ret)

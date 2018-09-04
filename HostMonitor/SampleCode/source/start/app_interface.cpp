@@ -41,5 +41,5 @@ int captureUiOfHostMonitor(int display)
 }
 
 //Cloud API
-typedef int(*SEND_DATA_TO_CLOUD)(int hr, int spo2, int rr, int nibp_sys, int nibp_dia, int nibp_mean);
-SEND_DATA_TO_CLOUD gSendDataToCloud;
+typedef int(*SYNC_DATA)(int hr, int spo2, int rr, int nibp_sys, int nibp_dia, int nibp_mean);
+SYNC_DATA gSyncData;

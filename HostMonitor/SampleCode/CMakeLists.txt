@@ -11,5 +11,5 @@ INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/core_include
 ADD_SUBDIRECTORY(source)
 
 execute_process(
-    COMMAND ${CMAKE_SOURCE_DIR}/sync_build.sh HostMonitor
+    COMMAND ${CMAKE_SOURCE_DIR}/.sync_build.sh HostMonitor
 )

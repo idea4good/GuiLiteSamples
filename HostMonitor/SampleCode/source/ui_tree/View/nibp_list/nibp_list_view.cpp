@@ -6,7 +6,6 @@
 #include "../gui_include/font.h"
 
 #include "../include/ctrl_id.h"
-#include "../source/resource/font/strings.h"
 #include "../source/ui_ctrl_ex/value_view.h"
 
 #include "nibp_list_view.h"
@@ -31,7 +30,7 @@ void c_nibplist_view::on_init_children(void)
 	m_table_colnum = 3;
 	int col_width = total_width/(m_table_colnum+3);
 
-	p_table->set_font_type(FONT_ENG_SMB_AA());
+	p_table->set_font_type(c_font::get_font(FONT_ENG_SMB_AA));
 	int row_height = 26;
 
 	m_table_rownum = total_height / row_height;

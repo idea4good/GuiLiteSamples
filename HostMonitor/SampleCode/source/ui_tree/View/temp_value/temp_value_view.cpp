@@ -6,7 +6,6 @@
 #include "../source/ui_ctrl_ex/value_ctrl.h"
 #include "../source/ui_ctrl_ex/value_sub_ctrl.h"
 #include "../include/ctrl_id.h"
-#include "../source/resource/font/strings.h"
 #include "../source/manager/value_manager.h"
 #include "../source/manager/value_ctrl_manager.h"
 #include <string.h>

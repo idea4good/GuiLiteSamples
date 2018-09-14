@@ -135,9 +135,6 @@
     <ClInclude Include="source\modules\demo_module.h">
       <Filter>source\modules</Filter>
     </ClInclude>
-    <ClInclude Include="source\resource\font\strings.h">
-      <Filter>source\resource\font</Filter>
-    </ClInclude>
     <ClInclude Include="source\ui_ctrl_ex\trend_graph.h">
       <Filter>source\ui_ctrl_ex</Filter>
     </ClInclude>
@@ -330,9 +327,6 @@
       <Filter>source\resource\font</Filter>
     </ClCompile>
     <ClCompile Include="source\resource\font\font.cpp">
-      <Filter>source\resource\font</Filter>
-    </ClCompile>
-    <ClCompile Include="source\resource\font\strings.cpp">
       <Filter>source\resource\font</Filter>
     </ClCompile>
     <ClCompile Include="source\resource\font\Arial_Narrow_8_11.cpp">

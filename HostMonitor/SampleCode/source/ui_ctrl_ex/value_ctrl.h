@@ -1,17 +1,19 @@
 #ifndef _VALUE_CTRL_H_
 #define _VALUE_CTRL_H_
 
+#include "../gui_include/font.h"
+
 typedef struct
 {
-	unsigned short name_id;
-	unsigned short unit_id;
-	unsigned short   value_id;
+	char*			name;
+	char*			unit;
+	unsigned short	value_id;
 
-	PTR_FUNC_GET_FONT name_font_type;
-	PTR_FUNC_GET_FONT unit_font_type;
-	PTR_FUNC_GET_FONT limit_font_type;
-	PTR_FUNC_GET_FONT value_font_type;
-	PTR_FUNC_GET_FONT value_big_font_type;
+	FONT_TYPE name_font_type;
+	FONT_TYPE unit_font_type;
+	FONT_TYPE limit_font_type;
+	FONT_TYPE value_font_type;
+	FONT_TYPE value_big_font_type;
 
 	unsigned int	name_color;
 	unsigned int	unit_color;
@@ -25,10 +27,10 @@ public:
 	virtual c_wnd* clone(){return new c_value_ctrl();}
 	virtual void pre_create_wnd();
 	virtual const char* get_class_name(void) const {return "c_value_ctrl";}
-	void set_name(unsigned short str_id){m_name_id = str_id;}
-	void set_unit_strid(unsigned short str_id){m_unit_strid = str_id;}
-	void set_value_id(unsigned int value_id){ m_value_id = value_id;}
-	unsigned int get_value_id(void){ return m_value_id;}
+	void set_name(char* str){m_name_str = str;}
+	void set_unit_str(char* str){m_unit_str = str;}
+	void set_value_id(unsigned int value_id) { m_value_id = value_id; }
+	unsigned int get_value_id(void) { return m_value_id; }
 
 	void set_high_limit(short value, short dot_position){m_high_limit = value; m_limit_dot_position = dot_position;}
 	void set_low_limit(short value, short dot_position){m_low_limit = value; m_limit_dot_position = dot_position;}
@@ -55,10 +57,10 @@ protected:
 	c_rect			m_value_rect;
 	c_rect          m_max_value_rect;
 
-	unsigned short	m_name_id;
-	unsigned short	m_unit_strid;
+	char*			m_name_str;
+	char*			m_unit_str;
 	unsigned int	m_value_id;
-
+	
 	short			m_high_limit;
 	short			m_low_limit;
 	short			m_limit_dot_position;

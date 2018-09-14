@@ -5,7 +5,6 @@
 #include "../source/ui_ctrl_ex/value_ctrl.h"
 #include "../source/ui_ctrl_ex/value_view.h"
 #include "../include/ctrl_id.h"
-#include "../gui_include/font.h"
 #include "../source/manager/value_manager.h"
 #include "../source/manager/value_ctrl_manager.h"
 #include <string.h>
@@ -21,7 +20,7 @@ void c_resp_value_view::on_init_children(void)
 	}
 	c_value_ctrl_manage::get_instance()->config_param_ctrl_att(VALUE_RESP, p_rr);
 
-	p_rr->set_value_font_type(FONT_ENG_LLLB());
+	p_rr->set_value_font_type(c_font::get_font(FONT_ENG_LLLB));
 
 	c_value_view::register_value_view(this);
 }

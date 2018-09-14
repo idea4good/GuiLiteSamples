@@ -6,7 +6,6 @@
 #include "../source/ui_ctrl_ex/value_ctrl.h"
 #include "../source/ui_ctrl_ex/value_sub_ctrl.h"
 #include "../include/ctrl_id.h"
-#include "../source/resource/font/strings.h"
 #include "mini_value_xml.h"
 
 static c_value_sub_ctrl s_hr_value_wav;

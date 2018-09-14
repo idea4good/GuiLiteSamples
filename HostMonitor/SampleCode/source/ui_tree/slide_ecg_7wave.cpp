@@ -11,7 +11,6 @@
 
 #include "../include/define.h"
 #include "../include/ctrl_id.h"
-#include "../resource/font/strings.h"
 
 #include "../source/ui_ctrl_ex/ecg_wave_ctrl.h"
 #include "View/ecg_7wave/ecg_7wave_view.h"

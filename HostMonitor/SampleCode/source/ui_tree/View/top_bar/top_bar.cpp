@@ -7,7 +7,6 @@
 #include "../core_include/resource_type.h"
 #include "../include/msg_id.h"
 #include "../include/ctrl_id.h"
-#include "../source/resource/font/strings.h"
 #include "top_bar.h"
 #include "top_bar_xml.h"
 

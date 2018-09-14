@@ -9,7 +9,6 @@
 #include "../gui_include/spinbox.h"
 #include "../gui_include/list_box.h"
 #include "../gui_include/edit.h"
-#include "../source/resource/font/strings.h"
 #include "../include/ctrl_id.h"
 #include <stdlib.h>
 #include <stdio.h>
@@ -35,23 +34,23 @@ void c_patient_setup_dlg::patient_dlg_crtl_init(void)
 {
 	c_list_box  *plbox = (c_list_box*)get_wnd_ptr(ID_SETUP_DLG_LB_SEX);
 	plbox->clear_item();
-	plbox->add_item(STR_MALE);
-	plbox->add_item(STR_FEMALE);
+	plbox->add_item("Male");
+	plbox->add_item("Female");
     plbox->select_item(1);
 
 	plbox = (c_list_box*)get_wnd_ptr(ID_SETUP_DLG_LB_PATIENT_TYPE);
 	plbox->clear_item();
-	plbox->add_item(STR_ADULT);
-	plbox->add_item(STR_PEDIA);
-	plbox->add_item(STR_NEONATE);
+	plbox->add_item("ADU");
+	plbox->add_item("PED");
+	plbox->add_item("NEO");
     plbox->select_item(1);
 
 	plbox = (c_list_box*)get_wnd_ptr(ID_SETUP_DLG_LB_BLOOD_TYPE);
 	plbox->clear_item();
-	plbox->add_item(STR_BLOOD_A);
-	plbox->add_item(STR_BLOOD_B);
-	plbox->add_item(STR_BLOOD_AB);
-	plbox->add_item(STR_BLOOD_O);
+	plbox->add_item("A");
+	plbox->add_item("B");
+	plbox->add_item("AB");
+	plbox->add_item("O");
 	plbox->select_item(1);
 
     //Birthday

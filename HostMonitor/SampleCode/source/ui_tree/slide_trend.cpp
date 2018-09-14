@@ -10,7 +10,6 @@
 
 #include "../include/define.h"
 #include "../include/ctrl_id.h"
-#include "../resource/font/strings.h"
 
 #include "../source/ui_ctrl_ex/time_bar.h"
 #include "../source/ui_ctrl_ex/trend_table.h"

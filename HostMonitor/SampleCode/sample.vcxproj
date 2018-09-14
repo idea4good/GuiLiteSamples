@@ -54,7 +54,6 @@
     <ClInclude Include="source\manager\wave_manager.h" />
     <ClInclude Include="source\modules\demo_module.h" />
     <ClInclude Include="source\modules\module_group.h" />
-    <ClInclude Include="source\resource\font\strings.h" />
     <ClInclude Include="source\ui_ctrl_ex\ecg_wave_ctrl.h" />
     <ClInclude Include="source\ui_ctrl_ex\time_bar.h" />
     <ClInclude Include="source\ui_ctrl_ex\time_label.h" />
@@ -125,7 +124,6 @@
     <ClCompile Include="source\resource\font\Arial_Narrow_8_11.cpp" />
     <ClCompile Include="source\resource\font\Arial_Narrow_9B_12.cpp" />
     <ClCompile Include="source\resource\font\font.cpp" />
-    <ClCompile Include="source\resource\font\strings.cpp" />
     <ClCompile Include="source\start\app_interface.cpp" />
     <ClCompile Include="source\start\host_monitor.cpp" />
     <ClCompile Include="source\ui_ctrl_ex\ecg_wave_ctrl.cpp" />

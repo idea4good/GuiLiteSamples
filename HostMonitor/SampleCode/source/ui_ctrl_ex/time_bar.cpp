@@ -6,7 +6,6 @@
 #include "../core_include/word.h"
 #include "../gui_include/button.h"
 #include "../gui_include/font.h"
-#include "../source/resource/font/strings.h"
 #include <stdio.h>
 #include "time_bar.h"
 
@@ -37,10 +36,10 @@ void c_time_bar::on_init_children()
 
 	c_rect rect;
 	get_screen_rect(rect);
-	m_fast_backward.connect(this, ID_FAST_BACKWARD_BTN, STR_TIME_SCALE_BAR_FAST_BACKWARD, 0, 0, BUTTON_LENGTH, rect.Height());
-	m_backward.connect(this, ID_BACKWARD_BTN, STR_TIME_SCALE_BAR_BACKWARD, (BUTTON_LENGTH + 1), 0, BUTTON_LENGTH, rect.Height());
-	m_forward.connect(this, ID_FORWARD_BTN, STR_TIME_SCALE_BAR_FORWARD, (rect.Width() - 2 * BUTTON_LENGTH - 6), 0, BUTTON_LENGTH, rect.Height());
-	m_fast_forward.connect(this, ID_FAST_FORWARD_BTN, STR_TIME_SCALE_BAR_FAST_FORWARD, (rect.Width() - BUTTON_LENGTH - 5), 0, BUTTON_LENGTH, rect.Height());
+	m_fast_backward.connect(this, ID_FAST_BACKWARD_BTN, "<<", 0, 0, BUTTON_LENGTH, rect.Height());
+	m_backward.connect(this, ID_BACKWARD_BTN, "<", (BUTTON_LENGTH + 1), 0, BUTTON_LENGTH, rect.Height());
+	m_forward.connect(this, ID_FORWARD_BTN, ">", (rect.Width() - 2 * BUTTON_LENGTH - 6), 0, BUTTON_LENGTH, rect.Height());
+	m_fast_forward.connect(this, ID_FAST_FORWARD_BTN, ">>", (rect.Width() - BUTTON_LENGTH - 5), 0, BUTTON_LENGTH, rect.Height());
 }
 
 void c_time_bar::on_paint(void)
@@ -54,7 +53,7 @@ void c_time_bar::on_paint(void)
 
 void c_time_bar::set_time(long time)
 {
-	set_scale_bar_atrrs((time - ((TIME_MARK_CNT - 1) * 60)), time, GLT_RGB(255, 255, 255), FONT_ENG_SB());
+	set_scale_bar_atrrs((time - ((TIME_MARK_CNT - 1) * 60)), time, GLT_RGB(255, 255, 255), c_font::get_font(FONT_ENG_SB));
 	draw_mark();
 }
 

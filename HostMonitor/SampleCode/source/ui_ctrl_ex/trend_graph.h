@@ -28,7 +28,7 @@ public:
 	void draw_h_axis(void);
 private:
 	void draw_line_by_pixel(int* line_x_buf, int* line_y_buf, int len, unsigned int color);
-    void draw_title(unsigned int row_index, unsigned int str_id, unsigned int color, const GUI_FONT* font);
+    void draw_title(unsigned int row_index, char* str, unsigned int color, const GUI_FONT* font);
 	void draw_v_axis(int index);
 	void draw_v_axis(void);
 private:

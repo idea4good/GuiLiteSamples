@@ -1,4 +1,5 @@
 #include "../core_include/wave_buffer.h"
+#include "../gui_include/font.h"
 
 #ifndef _WAVE_MANAGE_H_
 #define _WAVE_MANAGE_H_
@@ -27,21 +28,21 @@ typedef struct struct_gui_font	GUI_FONT;
 typedef const GUI_FONT* (*PTR_FUNC_GET_FONT)();
 typedef struct struct_wave_ctrl_discpritor
 {
-	unsigned char  		wave_id;
-	unsigned short 		wave_name;
-	unsigned short 		wave_unit;
+	unsigned char  	wave_id;
+	char* 			wave_name;
+	char* 			wave_unit;
 
-	PTR_FUNC_GET_FONT	wave_name_font_type;
-	PTR_FUNC_GET_FONT   wave_unit_font_type;
+	FONT_TYPE		wave_name_font_type;
+	FONT_TYPE		wave_unit_font_type;
 
-	unsigned int		wave_name_color;
-	unsigned int 		wave_unit_color;
-	unsigned int 		wave_color;
+	unsigned int	wave_name_color;
+	unsigned int 	wave_unit_color;
+	unsigned int 	wave_color;
 
-	int         		max_data;
-	int         		min_data;
-	int         		pivot_data;
-	int					sample_rate;
+	int         	max_data;
+	int         	min_data;
+	int         	pivot_data;
+	int				sample_rate;
 }WAVE_CTRL_DISCPRITOR;
 
 class c_wave_ctrl;

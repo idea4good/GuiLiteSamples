@@ -13,7 +13,7 @@
 
 c_value_ctrl::c_value_ctrl()
 {
-	m_name_id = m_unit_strid = 0;
+	m_name_str = m_unit_str = 0;
 	m_high_limit = m_low_limit = 0;
 	m_value_dot_position = m_limit_dot_position = 0;
 	m_value = XXX;
@@ -84,11 +84,11 @@ void c_value_ctrl::on_paint(void)
 	height = rect.m_bottom - rect.m_top;
 	
 	//show name
-	c_word::draw_string(m_surface, m_z_order, m_name_id, rect.m_left + 1, rect.m_top, m_name_font_type, m_name_color, m_bg_color);
+	c_word::draw_string(m_surface, m_z_order, m_name_str, rect.m_left + 1, rect.m_top, m_name_font_type, m_name_color, m_bg_color);
 
 	//show unit
 	int unitY = rect.m_top + c_word::get_font_ysize(m_name_font_type)+1;
-	c_word::draw_string(m_surface, m_z_order, m_unit_strid, rect.m_left + 1, unitY, m_unit_font_type, m_unit_color, m_bg_color);
+	c_word::draw_string(m_surface, m_z_order, m_unit_str, rect.m_left + 1, unitY, m_unit_font_type, m_unit_color, m_bg_color);
 
 	//show high limit
 	char limit[16] = { 0 };

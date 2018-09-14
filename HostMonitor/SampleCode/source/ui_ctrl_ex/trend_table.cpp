@@ -7,7 +7,6 @@
 #include "../core_include/word.h"
 #include "../gui_include/font.h"
 #include "../include/ctrl_id.h"
-#include "../source/resource/font/strings.h"
 #include "../gui_include/table.h"
 #include <stdio.h>
 #include "trend_table.h"
@@ -18,7 +17,7 @@ void c_trend_table::on_init_children(void)
 	m_bg_color = GLT_RGB(80, 87, 104);
 
 	m_align_type = ALIGN_LEFT | ALIGN_VCENTER;
-	m_font_type = FONT_ENG_SMB_AA();
+	m_font_type = c_font::get_font(FONT_ENG_SMB_AA);
 
 	set_col_num(9);
 	set_row_num(9);

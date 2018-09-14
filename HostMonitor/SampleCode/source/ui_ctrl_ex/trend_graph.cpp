@@ -7,7 +7,6 @@
 #include "../core_include/word.h"
 #include "../gui_include/font.h"
 #include "../include/ctrl_id.h"
-#include "../source/resource/font/strings.h"
 #include "trend_graph.h"
 #include <string.h>
 #include <stdio.h>
@@ -46,12 +45,12 @@ void c_trend_graph::on_init_children(void)
 	m_v_axis_height = V_AXIS_HEIGHT;
 	m_org_y_of_h_axis = (m_v_axis_height + 10);
 	m_org_x_of_h_axis = X_ORG_OF_H_AXIS;
-	m_h_axis_mark_font = FONT_ENG_SB();
+	m_h_axis_mark_font = c_font::get_font(FONT_ENG_SB);
 
 	for ( int i = 0; i < V_AXIS_CNT; i++ )
 	{
 		m_v_axis_min[i] = m_v_axis_max[i] = m_v_scale_cnt[i] = 0;
-		m_v_axis_mark_font[i] = FONT_ENG_S();
+		m_v_axis_mark_font[i] = c_font::get_font(FONT_ENG_S);
 	}
 	memset(m_v_scale_value , 0 , sizeof( m_v_scale_value ));
 
@@ -226,7 +225,7 @@ void c_trend_graph::draw_line(unsigned int v_axis_index, unsigned int line_index
 	draw_line_by_pixel(m_line_x_buf[line_index], m_line_y_buf[line_index], len, color);
 }
 
-void c_trend_graph::draw_title(unsigned int row_index, unsigned int str_id, unsigned int color, const GUI_FONT* font)
+void c_trend_graph::draw_title(unsigned int row_index, char* str, unsigned int color, const GUI_FONT* font)
 {
 	if (row_index >= MAX_TITLE_CNT || !font)
 	{
@@ -234,7 +233,7 @@ void c_trend_graph::draw_title(unsigned int row_index, unsigned int str_id, unsi
 	}
 	c_rect rect;
 	get_screen_rect(rect);
-	c_word::draw_string(m_surface, m_z_order, str_id, rect.m_left + MARGIN_OF_TITLE, (rect.m_top + TITLE_HEIGHT * row_index + 5), font, color, BACKGROUND_COLOR);
+	c_word::draw_string(m_surface, m_z_order, str, rect.m_left + MARGIN_OF_TITLE, (rect.m_top + TITLE_HEIGHT * row_index + 5), font, color, BACKGROUND_COLOR);
 }
 
 void c_trend_graph::draw_line_by_pixel(int* line_x_buf, int* line_y_buf, int len, unsigned int color)
@@ -276,22 +275,22 @@ void c_trend_graph::on_paint(void)
 	switch (m_type)
 	{
 	case TREND_TYPE_VITAL:
-		draw_title(0, STR_TREND_VITALS_NAME, GLT_RGB(255, 255, 255), FONT_ENG_SB());
-		draw_title(1, STR_TREND_HR_TITLE, HR_COLOR, FONT_ENG_SB());
-		draw_title(2, STR_TREND_SPO2_TITLE, SPO2_COLOR, FONT_ENG_SB());
-		draw_title(3, STR_TREND_RR_TITLE, RR_COLOR, FONT_ENG_SB());
-		set_v_axis_atrrs(0, HR_COLOR, FONT_ENG_SB(), hr_y_axis_scale, 5);
-		set_v_axis_atrrs(1, SPO2_COLOR, FONT_ENG_SB(), spo2_y_axis_scale, 7);
-		set_v_axis_atrrs(2, RR_COLOR, FONT_ENG_SB(), rr_y_axis_scale, 7);
-		set_h_axis_atrrs(FONT_ENG_SB(), x_axis_marks, m_h_scale_cnt);
+		draw_title(0, "--Vitals", GLT_RGB(255, 255, 255), c_font::get_font(FONT_ENG_SB));
+		draw_title(1, " -HR", HR_COLOR, c_font::get_font(FONT_ENG_SB));
+		draw_title(2, " -SPO2", SPO2_COLOR, c_font::get_font(FONT_ENG_SB));
+		draw_title(3, " -RR", RR_COLOR, c_font::get_font(FONT_ENG_SB));
+		set_v_axis_atrrs(0, HR_COLOR, c_font::get_font(FONT_ENG_SB), hr_y_axis_scale, 5);
+		set_v_axis_atrrs(1, SPO2_COLOR, c_font::get_font(FONT_ENG_SB), spo2_y_axis_scale, 7);
+		set_v_axis_atrrs(2, RR_COLOR, c_font::get_font(FONT_ENG_SB), rr_y_axis_scale, 7);
+		set_h_axis_atrrs(c_font::get_font(FONT_ENG_SB), x_axis_marks, m_h_scale_cnt);
 		break;
 	case TREND_TYPE_NIBP:
-		draw_title(0, STR_TREND_PRESSURES_NAME, GLT_RGB(255, 255, 255), FONT_ENG_SB());
-		draw_title(1, STR_TREND_PRESSURES_SYS_TITLE, NIBP_COLOR, FONT_ENG_SB());
-		draw_title(2, STR_TREND_PRESSURES_DIA_TITLE, NIBP_COLOR, FONT_ENG_SB());
-		draw_title(3, STR_TREND_PRESSURES_MEAN_TITLE, NIBP_COLOR, FONT_ENG_SB());
-		set_v_axis_atrrs(0, NIBP_COLOR, FONT_ENG_SB(), pressure_y_axis_scale, 5);
-		set_h_axis_atrrs(FONT_ENG_SB(), x_axis_marks, m_h_scale_cnt);
+		draw_title(0, "--PRESSURES", GLT_RGB(255, 255, 255), c_font::get_font(FONT_ENG_SB));
+		draw_title(1, "-NIBP(sys) mmHg", NIBP_COLOR, c_font::get_font(FONT_ENG_SB));
+		draw_title(2, "-NIBP(dia) mmHg", NIBP_COLOR, c_font::get_font(FONT_ENG_SB));
+		draw_title(3, "-NIBP(mean) mmHg", NIBP_COLOR, c_font::get_font(FONT_ENG_SB));
+		set_v_axis_atrrs(0, NIBP_COLOR, c_font::get_font(FONT_ENG_SB), pressure_y_axis_scale, 5);
+		set_h_axis_atrrs(c_font::get_font(FONT_ENG_SB), x_axis_marks, m_h_scale_cnt);
 		break;
 	default:
 		return;

@@ -326,9 +326,6 @@
     <ClCompile Include="source\resource\font\Arial_Narrow_104B_139.cpp">
       <Filter>source\resource\font</Filter>
     </ClCompile>
-    <ClCompile Include="source\resource\font\font.cpp">
-      <Filter>source\resource\font</Filter>
-    </ClCompile>
     <ClCompile Include="source\resource\font\Arial_Narrow_8_11.cpp">
       <Filter>source\resource\font</Filter>
     </ClCompile>
@@ -508,6 +505,9 @@
     </ClCompile>
     <ClCompile Include="source\modules\module_group.cpp">
       <Filter>source\modules</Filter>
+    </ClCompile>
+    <ClCompile Include="source\resource\resource.cpp">
+      <Filter>source\resource</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

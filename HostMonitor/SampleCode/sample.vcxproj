@@ -123,7 +123,7 @@
     <ClCompile Include="source\resource\font\Arial_Narrow_64B_85.cpp" />
     <ClCompile Include="source\resource\font\Arial_Narrow_8_11.cpp" />
     <ClCompile Include="source\resource\font\Arial_Narrow_9B_12.cpp" />
-    <ClCompile Include="source\resource\font\font.cpp" />
+    <ClCompile Include="source\resource\resource.cpp" />
     <ClCompile Include="source\start\app_interface.cpp" />
     <ClCompile Include="source\start\host_monitor.cpp" />
     <ClCompile Include="source\ui_ctrl_ex\ecg_wave_ctrl.cpp" />

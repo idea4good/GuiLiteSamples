@@ -89,7 +89,6 @@ extern void load_theme();
 static void init(int display_cnt)
 {
 	c_database::get_instance()->init();
-	c_word::initiallize(ENGLISH);
 	load_theme();
 }
 

@@ -41,7 +41,6 @@
     <ClInclude Include="gui_include\label.h" />
     <ClInclude Include="gui_include\list_box.h" />
     <ClInclude Include="gui_include\slide_group.h" />
-    <ClInclude Include="gui_include\shape_resource.h" />
     <ClInclude Include="gui_include\spinbox.h" />
     <ClInclude Include="gui_include\table.h" />
     <ClInclude Include="include\ctrl_id.h" />
@@ -104,14 +103,10 @@
     <ClCompile Include="source\manager\wave_manager.cpp" />
     <ClCompile Include="source\modules\demo_module.cpp" />
     <ClCompile Include="source\modules\module_group.cpp" />
-    <ClCompile Include="source\resource\bitmap\spin_down_button_disable.cpp" />
     <ClCompile Include="source\resource\bitmap\spin_down_button_focus.cpp" />
     <ClCompile Include="source\resource\bitmap\spin_down_button_normal.cpp" />
-    <ClCompile Include="source\resource\bitmap\spin_down_button_push.cpp" />
-    <ClCompile Include="source\resource\bitmap\spin_up_button_disable.cpp" />
     <ClCompile Include="source\resource\bitmap\spin_up_button_focus.cpp" />
     <ClCompile Include="source\resource\bitmap\spin_up_button_normal.cpp" />
-    <ClCompile Include="source\resource\bitmap\spin_up_button_push.cpp" />
     <ClCompile Include="source\resource\font\Arial_Narrow_104B_139.cpp" />
     <ClCompile Include="source\resource\font\Arial_Narrow_10B_13.cpp" />
     <ClCompile Include="source\resource\font\Arial_Narrow_12_16.cpp" />
@@ -124,6 +119,7 @@
     <ClCompile Include="source\resource\font\Arial_Narrow_8_11.cpp" />
     <ClCompile Include="source\resource\font\Arial_Narrow_9B_12.cpp" />
     <ClCompile Include="source\resource\resource.cpp" />
+    <ClCompile Include="source\resource\shape\shape.cpp" />
     <ClCompile Include="source\start\app_interface.cpp" />
     <ClCompile Include="source\start\host_monitor.cpp" />
     <ClCompile Include="source\ui_ctrl_ex\ecg_wave_ctrl.cpp" />

@@ -43,16 +43,21 @@ extern const GUI_BITMAP bmspin_down_button_normal;
 extern const GUI_BITMAP bmspin_down_button_focus;
 static void load_icons()
 {
-	c_spin_box::ms_bt_up_normal_icon = &bmspin_up_button_normal;
-	c_spin_box::ms_bt_up_focus_icon = &bmspin_up_button_focus;
-	c_spin_box::ms_bt_down_normal_icon = &bmspin_down_button_normal;
-	c_spin_box::ms_bt_down_focus_icon = &bmspin_down_button_focus;
+	c_font::add_bitmap(BITMAP_UP_BT_NORMAL, &bmspin_up_button_normal);
+	c_font::add_bitmap(BITMAP_UP_BT_FOCUS, &bmspin_up_button_focus);
+	c_font::add_bitmap(BITMAP_DOWN_BT_NORMAL, &bmspin_down_button_normal);
+	c_font::add_bitmap(BITMAP_DOWN_BT_FOCUS, &bmspin_down_button_focus);
 }
 
 //shapes
+static void load_shapes()
+{
+
+}
 
 void load_theme()
 {
 	load_fonts();
 	load_icons();
+	load_shapes();
 }

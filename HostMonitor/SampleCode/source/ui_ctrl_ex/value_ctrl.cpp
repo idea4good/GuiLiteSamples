@@ -5,7 +5,6 @@
 #include "../core_include/surface.h"
 #include "../core_include/resource_type.h"
 #include "../core_include/word.h"
-#include "../gui_include/shape_resource.h"
 #include "../source/manager/value_manager.h"
 #include "value_ctrl.h"
 #include <string.h>

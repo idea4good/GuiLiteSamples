@@ -6,7 +6,6 @@
 #include "../core_include/resource_type.h"
 #include "../core_include/word.h"
 #include "../gui_include/label.h"
-#include "../gui_include/shape_resource.h"
 
 #include "../include/ctrl_id.h"
 

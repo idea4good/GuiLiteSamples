@@ -3,7 +3,6 @@
 #include "../core_include/cmd_target.h"
 #include "../core_include/wnd.h"
 #include "../source/manager/value_manager.h"
-#include "../gui_include/shape_resource.h"
 #include "../source/ui_ctrl_ex/value_ctrl.h"
 #include <string.h>
 #include "value_view.h"

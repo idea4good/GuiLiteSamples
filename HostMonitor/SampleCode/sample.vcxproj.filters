@@ -49,6 +49,9 @@
     <Filter Include="source\data">
       <UniqueIdentifier>{c922db45-01ad-43b2-b2e4-22f7ab8fafe7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\resource\shape">
+      <UniqueIdentifier>{1de96bb6-2fbd-4482-9991-e7abf5d455b0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core_include\display.h">
@@ -91,9 +94,6 @@
       <Filter>core_include</Filter>
     </ClInclude>
     <ClInclude Include="gui_include\list_box.h">
-      <Filter>gui_include</Filter>
-    </ClInclude>
-    <ClInclude Include="gui_include\shape_resource.h">
       <Filter>gui_include</Filter>
     </ClInclude>
     <ClInclude Include="gui_include\spinbox.h">
@@ -290,22 +290,10 @@
     <ClCompile Include="source\resource\bitmap\spin_down_button_normal.cpp">
       <Filter>source\resource\bitmap</Filter>
     </ClCompile>
-    <ClCompile Include="source\resource\bitmap\spin_down_button_push.cpp">
-      <Filter>source\resource\bitmap</Filter>
-    </ClCompile>
-    <ClCompile Include="source\resource\bitmap\spin_up_button_disable.cpp">
-      <Filter>source\resource\bitmap</Filter>
-    </ClCompile>
     <ClCompile Include="source\resource\bitmap\spin_up_button_focus.cpp">
       <Filter>source\resource\bitmap</Filter>
     </ClCompile>
     <ClCompile Include="source\resource\bitmap\spin_up_button_normal.cpp">
-      <Filter>source\resource\bitmap</Filter>
-    </ClCompile>
-    <ClCompile Include="source\resource\bitmap\spin_up_button_push.cpp">
-      <Filter>source\resource\bitmap</Filter>
-    </ClCompile>
-    <ClCompile Include="source\resource\bitmap\spin_down_button_disable.cpp">
       <Filter>source\resource\bitmap</Filter>
     </ClCompile>
     <ClCompile Include="source\resource\font\Arial_Narrow_15B_20.cpp">
@@ -508,6 +496,9 @@
     </ClCompile>
     <ClCompile Include="source\resource\resource.cpp">
       <Filter>source\resource</Filter>
+    </ClCompile>
+    <ClCompile Include="source\resource\shape\shape.cpp">
+      <Filter>source\resource\shape</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -3,10 +3,10 @@
 #include "../core_include/cmd_target.h"
 #include "../core_include/wnd.h"
 #include "../gui_include/label.h"
-#include "../core_include/resource_type.h"
+#include "../core_include/resource.h"
 #include "../core_include/word.h"
 #include "../core_include/surface.h"
-#include "../gui_include/font.h"
+#include "../gui_include/my_resource.h"
 #include <string.h>
 #include <stdio.h>
 #include "time_label.h"

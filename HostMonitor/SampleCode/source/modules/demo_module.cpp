@@ -1,7 +1,7 @@
 #include "../core_include/api.h"
 #include "../core_include/msg.h"
 #include "../core_include/audio.h"
-#include "../core_include/resource_type.h"
+#include "../core_include/resource.h"
 #include "../include/msg_id.h"
 #include "../core_include/cmd_target.h"
 #include "../source/manager/wave_manager.h"

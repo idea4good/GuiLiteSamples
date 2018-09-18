@@ -1,7 +1,8 @@
 #ifndef _VALUE_CTRL_H_
 #define _VALUE_CTRL_H_
 
-#include "../gui_include/font.h"
+#include "../core_include/resource.h"
+#include "../gui_include/my_resource.h"
 
 typedef struct
 {

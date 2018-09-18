@@ -1,9 +1,9 @@
 #include "../core_include/api.h"
 #include "../core_include/rect.h"
-#include "../core_include/resource_type.h"
+#include "../core_include/resource.h"
 #include "../core_include/surface.h"
 
-const CUSTOM_SHAPE shape_listbox_select[] =
+COLOR_RECT shape_listbox_select[] =
 {
 	{ 0,0,0,-1,		GLT_RGB(2,124,165) },
 { 1,1,1,-2,		GLT_RGB(2,124,165) },
@@ -26,7 +26,7 @@ const CUSTOM_SHAPE shape_listbox_select[] =
 { INVALID_RGN, 0, 0, 0, 0 }
 };
 
-const CUSTOM_SHAPE shape_bt_normal[] =
+COLOR_RECT shape_bt_normal[] =
 {
 	{ 4,0,-5,0,		GLT_RGB(2,124,165) },
 { 0,4,0,-5,		GLT_RGB(2,124,165) },
@@ -92,7 +92,7 @@ const CUSTOM_SHAPE shape_bt_normal[] =
 { INVALID_RGN, 0, 0, 0, 0 }
 };
 
-const CUSTOM_SHAPE shape_bt_focus[] =
+COLOR_RECT shape_bt_focus[] =
 {
 	{ 4,0,-5,0,		GLT_RGB(2,124,165) },
 { 0,4,0,-5,		GLT_RGB(2,124,165) },
@@ -159,7 +159,7 @@ const CUSTOM_SHAPE shape_bt_focus[] =
 };
 
 
-const CUSTOM_SHAPE shape_bt_push[] =
+COLOR_RECT shape_bt_push[] =
 {
 	{ 4,0,-5,0,		GLT_RGB(0,255,0) },
 { 0,4,0,-5,		GLT_RGB(0,255,0) },
@@ -225,7 +225,7 @@ const CUSTOM_SHAPE shape_bt_push[] =
 { INVALID_RGN, 0, 0, 0, 0 }
 };
 
-const CUSTOM_SHAPE shape_listbox_push[] =
+COLOR_RECT shape_listbox_push[] =
 {
 	{ 4,0,-5,0,		GLT_RGB(2,124,165) },
 { 0,4,0,-5,		GLT_RGB(2,124,165) },
@@ -292,7 +292,7 @@ const CUSTOM_SHAPE shape_listbox_push[] =
 };
 
 
-const CUSTOM_SHAPE shape_listbox_extend[] =
+COLOR_RECT shape_listbox_extend[] =
 {
 	{ 0,0,-1,0,		GLT_RGB(70,73,76) },
 { 0,0,0,-1,		GLT_RGB(70,73,76) },
@@ -302,7 +302,7 @@ const CUSTOM_SHAPE shape_listbox_extend[] =
 { INVALID_RGN, 0, 0, 0, 0 }
 };
 
-const CUSTOM_SHAPE shape_bt_disable[] =
+COLOR_RECT shape_bt_disable[] =
 {
 	{ 4,0,-5,0,		GLT_RGB(70,73,76) },
 { 0,4,0,-5,		GLT_RGB(70,73,76) },
@@ -364,7 +364,7 @@ const CUSTOM_SHAPE shape_bt_disable[] =
 { INVALID_RGN, 0, 0, 0, 0 }
 };
 
-const CUSTOM_SHAPE shape_keyboard_bt_normal[] =
+COLOR_RECT shape_keyboard_bt_normal[] =
 {
 	{ 0,0,0,0,		GLT_RGB(38,38,38) },
 { 1,0,1,0,		GLT_RGB(32,32,32) },
@@ -821,7 +821,7 @@ const CUSTOM_SHAPE shape_keyboard_bt_normal[] =
 { INVALID_RGN, 0, 0, 0, 0 }
 };
 
-const CUSTOM_SHAPE shape_keyboard_bt_push[] =
+COLOR_RECT shape_keyboard_bt_push[] =
 {
 	{ 0,0,0,0,		GLT_RGB(38,38,38) },
 { 1,0,1,0,		GLT_RGB(32,32,32) },

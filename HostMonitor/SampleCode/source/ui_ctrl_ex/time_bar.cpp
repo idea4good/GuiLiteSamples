@@ -2,10 +2,10 @@
 #include "../core_include/rect.h"
 #include "../core_include/cmd_target.h"
 #include "../core_include/wnd.h"
-#include "../core_include/resource_type.h"
+#include "../core_include/resource.h"
 #include "../core_include/word.h"
 #include "../gui_include/button.h"
-#include "../gui_include/font.h"
+#include "../gui_include/my_resource.h"
 #include <stdio.h>
 #include "time_bar.h"
 

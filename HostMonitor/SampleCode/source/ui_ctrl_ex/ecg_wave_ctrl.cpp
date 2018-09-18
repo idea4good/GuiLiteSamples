@@ -5,9 +5,9 @@
 #include "../core_include/wave_buffer.h"
 #include "../core_include/wave_ctrl.h"
 #include "../core_include/surface.h"
-#include "../core_include/resource_type.h"
+#include "../core_include/resource.h"
 #include "../core_include/word.h"
-#include "../gui_include/font.h"
+#include "../gui_include/my_resource.h"
 #include "ecg_wave_ctrl.h"
 #include <string.h>
 #include <stdio.h>

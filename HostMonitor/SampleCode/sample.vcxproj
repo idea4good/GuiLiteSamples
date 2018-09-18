@@ -26,7 +26,7 @@
     <ClInclude Include="core_include\display.h" />
     <ClInclude Include="core_include\msg.h" />
     <ClInclude Include="core_include\rect.h" />
-    <ClInclude Include="core_include\resource_type.h" />
+    <ClInclude Include="core_include\resource.h" />
     <ClInclude Include="core_include\surface.h" />
     <ClInclude Include="core_include\wave_buffer.h" />
     <ClInclude Include="core_include\wave_ctrl.h" />
@@ -35,11 +35,11 @@
     <ClInclude Include="gui_include\button.h" />
     <ClInclude Include="gui_include\dialog.h" />
     <ClInclude Include="gui_include\edit.h" />
-    <ClInclude Include="gui_include\font.h" />
     <ClInclude Include="gui_include\gesture.h" />
     <ClInclude Include="gui_include\keyboard.h" />
     <ClInclude Include="gui_include\label.h" />
     <ClInclude Include="gui_include\list_box.h" />
+    <ClInclude Include="gui_include\my_resource.h" />
     <ClInclude Include="gui_include\slide_group.h" />
     <ClInclude Include="gui_include\spinbox.h" />
     <ClInclude Include="gui_include\table.h" />

@@ -3,9 +3,9 @@
 #include "../core_include/cmd_target.h"
 #include "../core_include/wnd.h"
 #include "../core_include/surface.h"
-#include "../core_include/resource_type.h"
+#include "../core_include/resource.h"
 #include "../core_include/word.h"
-#include "../gui_include/font.h"
+#include "../gui_include/my_resource.h"
 #include "../include/ctrl_id.h"
 #include "../gui_include/table.h"
 #include <stdio.h>

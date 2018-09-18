@@ -1,5 +1,5 @@
 #include "../core_include/cmd_target.h"
-#include "../core_include/resource_type.h"
+#include "../core_include/resource.h"
 #include "../source/manager/wave_manager.h"
 #include "../source/manager/value_manager.h"
 #include "../modules/demo_module.h"

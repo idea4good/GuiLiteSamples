@@ -4,7 +4,7 @@
 #include "../core_include/wnd.h"
 
 #include "../gui_include/label.h"
-#include "../core_include/resource_type.h"
+#include "../core_include/resource.h"
 #include "../core_include/word.h"
 #include "../source/ui_ctrl_ex/value_view.h"
 #include "../source/ui_ctrl_ex/value_ctrl.h"

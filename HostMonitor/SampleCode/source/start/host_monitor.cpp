@@ -3,11 +3,10 @@
 #include "../core_include/msg.h"
 #include "../core_include/cmd_target.h"
 #include "../core_include/wnd.h"
-#include "../core_include/resource_type.h"
+#include "../core_include/resource.h"
 #include "../core_include/word.h"
 #include "../core_include/surface.h"
 #include "../core_include/display.h"
-#include "../core_include/resource_type.h"
 
 #include "../include/msg_id.h"
 

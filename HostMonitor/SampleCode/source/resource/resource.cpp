@@ -2,10 +2,10 @@
 #include "../core_include/cmd_target.h"
 #include "../core_include/rect.h"
 #include "../core_include/wnd.h"
-#include "../core_include/resource_type.h"
+#include "../core_include/resource.h"
 #include "../gui_include/button.h"
 #include "../gui_include/spinbox.h"
-#include "../gui_include/font.h"
+#include "../gui_include/my_resource.h"
 
 //fonts
 extern  const GUI_FONT GUI_FontHZ_Arial_Narrow_8_11;
@@ -50,9 +50,28 @@ static void load_icons()
 }
 
 //shapes
+extern COLOR_RECT shape_bt_normal[];
+extern COLOR_RECT shape_bt_focus[];
+extern COLOR_RECT shape_bt_push[];
+extern COLOR_RECT shape_bt_disable[];
+extern COLOR_RECT shape_listbox_select[];
+extern COLOR_RECT shape_listbox_push[];
+extern COLOR_RECT shape_listbox_extend[];
+extern COLOR_RECT shape_keyboard_bt_normal[];
+extern COLOR_RECT shape_keyboard_bt_push[];
+
+
 static void load_shapes()
 {
-
+	c_font::add_shape(BUTTON_NORMAL, shape_bt_normal);
+	c_font::add_shape(BUTTON_FOCUS, shape_bt_focus);
+	c_font::add_shape(BUTTON_PUSH, shape_bt_push);
+	c_font::add_shape(BUTTON_DISABLE, shape_bt_disable);
+	c_font::add_shape(LIST_BOX_SELECT, shape_listbox_select);
+	c_font::add_shape(LIST_BOX_PUSH, shape_listbox_push);
+	c_font::add_shape(LIST_BOX_EXTEND, shape_listbox_extend);
+	c_font::add_shape(KEY_BUTTON_NORMAL, shape_keyboard_bt_normal);
+	c_font::add_shape(KEY_BUTTON_PUSH, shape_keyboard_bt_push);
 }
 
 void load_theme()

@@ -63,7 +63,7 @@
     <ClInclude Include="core_include\rect.h">
       <Filter>core_include</Filter>
     </ClInclude>
-    <ClInclude Include="core_include\resource_type.h">
+    <ClInclude Include="core_include\resource.h">
       <Filter>core_include</Filter>
     </ClInclude>
     <ClInclude Include="core_include\surface.h">
@@ -111,7 +111,7 @@
     <ClInclude Include="gui_include\edit.h">
       <Filter>gui_include</Filter>
     </ClInclude>
-    <ClInclude Include="gui_include\font.h">
+    <ClInclude Include="gui_include\my_resource.h">
       <Filter>gui_include</Filter>
     </ClInclude>
     <ClInclude Include="gui_include\gesture.h">

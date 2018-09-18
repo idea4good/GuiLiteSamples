@@ -4,7 +4,7 @@
 #include "../core_include/wnd.h"
 #include "../core_include/msg.h"
 #include "../gui_include/label.h"
-#include "../core_include/resource_type.h"
+#include "../core_include/resource.h"
 #include "../include/msg_id.h"
 #include "../include/ctrl_id.h"
 #include "top_bar.h"

@@ -1,5 +1,6 @@
 #include "../core_include/wave_buffer.h"
-#include "../gui_include/font.h"
+#include "../core_include/resource.h"
+#include "../gui_include/my_resource.h"
 
 #ifndef _WAVE_MANAGE_H_
 #define _WAVE_MANAGE_H_

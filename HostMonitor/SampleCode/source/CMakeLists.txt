@@ -1,7 +1,9 @@
 FILE(GLOB MANAGER manager/*.cpp)
 FILE(GLOB MODULES modules/*.cpp)
 FILE(GLOB RESOURCE resource/font/*.cpp
-	resource/bitmap/*.cpp)
+	resource/bitmap/*.cpp
+	resource/shape/*.cpp
+	resource/*.cpp)
 FILE(GLOB START start/*.cpp)
 FILE(GLOB DATA data/*.cpp data/*.c)
 FILE(GLOB UI_CTRL_EX ui_ctrl_ex/*.cpp)

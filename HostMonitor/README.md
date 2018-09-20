@@ -74,7 +74,7 @@ For example: arm-linux-gnueabi-gcc
 - `make`
 - `cp SampleCode/libsample.a  BuildAndroid/jni/libs`
 - `cd BuildAndroid/jni/libs`
-- `./merge_libs.sh`
+- `./merge-libs.sh`
 
 ### Use NDK command, for example: Windows command
 - `cd BuildAndroid\jni`
@@ -102,4 +102,4 @@ depdency: Windows 10, visul stdio 2015/2017
 - Take VR/MR device on head, or run simulator.
 - press `start`, find the UWP you build and run.
 
-Note: Windows RS3(Build 16299) is needed.
+Note: Windows RS3(Build 16299) will be necessary.

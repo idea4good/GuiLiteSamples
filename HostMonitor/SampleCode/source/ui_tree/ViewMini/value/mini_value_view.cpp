@@ -29,9 +29,9 @@ void c_mini_value_view::on_init_children(void)
 	c_value_ctrl_manage::get_instance()->config_param_ctrl_att(VALUE_SPO2, pSpo2_value);
 	c_value_ctrl_manage::get_instance()->config_param_ctrl_att(VALUE_RESP, pResp_value);
 	
-	pHr_value->set_value_font_type(c_font::get_font(FONT_ENG_LLB));
-	pSpo2_value->set_value_font_type(c_font::get_font(FONT_ENG_LLB));
-	pResp_value->set_value_font_type(c_font::get_font(FONT_ENG_LLB));
+	pHr_value->set_value_font_type(c_my_resource::get_font(FONT_ENG_LLB));
+	pSpo2_value->set_value_font_type(c_my_resource::get_font(FONT_ENG_LLB));
+	pResp_value->set_value_font_type(c_my_resource::get_font(FONT_ENG_LLB));
 
 	c_value_view::register_value_view(this);
 }

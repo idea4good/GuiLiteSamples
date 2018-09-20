@@ -29,10 +29,10 @@ void c_nibp_value_view::on_init_children(void)
 		return;
 	}
 
-	p_sys_value->set_value_font_type(c_font::get_font(FONT_ENG_LLB));
-	p_mean_value->set_value_font_type(c_font::get_font(FONT_ENG_MB_AA));
-	p_dia_value->set_value_font_type(c_font::get_font(FONT_ENG_LLB));
-	p_name->set_font_type(c_font::get_font(FONT_ENG_SMB_AA));
+	p_sys_value->set_value_font_type(c_my_resource::get_font(FONT_ENG_LLB));
+	p_mean_value->set_value_font_type(c_my_resource::get_font(FONT_ENG_MB_AA));
+	p_dia_value->set_value_font_type(c_my_resource::get_font(FONT_ENG_LLB));
+	p_name->set_font_type(c_my_resource::get_font(FONT_ENG_SMB_AA));
 	p_name->set_font_color(GLT_RGB(255, 255, 255));
 
 	c_value_ctrl_manage::get_instance()->config_param_ctrl_att(VALUE_NIBP_SYS, p_sys_value);

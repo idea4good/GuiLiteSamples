@@ -26,7 +26,7 @@ void c_ecg_wave_ctrl::on_paint()
 	//show unit
 	c_word::draw_string(m_surface, m_z_order, m_wave_unit, m_wave_left + 60, rect.m_top, m_wave_unit_font_type, m_wave_unit_color, COLOR_TRANPARENT);
 	//show gain
-	c_word::draw_string(m_surface, m_z_order, "X1", m_wave_left + 70 , rect.m_top, c_font::get_font(FONT_ENG_SBM), m_wave_color, COLOR_TRANPARENT);
+	c_word::draw_string(m_surface, m_z_order, "X1", m_wave_left + 70 , rect.m_top, c_my_resource::get_font(FONT_ENG_SBM), m_wave_color, COLOR_TRANPARENT);
 
 	//show scale rule
 	int base_line = (m_wave_top + m_wave_bottom) / 2;

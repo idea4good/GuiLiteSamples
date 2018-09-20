@@ -84,11 +84,11 @@ int run(int main_cnt, int main_width, int main_height, int sub_cnt, int sub_widt
 	return run(main_fbs, main_cnt, main_width, main_height, sub_fbs, sub_cnt, sub_width, sub_height, color_bytes);
 }
 
-extern void load_theme();
+extern void load_theme(int index);
 static void init(int display_cnt)
 {
 	c_database::get_instance()->init();
-	load_theme();
+	load_theme(0);
 }
 
 static void real_timer_routine(void* arg)

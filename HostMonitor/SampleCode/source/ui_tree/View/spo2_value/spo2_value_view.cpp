@@ -25,8 +25,8 @@ void c_spo2_value_view::on_init_children(void)
 	c_value_ctrl_manage::get_instance()->config_param_ctrl_att(VALUE_SPO2, p_value_spo2);
 	c_value_ctrl_manage::get_instance()->config_param_ctrl_att(VALUE_PR, p_value_pr);
 	
-	p_value_spo2->set_value_font_type(c_font::get_font(FONT_ENG_LLLB));
-	p_value_pr->set_value_font_type(c_font::get_font(FONT_ENG_LLB));
+	p_value_spo2->set_value_font_type(c_my_resource::get_font(FONT_ENG_LLLB));
+	p_value_pr->set_value_font_type(c_my_resource::get_font(FONT_ENG_LLB));
 
 	c_value_view::register_value_view(this);
 }

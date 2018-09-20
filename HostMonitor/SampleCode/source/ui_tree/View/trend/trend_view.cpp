@@ -126,9 +126,9 @@ void c_trend_view::refresh_trend_graphic(long time)
 	{
 		x_axis_marks[(H_AXIS_MARK_CNT - 1) - i] = (time - (i * H_AXIS_MARK_INTERVAL));
 	}
-	p_vitals_trend_graph->set_h_axis_atrrs(c_font::get_font(FONT_ENG_SB), x_axis_marks, H_AXIS_MARK_CNT);
+	p_vitals_trend_graph->set_h_axis_atrrs(c_my_resource::get_font(FONT_ENG_SB), x_axis_marks, H_AXIS_MARK_CNT);
 	p_vitals_trend_graph->draw_h_axis();
-	p_nibp_trend->set_h_axis_atrrs(c_font::get_font(FONT_ENG_SB), x_axis_marks, H_AXIS_MARK_CNT);
+	p_nibp_trend->set_h_axis_atrrs(c_my_resource::get_font(FONT_ENG_SB), x_axis_marks, H_AXIS_MARK_CNT);
 	p_nibp_trend->draw_h_axis();
 
 	//update data

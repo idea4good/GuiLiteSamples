@@ -3,9 +3,14 @@
 
 typedef struct struct_gui_font		GUI_FONT;
 typedef struct struct_color_rect	COLOR_RECT;
-typedef struct struct_gui_bitmap GUI_BITMAP;
+typedef struct struct_gui_bitmap	GUI_BITMAP;
 
 //Redefine them to meet your need.
+#define DEFAULT_NORMAL_COLOR	GLT_RGB(211, 211, 211)
+#define DEFAULT_FOCUS_COLOR		GLT_RGB(188, 185, 182)
+#define DEFAULT_PUSH_COLOR		GLT_RGB(165, 162, 159)
+#define DEFAULT_FONT_COLOR		GLT_RGB(0, 0, 0)
+
 enum FONT_TYPE
 {
 	FONT_ENG_S,
@@ -34,7 +39,6 @@ enum SHAPE_TYPE
 	BUTTON_NORMAL,
 	BUTTON_FOCUS,
 	BUTTON_PUSH,
-	BUTTON_DISABLE,
 
 	LIST_BOX_SELECT,
 	LIST_BOX_PUSH,
@@ -44,17 +48,26 @@ enum SHAPE_TYPE
 	KEY_BUTTON_PUSH
 };
 
-class c_font
+enum COLOR_TYPE
+{
+	CTRL_BACK_GROUND,
+	CTRL_FORE_GROUND
+};
+
+class c_my_resource
 {
 public:
-	static int add_font(FONT_TYPE index, const GUI_FONT* font_resource);
+	static int add_font(FONT_TYPE index, const GUI_FONT* font);
 	static const GUI_FONT* get_font(FONT_TYPE index);
 
-	static int add_bitmap(BITMAP_TYPE index, const GUI_BITMAP* bmp_resource);
+	static int add_bitmap(BITMAP_TYPE index, const GUI_BITMAP* bmp);
 	static const GUI_BITMAP* get_bmp(BITMAP_TYPE index);
 
-	static int add_shape(SHAPE_TYPE index, const COLOR_RECT* shape_resource);
+	static int add_shape(SHAPE_TYPE index, const COLOR_RECT* shape);
 	static const COLOR_RECT* get_shape(SHAPE_TYPE index);
+
+	static int add_color(COLOR_TYPE index, const unsigned int color);
+	static const unsigned int get_color(COLOR_TYPE index);
 };
 
 #endif

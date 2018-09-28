@@ -5,7 +5,7 @@
 #ifndef GUI_CONST_STORAGE
   #define GUI_CONST_STORAGE const
 #endif
-extern const GUI_BITMAP bmspin_down_button_focus;
+extern const BITMAP_INFO bmspin_down_button_focus;
 
 
 static GUI_CONST_STORAGE unsigned short acspin_down_button_focus[] = {
@@ -131,7 +131,7 @@ static GUI_CONST_STORAGE unsigned short acspin_down_button_focus[] = {
         0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000
 };
 
-GUI_CONST_STORAGE GUI_BITMAP bmspin_down_button_focus = {
+GUI_CONST_STORAGE BITMAP_INFO bmspin_down_button_focus = {
   55, /* XSize */
   60, /* YSize */
   110, /* BytesPerLine */

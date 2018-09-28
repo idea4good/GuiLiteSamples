@@ -25,8 +25,8 @@ typedef enum
 	WAVE_TYPE_MAX
 }WAVE_TYPE;
 
-typedef struct struct_gui_font	GUI_FONT;
-typedef const GUI_FONT* (*PTR_FUNC_GET_FONT)();
+typedef struct struct_font_info	FONT_INFO;
+typedef const FONT_INFO* (*PTR_FUNC_GET_FONT)();
 typedef struct struct_wave_ctrl_discpritor
 {
 	unsigned char  	wave_id;

@@ -1,4 +1,4 @@
-#include "../core_include/rect.h"
+﻿#include "../core_include/rect.h"
 #include "../core_include/cmd_target.h"
 #include "../core_include/api.h"
 #include "../core_include/wnd.h"
@@ -59,7 +59,7 @@ static c_about_dlg s_about;
 static WND_TREE s_config_children[]=
 {
 	{&s_btn_patient_setup,	5, "Patient Setup",	0,						5,	BUTTON_WIDTH, BUTTON_HEIGHT},
-	{&s_btn_demo_setup,		7, "About",	(BUTTON_WIDTH + 10),	5,	BUTTON_WIDTH, BUTTON_HEIGHT},
+	{&s_btn_demo_setup,		7, "\xE5\x85\xB3\xE4\xBA\x8E",	(BUTTON_WIDTH + 10),	5,	BUTTON_WIDTH, BUTTON_HEIGHT},
 	{NULL,0,0,0,0,0,0}
 };
 

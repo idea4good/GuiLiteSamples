@@ -14,7 +14,6 @@ typedef struct
 	FONT_TYPE unit_font_type;
 	FONT_TYPE limit_font_type;
 	FONT_TYPE value_font_type;
-	FONT_TYPE value_big_font_type;
 
 	unsigned int	name_color;
 	unsigned int	unit_color;

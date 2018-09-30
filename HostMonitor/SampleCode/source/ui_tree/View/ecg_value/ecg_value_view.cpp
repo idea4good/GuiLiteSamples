@@ -27,10 +27,6 @@ void c_ecg_value_view::on_init_children(void)
 	c_value_ctrl_manage::get_instance()->config_param_ctrl_att(VALUE_PVCs,	p_pvsc_value);
 	c_value_ctrl_manage::get_instance()->config_param_ctrl_att(VALUE_ST_II,p_st_ii_value);
 
-	p_hr_value->set_value_font_type(c_my_resource::get_font(FONT_ENG_LLLB));
-	p_pvsc_value->set_value_font_type(c_my_resource::get_font(FONT_ENG_LLB));
-	p_st_ii_value->set_value_font_type(c_my_resource::get_font(FONT_ENG_LLB));
-
 	p_st_ii_value->set_name("ST_II");
 
     c_value_view::register_value_view(this);

@@ -8,7 +8,10 @@
 #include "../gui_include/my_resource.h"
 
 //fonts
-extern const FONT_INFO Arial_18;
+extern const FONT_INFO Arial_16B;
+extern const FONT_INFO Arial_32B;
+extern const FONT_INFO Arial_56B;
+extern const FONT_INFO Arial_62B;
 
 //icons
 extern const BITMAP_INFO bmspin_up_button_normal;
@@ -32,17 +35,14 @@ void load_theme(int index)
 	{
 	case 0:
 		//font
-		c_my_resource::add_font(FONT_ENG_S, &Arial_18);
-		c_my_resource::add_font(FONT_ENG_SB, &Arial_18);
-		c_my_resource::add_font(FONT_ENG_SBM, &Arial_18);
-		c_my_resource::add_font(FONT_ENG_SMB, &Arial_18);
-		c_my_resource::add_font(FONT_ENG_SMB_AA, &Arial_18);
-		c_my_resource::add_font(FONT_ENG_MB_AA, &Arial_18);
-		c_my_resource::add_font(FONT_ENG_MMB_AA, &Arial_18);
-		c_my_resource::add_font(FONT_ENG_MB, &Arial_18);
-		c_my_resource::add_font(FONT_ENG_LLB, &Arial_18);
-		c_my_resource::add_font(FONT_ENG_LLLB, &Arial_18);
-		c_my_resource::add_font(FONT_ENG_LLLLB, &Arial_18);
+		c_my_resource::add_font(FONT_ENG_S, &Arial_16B);
+		c_my_resource::add_font(FONT_ENG_SB, &Arial_16B);
+		c_my_resource::add_font(FONT_ENG_SBM, &Arial_16B);
+		c_my_resource::add_font(FONT_ENG_SMB, &Arial_16B);
+
+		c_my_resource::add_font(FONT_ENG_MB, &Arial_32B);
+		c_my_resource::add_font(FONT_ENG_LLB, &Arial_56B);
+		c_my_resource::add_font(FONT_ENG_LLLB, &Arial_62B);
 		//icon
 		c_my_resource::add_bitmap(BITMAP_UP_BT_NORMAL, &bmspin_up_button_normal);
 		c_my_resource::add_bitmap(BITMAP_UP_BT_FOCUS, &bmspin_up_button_focus);
@@ -63,17 +63,14 @@ void load_theme(int index)
 		break;
 	case 1:
 		//font
-		c_my_resource::add_font(FONT_ENG_S, &Arial_18);
-		c_my_resource::add_font(FONT_ENG_SB, &Arial_18);
-		c_my_resource::add_font(FONT_ENG_SBM, &Arial_18);
-		c_my_resource::add_font(FONT_ENG_SMB, &Arial_18);
-		c_my_resource::add_font(FONT_ENG_SMB_AA, &Arial_18);
-		c_my_resource::add_font(FONT_ENG_MB_AA, &Arial_18);
-		c_my_resource::add_font(FONT_ENG_MMB_AA, &Arial_18);
-		c_my_resource::add_font(FONT_ENG_MB, &Arial_18);
-		c_my_resource::add_font(FONT_ENG_LLB, &Arial_18);
-		c_my_resource::add_font(FONT_ENG_LLLB, &Arial_18);
-		c_my_resource::add_font(FONT_ENG_LLLLB, &Arial_18);
+		c_my_resource::add_font(FONT_ENG_S, &Arial_16B);
+		c_my_resource::add_font(FONT_ENG_SB, &Arial_16B);
+		c_my_resource::add_font(FONT_ENG_SBM, &Arial_16B);
+		c_my_resource::add_font(FONT_ENG_SMB, &Arial_16B);
+
+		c_my_resource::add_font(FONT_ENG_MB, &Arial_32B);
+		c_my_resource::add_font(FONT_ENG_LLB, &Arial_56B);
+		c_my_resource::add_font(FONT_ENG_LLLB, &Arial_62B);
 		//icon
 		c_my_resource::add_bitmap(BITMAP_UP_BT_NORMAL, &bmspin_up_button_normal);
 		c_my_resource::add_bitmap(BITMAP_UP_BT_FOCUS, &bmspin_up_button_focus);

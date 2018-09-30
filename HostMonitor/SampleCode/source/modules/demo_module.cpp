@@ -228,12 +228,6 @@ void c_demo_module::unpack_ecg()
 	c_value_manager::get_instance()->save_value(VALUE_HR, 60 + (rand() % 50));
 	c_value_manager::get_instance()->save_value(VALUE_PVCs, 0);
 	c_value_manager::get_instance()->save_value(VALUE_ST_II, 0);
-	c_value_manager::get_instance()->save_value(VALUE_ST_I, 0);
-	c_value_manager::get_instance()->save_value(VALUE_ST_III, 0);
-	c_value_manager::get_instance()->save_value(VALUE_ST_AVF, 0);
-	c_value_manager::get_instance()->save_value(VALUE_ST_AVR, 0);
-	c_value_manager::get_instance()->save_value(VALUE_ST_AVL, 0);
-	c_value_manager::get_instance()->save_value(VALUE_ST_V1, 0);
 
 	short temp1,temp2;
 	short demo_iii,demo_avr,demo_avl,demo_avf;

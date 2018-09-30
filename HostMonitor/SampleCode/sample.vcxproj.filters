@@ -296,9 +296,6 @@
     <ClCompile Include="source\resource\bitmap\spin_up_button_normal.cpp">
       <Filter>source\resource\bitmap</Filter>
     </ClCompile>
-    <ClCompile Include="source\resource\font\Arial_Narrow_8_11.cpp">
-      <Filter>source\resource\font</Filter>
-    </ClCompile>
     <ClCompile Include="source\ui_ctrl_ex\trend_graph.cpp">
       <Filter>source\ui_ctrl_ex</Filter>
     </ClCompile>
@@ -469,6 +466,18 @@
     </ClCompile>
     <ClCompile Include="source\resource\shape\shape.cpp">
       <Filter>source\resource\shape</Filter>
+    </ClCompile>
+    <ClCompile Include="source\resource\font\Arial_16B.cpp">
+      <Filter>source\resource\font</Filter>
+    </ClCompile>
+    <ClCompile Include="source\resource\font\Arial_32B.cpp">
+      <Filter>source\resource\font</Filter>
+    </ClCompile>
+    <ClCompile Include="source\resource\font\Arial_56B.cpp">
+      <Filter>source\resource\font</Filter>
+    </ClCompile>
+    <ClCompile Include="source\resource\font\Arial_62B.cpp">
+      <Filter>source\resource\font</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

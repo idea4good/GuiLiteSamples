@@ -33,6 +33,8 @@ HostMonitor有2千行UI代码, 用来布局UI和自定义控件
 
 [手机连串口设备](Serial.md)
 
+[下载体验Android版App](http://zhushou.360.cn/detail/index/soft_id/1754231)
+
 ## Snake
 Snake只有200+行代码，用来解释如何绘制、渲染，通过对它的学习，你可以把GuiLite运行在单片机上。
 

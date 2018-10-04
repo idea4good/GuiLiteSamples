@@ -226,8 +226,8 @@ void c_demo_module::unpack_ecg()
 	static int sample_index;
 
 	c_value_manager::get_instance()->save_value(VALUE_HR, 60 + (rand() % 50));
-	c_value_manager::get_instance()->save_value(VALUE_PVCs, 0);
-	c_value_manager::get_instance()->save_value(VALUE_ST_II, 0);
+	c_value_manager::get_instance()->save_value(VALUE_PVCs, 3);
+	c_value_manager::get_instance()->save_value(VALUE_ST_II, 2);
 
 	short temp1,temp2;
 	short demo_iii,demo_avr,demo_avl,demo_avf;

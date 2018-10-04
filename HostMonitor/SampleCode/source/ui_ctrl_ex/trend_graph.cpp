@@ -73,7 +73,7 @@ void c_trend_graph::set_v_axis_height(int height)
 	m_org_y_of_h_axis = (m_v_axis_height + 10);
 }
 
-void c_trend_graph::set_h_axis_atrrs(const GUI_FONT* font, long scale_value[], int scale_count)
+void c_trend_graph::set_h_axis_atrrs(const FONT_INFO* font, long scale_value[], int scale_count)
 {
 	if (!font || scale_count < 0  || scale_count > MAX_MARK_CNT)
 	{
@@ -92,7 +92,7 @@ void c_trend_graph::set_h_axis_atrrs(const GUI_FONT* font, long scale_value[], i
 	m_h_axis_max = scale_value[scale_count - 1];
 }
 
-void c_trend_graph::set_v_axis_atrrs(unsigned int v_axis_index, unsigned int color, const GUI_FONT* font, int value_scale[], int scale_count)
+void c_trend_graph::set_v_axis_atrrs(unsigned int v_axis_index, unsigned int color, const FONT_INFO* font, int value_scale[], int scale_count)
 {
 	if ( !font || scale_count <= 0 || scale_count > MAX_MARK_CNT || v_axis_index >= V_AXIS_CNT )
 	{
@@ -225,7 +225,7 @@ void c_trend_graph::draw_line(unsigned int v_axis_index, unsigned int line_index
 	draw_line_by_pixel(m_line_x_buf[line_index], m_line_y_buf[line_index], len, color);
 }
 
-void c_trend_graph::draw_title(unsigned int row_index, char* str, unsigned int color, const GUI_FONT* font)
+void c_trend_graph::draw_title(unsigned int row_index, char* str, unsigned int color, const FONT_INFO* font)
 {
 	if (row_index >= MAX_TITLE_CNT || !font)
 	{

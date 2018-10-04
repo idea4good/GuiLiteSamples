@@ -19,8 +19,5 @@ void c_resp_value_view::on_init_children(void)
 		return;
 	}
 	c_value_ctrl_manage::get_instance()->config_param_ctrl_att(VALUE_RESP, p_rr);
-
-	p_rr->set_value_font_type(c_my_resource::get_font(FONT_ENG_LLLB));
-
 	c_value_view::register_value_view(this);
 }

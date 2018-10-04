@@ -57,7 +57,7 @@ void c_time_bar::set_time(long time)
 	draw_mark();
 }
 
-int c_time_bar::set_scale_bar_atrrs(long start_time, long end_time, unsigned int color, const GUI_FONT* font)
+int c_time_bar::set_scale_bar_atrrs(long start_time, long end_time, unsigned int color, const FONT_INFO* font)
 {
 	if ( !font ||  end_time <= start_time)
 	{

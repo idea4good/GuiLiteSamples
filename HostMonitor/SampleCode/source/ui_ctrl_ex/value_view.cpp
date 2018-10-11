@@ -59,7 +59,7 @@ int c_value_view::register_value_view(c_value_view* p_pm_view)
 void c_value_view::refresh_group_value(void* ptmr, void* parg)
 {
 	static unsigned int s_sequnce;
-	unsigned int flash_color = (s_sequnce++ % 2) ? GLT_RGB(255, 0, 0) : GLT_RGB(0, 0, 0);
+	unsigned int flash_color = (s_sequnce++ % 2) ? GL_RGB(255, 0, 0) : GL_RGB(0, 0, 0);
 	for(int i = 0; i < PARAM_VIEW_NUM; i++)
 	{
 		if (ms_param_view_group[i])

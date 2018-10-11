@@ -16,7 +16,7 @@ GLT_END_MESSAGE_MAP()
 
 void c_top_bar::on_init_children(void)
 {
-	m_bg_color = GLT_RGB(0,0,0);
+	m_bg_color = GL_RGB(0,0,0);
 	register_timer(1000, c_top_bar::sysinfo_timer_callback);
 }
 
@@ -25,7 +25,7 @@ void c_top_bar::on_paint(void)
 	c_rect rect;
 	get_screen_rect(rect);
 	fill_rect(rect.m_left, rect.m_top, rect.m_right, rect.m_bottom, m_bg_color);
-	draw_hline(rect.m_left,rect.m_right,rect.m_bottom,GLT_RGB(74,74,74));
+	draw_hline(rect.m_left,rect.m_right,rect.m_bottom,GL_RGB(74,74,74));
 }
 
 void c_top_bar::on_refurbish_time(unsigned int wParam, unsigned int lParam)

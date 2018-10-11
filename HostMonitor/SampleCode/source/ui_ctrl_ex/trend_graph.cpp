@@ -27,12 +27,12 @@
 #define TITLE_HEIGHT			20
 #define MARGIN_OF_TITLE			2
 //Color
-#define HR_COLOR				GLT_RGB(148,251,78)
-#define RR_COLOR				GLT_RGB(255,255,82)
-#define SPO2_COLOR				GLT_RGB(90,166,247)
-#define NIBP_COLOR				GLT_RGB(255,0,0)
-#define H_AXIS_COLOR			GLT_RGB(123,121,123)
-#define BACKGROUND_COLOR		GLT_RGB(24,24,24)
+#define HR_COLOR				GL_RGB(148,251,78)
+#define RR_COLOR				GL_RGB(255,255,82)
+#define SPO2_COLOR				GL_RGB(90,166,247)
+#define NIBP_COLOR				GL_RGB(255,0,0)
+#define H_AXIS_COLOR			GL_RGB(123,121,123)
+#define BACKGROUND_COLOR		GL_RGB(24,24,24)
 
 void c_trend_graph::on_init_children(void)
 {
@@ -275,7 +275,7 @@ void c_trend_graph::on_paint(void)
 	switch (m_type)
 	{
 	case TREND_TYPE_VITAL:
-		draw_title(0, "--Vitals", GLT_RGB(255, 255, 255), c_my_resource::get_font(FONT_ENG_SB));
+		draw_title(0, "--Vitals", GL_RGB(255, 255, 255), c_my_resource::get_font(FONT_ENG_SB));
 		draw_title(1, " -HR", HR_COLOR, c_my_resource::get_font(FONT_ENG_SB));
 		draw_title(2, " -SPO2", SPO2_COLOR, c_my_resource::get_font(FONT_ENG_SB));
 		draw_title(3, " -RR", RR_COLOR, c_my_resource::get_font(FONT_ENG_SB));
@@ -285,7 +285,7 @@ void c_trend_graph::on_paint(void)
 		set_h_axis_atrrs(c_my_resource::get_font(FONT_ENG_SB), x_axis_marks, m_h_scale_cnt);
 		break;
 	case TREND_TYPE_NIBP:
-		draw_title(0, "--PRESSURES", GLT_RGB(255, 255, 255), c_my_resource::get_font(FONT_ENG_SB));
+		draw_title(0, "--PRESSURES", GL_RGB(255, 255, 255), c_my_resource::get_font(FONT_ENG_SB));
 		draw_title(1, "-NIBP(sys) mmHg", NIBP_COLOR, c_my_resource::get_font(FONT_ENG_SB));
 		draw_title(2, "-NIBP(dia) mmHg", NIBP_COLOR, c_my_resource::get_font(FONT_ENG_SB));
 		draw_title(3, "-NIBP(mean) mmHg", NIBP_COLOR, c_my_resource::get_font(FONT_ENG_SB));

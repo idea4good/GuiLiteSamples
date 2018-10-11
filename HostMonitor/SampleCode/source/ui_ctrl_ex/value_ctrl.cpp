@@ -69,7 +69,7 @@ EXIT:
 void c_value_ctrl::pre_create_wnd()
 {
 	m_style = GLT_ATTR_VISIBLE;
-	m_bg_color = GLT_RGB(0,0,0);
+	m_bg_color = GL_RGB(0,0,0);
 }
 
 void c_value_ctrl::on_paint(void)

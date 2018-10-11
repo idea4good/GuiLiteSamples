@@ -58,8 +58,8 @@ void load_theme(int index)
 		c_my_resource::add_shape(KEY_BUTTON_NORMAL, shape_keyboard_bt_normal);
 		c_my_resource::add_shape(KEY_BUTTON_PUSH, shape_keyboard_bt_push);
 		//color
-		c_my_resource::add_color(CTRL_FORE_GROUND, GLT_RGB(255, 255, 255));
-		c_my_resource::add_color(CTRL_BACK_GROUND, GLT_RGB(36, 36, 36));
+		c_my_resource::add_color(CTRL_FORE_GROUND, GL_RGB(255, 255, 255));
+		c_my_resource::add_color(CTRL_BACK_GROUND, GL_RGB(36, 36, 36));
 		break;
 	case 1:
 		//font
@@ -78,8 +78,8 @@ void load_theme(int index)
 		c_my_resource::add_bitmap(BITMAP_DOWN_BT_FOCUS, &bmspin_down_button_focus);
 		//no shape
 		//color
-		c_my_resource::add_color(CTRL_FORE_GROUND, GLT_RGB(36, 36, 36));
-		c_my_resource::add_color(CTRL_BACK_GROUND, GLT_RGB(255, 255, 255));
+		c_my_resource::add_color(CTRL_FORE_GROUND, GL_RGB(36, 36, 36));
+		c_my_resource::add_color(CTRL_BACK_GROUND, GL_RGB(255, 255, 255));
 		break;
 	default:
 		ASSERT(FALSE);

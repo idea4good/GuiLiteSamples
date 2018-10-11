@@ -22,8 +22,8 @@ void c_nibplist_view::on_init_children(void)
 		return;
 	}
 
-	p_table->set_font_color(GLT_RGB(255,255,255));
-	p_table->set_bg_color(GLT_RGB(0,0,0));
+	p_table->set_font_color(GL_RGB(255,255,255));
+	p_table->set_bg_color(GL_RGB(0,0,0));
 
 	int total_height = rect.Height();
 	int total_width = rect.Width()-4;

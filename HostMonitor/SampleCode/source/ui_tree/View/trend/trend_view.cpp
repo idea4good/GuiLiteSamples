@@ -13,10 +13,10 @@
 #include <stdio.h>
 #include "trend_view.h"
 
-#define HR_COLOR				GLT_RGB(148,251,78)
-#define SPO2_COLOR				GLT_RGB(90,166,247)
-#define RR_COLOR				GLT_RGB(255,255,82)
-#define NIBP_COLOR				GLT_RGB(255,0,0)
+#define HR_COLOR				GL_RGB(148,251,78)
+#define SPO2_COLOR				GL_RGB(90,166,247)
+#define RR_COLOR				GL_RGB(255,255,82)
+#define NIBP_COLOR				GL_RGB(255,0,0)
 
 #define H_AXIS_MARK_CNT			7
 #define H_AXIS_MARK_INTERVAL	(60 * 10)	//10 minutes between 2 marks
@@ -38,11 +38,11 @@ void c_trend_view::on_paint(void)
 {
 	c_rect rect;
 	get_screen_rect(rect);
-	draw_rect(rect.m_left-2, rect.m_top-2, rect.m_right,	rect.m_bottom-5, GLT_RGB(99,101,99));
-	draw_rect(rect.m_left-1, rect.m_top-1, rect.m_right-1,	rect.m_bottom-6, GLT_RGB(123,125,123));
-	draw_rect(rect.m_left,   rect.m_top,   rect.m_right-2,  rect.m_bottom-7, GLT_RGB(165,166,156));
-	draw_rect(rect.m_left+1, rect.m_top+1, rect.m_right-3,	rect.m_bottom-8, GLT_RGB(123,125,123));
-	draw_rect(rect.m_left+2, rect.m_top+2, rect.m_right-4,	rect.m_bottom-9, GLT_RGB(99,101,99));
+	draw_rect(rect.m_left-2, rect.m_top-2, rect.m_right,	rect.m_bottom-5, GL_RGB(99,101,99));
+	draw_rect(rect.m_left-1, rect.m_top-1, rect.m_right-1,	rect.m_bottom-6, GL_RGB(123,125,123));
+	draw_rect(rect.m_left,   rect.m_top,   rect.m_right-2,  rect.m_bottom-7, GL_RGB(165,166,156));
+	draw_rect(rect.m_left+1, rect.m_top+1, rect.m_right-3,	rect.m_bottom-8, GL_RGB(123,125,123));
+	draw_rect(rect.m_left+2, rect.m_top+2, rect.m_right-4,	rect.m_bottom-9, GL_RGB(99,101,99));
 }
 
 void c_trend_view::on_time_bar_change(unsigned int ctrl_id)

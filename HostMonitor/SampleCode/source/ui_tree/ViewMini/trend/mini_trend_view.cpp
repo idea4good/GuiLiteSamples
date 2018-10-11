@@ -13,9 +13,9 @@
 #include <stdio.h>
 #include "mini_trend_view.h"
 
-#define HR_COLOR				GLT_RGB(148,251,78)
-#define SPO2_COLOR				GLT_RGB(90,166,247)
-#define RR_COLOR				GLT_RGB(255,255,82)
+#define HR_COLOR				GL_RGB(148,251,78)
+#define SPO2_COLOR				GL_RGB(90,166,247)
+#define RR_COLOR				GL_RGB(255,255,82)
 
 #define H_AXIS_MARK_CNT			7
 #define H_AXIS_MARK_INTERVAL	(60 * 10)	//10 minutes between 2 marks

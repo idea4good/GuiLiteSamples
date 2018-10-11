@@ -32,7 +32,7 @@ GLT_END_MESSAGE_MAP()
 void c_time_bar::on_init_children()
 {
 	set_time(get_time_in_second());
-	m_bg_color = GLT_RGB(49, 49, 49);
+	m_bg_color = GL_RGB(49, 49, 49);
 
 	c_rect rect;
 	get_screen_rect(rect);
@@ -53,7 +53,7 @@ void c_time_bar::on_paint(void)
 
 void c_time_bar::set_time(long time)
 {
-	set_scale_bar_atrrs((time - ((TIME_MARK_CNT - 1) * 60)), time, GLT_RGB(255, 255, 255), c_my_resource::get_font(FONT_ENG_SB));
+	set_scale_bar_atrrs((time - ((TIME_MARK_CNT - 1) * 60)), time, GL_RGB(255, 255, 255), c_my_resource::get_font(FONT_ENG_SB));
 	draw_mark();
 }
 
@@ -117,20 +117,20 @@ void c_time_bar::draw_scale()
 	//draw border
 	draw_hline( rect.m_left + MARGIN_LEFT, rect.m_right - MARGIN_RIGHT, rect.m_top, m_scale_color );
 	draw_hline( rect.m_left + MARGIN_LEFT, rect.m_right - MARGIN_RIGHT, rect.m_bottom, m_scale_color );
-	draw_vline( x_pos[0], rect.m_top, rect.m_top + NORMAL_SCALE_HEIGHT, GLT_RGB(255,255,255) );
-	draw_vline( x_pos[0] + 1, rect.m_bottom - NORMAL_SCALE_HEIGHT, rect.m_bottom, GLT_RGB(255,255,255) );
+	draw_vline( x_pos[0], rect.m_top, rect.m_top + NORMAL_SCALE_HEIGHT, GL_RGB(255,255,255) );
+	draw_vline( x_pos[0] + 1, rect.m_bottom - NORMAL_SCALE_HEIGHT, rect.m_bottom, GL_RGB(255,255,255) );
 
 	float sub_scale_line_len = (float)((x_pos[1] - x_pos[0]) / 4.00);
 	for ( i = 1; i < TIME_MARK_CNT; i++ )
 	{
 		for ( j = 1; j < 4; j++ )
 		{//sub scale line
-			draw_vline( (int)(x_pos[i-1] + sub_scale_line_len * j), rect.m_top + 1, rect.m_top + MINI_SCALE_HEIGHT, GLT_RGB(117,117,117) );
-			draw_vline( (int)(x_pos[i-1] + sub_scale_line_len * j), rect.m_bottom - MINI_SCALE_HEIGHT - 1 , rect.m_bottom, GLT_RGB(117,117,117) );
+			draw_vline( (int)(x_pos[i-1] + sub_scale_line_len * j), rect.m_top + 1, rect.m_top + MINI_SCALE_HEIGHT, GL_RGB(117,117,117) );
+			draw_vline( (int)(x_pos[i-1] + sub_scale_line_len * j), rect.m_bottom - MINI_SCALE_HEIGHT - 1 , rect.m_bottom, GL_RGB(117,117,117) );
 		}
 		//scale line
-		draw_vline( x_pos[i], rect.m_top, rect.m_top + NORMAL_SCALE_HEIGHT, GLT_RGB(255,255,255) );
-		draw_vline( x_pos[i] + 1, rect.m_bottom - NORMAL_SCALE_HEIGHT, rect.m_bottom, GLT_RGB(255,255,255) );
+		draw_vline( x_pos[i], rect.m_top, rect.m_top + NORMAL_SCALE_HEIGHT, GL_RGB(255,255,255) );
+		draw_vline( x_pos[i] + 1, rect.m_bottom - NORMAL_SCALE_HEIGHT, rect.m_bottom, GL_RGB(255,255,255) );
 	}
 }
 

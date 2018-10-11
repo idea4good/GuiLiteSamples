@@ -14,7 +14,7 @@
 void c_time_label::on_init_children(void)
 {
 	m_font_type = c_my_resource::get_font(FONT_ENG_SMB);
-	set_font_color(GLT_RGB(255,255,255));
+	set_font_color(GL_RGB(255,255,255));
 	memset(&m_time, 0, sizeof(m_time));
 }
 

@@ -13,8 +13,8 @@
 
 void c_trend_table::on_init_children(void)
 {
-	m_font_color = GLT_RGB(255, 255, 255);
-	m_bg_color = GLT_RGB(80, 87, 104);
+	m_font_color = GL_RGB(255, 255, 255);
+	m_bg_color = GL_RGB(80, 87, 104);
 
 	m_align_type = ALIGN_LEFT | ALIGN_VCENTER;
 	m_font_type = c_my_resource::get_font(FONT_ENG_SMB);

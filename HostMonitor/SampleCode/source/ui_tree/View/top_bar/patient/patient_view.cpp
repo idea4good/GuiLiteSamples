@@ -23,8 +23,8 @@ void c_patient_view::on_paint(void)
 	t_rect.m_left = rect.m_left + 55;
 
 	fill_rect(rect.m_left, rect.m_top, rect.m_right, rect.m_bottom,m_bg_color);
-    c_word::draw_string_in_rect(m_surface, m_z_order, "GuiLite Sample", t_rect, c_my_resource::get_font(FONT_ENG_MB), GLT_RGB(255, 255, 255), GLT_RGB(0, 0, 0), ALIGN_LEFT | ALIGN_VCENTER);
+    c_word::draw_string_in_rect(m_surface, m_z_order, "GuiLite Sample", t_rect, c_my_resource::get_font(FONT_ENG_MB), GL_RGB(255, 255, 255), GL_RGB(0, 0, 0), ALIGN_LEFT | ALIGN_VCENTER);
 
 	t_rect.m_left = rect.m_left + 250;
-	c_word::draw_string_in_rect(m_surface, m_z_order, "ADU", t_rect, c_my_resource::get_font(FONT_ENG_MB), GLT_RGB(255, 255, 255), GLT_RGB(0, 0, 0), ALIGN_HCENTER | ALIGN_VCENTER);
+	c_word::draw_string_in_rect(m_surface, m_z_order, "ADU", t_rect, c_my_resource::get_font(FONT_ENG_MB), GL_RGB(255, 255, 255), GL_RGB(0, 0, 0), ALIGN_HCENTER | ALIGN_VCENTER);
 }

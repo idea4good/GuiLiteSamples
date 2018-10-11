@@ -13,7 +13,7 @@
 #include <stdio.h>
 
 #define	GRID_UNIT	16	//pixel
-#define GRID_COLOR	GLT_RGB(0, 80, 0)
+#define GRID_COLOR	GL_RGB(0, 80, 0)
 
 void c_ecg_wave_ctrl::on_paint()
 {
@@ -22,11 +22,11 @@ void c_ecg_wave_ctrl::on_paint()
 	c_rect rect;
 	get_screen_rect(rect);
 	//show name
-	c_word::draw_string(m_surface, m_z_order, m_wave_name, m_wave_left + 10, rect.m_top, m_wave_name_font_type, m_wave_name_color, COLOR_TRANPARENT);
+	c_word::draw_string(m_surface, m_z_order, m_wave_name, m_wave_left + 10, rect.m_top, m_wave_name_font_type, m_wave_name_color, GL_ARGB(0, 0, 0, 0));
 	//show unit
-	c_word::draw_string(m_surface, m_z_order, m_wave_unit, m_wave_left + 60, rect.m_top, m_wave_unit_font_type, m_wave_unit_color, COLOR_TRANPARENT);
+	c_word::draw_string(m_surface, m_z_order, m_wave_unit, m_wave_left + 60, rect.m_top, m_wave_unit_font_type, m_wave_unit_color, GL_ARGB(0, 0, 0, 0));
 	//show gain
-	c_word::draw_string(m_surface, m_z_order, "X1", m_wave_left + 70 , rect.m_top, c_my_resource::get_font(FONT_ENG_SBM), m_wave_color, COLOR_TRANPARENT);
+	c_word::draw_string(m_surface, m_z_order, "X1", m_wave_left + 70 , rect.m_top, c_my_resource::get_font(FONT_ENG_SBM), m_wave_color, GL_ARGB(0, 0, 0, 0));
 
 	//show scale rule
 	int base_line = (m_wave_top + m_wave_bottom) / 2;
@@ -43,9 +43,9 @@ void c_ecg_wave_ctrl::on_paint()
 	mvRect.m_bottom = mvRect.m_top + 30;
 
 	//show unit
-	c_word::draw_string_in_rect(m_surface, m_z_order, "1mv", mvRect, m_wave_unit_font_type, m_wave_color, COLOR_TRANPARENT);
+	c_word::draw_string_in_rect(m_surface, m_z_order, "1mv", mvRect, m_wave_unit_font_type, m_wave_color, GL_ARGB(0, 0, 0, 0));
 
-	save_foreground();
+	save_background();
 }
 
 void c_ecg_wave_ctrl::draw_grid()

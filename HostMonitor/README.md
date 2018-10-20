@@ -1,5 +1,10 @@
+## How to build for WinForms - C#?
+### core.lib gui.lib should be in BuildWinforms\HostMonitorDll, rebuild them if meet link error.
+- Open "HostMonitor\BuildWinforms\BuildWinforms.sln" by Visual studio 2017
+- Build `sample`, `HostMonitor`, `BuildWinforms` in turn, then run.
+
 ## How to build for Win MFC?
-### core.lib gui.lib sample.lib should be in BuildMFC\BuildMFC\libs\x86(x64), rebuild them if meet link error.
+### core.lib gui.lib should be in BuildMFC\BuildMFC\libs\x86(x64), rebuild them if meet link error.
 - Open "HostMonitor\BuildMFC\HostMonitor.sln" by Visual studio 2017
 - Click `F5` to build/run `HostMonitor`
 

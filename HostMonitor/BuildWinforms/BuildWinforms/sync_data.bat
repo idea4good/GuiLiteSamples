@@ -6,22 +6,22 @@ if NOT "7" == "%argC%" (
     goto :eof
     )
 
-set url=https://api.powerbi.com/beta/72f988bf-86f1-41af-91ab-2d7cd011db47/datasets/ca74872f-2a7e-41ba-8496-58642517cf55/rows?key=zF119dK%%2Bxgdq8BOJcECGoW7V0jJ5NHpVgQlNQiGrUSAHh0MLpu1NJN0P%%2FdNQUzOtZHsMR46pq%%2Fymd9SBA86%%2FjA%%3D%%3D
+set url=https://api.powerbi.com/beta/72f988bf-86f1-41af-91ab-2d7cd011db47/datasets/e0e71bab-d932-4bb8-bfcf-faec5aeadb60/rows?key=J9cQJK6rZyLYQ9NsuWV6RYyrgODk1Wu29tuzwMyBET62Xp1dxuJ5iR%%2B0ZtL6o0ams029nNUhWci%%2B%%2B4GzxXHyBQ%%3D%%3D
 set date=
 for /f "tokens=2-4 delims=/ "  %%a in ("%date%") do (set MM=%%a& set DD=%%b& set YYYY=%%c)
-set datetime=%YYYY%-%MM%-%DD%T%time%
+set datetime=%YYYY%-%MM%-%DD%T%time: =0%0+0800
 set devie_info=%7-%USERNAME%
 
 set raw_data=[{^
-\"HR\" : %1,^
-\"SPO2\" :%2,^
-\"RESP\" :%3,^
-\"SYS\" : %4,^
-\"DIA\" : %5,^
-\"MEAN\" : %6,^
-\"Time\" :\"%datetime%\",^
-\"Device info\" :\"%devie_info%\",^
-\"Weight\" : 1^
+\"hr\" : %1,^
+\"spo2\" :%2,^
+\"resp\" :%3,^
+\"sys\" : %4,^
+\"dia\" : %5,^
+\"mean\" : %6,^
+\"time\" :\"%datetime%\",^
+\"device_info\" :\"%devie_info%\",^
+\"weight\" : 1^
 }]
 
 curl.exe --include --request POST --header "Content-Type: application/json" --data-binary^

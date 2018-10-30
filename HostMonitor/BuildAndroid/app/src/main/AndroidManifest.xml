@@ -8,6 +8,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="GuiLiteSampleHostMonitor"
+            android:value="1" />
         <activity android:name="gui_lite_sample.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

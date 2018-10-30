@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/rl_relativeLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="450dip"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dip" >
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Source code"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="bold" android:layout_centerHorizontal="true"/>
+
+        <WebView
+            android:id="@+id/wb_webview"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@id/tv_title"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="0dp" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/bt_watchVideo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:text="Watch Video" />
+
+</LinearLayout>

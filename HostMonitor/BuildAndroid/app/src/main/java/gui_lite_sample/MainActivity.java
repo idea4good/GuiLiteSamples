@@ -1,20 +1,21 @@
 package gui_lite_sample;
 
+import android.app.Dialog;
 import android.app.PendingIntent;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.hardware.usb.UsbManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
+import android.view.Window;
+import android.webkit.WebView;
+import android.widget.Button;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -56,13 +57,6 @@ public class MainActivity extends AppCompatActivity {
         if (null == ms_cp210x){
             ms_cp210x = new UsbSerialCP210x();
         }
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                SyncInfo();
-            }
-        }).start();
     }
 
     public void ChangeViewState() {
@@ -128,43 +122,19 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void OpenHelpDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Help");
-        builder.setMessage("Watch the video?");
-
-        builder.setPositiveButton("Yes",
-            new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog,
-                                    int which) {
-                    Uri uri = Uri.parse("http://v.youku.com/v_show/id_XMzA5NTMzMTYyOA");
-                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                    startActivity(intent);
-                }
-            });
-
-        builder.setNegativeButton("No",
-            new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog,
-                                    int which) {
-                }
-        });
-
-        ImageView img = new ImageView(this);
-        img.setImageResource(R.drawable.help);
-        builder.setView(img);
-
-        builder.setCancelable(false).show();
-    }
-
     private void Initialize() {
         if(ms_work_folder != null){
             return;
         }
 
-        OpenHelpDialog();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                SyncInfo();
+            }
+        }).start();
+
+        showSourceCode();
 
         File folder = new File(Environment.getExternalStorageDirectory() + File.separator + "idea4good");
         ms_work_folder = folder.getPath() + File.separator;
@@ -236,10 +206,40 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void showSourceCode(){
+        sourceDialog= new Dialog(this);
+        sourceDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        sourceDialog.setContentView(R.layout.source_dialog);
+        sourceDialog.setCancelable(true);
+        sourceDialog.show();
+
+        webView = (android.webkit.WebView)sourceDialog.findViewById(R.id.wb_webview);
+        webView.setScrollbarFadingEnabled(false);
+        webView.setHorizontalScrollBarEnabled(false);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.loadUrl("https://github.com/idea4good/GuiLiteSamples/blob/master/doc/README-cn.md");
+
+
+        buttonVideo = (Button) sourceDialog.findViewById(R.id.bt_watchVideo);
+        buttonVideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("http://v.youku.com/v_show/id_XMzA5NTMzMTYyOA");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+                sourceDialog.dismiss();
+            }
+        });
+    }
+
     private static ThreadNative ms_thread_native = null;
     public static String ms_work_folder = null;
 
     private static UsbManager ms_manager = null;
     private static PendingIntent ms_permissionIntent = null;
     private static UsbSerialCP210x ms_cp210x = null;
+
+    private Dialog sourceDialog;
+    private WebView webView;
+    private Button buttonVideo;
 }

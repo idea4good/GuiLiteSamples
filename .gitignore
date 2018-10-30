@@ -6,6 +6,8 @@ build
 /HostMonitor/BuildAndroid/local.properties
 /HostMonitor/BuildAndroid/.idea/workspace.xml
 /HostMonitor/BuildAndroid/.idea/libraries
+/HostMonitor/BuildAndroid/.idea/caches
+/HostMonitor/BuildAndroid/.idea/codeStyles
 /HostMonitor/BuildAndroid/build
 /HostMonitor/BuildAndroid/captures
 /HostMonitor/BuildAndroid/libs

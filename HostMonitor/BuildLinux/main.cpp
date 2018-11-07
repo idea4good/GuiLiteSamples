@@ -190,15 +190,3 @@ int sync_data(int hr, int spo2, int rr, int nibp_sys, int nibp_dia, int nibp_mea
             nibp_sys, nibp_dia, nibp_mean);
     return system(cmd_line);
 }
-
-//////////////////////////////////////////
-void do_assert(const char* file, int line)
-{
-	printf("assert! file:%s,line:%d,error no: %d\n", file, line, errno);
-}
-
-void log_out(const char* log)
-{
-	printf(log);
-	fflush(stdout);
-}

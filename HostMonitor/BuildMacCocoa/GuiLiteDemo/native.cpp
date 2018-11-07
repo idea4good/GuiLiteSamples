@@ -39,13 +39,3 @@ void mouse_up(int x, int y)
     msg.dwParam2 = y;
     sendTouch2HostMonitor(&msg, sizeof(msg), 0);
 }
-///////////////////////////////
-void do_assert(const char* file, int line)
-{
-    printf("assert! file:%s, line:%d", file, line);
-}
-
-void log_out(const char* log)
-{
-    printf("%s", log);
-}

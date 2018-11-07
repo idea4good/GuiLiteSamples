@@ -134,7 +134,6 @@ static GUI_CONST_STORAGE unsigned short acspin_up_button_normal[] = {
 GUI_CONST_STORAGE BITMAP_INFO bmspin_up_button_normal = {
   55, /* XSize */
   60, /* YSize */
-  110, /* BytesPerLine */
   16, /* BitsPerPixel */
   (unsigned char *)acspin_up_button_normal,  /* Pointer to picture data */
 };

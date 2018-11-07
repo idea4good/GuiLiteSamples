@@ -90,13 +90,3 @@ void MainPage::bDoubleTapped_DoubleTapped(Object^ sender, DoubleTappedRoutedEven
 		m_screen_main->Visibility = Windows::UI::Xaml::Visibility::Collapsed;
 	}
 }
-
-void do_assert(const char* file, int line)
-{
-	assert(false);
-}
-
-void log_out(const char* log)
-{
-	OutputDebugStringA(log);
-}

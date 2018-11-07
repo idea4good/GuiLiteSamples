@@ -139,15 +139,3 @@ static void* get_embeded_fb_in_display_app(int shared_id)
 	}
 	return ret;
 }
-
-//////////////////////////////////////////
-void do_assert(const char* file, int line)
-{
-	printf("assert! file:%s,line:%d,error no: %d\n", file, line, errno);
-}
-
-void log_out(const char* log)
-{
-	printf(log);
-	fflush(stdout);
-}

@@ -479,5 +479,11 @@
     <ClCompile Include="source\resource\font\Arial_62B.cpp">
       <Filter>source\resource\font</Filter>
     </ClCompile>
+    <ClCompile Include="source\resource\bitmap\wave_background_1_bmp.cpp">
+      <Filter>source\resource\bitmap</Filter>
+    </ClCompile>
+    <ClCompile Include="source\resource\bitmap\wave_background_2_bmp.cpp">
+      <Filter>source\resource\bitmap</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

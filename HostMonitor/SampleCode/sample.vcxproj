@@ -107,6 +107,8 @@
     <ClCompile Include="source\resource\bitmap\spin_down_button_normal.cpp" />
     <ClCompile Include="source\resource\bitmap\spin_up_button_focus.cpp" />
     <ClCompile Include="source\resource\bitmap\spin_up_button_normal.cpp" />
+    <ClCompile Include="source\resource\bitmap\wave_background_1_bmp.cpp" />
+    <ClCompile Include="source\resource\bitmap\wave_background_2_bmp.cpp" />
     <ClCompile Include="source\resource\font\Arial_16B.cpp" />
     <ClCompile Include="source\resource\font\Arial_32B.cpp" />
     <ClCompile Include="source\resource\font\Arial_56B.cpp" />

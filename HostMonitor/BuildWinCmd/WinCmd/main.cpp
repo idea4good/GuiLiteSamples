@@ -79,17 +79,3 @@ int main(int argc, char** argv)
 	}
 	return startHostMonitor(main_fbs, main_cnt, main_screen_width, main_screen_height, sub_fbs, sub_cnt, sub_screen_width, sub_screen_height, color_bytes);	//never return;
 }
-
-void do_assert(const char* file, int line)
-{
-	printf("assert! file:%s,line:%d\n", file, line);
-	assert(false);
-}
-
-void log_out(const char* log)
-{
-	printf(log);
-	fflush(stdout);
-	OutputDebugStringA(log);
-}
-

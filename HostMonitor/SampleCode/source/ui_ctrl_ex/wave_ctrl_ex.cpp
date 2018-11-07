@@ -7,8 +7,9 @@
 #include "../core_include/surface.h"
 #include "../core_include/resource.h"
 #include "../core_include/word.h"
+#include "../core_include/bitmap.h"
 #include "../gui_include/my_resource.h"
-#include "ecg_wave_ctrl.h"
+#include "wave_ctrl_ex.h"
 #include <string.h>
 #include <stdio.h>
 
@@ -69,4 +70,22 @@ void c_ecg_wave_ctrl::draw_grid()
 	{
 		m_surface->draw_vline((rect.m_left + x * GRID_UNIT), top, bottom, GRID_COLOR, m_z_order);
 	}
+}
+
+/////////////////////////////////////////////////////////////
+
+void c_bitmap_wave_ctrl::on_paint()
+{
+	c_rect rect;
+	get_screen_rect(rect);
+
+	fill_rect(rect.m_left, rect.m_top, rect.m_right, rect.m_bottom, m_back_color);
+	c_bitmap::draw_bitmap(m_surface, m_z_order, c_my_resource::get_bmp(m_bitmap_type), rect.m_left, rect.m_top);
+
+	//show name
+	c_word::draw_string(m_surface, m_z_order, m_wave_name, m_wave_left + 10, rect.m_top, m_wave_name_font_type, m_wave_name_color, GL_ARGB(0, 0, 0, 0), ALIGN_LEFT);
+	//show unit
+	c_word::draw_string(m_surface, m_z_order, m_wave_unit, m_wave_left + 60, rect.m_top, m_wave_unit_font_type, m_wave_unit_color, GL_ARGB(0, 0, 0, 0), ALIGN_LEFT);
+
+	save_background();
 }

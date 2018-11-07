@@ -53,7 +53,7 @@
     <ClInclude Include="source\manager\wave_manager.h" />
     <ClInclude Include="source\modules\demo_module.h" />
     <ClInclude Include="source\modules\module_group.h" />
-    <ClInclude Include="source\ui_ctrl_ex\ecg_wave_ctrl.h" />
+    <ClInclude Include="source\ui_ctrl_ex\wave_ctrl_ex.h" />
     <ClInclude Include="source\ui_ctrl_ex\time_bar.h" />
     <ClInclude Include="source\ui_ctrl_ex\time_label.h" />
     <ClInclude Include="source\ui_ctrl_ex\trend_graph.h" />
@@ -107,6 +107,8 @@
     <ClCompile Include="source\resource\bitmap\spin_down_button_normal.cpp" />
     <ClCompile Include="source\resource\bitmap\spin_up_button_focus.cpp" />
     <ClCompile Include="source\resource\bitmap\spin_up_button_normal.cpp" />
+    <ClCompile Include="source\resource\bitmap\wave_background_1_bmp.cpp" />
+    <ClCompile Include="source\resource\bitmap\wave_background_2_bmp.cpp" />
     <ClCompile Include="source\resource\font\Arial_16B.cpp" />
     <ClCompile Include="source\resource\font\Arial_32B.cpp" />
     <ClCompile Include="source\resource\font\Arial_56B.cpp" />
@@ -115,7 +117,7 @@
     <ClCompile Include="source\resource\shape\shape.cpp" />
     <ClCompile Include="source\start\app_interface.cpp" />
     <ClCompile Include="source\start\host_monitor.cpp" />
-    <ClCompile Include="source\ui_ctrl_ex\ecg_wave_ctrl.cpp" />
+    <ClCompile Include="source\ui_ctrl_ex\wave_ctrl_ex.cpp" />
     <ClCompile Include="source\ui_ctrl_ex\time_bar.cpp" />
     <ClCompile Include="source\ui_ctrl_ex\time_label.cpp" />
     <ClCompile Include="source\ui_ctrl_ex\trend_graph.cpp" />

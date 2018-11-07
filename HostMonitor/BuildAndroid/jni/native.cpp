@@ -81,14 +81,3 @@ extern "C" JNIEXPORT jint  JNICALL Java_gui_1lite_1sample_ThreadNative_OnReceive
 	//env->ReleaseByteArrayElements(data, bytedata, JNI_ABORT);
 	return 0;
 }
-
-///////////////// Implement functions for libs //////////////////////
-void do_assert(const char* file, int line)
-{
-    __android_log_print(7, "ASSERT", "file: %s, line: %d, error code: 0x%x\n", file, line, errno);
-}
-
-void log_out(const char* log)
-{
-    __android_log_print(7, "LOG", "%s", log);
-}

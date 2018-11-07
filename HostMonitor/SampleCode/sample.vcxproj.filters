@@ -150,9 +150,6 @@
     <ClInclude Include="source\ui_ctrl_ex\value_view.h">
       <Filter>source\ui_ctrl_ex</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_ctrl_ex\ecg_wave_ctrl.h">
-      <Filter>source\ui_ctrl_ex</Filter>
-    </ClInclude>
     <ClInclude Include="source\ui_ctrl_ex\time_bar.h">
       <Filter>source\ui_ctrl_ex</Filter>
     </ClInclude>
@@ -279,6 +276,9 @@
     <ClInclude Include="source\modules\module_group.h">
       <Filter>source\modules</Filter>
     </ClInclude>
+    <ClInclude Include="source\ui_ctrl_ex\wave_ctrl_ex.h">
+      <Filter>source\ui_ctrl_ex</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\modules\demo_module.cpp">
@@ -309,9 +309,6 @@
       <Filter>source\ui_ctrl_ex</Filter>
     </ClCompile>
     <ClCompile Include="source\ui_ctrl_ex\value_view.cpp">
-      <Filter>source\ui_ctrl_ex</Filter>
-    </ClCompile>
-    <ClCompile Include="source\ui_ctrl_ex\ecg_wave_ctrl.cpp">
       <Filter>source\ui_ctrl_ex</Filter>
     </ClCompile>
     <ClCompile Include="source\ui_ctrl_ex\time_bar.cpp">
@@ -478,6 +475,15 @@
     </ClCompile>
     <ClCompile Include="source\resource\font\Arial_62B.cpp">
       <Filter>source\resource\font</Filter>
+    </ClCompile>
+    <ClCompile Include="source\resource\bitmap\wave_background_1_bmp.cpp">
+      <Filter>source\resource\bitmap</Filter>
+    </ClCompile>
+    <ClCompile Include="source\resource\bitmap\wave_background_2_bmp.cpp">
+      <Filter>source\resource\bitmap</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ui_ctrl_ex\wave_ctrl_ex.cpp">
+      <Filter>source\ui_ctrl_ex</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

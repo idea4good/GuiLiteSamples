@@ -12,7 +12,7 @@
 #include "../include/define.h"
 #include "../include/ctrl_id.h"
 
-#include "../source/ui_ctrl_ex/ecg_wave_ctrl.h"
+#include "../source/ui_ctrl_ex/wave_ctrl_ex.h"
 #include "View/ecg_7wave/ecg_7wave_view.h"
 
 #define PAGE_WIDTH			(SCREEN_WIDTH * 2 / 3)

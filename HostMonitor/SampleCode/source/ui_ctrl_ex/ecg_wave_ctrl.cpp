@@ -1,5 +1,7 @@
 #include "../core_include/api.h"
 #include "../core_include/rect.h"
+#include "../core_include/resource.h"
+#include "../core_include/bitmap.h"
 #include "../core_include/cmd_target.h"
 #include "../core_include/wnd.h"
 #include "../core_include/wave_buffer.h"
@@ -69,4 +71,21 @@ void c_ecg_wave_ctrl::draw_grid()
 	{
 		m_surface->draw_vline((rect.m_left + x * GRID_UNIT), top, bottom, GRID_COLOR, m_z_order);
 	}
+}
+
+///////////////////////////////////////////////
+
+void c_bitmap_wave_ctrl::on_paint()
+{
+	c_rect rect;
+	get_screen_rect(rect);
+
+	c_bitmap::draw_bitmap(m_surface, m_z_order, 0, rect.m_left, rect.m_top);
+
+	//show name
+	c_word::draw_string(m_surface, m_z_order, m_wave_name, m_wave_left + 10, rect.m_top, m_wave_name_font_type, m_wave_name_color, GL_ARGB(0, 0, 0, 0), ALIGN_LEFT);
+	//show unit
+	c_word::draw_string(m_surface, m_z_order, m_wave_unit, m_wave_left + 60, rect.m_top, m_wave_unit_font_type, m_wave_unit_color, GL_ARGB(0, 0, 0, 0), ALIGN_LEFT);
+
+	save_background();
 }

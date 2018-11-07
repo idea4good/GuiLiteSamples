@@ -18,6 +18,8 @@ extern const BITMAP_INFO bmspin_up_button_normal;
 extern const BITMAP_INFO bmspin_up_button_focus;
 extern const BITMAP_INFO bmspin_down_button_normal;
 extern const BITMAP_INFO bmspin_down_button_focus;
+extern const BITMAP_INFO wave_background_1_bmp;
+extern const BITMAP_INFO wave_background_2_bmp;
 
 //shapes
 extern COLOR_RECT shape_bt_normal[];
@@ -48,6 +50,8 @@ void load_theme(int index)
 		c_my_resource::add_bitmap(BITMAP_UP_BT_FOCUS, &bmspin_up_button_focus);
 		c_my_resource::add_bitmap(BITMAP_DOWN_BT_NORMAL, &bmspin_down_button_normal);
 		c_my_resource::add_bitmap(BITMAP_DOWN_BT_FOCUS, &bmspin_down_button_focus);
+		c_my_resource::add_bitmap(BITMAP_CUSTOM1, &wave_background_1_bmp);
+		c_my_resource::add_bitmap(BITMAP_CUSTOM2, &wave_background_2_bmp);
 		//shape
 		c_my_resource::add_shape(BUTTON_NORMAL, shape_bt_normal);
 		c_my_resource::add_shape(BUTTON_FOCUS, shape_bt_focus);

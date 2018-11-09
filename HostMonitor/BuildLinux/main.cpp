@@ -166,6 +166,10 @@ static void* get_dev_fb(char* path, int &width, int &height, int &color_bytes)
     width = vinfo.xres;
     height = vinfo.yres;
     color_bytes = vinfo.bits_per_pixel / 8;
+    if (width & 0x3)
+    {
+        printf("Warning: vinfo.xres should be divided by 4!\nChange your display resolution to meet the rule.\n");
+    }
     printf("vinfo.xres=%d\n",vinfo.xres);
     printf("vinfo.yres=%d\n",vinfo.yres);
     printf("vinfo.bits_per_pixel=%d\n",vinfo.bits_per_pixel);

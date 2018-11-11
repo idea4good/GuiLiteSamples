@@ -14,7 +14,7 @@
 - Click `F5` to build/run `WinCmd`, you will see UI in internet browser.
 
 ## How to build for ARM Linux device?
-### libcore.a libgui.a should be in BuildLinux\libs\arm, rebuild them if meet link error.
+### libcore.a libgui.a should be in BuildLinux\libs\arm, rebuild them if meet link error(-fPIC).
 ### Install cross compiler:
 For example: arm-linux-gnueabi-gcc
 
@@ -28,7 +28,7 @@ For example: arm-linux-gnueabi-gcc
 - `./sample_native /dev/fb0`   /dev/fb0: The path of framebuffer device file.
 
 ## How to build for x64 Linux or Rasperry Pi?
-### libcore.a libgui.a should be in BuildLinux\libs, rebuild them if meet link error.
+### libcore.a libgui.a should be in BuildLinux\libs, rebuild them if meet link error(-fPIC).
 1. Build target:
 - `cd HostMonitor`
 - `cmake .`
@@ -36,12 +36,16 @@ For example: arm-linux-gnueabi-gcc
 - `cd BuildLinux`
 - `chmod 777 *`
 
-2. Run inside QT APP(display-xxx is a QT APP for display, skip this if you haven't installed QT):
+2. Run on Ubuntu:
+- `./sample_native /dev/fb0`   /dev/fb0: The path of framebuffer device file.
+- If meet **permission** issue, you should enter pure command mode(not desktop mode), and run it again.
+
+3. Run inside QT APP(display-xxx is a QT APP for display, skip this if you haven't installed QT):
 - If x64:`./display-x64 | ./sample_native shared-fb`
 - If raspberry pi:`./display-arm | ./sample_native shared-fb`
 - The source code of display-xxx here: HostMonitor/BuildLinux/display.src
 
-3. Run with internet explore:
+4. Run with internet browser:
 - `./sample_native 1 8`
 - Command `ss` you will get snapshot in BuildLinux\sample_native\snapshotx.bmp
 - Command `sslp` and open "BuildLinux\Display.html" with internet browser(such like: Firefox, Chrome)

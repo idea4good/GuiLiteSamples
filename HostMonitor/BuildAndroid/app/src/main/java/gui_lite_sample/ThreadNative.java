@@ -1,21 +1,31 @@
 package gui_lite_sample;
 import android.graphics.Bitmap;
 import android.media.MediaPlayer;
+import android.os.Build;
+import android.util.Log;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.DataOutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class ThreadNative extends Thread {
 
-    public void run()
-    {
+    public void run() {
+        OnSyncData(60, 98, 30, 120, 80, 100);//ping cloud
         start_native(MAX_MAIN_DISPLAY, MAX_SUB_DISPLAY);
     }
 
-    static public int on_action_dwon(int x, int y, int display_id)
-    {//Touch too early will make APP crash here.
+    static public int on_action_dwon(int x, int y, int display_id) {
         return WriteHidFifo(OUTMSG_LBUTTONDOWN, x, y, display_id);
     }
 
-    static public int on_action_up(int x, int y, int display_id)
-    {
+    static public int on_action_up(int x, int y, int display_id) {
         return WriteHidFifo(OUTMSG_LBUTTONUP, x, y, display_id);
     }
 
@@ -33,6 +43,48 @@ public class ThreadNative extends Thread {
             ms_player.start();
         }
         catch (Exception e) {
+            Log.e("audio error", e.toString());
+        }
+    }
+
+    public static void OnSyncData(int hr, int spo2, int rr, int nibp_sys, int nibp_dia, int nibp_mean){
+        try {
+            URL url = new URL("https://api.powerbi.com/beta/72f988bf-86f1-41af-91ab-2d7cd011db47/datasets/e0e71bab-d932-4bb8-bfcf-faec5aeadb60/rows?key=J9cQJK6rZyLYQ9NsuWV6RYyrgODk1Wu29tuzwMyBET62Xp1dxuJ5iR%2B0ZtL6o0ams029nNUhWci%2B%2B4GzxXHyBQ%3D%3D");
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("POST");
+            //conn.setDoOutput(true);
+            //conn.setDoInput(true);
+
+            JSONObject jsonParam = new JSONObject();
+            jsonParam.put("hr", hr);
+            jsonParam.put("spo2", spo2);
+            jsonParam.put("resp", rr);
+            jsonParam.put("sys", nibp_sys);
+            jsonParam.put("dia", nibp_dia);
+            jsonParam.put("mean", nibp_mean);
+
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+            String date = df.format(Calendar.getInstance().getTime());
+            jsonParam.put("time", date);
+
+            jsonParam.put("weight", 1);
+            jsonParam.put("device_info", Build.MANUFACTURER + "-" + Build.MODEL);
+
+            JSONArray raw_data = new JSONArray();
+            raw_data.put(jsonParam);
+
+            DataOutputStream os = new DataOutputStream(conn.getOutputStream());
+            os.writeBytes(raw_data.toString());
+            os.flush();
+            os.close();
+
+            Log.e("JSON", raw_data.toString());
+            Log.e("STATUS", String.valueOf(conn.getResponseCode()));
+            Log.e("MSG" , conn.getResponseMessage());
+
+            conn.disconnect();
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 

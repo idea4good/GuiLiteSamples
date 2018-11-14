@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.hardware.usb.UsbManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,20 +17,11 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.Toast;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -127,13 +117,6 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                SyncInfo();
-            }
-        }).start();
-
         showSourceCode();
 
         File folder = new File(Environment.getExternalStorageDirectory() + File.separator + "idea4good");
@@ -163,47 +146,6 @@ public class MainActivity extends AppCompatActivity {
         }) + "\n";
         ret += ms_cp210x.setUsbCom(9600);
         Toast.makeText(this, ret, Toast.LENGTH_LONG).show();
-    }
-
-    private void SyncInfo(){
-        try {
-            URL url = new URL("https://api.powerbi.com/beta/72f988bf-86f1-41af-91ab-2d7cd011db47/datasets/e0e71bab-d932-4bb8-bfcf-faec5aeadb60/rows?key=J9cQJK6rZyLYQ9NsuWV6RYyrgODk1Wu29tuzwMyBET62Xp1dxuJ5iR%2B0ZtL6o0ams029nNUhWci%2B%2B4GzxXHyBQ%3D%3D");
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("POST");
-            //conn.setDoOutput(true);
-            //conn.setDoInput(true);
-
-            JSONObject jsonParam = new JSONObject();
-            jsonParam.put("hr", 60);
-            jsonParam.put("spo2", 98);
-            jsonParam.put("resp", 30);
-            jsonParam.put("sys", 120);
-            jsonParam.put("dia", 80);
-            jsonParam.put("mean", 100);
-
-            DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
-            String date = df.format(Calendar.getInstance().getTime());
-            jsonParam.put("time", date);
-
-            jsonParam.put("weight", 1);
-            jsonParam.put("device_info", Build.MANUFACTURER + "-" + Build.MODEL);
-
-            JSONArray raw_data = new JSONArray();
-            raw_data.put(jsonParam);
-
-            DataOutputStream os = new DataOutputStream(conn.getOutputStream());
-            os.writeBytes(raw_data.toString());
-            os.flush();
-            os.close();
-
-            Log.e("JSON", raw_data.toString());
-            Log.e("STATUS", String.valueOf(conn.getResponseCode()));
-            Log.e("MSG" , conn.getResponseMessage());
-
-            conn.disconnect();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
     }
 
     private void showSourceCode(){

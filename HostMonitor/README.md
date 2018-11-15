@@ -57,12 +57,12 @@ For example: arm-linux-gnueabi-gcc
 - Build and Run
 
 ## How to build for Mac?
+#### libcore.a libgui.a should be in BuildMacCmd\libs, rebuild them if meet link error.
 - `cd HostMonitor`
 - `cmake -D TARGET_OS="MAC" .`
 - `make`
 
 ### Run in command mode
-#### libcore.a libgui.a should be in BuildMacCmd\libs, rebuild them if meet link error.
 - `cd BuildMacCmd`
 - `./sample_native 1 8`
 - Command `ss` you will get snapshot in BuildMacCmd\sample_native\snapshotx.bmp

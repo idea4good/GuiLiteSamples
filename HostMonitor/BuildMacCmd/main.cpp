@@ -15,6 +15,10 @@ extern void init_std_io(int display_cnt);
 static void* get_embeded_fb_in_display_app(int shared_id);
 static void* get_dev_fb(char* path, int &width, int &height, int &color_bytes);
 
+typedef int(*SYNC_DATA)(int hr, int spo2, int rr, int nibp_sys, int nibp_dia, int nibp_mean);
+extern SYNC_DATA gSyncData;
+static int sync_data(int hr, int spo2, int rr, int nibp_sys, int nibp_dia, int nibp_mean);
+
 enum FRAMEBUFFER_MODE
 {
 	FB_NULL_MODE,
@@ -48,6 +52,10 @@ int main(int argc, char** argv)
 	int main_screen_height = 768;
 	int sub_screen_width = 1024;
 	int sub_screen_height = 370;
+
+	system("open Display.html");
+    gSyncData = sync_data;
+    sync_data(60, 98, 30, 120, 80, 100);//ping cloud
 
 	FRAMEBUFFER_MODE fb_mode = FB_NULL_MODE;
 	char *fb_dev_path = NULL;
@@ -138,4 +146,14 @@ static void* get_embeded_fb_in_display_app(int shared_id)
 		sleep(1);
 	}
 	return ret;
+}
+
+int sync_data(int hr, int spo2, int rr, int nibp_sys, int nibp_dia, int nibp_mean)
+{
+    char cmd_line[128];
+    memset(cmd_line, 0, sizeof(cmd_line));
+    sprintf(cmd_line, "%s %d %d %d %d %d %d",
+            "./.sync_data.sh ",
+            hr, spo2, rr, nibp_sys, nibp_dia, nibp_mean);
+    return system(cmd_line);
 }

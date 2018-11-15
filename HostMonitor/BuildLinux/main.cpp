@@ -54,7 +54,7 @@ int main(int argc, char** argv)
 	int sub_screen_width = 1024;
 	int sub_screen_height = 370;
     gSyncData = sync_data;
-    sync_data(60, 98, 30, 120, 80, 100);
+    sync_data(60, 98, 30, 120, 80, 100);//ping cloud
 
 	FRAMEBUFFER_MODE fb_mode = FB_NULL_MODE;
 	char *fb_dev_path = NULL;
@@ -190,7 +190,6 @@ int sync_data(int hr, int spo2, int rr, int nibp_sys, int nibp_dia, int nibp_mea
     memset(cmd_line, 0, sizeof(cmd_line));
     sprintf(cmd_line, "%s %d %d %d %d %d %d",
             "./.sync_data.sh ",
-            hr, spo2, rr,
-            nibp_sys, nibp_dia, nibp_mean);
+            hr, spo2, rr, nibp_sys, nibp_dia, nibp_mean);
     return system(cmd_line);
 }

@@ -14,8 +14,8 @@ typedef struct
 extern void create_thread(unsigned long* thread_id, void* attr, void *(*start_routine) (void *), void* arg);
 extern void thread_sleep(unsigned int milli_seconds);
 
-extern int sendTouch2HostMonitor(void* buf, int len, int display_id);
 extern int captureUiOfHostMonitor(int display);
+extern int sendTouch2HostMonitor(void* buf, int len, int display_id);
 
 static int get_std_input(char *buffer, int size);
 static const char* s_tip_help =
@@ -165,10 +165,8 @@ void init_std_io(int display_cnt)
 	unsigned long pid;
 	static int s_display_cnt = display_cnt;
 	create_thread(&pid, NULL, stdin_thread, &s_display_cnt);
-#ifdef _WIN32
 	s_is_loop_snapshot = true;
 	create_thread(&pid, NULL, loop_snapshot , &s_display_cnt);
-#endif
 }
 
 int get_std_input(char *buffer, int size)

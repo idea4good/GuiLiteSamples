@@ -54,7 +54,7 @@ For example: arm-linux-gnueabi-gcc
 #### libcore.a libgui.a libsample.a should be in \BuildIos\BuildIos\libs, rebuild them if meet link error.
 - `cd HostMonitor\BuildIos`
 - Open `BuildIos.xcodeproj` with Xcode
-- Build and Run
+- Build & Run
 
 ## How to build for Mac?
 #### libcore.a libgui.a should be in BuildMacCmd\libs, rebuild them if meet link error.
@@ -64,9 +64,7 @@ For example: arm-linux-gnueabi-gcc
 
 ### Run in command mode
 - `cd BuildMacCmd`
-- `./sample_native 1 8`
-- Command `ss` you will get snapshot in BuildMacCmd\sample_native\snapshotx.bmp
-- Command `sslp` and open "BuildMacCmd\Display.html" with internet browser(such like: Safari, chrome)
+- `./sample_native 1 8`, you will see UI in internet browser(Safari).
 
 ### Run in UI mode
 #### libcore.a libgui.a libsample.a should be in BuildMacCocoa\GuiLiteDemo\libs, rebuild them if meet link error.

@@ -1,4 +1,6 @@
 # GuiLite Samples - Do it yourself!
+[中文](doc/README-cn.md)
+
 Runs on Mac & iOS:
 
 ![Mac](doc/Mac.gif) ![iOS](doc/Ios.landscape.gif)
@@ -10,8 +12,6 @@ Runs on Android & ARM Linux embedded:
 Runs on Windows Mixed Reality & QQ developers' group:
 
 ![Win MR](doc/WinMR.gif) ![QQ group: 527251257](doc/qq.group.jpg)
-
-[中文](doc/README-cn.md)
 
 - GuiLite samples contain 2 cross-platform projects. One is *Host Monitor* while the other is *Snake*. They are both based on [GuiLite](https://github.com/idea4good/GuiLite). They show you how to use GuiLite's interface, and how GuiLite works on iOS, Android, GNU/Linux, Windows and macOS platform.
 - GuiLite samples are easy to compile & run. With the help of QQ group, you will pass the compiling nearly 100%.

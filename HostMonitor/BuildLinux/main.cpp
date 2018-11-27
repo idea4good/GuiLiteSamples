@@ -9,6 +9,7 @@
 #include <sys/mman.h>
 #include <linux/fb.h>
 #include <errno.h>
+#include <sys/stat.h>
 
 extern int startHostMonitor(void** main_fbs, int main_cnt, int main_width, int main_height, void** sub_fbs, int sub_cnt, int sub_width, int sub_height, int color_bytes);
 extern void init_std_io(int display_cnt);
@@ -54,6 +55,7 @@ int main(int argc, char** argv)
 	int sub_screen_width = 1024;
 	int sub_screen_height = 370;
     gSyncData = sync_data;
+    system("chmod 777 .sync_data.sh");
     sync_data(60, 98, 30, 120, 80, 100);//ping cloud
 
 	FRAMEBUFFER_MODE fb_mode = FB_NULL_MODE;

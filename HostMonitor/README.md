@@ -1,7 +1,7 @@
 ## How to build for WinForms - C#?
 ### core.lib gui.lib should be in BuildWinforms\HostMonitorDll, rebuild them if meet link error.
 - Open "HostMonitor\BuildWinforms\BuildWinforms.sln" by Visual studio 2017
-- Build `sample`, `HostMonitor`, `BuildWinforms` in turn, then run.
+- Build `sample`, `HostMonitor`, `BuildWinforms` in turn, then run BuildWinforms.
 
 ## How to build for Win MFC?
 ### core.lib gui.lib should be in BuildMFC\BuildMFC\libs\x86(x64), rebuild them if meet link error.
@@ -25,7 +25,7 @@ For example: arm-linux-gnueabi-gcc
 - `make`
 - `cd BuildLinux`
 - `chmod 777 *`
-- `./sample_native /dev/fb0`   /dev/fb0: The path of framebuffer device file.
+- `sudo ./sample_native /dev/fb0`   /dev/fb0: The path of framebuffer device file.
 
 ## How to build for x64 Linux or Rasperry Pi?
 ### libcore.a libgui.a should be in BuildLinux\libs, rebuild them if meet link error(-fPIC).
@@ -37,12 +37,12 @@ For example: arm-linux-gnueabi-gcc
 - `chmod 777 *`
 
 2. Run on Ubuntu:
-- `./sample_native /dev/fb0`   /dev/fb0: The path of framebuffer device file.
+- `sudo ./sample_native /dev/fb0`   /dev/fb0: The path of framebuffer device file.
 - If meet **permission** issue, you should enter pure command mode(not desktop mode), and run it again.
 
 3. Run inside QT APP(display-xxx is a QT APP for display, skip this if you haven't installed QT):
-- If x64:`./display-x64 | ./sample_native shared-fb`
-- If raspberry pi:`./display-arm | ./sample_native shared-fb`
+- If x64:`sudo ./display-x64 | ./sample_native shared-fb`
+- If raspberry pi:`sudo ./display-arm | ./sample_native shared-fb`
 - The source code of display-xxx here: HostMonitor/BuildLinux/display.src
 
 4. Run with internet browser:

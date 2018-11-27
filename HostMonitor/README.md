@@ -14,21 +14,21 @@
 - Click `F5` to build/run `WinCmd`, you will see UI in internet browser.
 
 ## How to build for ARM Linux device?
-### libcore.a libgui.a should be in BuildLinux\libs\arm, rebuild them if meet link error(-fPIC).
+### libcore.a libgui.a should be in BuildLinux\libs\arm, rebuild them if meet link error(-fPIC/libxxx not found).
 ### Install cross compiler:
-For example: arm-linux-gnueabi-gcc
-
-`sudo apt-get install gcc-arm-linux-gnueabi g++-arm-linux-gnueabi`
-
+- For ARM32: `sudo apt-get install g++-arm-linux-gnueabi gcc-arm-linux-gnueabi`
+- For ARM64: `sudo apt-get install g++-aarch64-linux-gnu gcc-aarch64-linux-gnu`
+### Build
 - `cd HostMonitor`
-- `cmake -D CMAKE_C_COMPILER="/usr/bin/arm-linux-gnueabi-gcc" -D CMAKE_CXX_COMPILER="/usr/bin/arm-linux-gnueabi-g++" -D TARGET_ARCH="ARM" .`
+- For ARM32: `cmake -D CMAKE_C_COMPILER="/usr/bin/arm-linux-gnueabi-gcc" -D CMAKE_CXX_COMPILER="/usr/bin/arm-linux-gnueabi-g++" -D TARGET_ARCH="ARM" .`
+- For ARM64: `cmake -D CMAKE_C_COMPILER="/usr/bin/aarch64-linux-gnu-gcc" -D CMAKE_CXX_COMPILER="/usr/bin/aarch64-linux-gnu-g++" -D TARGET_ARCH="ARM" .`
 - `make`
 - `cd BuildLinux`
 - `chmod 777 *`
 - `sudo ./sample_native /dev/fb0`   /dev/fb0: The path of framebuffer device file.
 
 ## How to build for x64 Linux or Rasperry Pi?
-### libcore.a libgui.a should be in BuildLinux\libs, rebuild them if meet link error(-fPIC).
+### libcore.a libgui.a should be in BuildLinux\libs, rebuild them if meet link error(-fPIC/libxxx not found).
 1. Build target:
 - `cd HostMonitor`
 - `cmake .`

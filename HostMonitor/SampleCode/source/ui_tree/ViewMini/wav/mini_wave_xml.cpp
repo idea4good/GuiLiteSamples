@@ -8,8 +8,8 @@
 #include "../include/ctrl_id.h"
 #include "mini_wave_xml.h"
 
-#define WAVE_WIDTH 		(MINI_SCREEN_WIDTH * 2 / 3)
-#define WAVE_HEIGHT 	(MINI_SCREEN_HEIGHT / 3)
+#define WAVE_WIDTH 		(MINI_UI_WIDTH * 2 / 3)
+#define WAVE_HEIGHT 	(MINI_UI_HEIGHT / 3)
 
 static c_ecg_wave_ctrl	s_ecg_wave;
 static c_wave_ctrl		s_spo2_wave;

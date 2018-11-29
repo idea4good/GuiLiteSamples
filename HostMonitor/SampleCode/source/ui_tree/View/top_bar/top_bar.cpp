@@ -30,10 +30,6 @@ void c_top_bar::on_paint(void)
 
 void c_top_bar::on_refurbish_time(unsigned int wParam, unsigned int lParam)
 {
-   if (!m_is_visible_now) {
-	   return;
-   }
-
 	c_wnd *p_ctl = get_wnd_ptr(ID_TOP_BAR_TIME_ID);
     if(p_ctl == NULL)
     {

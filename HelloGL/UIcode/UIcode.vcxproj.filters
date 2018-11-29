@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="helloGL.cpp" />
+    <ClCompile Include="resource\desktop_bmp.cpp">
+      <Filter>resource</Filter>
+    </ClCompile>
+    <ClCompile Include="resource\start_menu_bmp.cpp">
+      <Filter>resource</Filter>
+    </ClCompile>
+    <ClCompile Include="resource\start_icon_bmp.cpp">
+      <Filter>resource</Filter>
+    </ClCompile>
+    <ClCompile Include="resource\start_icon_click_bmp.cpp">
+      <Filter>resource</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="resource">
+      <UniqueIdentifier>{ddf3430d-f9ca-4db5-b431-632e5e6a57ec}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

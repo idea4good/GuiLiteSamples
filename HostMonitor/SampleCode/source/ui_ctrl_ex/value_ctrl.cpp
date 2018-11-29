@@ -22,10 +22,6 @@ c_value_ctrl::c_value_ctrl()
 
 void c_value_ctrl::refurbish_value(short value, unsigned short dot_position, bool flash_or_not, unsigned int flash_color)
 {
-	if (!m_is_visible_now)
-	{
-		return;
-	}
 	c_rect rect;
 	get_screen_rect(rect);
 

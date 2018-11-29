@@ -4,6 +4,7 @@
 #include "../core_include/wnd.h"
 #include "../core_include/msg.h"
 #include "../core_include/surface.h"
+#include "../core_include/display.h"
 #include "../gui_include/button.h"
 #include "../gui_include/dialog.h"
 #include "../gui_include/slide_group.h"
@@ -45,10 +46,12 @@ void c_config_root::on_clicked(unsigned int ctrl_id)
 
 //////////////////////////////////////////////////////////////////////////
 
-#define PAGE_WIDTH		(SCREEN_WIDTH * 2 / 3)
-#define PAGE_HEIGHT		(SCREEN_HEIGHT - TOP_BAR_HEIGHT)
+#define PAGE_WIDTH		(UI_WIDTH * 2 / 3)
+#define PAGE_HEIGHT		(UI_HEIGHT - TOP_BAR_HEIGHT)
 #define BUTTON_WIDTH	180
 #define BUTTON_HEIGHT	40
+#define DIALOG_Y		(BUTTON_HEIGHT + 10)
+#define DIALOG_HEIGHT	(PAGE_HEIGHT - DIALOG_Y)
 
 static c_config_root s_root;
 static c_button s_btn_patient_setup;
@@ -58,30 +61,22 @@ static c_about_dlg s_about;
 
 static WND_TREE s_config_children[]=
 {
-	{&s_btn_patient_setup,	5, "Patient Setup",	0,						5,	BUTTON_WIDTH, BUTTON_HEIGHT},
-	{&s_btn_demo_setup,		7, "About",	(BUTTON_WIDTH + 10),	5,	BUTTON_WIDTH, BUTTON_HEIGHT},
+	{&s_btn_patient_setup,	5, "Patient Setup",		0,						5,	BUTTON_WIDTH, BUTTON_HEIGHT},
+	{&s_btn_demo_setup,		7, "About",				(BUTTON_WIDTH + 10),	5,	BUTTON_WIDTH, BUTTON_HEIGHT},
+
+	{&s_patient_setup_dlg,	IDD_SETUP_DLG, "Patient Setup",		0,	DIALOG_Y,	PAGE_WIDTH, DIALOG_HEIGHT, g_patient_setup_children},
+	{&s_about,				IDD_ABOUT_DLG, "About",				0,	DIALOG_Y,	PAGE_WIDTH, DIALOG_HEIGHT, g_about_children},
 	{NULL,0,0,0,0,0,0}
 };
 
-#define DIALOG_Y		(BUTTON_HEIGHT + 10)
-#define DIALOG_HEIGHT	(PAGE_HEIGHT - DIALOG_Y)
+
 
 void create_page_config(c_slide_group* group)
 {
 	group->add_slide(&s_root, ID_PAGE_CONFIG, 0, 0, PAGE_WIDTH, PAGE_HEIGHT, s_config_children,Z_ORDER_LEVEL_2);
-
-	s_patient_setup_dlg.connect(&s_root, IDD_SETUP_DLG, "Patient Setup", 0, DIALOG_Y, PAGE_WIDTH, DIALOG_HEIGHT, g_patient_setup_children);
-	s_about.connect(&s_root, IDD_ABOUT_DLG, "About", 0, DIALOG_Y, PAGE_WIDTH, DIALOG_HEIGHT,g_about_children);
-	c_dialog::open_dialog(&s_patient_setup_dlg);
 }
 
 void create_clone_page_config(c_slide_group* group)
 {
 	group->add_clone_silde(&s_root, ID_PAGE_CONFIG, 0, 0, PAGE_WIDTH, PAGE_HEIGHT, s_config_children, Z_ORDER_LEVEL_2);
-
-	c_config_root* page_config = (c_config_root*)group->get_wnd_ptr(ID_PAGE_CONFIG);
-
-	c_dialog* dlg = (c_dialog*)s_patient_setup_dlg.connect_clone(page_config,IDD_SETUP_DLG, "Patient Setup",0, DIALOG_Y, PAGE_WIDTH, DIALOG_HEIGHT, g_patient_setup_children);
-	s_about.connect_clone(page_config, IDD_ABOUT_DLG, "About", 0, DIALOG_Y, PAGE_WIDTH, DIALOG_HEIGHT,g_about_children);
-	c_dialog::open_dialog(dlg);
 }

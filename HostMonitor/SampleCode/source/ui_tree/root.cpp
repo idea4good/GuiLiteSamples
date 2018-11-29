@@ -40,7 +40,12 @@ extern void create_clone_page_trend(c_slide_group* group);
 #include "View/nibp_value/nibp_value_view.h"
 #include "View/nibp_value/nibp_value_xml.h"
 
-static c_slide_root		s_root;
+class c_root_wnd : public c_wnd
+{
+	virtual c_wnd* clone() { return new c_root_wnd(); }
+};
+
+static c_root_wnd		s_root;
 static c_top_bar 		s_top_info_view;
 static c_slide_group 	s_slide_group;
 //right values region
@@ -49,15 +54,15 @@ static c_spo2_value_view	s_param_spo2_view;
 static c_resp_value_view	s_param_resp_view;
 static c_nibp_value_view	s_param_nibp_view;
 
-#define	VALUE_VIEW_X			(14 + SCREEN_WIDTH * 2 / 3)
-#define	VALUE_VIEW_WIDTH		(SCREEN_WIDTH / 3 - 14)
-#define VALUE_VIEW_HEIGHT		((SCREEN_HEIGHT - TOP_BAR_HEIGHT) / 4)
+#define	VALUE_VIEW_X			(14 + UI_WIDTH * 2 / 3)
+#define	VALUE_VIEW_WIDTH		(UI_WIDTH / 3 - 14)
+#define VALUE_VIEW_HEIGHT		((UI_HEIGHT - TOP_BAR_HEIGHT) / 4)
 
 static WND_TREE s_root_children[] =
 {
-	{ (c_wnd*)&s_top_info_view, ID_TOP_BAR, 0, 0, 0, SCREEN_WIDTH, TOP_BAR_HEIGHT, g_top_view_children },
+	{ (c_wnd*)&s_top_info_view, ID_TOP_BAR, 0, 0, 0, UI_WIDTH, TOP_BAR_HEIGHT, g_top_view_children },
 	//left
-	{ (c_wnd*)&s_slide_group, ID_PAGE_GROUP, 0, 0, TOP_BAR_HEIGHT, (SCREEN_WIDTH * 2 / 3), (SCREEN_HEIGHT - TOP_BAR_HEIGHT)},
+	{ (c_wnd*)&s_slide_group, ID_PAGE_GROUP, 0, 0, TOP_BAR_HEIGHT, (UI_WIDTH * 2 / 3), (UI_HEIGHT - TOP_BAR_HEIGHT)},
 	//right values
 	{ (c_wnd*)&s_param_ecg_view,  ID_ECG_VALUE_VIEW,  0, VALUE_VIEW_X, TOP_BAR_HEIGHT,								VALUE_VIEW_WIDTH, VALUE_VIEW_HEIGHT, g_ecg_value_view_children },
 	{ (c_wnd*)&s_param_spo2_view, ID_SPO2_VALUE_VIEW, 0, VALUE_VIEW_X, (TOP_BAR_HEIGHT + VALUE_VIEW_HEIGHT * 1),	VALUE_VIEW_WIDTH, VALUE_VIEW_HEIGHT, g_spo2_value_view_children },
@@ -68,11 +73,11 @@ static WND_TREE s_root_children[] =
 
 void load_ui_single(void* phy_fb, int width, int height, int color_bytes)
 {
-	c_display* display = new c_display(phy_fb, width, height, SCREEN_WIDTH, SCREEN_HEIGHT, color_bytes, 4);
+	c_display* display = new c_display(phy_fb, width, height, UI_WIDTH, UI_HEIGHT, color_bytes, 4);
 	c_surface* surface = display->create_surface(&s_root, Z_ORDER_LEVEL_0);
 	surface->set_active(true);
 	s_root.set_surface(surface);
-	s_root.connect(NULL, ID_ROOT, 0, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, s_root_children);
+	s_root.connect(NULL, ID_ROOT, 0, 0, 0, UI_WIDTH, UI_HEIGHT, s_root_children);
 
 	create_page_ecg_7wave(&s_slide_group);
 	create_page_main(&s_slide_group);
@@ -86,11 +91,11 @@ void load_ui_single(void* phy_fb, int width, int height, int color_bytes)
 
 void load_ui_multi(void* phy_fb, int width, int height, int color_bytes)
 {
-	c_display* display = new c_display(phy_fb, width, height, SCREEN_WIDTH, SCREEN_HEIGHT, color_bytes, 4);
+	c_display* display = new c_display(phy_fb, width, height, UI_WIDTH, UI_HEIGHT, color_bytes, 4);
 	c_surface* surface = display->create_surface(&s_root, Z_ORDER_LEVEL_0);
 	surface->set_active(true);
 	s_root.set_surface(surface);
-	c_wnd* root = s_root.connect_clone(NULL, ID_ROOT, 0, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, s_root_children);
+	c_wnd* root = s_root.connect_clone(NULL, ID_ROOT, 0, 0, 0, UI_WIDTH, UI_HEIGHT, s_root_children);
 
 	c_slide_group* page_group = (c_slide_group*)(root->get_wnd_ptr(ID_PAGE_GROUP));
 
@@ -108,14 +113,14 @@ void load_ui_multi(void* phy_fb, int width, int height, int color_bytes)
 #include "ViewMini/value/mini_value_view.h"
 #include "ViewMini/value/mini_value_xml.h"
 
-static c_slide_root			s_mini_root;
+static c_root_wnd			s_mini_root;
 static c_slide_group 		s_mini_slide_group;
 static c_mini_value_view	s_value_view;
 
 static WND_TREE s_mini_root_children[] =
 {
-	{ (c_wnd*)&s_mini_slide_group, ID_PAGE_GROUP, 0, 0, 0, (MINI_SCREEN_WIDTH * 2 / 3), MINI_SCREEN_HEIGHT },
-	{ (c_wnd*)&s_value_view,  ID_MINI_VALUE_VIEW_ID, 0, (MINI_SCREEN_WIDTH * 2 / 3), 0, (MINI_SCREEN_WIDTH * 1 / 3), MINI_SCREEN_HEIGHT, g_mini_wav_value_view_children },
+	{ (c_wnd*)&s_mini_slide_group, ID_PAGE_GROUP, 0, 0, 0, (MINI_UI_WIDTH * 2 / 3), MINI_UI_HEIGHT },
+	{ (c_wnd*)&s_value_view,  ID_MINI_VALUE_VIEW_ID, 0, (MINI_UI_WIDTH * 2 / 3), 0, (MINI_UI_WIDTH * 1 / 3), MINI_UI_HEIGHT, g_mini_wav_value_view_children },
 	{ NULL,0,0,0,0,0,0 }
 };
 
@@ -127,11 +132,11 @@ extern void create_clone_page_mini_wav(c_slide_group* group);
 
 void load_mini_ui_single(void* phy_fb, int width, int height, int color_bytes)
 {
-	c_display* display = new c_display(phy_fb, width, height, MINI_SCREEN_WIDTH, MINI_SCREEN_HEIGHT, color_bytes, 2);
+	c_display* display = new c_display(phy_fb, width, height, MINI_UI_WIDTH, MINI_UI_HEIGHT, color_bytes, 2);
 	c_surface* surface = display->create_surface(&s_mini_root, Z_ORDER_LEVEL_0);
 	surface->set_active(true);
 	s_mini_root.set_surface(surface);
-	s_mini_root.connect(NULL, ID_ROOT, 0, 0, 0, MINI_SCREEN_WIDTH, MINI_SCREEN_HEIGHT, s_mini_root_children);
+	s_mini_root.connect(NULL, ID_ROOT, 0, 0, 0, MINI_UI_WIDTH, MINI_UI_HEIGHT, s_mini_root_children);
 
 	create_page_mini_wav(&s_mini_slide_group);
 	create_page_mini_trend(&s_mini_slide_group);
@@ -143,11 +148,11 @@ void load_mini_ui_single(void* phy_fb, int width, int height, int color_bytes)
 
 void load_mini_ui_multi(void* phy_fb, int width, int height, int color_bytes)
 {
-	c_display* display = new c_display(phy_fb, width, height, MINI_SCREEN_WIDTH, MINI_SCREEN_HEIGHT, color_bytes, 2);
+	c_display* display = new c_display(phy_fb, width, height, MINI_UI_WIDTH, MINI_UI_HEIGHT, color_bytes, 2);
 	c_surface* surface = display->create_surface(&s_mini_root, Z_ORDER_LEVEL_0);
 	surface->set_active(true);
 	s_mini_root.set_surface(surface);
-	c_wnd* root = s_mini_root.connect_clone(NULL, ID_ROOT, 0, 0, 0, MINI_SCREEN_WIDTH, MINI_SCREEN_HEIGHT, s_mini_root_children);
+	c_wnd* root = s_mini_root.connect_clone(NULL, ID_ROOT, 0, 0, 0, MINI_UI_WIDTH, MINI_UI_HEIGHT, s_mini_root_children);
 
 	c_slide_group* page_group = (c_slide_group*)(root->get_wnd_ptr(ID_PAGE_GROUP));
 

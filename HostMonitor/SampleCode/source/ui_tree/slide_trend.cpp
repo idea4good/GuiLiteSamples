@@ -4,6 +4,7 @@
 #include "../core_include/wnd.h"
 #include "../core_include/msg.h"
 #include "../core_include/surface.h"
+#include "../core_include/display.h"
 #include "../gui_include/dialog.h"
 #include "../gui_include/slide_group.h"
 #include "../gui_include/table.h"
@@ -16,8 +17,8 @@
 #include "../source/ui_ctrl_ex/trend_graph.h"
 #include "View/trend/trend_view.h"
 
-#define	PAGE_WIDTH			(SCREEN_WIDTH * 2 / 3)
-#define PAGE_HEIGHT			(SCREEN_HEIGHT - TOP_BAR_HEIGHT)
+#define	PAGE_WIDTH			(UI_WIDTH * 2 / 3)
+#define PAGE_HEIGHT			(UI_HEIGHT - TOP_BAR_HEIGHT)
 
 #define	TABLE_WIDTH			(PAGE_WIDTH - 23)
 #define	TREND_WIDTH			(PAGE_WIDTH - 25)
@@ -32,6 +33,11 @@
 #define	VITAL_TREND_Y		(TABLE_Y + TABLE_HEIGHT + 2)
 #define	PRESSURE_TREND_Y	(VITAL_TREND_Y + TREND_HEIGHT + 2)
 #define	TIME_BAR_Y			(PRESSURE_TREND_Y + TREND_HEIGHT + 4)
+
+class c_slide_root : public c_wnd
+{
+	virtual c_wnd* clone() { return new c_slide_root(); }
+};
 
 static c_trend_table	s_table;
 static c_trend_graph	s_trend_vitals;

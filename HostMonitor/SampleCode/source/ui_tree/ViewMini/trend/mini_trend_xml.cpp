@@ -10,8 +10,8 @@
 #include "../include/ctrl_id.h"
 #include "mini_trend_xml.h"
 
-#define WIDHT			(MINI_SCREEN_WIDTH * 2 / 3)
-#define	HEIGHT			MINI_SCREEN_HEIGHT
+#define WIDHT			(MINI_UI_WIDTH * 2 / 3)
+#define	HEIGHT			MINI_UI_HEIGHT
 
 static c_trend_graph s_trend_ctrl_vitals ;
 

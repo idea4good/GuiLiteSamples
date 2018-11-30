@@ -35,7 +35,7 @@ private:
 	c_button m_fast_backward;
 	c_button m_forward;
 	c_button m_fast_forward;
-	GLT_DECLARE_MESSAGE_MAP()
+	GL_DECLARE_MESSAGE_MAP()
 };
 
 #endif

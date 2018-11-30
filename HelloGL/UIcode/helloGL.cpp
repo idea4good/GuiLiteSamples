@@ -34,12 +34,12 @@ class c_desktop : public c_wnd
 	virtual c_wnd* clone() { return new c_desktop(); }
 	virtual void on_paint(void);
 	void on_clicked(unsigned int ctrl_id);
-	GLT_DECLARE_MESSAGE_MAP()
+	GL_DECLARE_MESSAGE_MAP()
 };
 
-GLT_BEGIN_MESSAGE_MAP(c_desktop)
-ON_GLT_BN_CLICKED(ID_START_BUTTON, c_desktop::on_clicked)
-GLT_END_MESSAGE_MAP()
+GL_BEGIN_MESSAGE_MAP(c_desktop)
+ON_GL_BN_CLICKED(ID_START_BUTTON, c_desktop::on_clicked)
+GL_END_MESSAGE_MAP()
 
 void c_desktop::on_clicked(unsigned int ctrl_id)
 {

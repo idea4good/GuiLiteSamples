@@ -10,7 +10,7 @@ protected:
 	virtual void on_init_children(void);
 
 	void on_spinbox_confirm(unsigned int ctrl_id);
-	GLT_DECLARE_MESSAGE_MAP()
+	GL_DECLARE_MESSAGE_MAP()
 };
 
 #endif

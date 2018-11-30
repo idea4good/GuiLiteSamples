@@ -21,9 +21,9 @@
 #define H_AXIS_MARK_INTERVAL	(60 * 10)	//10 minutes between 2 marks
 #define V_AXIS_HEIGHT			280
 
-GLT_BEGIN_MESSAGE_MAP(c_trend_view_mini)
-ON_GLT_USER_MSG(USR_MSG_UPDATE_TREND_VIEW, c_trend_view_mini::on_update_trend_view)
-GLT_END_MESSAGE_MAP()
+GL_BEGIN_MESSAGE_MAP(c_trend_view_mini)
+ON_GL_USER_MSG(USR_MSG_UPDATE_TREND_VIEW, c_trend_view_mini::on_update_trend_view)
+GL_END_MESSAGE_MAP()
 
 void c_trend_view_mini::on_init_children(void)
 {

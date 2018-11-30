@@ -10,7 +10,7 @@ protected:
 	virtual void on_init_children(void);
 	virtual void on_paint(void);
 	void on_refurbish_time(unsigned int wParam, unsigned int lParam);
-	GLT_DECLARE_MESSAGE_MAP()
+	GL_DECLARE_MESSAGE_MAP()
 };
 
 #endif

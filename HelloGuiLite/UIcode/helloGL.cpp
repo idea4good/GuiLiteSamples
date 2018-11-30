@@ -113,8 +113,8 @@ void create_ui(int screen_width, int screen_height, int color_bytes)
 	load_resource();
 
 	void* s_phy_fb = calloc(screen_width * screen_height, color_bytes);
-	c_display* display = new c_display(s_phy_fb, screen_width, screen_height, UI_WIDTH, UI_HEIGHT, color_bytes, 0);
-	c_surface* surface = display->create_surface(&s_root, Z_ORDER_LEVEL_1);
+	c_display* display = new c_display(s_phy_fb, screen_width, screen_height, UI_WIDTH, UI_HEIGHT, color_bytes, 1);
+	c_surface* surface = display->alloc_surface(&s_root, Z_ORDER_LEVEL_1);
 	surface->set_active(true);
 
 	s_root.set_surface(surface);
@@ -122,6 +122,10 @@ void create_ui(int screen_width, int screen_height, int color_bytes)
 	s_root.show_window();
 
 	new c_gesture(&s_root, NULL, display->get_hid_pipe());
+	while(1)
+	{
+		thread_sleep(1000000);
+	}
 }
 
 //////////////////////// interface for all platform ////////////////////////
@@ -143,4 +147,9 @@ int sendTouch2helloGL(void* buf, int len, int display_id)
 void* getUiOfhelloGL(int* width, int* height)
 {
 	return c_display::get_frame_buffer(0, width, height);
+}
+
+int captureUiOfhelloGL()
+{
+	return c_display::snap_shot(0);
 }

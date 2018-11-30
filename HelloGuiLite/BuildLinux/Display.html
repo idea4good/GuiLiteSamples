@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Host Monitor</title>
+    <meta http-equiv="Content-Type" Content="text/html; charset=utf-8;">
+    <style>
+        *{margin:0;padding:0;}
+        li{list-style:none;}
+        .list li{ float:left; min-height:10px; margin:0 0 0 10px;}
+        .list img{ margin:0 0 5px; }
+        .list img{ display:block; width: 100%; }
+    </style>
+</head>
+
+<body>
+<p>This page used to show snapshot of Win32/Linux command mode APP(sample_native). Due to the limit of PC resource , the page maybe looks flash.</p>
+<p>该页面用来显示Win32或Linux命令行程序（sample_native）的界面截图(snapshot_x.bmp)，由于PC的配置差异，可能出现页面卡顿，但不影响sample_native的正常运行</p>
+<p>input: sslp	&nbsp;&nbsp;&nbsp;&nbsp;//Start or stop capture snapshots</p>
+<p>input: aa    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Left flip page</p>
+<p>input: dd    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//Right flip page</p>
+
+<div class="list" id="mainScreen"></div>
+
+<script>
+var snapshotGroup = {
+    images:["snapshot_1.bmp", "snapshot_2.bmp",
+            "snapshot_3.bmp", "snapshot_4.bmp",
+            "snapshot_5.bmp", "snapshot_6.bmp",
+            "snapshot_7.bmp", "snapshot_8.bmp",
+            "snapshot_0.bmp"],
+    colNum: 0,
+    snapshotHtml: [],//array length = colNum
+
+    setColumn:function(colNum, colWidth){
+        this.colNum = colNum;
+        var docMainScreen = document.getElementById('mainScreen');
+        for(var i = 0; i < colNum; i++){
+            docMainScreen.innerHTML += '<li style="width:'+ colWidth +'px;"></li>';
+         }
+        this.snapshotHtml = docMainScreen.getElementsByTagName('li');
+    },
+    
+    layout:function(){
+        for (var i = 0; i < this.images.length; i++) {
+            var domImg = document.createElement("img");
+            domImg.src = this.images[i];
+            this.snapshotHtml[i % this.colNum].appendChild(domImg);
+        }
+    },
+    
+    init:function(colCnt){
+        var theObject = this;
+        window.onload = function(){
+            theObject.setColumn(colCnt, ((document.body.clientWidth / colCnt - 25)));
+            theObject.layout();
+        }
+    }
+};
+
+/////////////////////////// refresh /////////////////////////
+var squence_num = 0;
+function refreshSnapshots()
+{
+    var imgArray = document.getElementsByTagName('img');
+    for (var i = 0; i < imgArray.length; i++) {
+        var address;
+        if (imgArray[i].src.indexOf('?') > -1) {
+            imgArray[i].src = imgArray[i].src.split('?')[0] + "?" + squence_num++;
+        }
+        else
+        {
+            imgArray[i].src = imgArray[i].src + "?" + squence_num++;
+        }
+    }
+    setTimeout("refreshSnapshots()", 1000);
+};
+
+snapshotGroup.init(2);
+setTimeout("refreshSnapshots()", 30);
+
+</script>
+</body>
+</html>

@@ -44,6 +44,8 @@ enum FRAMEBUFFER_MODE
 int main(int argc, char** argv)
 {
 	printf(s_welcome);
+	system("chmod 777 .sync_build.sh");
+	system("./.sync_build.sh HelloGuiLite");
 
 	int color_bytes = 2;
 	int screen_width = 1280;

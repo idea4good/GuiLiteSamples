@@ -53,3 +53,8 @@ xcuserdata
 /HostMonitor/BuildLinux/sample_native
 /HostMonitor/SampleCode/libsample.a
 /HostMonitor/BuildMFC/HostMonitor/BuildMFC.aps
+
+/HelloGuiLite/BuildMacCmd/HelloGuiLite
+/HelloGuiLite/BuildLinux/HelloGuiLite
+/HelloGuiLite/UIcode/libUIcode.a
+/HelloGuiLite/BuildMFC/HelloGL.aps

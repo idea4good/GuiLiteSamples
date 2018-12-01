@@ -1,6 +1,15 @@
 # GuiLite Samples - Do it yourself!
 [中文](doc/README-cn.md)
 
+- GuiLite samples contain 3 cross-platform projects. They all based on [GuiLite](https://github.com/idea4good/GuiLite). They show you how to use GuiLite's interface, and how GuiLite works on iOS, Android, GNU/Linux, Windows and macOS platform.
+- GuiLite samples are easy to compile & run. With the help of QQ group, you will pass the compiling nearly 100%.
+
+## Hello GuiLite
+![HelloGuiLite](doc/HelloGuiLite.gif)
+
+Hello GuiLite has only 100+ lines [code](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloGuiLite/UIcode/helloGL.cpp) for beginner, showing you how to initialize GuiLite, layout UI widgets, and map messages. You can run it both on Windows and Linux.
+
+## Host Monitor
 Runs on Mac & iOS:
 
 ![Mac](doc/Mac.gif) ![iOS](doc/Ios.landscape.gif)
@@ -9,14 +18,10 @@ Runs on Android & ARM Linux embedded:
 
 ![Android](doc/Android.gif) ![Linux](doc/Linux.gif)
 
-Runs on Windows Mixed Reality & QQ developers' group:
+Runs on Windows Mixed Reality:
 
-![Win MR](doc/WinMR.gif) ![QQ group: 527251257](doc/qq.group.jpg)
+![Win MR](doc/WinMR.gif)
 
-- GuiLite samples contain 2 cross-platform projects. One is *Host Monitor* while the other is *Snake*. They are both based on [GuiLite](https://github.com/idea4good/GuiLite). They show you how to use GuiLite's interface, and how GuiLite works on iOS, Android, GNU/Linux, Windows and macOS platform.
-- GuiLite samples are easy to compile & run. With the help of QQ group, you will pass the compiling nearly 100%.
-
-## Host Monitor
 Host Monitor has 2,000 lines of code related to UI, showing you how to layout UI, and customize/extend your UI widgets.
 ### Code Walkthrough
 - HostMonitor\SampleCode\source\ui_tree: **Layout UI**
@@ -49,3 +54,8 @@ Looks complex? Trust me that you can do everything we did since we are ordinary 
 
 ## Repository Mirror
 [Link to Gitee in China](https://gitee.com/idea4good/GuiLiteSamples)
+
+## Thanks
+Thanks the help from QQ group, you guys make GuiLite better! and you're welcome to join us.
+
+![QQ group: 527251257](doc/qq.group.jpg)

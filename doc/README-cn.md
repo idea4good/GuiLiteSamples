@@ -3,7 +3,7 @@
 - GuiLite samples极易编译，在QQ开发群的帮助下，现在的编译通过率接近100%
 
 ## Hello GuiLite
-![HelloGuiLite](doc/HelloGuiLite.gif)
+![HelloGuiLite](HelloGuiLite.gif)
 
 Hello GuiLite 仅有100多行[代码](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloGuiLite/UIcode/helloGL.cpp)，用于向初学者展示：初始化GuiLite，布局UI元素，消息映射。该实例可支持Windows平台和Linux平台。
 

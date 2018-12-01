@@ -4,6 +4,7 @@
 #include "../core_include/wnd.h"
 #include "../core_include/msg.h"
 #include "../core_include/surface.h"
+#include "../core_include/display.h"
 #include "../gui_include/dialog.h"
 #include "../gui_include/slide_group.h"
 
@@ -16,8 +17,13 @@
 #include "ViewMini/trend/mini_trend_view.h"
 #include "ViewMini/trend/mini_trend_xml.h"
 
-#define TREND_WIDTH 		(MINI_SCREEN_WIDTH * 2 / 3)
-#define TREND_HEIGHT		MINI_SCREEN_HEIGHT
+#define TREND_WIDTH 		(MINI_UI_WIDTH * 2 / 3)
+#define TREND_HEIGHT		MINI_UI_HEIGHT
+
+class c_slide_root : public c_wnd
+{
+	virtual c_wnd* clone() { return new c_slide_root(); }
+};
 
 static c_trend_view_mini 	s_trend_view;
 static c_slide_root			s_root;

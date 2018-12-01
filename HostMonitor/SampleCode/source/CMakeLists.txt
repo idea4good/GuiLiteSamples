@@ -40,5 +40,3 @@ ADD_LIBRARY(sample
 				${DATA}
 				${UI_CTRL_EX}
 				${UI_TREE})
-				
-TARGET_LINK_LIBRARIES(sample core gui)

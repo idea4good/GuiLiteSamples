@@ -15,7 +15,7 @@ private:
 	virtual void refresh_trend_graphic(long time);//time unit: second
 	int read_trend_data(long start_time, long end_time, int hr[], int spo2[], int rr[], int pr[],
 						int nibp_sys[], int nibp_dia[], int nibp_mean[], int len);//time unit: second
-	GLT_DECLARE_MESSAGE_MAP()
+	GL_DECLARE_MESSAGE_MAP()
 };
 
 #endif

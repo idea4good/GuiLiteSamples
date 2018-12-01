@@ -24,10 +24,15 @@
 #include "View/nibp_list/nibp_list_view.h"
 #include "View/nibp_list/nibp_list_xml.h"
 
-#define PAGE_WIDTH		(SCREEN_WIDTH * 2 / 3)
-#define PAGE_HEIGHT		(SCREEN_HEIGHT - TOP_BAR_HEIGHT)
+#define PAGE_WIDTH		(UI_WIDTH * 2 / 3)
+#define PAGE_HEIGHT		(UI_HEIGHT - TOP_BAR_HEIGHT)
 #define WAVE_WIDTH 		PAGE_WIDTH
 #define WAVE_HEIGHT 	(PAGE_HEIGHT / 4)
+
+class c_slide_root : public c_wnd
+{
+	virtual c_wnd* clone() { return new c_slide_root(); }
+};
 
 //wave
 static c_ecg_wave_view   s_wave_ecg_view;

@@ -13,8 +13,13 @@
 #include "ViewMini/wav/mini_wave_view.h"
 #include "ViewMini/wav/mini_wave_xml.h"
 
-#define WAVE_WIDTH 		(MINI_SCREEN_WIDTH * 2 / 3)
-#define WAVE_HEIGHT 	MINI_SCREEN_HEIGHT
+#define WAVE_WIDTH 		(MINI_UI_WIDTH * 2 / 3)
+#define WAVE_HEIGHT 	MINI_UI_HEIGHT
+
+class c_slide_root : public c_wnd
+{
+	virtual c_wnd* clone() { return new c_slide_root(); }
+};
 
 static c_mini_wave_view		s_wave_view;
 static c_slide_root s_root;

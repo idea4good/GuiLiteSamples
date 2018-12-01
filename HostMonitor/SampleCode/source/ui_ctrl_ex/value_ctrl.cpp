@@ -22,10 +22,6 @@ c_value_ctrl::c_value_ctrl()
 
 void c_value_ctrl::refurbish_value(short value, unsigned short dot_position, bool flash_or_not, unsigned int flash_color)
 {
-	if (!m_is_visible_now)
-	{
-		return;
-	}
 	c_rect rect;
 	get_screen_rect(rect);
 
@@ -68,7 +64,7 @@ EXIT:
 
 void c_value_ctrl::pre_create_wnd()
 {
-	m_style = GLT_ATTR_VISIBLE;
+	m_style = GL_ATTR_VISIBLE;
 	m_bg_color = GL_RGB(0,0,0);
 }
 

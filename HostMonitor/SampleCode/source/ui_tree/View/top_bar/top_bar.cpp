@@ -10,9 +10,9 @@
 #include "top_bar.h"
 #include "top_bar_xml.h"
 
-GLT_BEGIN_MESSAGE_MAP(c_top_bar)
-ON_GLT_USER_MSG(USR_MSG_UPDATE_TIME,c_top_bar::on_refurbish_time)
-GLT_END_MESSAGE_MAP()
+GL_BEGIN_MESSAGE_MAP(c_top_bar)
+ON_GL_USER_MSG(USR_MSG_UPDATE_TIME,c_top_bar::on_refurbish_time)
+GL_END_MESSAGE_MAP()
 
 void c_top_bar::on_init_children(void)
 {
@@ -30,10 +30,6 @@ void c_top_bar::on_paint(void)
 
 void c_top_bar::on_refurbish_time(unsigned int wParam, unsigned int lParam)
 {
-   if (!m_is_visible_now) {
-	   return;
-   }
-
 	c_wnd *p_ctl = get_wnd_ptr(ID_TOP_BAR_TIME_ID);
     if(p_ctl == NULL)
     {

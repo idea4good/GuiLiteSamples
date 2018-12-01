@@ -6,6 +6,7 @@
 #include "../core_include/surface.h"
 #include "../core_include/wave_buffer.h"
 #include "../core_include/wave_ctrl.h"
+#include "../core_include/display.h"
 #include "../gui_include/dialog.h"
 #include "../gui_include/slide_group.h"
 
@@ -15,10 +16,15 @@
 #include "../source/ui_ctrl_ex/wave_ctrl_ex.h"
 #include "View/ecg_7wave/ecg_7wave_view.h"
 
-#define PAGE_WIDTH			(SCREEN_WIDTH * 2 / 3)
-#define PAGE_HEIGHT			(SCREEN_HEIGHT - TOP_BAR_HEIGHT)
+#define PAGE_WIDTH			(UI_WIDTH * 2 / 3)
+#define PAGE_HEIGHT			(UI_HEIGHT - TOP_BAR_HEIGHT)
 #define WAVE_WIDTH			(PAGE_WIDTH - 9)
 #define WAVE_HEIGHT			(PAGE_HEIGHT / 7 )
+
+class c_slide_root : public c_wnd
+{
+	virtual c_wnd* clone() { return new c_slide_root(); }
+};
 
 static c_ecg_wave_ctrl    s_wave_1;
 static c_ecg_wave_ctrl    s_wave_2;

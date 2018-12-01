@@ -98,7 +98,7 @@ void c_wave_manage::refurbish_all_waves()
 	for (i = 0; i < WAVE_TYPE_MAX; i++)
 	{
 		int j = 0;
-		while(m_wave_ctrls[i][j] && m_wave_ctrls[i][j]->is_visible() && j < WAVE_CTRL_MAX)
+		while(m_wave_ctrls[i][j] && j < WAVE_CTRL_MAX)
 		{
 			m_wave_ctrls[i][j++]->refresh_wave(s_frame_num);
 		}

@@ -7,7 +7,7 @@
 ## Hello GuiLite
 ![HelloGuiLite](doc/HelloGuiLite.gif)
 
-Hello GuiLite has only 100+ lines [code](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloGuiLite/UIcode/helloGL.cpp) for beginner, showing you how to initialize GuiLite, layout UI widgets, and map messages. You can run it both on Windows and Linux.
+Hello GuiLite has only [100+ lines code](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloGuiLite/UIcode/helloGL.cpp) for beginner, showing you how to initialize GuiLite, layout UI widgets, and map messages. You can run it both on Windows and Linux.
 
 ## Host Monitor
 Runs on Mac & iOS:

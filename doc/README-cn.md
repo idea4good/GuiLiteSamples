@@ -1,11 +1,11 @@
 # GuiLite Samples - 你自己的精彩
-- GuiLite samples包括2个跨平台工程，一个是“Host monitor”，另一个是“Snake”；他们都是基于[GuiLite](https://github.com/idea4good/GuiLite)编写的实际应用，用来说明GuiLite的接口使用方法，并让你的程序同时运行在：iOS，Android，Linux，Windows，Mac平台上。
+- GuiLite samples包括3个跨平台工程，一个是“Host monitor”，另一个是“Snake”；他们都是基于[GuiLite](https://github.com/idea4good/GuiLite)编写的实际应用，用来说明GuiLite的接口使用方法，并让你的程序同时运行在：iOS，Android，Linux，Windows，Mac平台上。
 - GuiLite samples极易编译，在QQ开发群的帮助下，现在的编译通过率接近100%
 
 ## Hello GuiLite
 ![HelloGuiLite](HelloGuiLite.gif)
 
-Hello GuiLite 仅有100多行[代码](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloGuiLite/UIcode/helloGL.cpp)，用于向初学者展示：初始化GuiLite，布局UI元素，消息映射。该实例可支持Windows平台和Linux平台。
+Hello GuiLite 仅有[100多行代码](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloGuiLite/UIcode/helloGL.cpp)，用于向初学者展示：初始化GuiLite，布局UI元素，消息映射。该实例可支持Windows平台和Linux平台。
 
 ## Host Monitor
 在iOS，Mac下的运行效果:

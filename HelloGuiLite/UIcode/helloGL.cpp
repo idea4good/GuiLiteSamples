@@ -16,7 +16,7 @@
 const int UI_WIDTH = 1280;
 const int UI_HEIGHT = 720;
 
-//////////////////////// define widgets ////////////////////////
+//////////////////////// define widgets & map message ////////////////////////
 enum WND_ID
 {
 	ID_ROOT = 1,
@@ -34,9 +34,10 @@ class c_desktop : public c_wnd
 	virtual c_wnd* clone() { return new c_desktop(); }
 	virtual void on_paint(void);
 	void on_clicked(unsigned int ctrl_id);
-	GL_DECLARE_MESSAGE_MAP()
+	GL_DECLARE_MESSAGE_MAP()//delcare message
 };
 
+//map message
 GL_BEGIN_MESSAGE_MAP(c_desktop)
 ON_GL_BN_CLICKED(ID_START_BUTTON, c_desktop::on_clicked)
 GL_END_MESSAGE_MAP()
@@ -108,12 +109,10 @@ void load_resource()
 	c_my_resource::add_color(CTRL_BACK_GROUND, GL_RGB(255, 255, 255));
 }
 
-void create_ui(int screen_width, int screen_height, int color_bytes)
+void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes)
 {
 	load_resource();
-
-	void* s_phy_fb = calloc(screen_width * screen_height, color_bytes);
-	c_display* display = new c_display(s_phy_fb, screen_width, screen_height, UI_WIDTH, UI_HEIGHT, color_bytes, 1);
+	c_display* display = new c_display(phy_fb, screen_width, screen_height, UI_WIDTH, UI_HEIGHT, color_bytes, 1);
 	c_surface* surface = display->alloc_surface(&s_root, Z_ORDER_LEVEL_1);
 	surface->set_active(true);
 
@@ -129,10 +128,9 @@ void create_ui(int screen_width, int screen_height, int color_bytes)
 }
 
 //////////////////////// interface for all platform ////////////////////////
-int start_helloGL(int width, int height, int color_bytes)
+void start_helloGL(void* phy_fb, int width, int height, int color_bytes)
 {
-	create_ui(width, height, color_bytes);
-	return 0;
+	create_ui(phy_fb, width, height, color_bytes);
 }
 
 int sendTouch2helloGL(void* buf, int len, int display_id)

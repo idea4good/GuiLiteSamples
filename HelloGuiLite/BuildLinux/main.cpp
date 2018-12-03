@@ -11,7 +11,7 @@
 #include <errno.h>
 #include <sys/stat.h>
 
-extern int start_helloGL(int width, int height, int color_bytes);
+extern void start_helloGL(void* phy_fb, int width, int height, int color_bytes);
 extern void init_std_io();
 
 static void* get_embeded_fb_in_display_app(int shared_id);
@@ -89,7 +89,8 @@ int main(int argc, char** argv)
 	}
 
 	init_std_io();
-	return start_helloGL(screen_width, screen_height, color_bytes);//never return;
+	start_helloGL(phy_fb, screen_width, screen_height, color_bytes);//never return;
+    return 0;
 }
 
 static void* get_embeded_fb_in_display_app(int shared_id)

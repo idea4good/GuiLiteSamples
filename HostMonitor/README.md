@@ -28,7 +28,7 @@
 - `sudo ./sample_native /dev/fb0`   /dev/fb0: The path of framebuffer device file.
 
 ## How to build for x64 Linux or Rasperry Pi?
-### libcore.a libgui.a should be in BuildLinux\libs, rebuild them if meet link error(-fPIC/libxxx not found).
+### libcore.a libgui.a should be in BuildLinux\libs, ⚠️rebuild them if meet Linking error, e.g: -fPIC, libxxx not found.
 1. Build target:
 - `cd HostMonitor`
 - `cmake .`

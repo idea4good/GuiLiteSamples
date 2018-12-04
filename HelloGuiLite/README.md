@@ -4,7 +4,7 @@
 - Click `F5` to build/run `HelloGL`
 
 ## How to build for ARM Linux device?
-### libcore.a libgui.a should be in BuildLinux\libs\arm, rebuild them if meet linking error(-fPIC/libxxx not found).
+### libcore.a libgui.a should be in BuildLinux\libs\arm, ⚠️rebuild them if meet Linking error, e.g: -fPIC, libxxx not found.
 ### Install cross compiler:
 - For ARM32: `sudo apt-get install g++-arm-linux-gnueabi gcc-arm-linux-gnueabi`
 - For ARM64: `sudo apt-get install g++-aarch64-linux-gnu gcc-aarch64-linux-gnu`
@@ -18,7 +18,7 @@
 - `sudo ./HelloGuiLite /dev/fb0`   /dev/fb0: The path of framebuffer device file.
 
 ## How to build for x64 Linux or Rasperry Pi?
-### libcore.a libgui.a should be in BuildLinux\libs, rebuild them if meet link error(-fPIC/libxxx not found).
+### libcore.a libgui.a should be in BuildLinux\libs, ⚠️rebuild them if meet Linking error, e.g: -fPIC, libxxx not found.
 1. Build target:
 - `cd HelloGuiLite`
 - `cmake .`

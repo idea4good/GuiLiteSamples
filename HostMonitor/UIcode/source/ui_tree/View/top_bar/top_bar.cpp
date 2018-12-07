@@ -39,6 +39,7 @@ void c_top_bar::on_refurbish_time(unsigned int wParam, unsigned int lParam)
     p_ctl->on_paint();
 }
 
+extern int write_usr_msg(MSG_INFO* msg);
 void c_top_bar::sysinfo_timer_callback(void* ptmr, void* parg)
 {
 	MSG_INFO msg_info;

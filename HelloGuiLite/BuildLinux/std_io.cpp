@@ -11,7 +11,7 @@ typedef struct
 
 extern void create_thread(unsigned long* thread_id, void* attr, void *(*start_routine) (void *), void* arg);
 extern void thread_sleep(unsigned int milli_seconds);
-extern int sendTouch2helloGL(void* buf, int len, int display_id);
+extern int sendTouch2helloGL(void* buf, int len);
 extern int captureUiOfhelloGL();
 
 static int get_std_input(char *buffer, int size)
@@ -32,22 +32,22 @@ static int get_std_input(char *buffer, int size)
 	return len;
 }
 
-static void press_down(int x, int y, int display_id)
+static void press_down(int x, int y)
 {
 	MSG_INFO msg;
 	msg.dwMsgId = 0x4700;
 	msg.dwParam1 = x;
 	msg.dwParam2 = y;
-	sendTouch2helloGL(&msg, sizeof(msg), display_id);
+	sendTouch2helloGL(&msg, sizeof(msg));
 }
 
-static void press_release(int x, int y, int display_id)
+static void press_release(int x, int y)
 {
 	MSG_INFO msg;
 	msg.dwMsgId = 0x4600;
 	msg.dwParam1 = x;
 	msg.dwParam2 = y;
-	sendTouch2helloGL(&msg, sizeof(msg), display_id);
+	sendTouch2helloGL(&msg, sizeof(msg));
 }
 
 static void* stdin_thread(void* param)
@@ -75,22 +75,22 @@ static void* stdin_thread(void* param)
 		}
 		else if (strcmp(buffer, "bb") == 0)
 		{
-			press_down(10, 690, 0);
-			press_release(10, 690, 0);
+			press_down(10, 690);
+			press_release(10, 690);
 			printf("start button pressed.");
 		}
 		else if (strstr(buffer, "press") == buffer)
 		{
 			int x, y;
 			sscanf(buffer, "%*[a-z|(]%d,%d", &x, &y);
-			press_down(x, y, 0);
+			press_down(x, y);
 			printf(buffer);
 		}
 		else if (strstr(buffer, "release") == buffer)
 		{
 			int x, y;
 			sscanf(buffer, "%*[a-z|(]%d,%d", &x, &y);
-			press_release(x, y, 0);
+			press_release(x, y);
 			printf(buffer);
 		}
 		else

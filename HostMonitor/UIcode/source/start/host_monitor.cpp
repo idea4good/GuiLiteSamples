@@ -26,6 +26,18 @@ static void init(int display_cnt);
 static void real_timer_routine(void* arg);
 static void database_timer_callback(void* ptmr, void* parg);
 
+static c_fifo	s_usr_fifo;
+int read_usr_msg(MSG_INFO* msg)
+{
+	return s_usr_fifo.read(msg, sizeof(MSG_INFO));
+}
+
+int write_usr_msg(MSG_INFO* msg)
+{
+	if (msg->dwMsgId & 0xf000000)ASSERT(FALSE);
+	return s_usr_fifo.write(msg, sizeof(MSG_INFO));
+}
+
 int run(void** main_fbs, int main_cnt, int main_width, int main_height, void** sub_fbs, int sub_cnt, int sub_width, int sub_height, int color_bytes)
 {
 	init(main_cnt + sub_cnt);

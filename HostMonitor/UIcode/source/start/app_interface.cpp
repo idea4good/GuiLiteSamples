@@ -5,8 +5,11 @@
 #include "../core_include/surface.h"
 #include "../core_include/display.h"
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 
+extern c_display* get_display(int display_id);
+extern c_fifo* get_hid_fifo(int display_id);
 extern int run(int main_cnt, int main_width, int main_height, int sub_cnt, int sub_width, int sub_height, int color_bytes);
 extern int run(void** main_fbs, int main_cnt, int main_width, int main_height, void** sub_fbs, int sub_cnt, int sub_width, int sub_height, int color_bytes);
 
@@ -23,21 +26,37 @@ int startHostMonitor(void** main_fbs, int main_cnt, int main_width, int main_hei
 
 int sendTouch2HostMonitor(void* buf, int len, int display_id)
 {
-	if(len != sizeof(MSG_INFO))
+	ASSERT(len == sizeof(MSG_INFO));
+	c_fifo* fifo = get_hid_fifo(display_id);
+	if (fifo)
 	{
-		ASSERT(FALSE);
+		return fifo->write(buf, len);
 	}
-	return c_hid_pipe::write_hid_msg((MSG_INFO*)buf, display_id);
+	return 0;
 }
 
 void* getUiOfHostMonitor(int display_id, int* width, int* height)
 {
-	return c_display::get_frame_buffer(display_id, width, height);
+	c_display* display = get_display(display_id);
+	if (display)
+	{
+		return display->get_frame_buffer(width, height);
+	}
+	return NULL;
 }
 
-int captureUiOfHostMonitor(int display)
+int captureUiOfHostMonitor(int display_id)
 {
-	return c_display::snap_shot(display);
+	char file_name[32];
+	memset(file_name, 0, sizeof(file_name));
+	sprintf(file_name, "snapshot_%d.bmp", display_id);
+
+	c_display* display = get_display(display_id);
+	if (display)
+	{
+		return display->snap_shot(file_name);
+	}
+	return 0;
 }
 
 //Cloud API

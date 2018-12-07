@@ -40,6 +40,23 @@ extern void create_clone_page_trend(c_slide_group* group);
 #include "View/nibp_value/nibp_value_view.h"
 #include "View/nibp_value/nibp_value_xml.h"
 
+#define MAX_DISPLAY	9
+static c_fifo		s_hid_fifo[MAX_DISPLAY];
+static c_display*	s_display[MAX_DISPLAY];
+static int			s_hid_index;
+
+c_display* get_display(int display_id)
+{
+	ASSERT(display_id < MAX_DISPLAY);
+	return s_display[display_id];
+}
+
+c_fifo* get_hid_fifo(int display_id)
+{
+	ASSERT(display_id < MAX_DISPLAY);
+	return &s_hid_fifo[display_id];
+}
+
 class c_root_wnd : public c_wnd
 {
 	virtual c_wnd* clone() { return new c_root_wnd(); }
@@ -86,7 +103,8 @@ void load_ui_single(void* phy_fb, int width, int height, int color_bytes)
 	s_slide_group.set_active_slide(1);
 	s_root.show_window();
 
-	new c_gesture(&s_root, &s_slide_group, display->get_hid_pipe());
+	new c_gesture(&s_root, &s_slide_group, &s_hid_fifo[s_hid_index]);
+	s_display[s_hid_index++] = display;
 }
 
 void load_ui_multi(void* phy_fb, int width, int height, int color_bytes)
@@ -106,7 +124,8 @@ void load_ui_multi(void* phy_fb, int width, int height, int color_bytes)
 	page_group->set_active_slide(1);
 	root->show_window();
 
-	new c_gesture(root, page_group, display->get_hid_pipe());
+	new c_gesture(root, page_group, &s_hid_fifo[s_hid_index]);
+	s_display[s_hid_index++] = display;
 }
 
 /////////////////////// Mini UI ///////////////////////////////////////
@@ -143,7 +162,8 @@ void load_mini_ui_single(void* phy_fb, int width, int height, int color_bytes)
 	s_mini_slide_group.set_active_slide(0);
 	s_mini_root.show_window();
 
-	new c_gesture(&s_mini_root, &s_mini_slide_group, display->get_hid_pipe());
+	new c_gesture(&s_mini_root, &s_mini_slide_group, &s_hid_fifo[s_hid_index]);
+	s_display[s_hid_index++] = display;
 }
 
 void load_mini_ui_multi(void* phy_fb, int width, int height, int color_bytes)
@@ -161,5 +181,6 @@ void load_mini_ui_multi(void* phy_fb, int width, int height, int color_bytes)
 	page_group->set_active_slide(0);
 	root->show_window();
 
-	new c_gesture(root, page_group, display->get_hid_pipe());
+	new c_gesture(root, page_group, &s_hid_fifo[s_hid_index]);
+	s_display[s_hid_index++] = display;
 }

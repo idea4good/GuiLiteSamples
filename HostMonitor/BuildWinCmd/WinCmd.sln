@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sample_native", "WinCmd\WinCmd.vcxproj", "{68DE856B-07CE-4CCA-B62A-DCC9F9281E93}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sample", "..\SampleCode\sample.vcxproj", "{289E64C1-73C4-4533-9A06-9DDBF52235BB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sample", "..\UIcode\sample.vcxproj", "{289E64C1-73C4-4533-9A06-9DDBF52235BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

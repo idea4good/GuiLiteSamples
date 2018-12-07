@@ -32,7 +32,7 @@ FILE(GLOB UI_TREE ui_tree/*.cpp
 	ui_tree/ViewMini/value/*.cpp
 )
 
-ADD_LIBRARY(sample
+ADD_LIBRARY(UIcode
 				${MANAGER}
 				${MODULES}
 				${RESOURCE}

@@ -16,7 +16,7 @@
 		F4E9B0081FF239CD006CD49F /* native.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F4E9B0061FF239CD006CD49F /* native.cpp */; };
 		F4E9B00B1FF23AF1006CD49F /* libcore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E9B00A1FF23AF1006CD49F /* libcore.a */; };
 		F4E9B00D1FF23AFC006CD49F /* libgui.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E9B00C1FF23AFC006CD49F /* libgui.a */; };
-		F4E9B00F1FF23B07006CD49F /* libsample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E9B00E1FF23B07006CD49F /* libsample.a */; };
+		F4E9B00F1FF23B07006CD49F /* libUIcode.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E9B00E1FF23B07006CD49F /* libUIcode.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +34,7 @@
 		F4E9B0071FF239CD006CD49F /* native.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = native.hpp; sourceTree = "<group>"; };
 		F4E9B00A1FF23AF1006CD49F /* libcore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcore.a; path = GuiLiteDemo/libs/libcore.a; sourceTree = "<group>"; };
 		F4E9B00C1FF23AFC006CD49F /* libgui.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgui.a; path = GuiLiteDemo/libs/libgui.a; sourceTree = "<group>"; };
-		F4E9B00E1FF23B07006CD49F /* libsample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsample.a; path = GuiLiteDemo/libs/libsample.a; sourceTree = "<group>"; };
+		F4E9B00E1FF23B07006CD49F /* libUIcode.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libUIcode.a; path = GuiLiteDemo/libs/libUIcode.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,7 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4E9B00F1FF23B07006CD49F /* libsample.a in Frameworks */,
+				F4E9B00F1FF23B07006CD49F /* libUIcode.a in Frameworks */,
 				F4E9B00D1FF23AFC006CD49F /* libgui.a in Frameworks */,
 				F4E9B00B1FF23AF1006CD49F /* libcore.a in Frameworks */,
 			);
@@ -89,7 +89,7 @@
 		F4E9B0091FF23AF1006CD49F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F4E9B00E1FF23B07006CD49F /* libsample.a */,
+				F4E9B00E1FF23B07006CD49F /* libUIcode.a */,
 				F4E9B00C1FF23AFC006CD49F /* libgui.a */,
 				F4E9B00A1FF23AF1006CD49F /* libcore.a */,
 			);

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		F42931261FFC979900D08404 /* libgui.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F42931231FFC979800D08404 /* libgui.a */; };
 		F42931271FFC979900D08404 /* libcore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F42931241FFC979900D08404 /* libcore.a */; };
-		F42931281FFC979900D08404 /* libsample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F42931251FFC979900D08404 /* libsample.a */; };
+		F42931281FFC979900D08404 /* libUIcode.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F42931251FFC979900D08404 /* libUIcode.a */; };
 		F475482A1FFB6DC00061596E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47548291FFB6DC00061596E /* AppDelegate.swift */; };
 		F475482C1FFB6DC00061596E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F475482B1FFB6DC00061596E /* ViewController.swift */; };
 		F475482F1FFB6DC00061596E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F475482D1FFB6DC00061596E /* Main.storyboard */; };
@@ -21,7 +21,7 @@
 /* Begin PBXFileReference section */
 		F42931231FFC979800D08404 /* libgui.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgui.a; path = BuildIos/libs/libgui.a; sourceTree = "<group>"; };
 		F42931241FFC979900D08404 /* libcore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcore.a; path = BuildIos/libs/libcore.a; sourceTree = "<group>"; };
-		F42931251FFC979900D08404 /* libsample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsample.a; path = BuildIos/libs/libsample.a; sourceTree = "<group>"; };
+		F42931251FFC979900D08404 /* libUIcode.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libUIcode.a; path = BuildIos/libs/libUIcode.a; sourceTree = "<group>"; };
 		F47548261FFB6DC00061596E /* BuildIos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuildIos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47548291FFB6DC00061596E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F475482B1FFB6DC00061596E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,7 +41,7 @@
 			files = (
 				F42931261FFC979900D08404 /* libgui.a in Frameworks */,
 				F42931271FFC979900D08404 /* libcore.a in Frameworks */,
-				F42931281FFC979900D08404 /* libsample.a in Frameworks */,
+				F42931281FFC979900D08404 /* libUIcode.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,7 +53,7 @@
 			children = (
 				F42931241FFC979900D08404 /* libcore.a */,
 				F42931231FFC979800D08404 /* libgui.a */,
-				F42931251FFC979900D08404 /* libsample.a */,
+				F42931251FFC979900D08404 /* libUIcode.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

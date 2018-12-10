@@ -37,14 +37,10 @@ void load_theme(int index)
 	{
 	case 0:
 		//font
-		c_my_resource::add_font(FONT_ENG_S, &Arial_16B);
-		c_my_resource::add_font(FONT_ENG_SB, &Arial_16B);
-		c_my_resource::add_font(FONT_ENG_SBM, &Arial_16B);
-		c_my_resource::add_font(FONT_ENG_SMB, &Arial_16B);
-
-		c_my_resource::add_font(FONT_ENG_MB, &Arial_32B);
-		c_my_resource::add_font(FONT_ENG_LLB, &Arial_56B);
-		c_my_resource::add_font(FONT_ENG_LLLB, &Arial_62B);
+		c_my_resource::add_font(FONT_DEFAULT, &Arial_16B);
+		c_my_resource::add_font(FONT_CUSTOM1, &Arial_32B);
+		c_my_resource::add_font(FONT_CUSTOM2, &Arial_56B);
+		c_my_resource::add_font(FONT_CUSTOM3, &Arial_62B);
 		//icon
 		c_my_resource::add_bitmap(BITMAP_UP_BT_NORMAL, &bmspin_up_button_normal);
 		c_my_resource::add_bitmap(BITMAP_UP_BT_FOCUS, &bmspin_up_button_focus);
@@ -67,14 +63,14 @@ void load_theme(int index)
 		break;
 	case 1:
 		//font
-		c_my_resource::add_font(FONT_ENG_S, &Arial_16B);
-		c_my_resource::add_font(FONT_ENG_SB, &Arial_16B);
-		c_my_resource::add_font(FONT_ENG_SBM, &Arial_16B);
-		c_my_resource::add_font(FONT_ENG_SMB, &Arial_16B);
+		c_my_resource::add_font(FONT_DEFAULT, &Arial_16B);
+		c_my_resource::add_font(FONT_DEFAULT, &Arial_16B);
+		c_my_resource::add_font(FONT_DEFAULT, &Arial_16B);
+		c_my_resource::add_font(FONT_DEFAULT, &Arial_16B);
 
-		c_my_resource::add_font(FONT_ENG_MB, &Arial_32B);
-		c_my_resource::add_font(FONT_ENG_LLB, &Arial_56B);
-		c_my_resource::add_font(FONT_ENG_LLLB, &Arial_62B);
+		c_my_resource::add_font(FONT_CUSTOM1, &Arial_32B);
+		c_my_resource::add_font(FONT_CUSTOM2, &Arial_56B);
+		c_my_resource::add_font(FONT_CUSTOM3, &Arial_62B);
 		//icon
 		c_my_resource::add_bitmap(BITMAP_UP_BT_NORMAL, &bmspin_up_button_normal);
 		c_my_resource::add_bitmap(BITMAP_UP_BT_FOCUS, &bmspin_up_button_focus);

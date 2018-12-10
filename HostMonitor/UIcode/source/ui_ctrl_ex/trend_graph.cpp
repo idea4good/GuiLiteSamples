@@ -45,12 +45,12 @@ void c_trend_graph::on_init_children(void)
 	m_v_axis_height = V_AXIS_HEIGHT;
 	m_org_y_of_h_axis = (m_v_axis_height + 10);
 	m_org_x_of_h_axis = X_ORG_OF_H_AXIS;
-	m_h_axis_mark_font = c_my_resource::get_font(FONT_ENG_SB);
+	m_h_axis_mark_font = c_my_resource::get_font(FONT_DEFAULT);
 
 	for ( int i = 0; i < V_AXIS_CNT; i++ )
 	{
 		m_v_axis_min[i] = m_v_axis_max[i] = m_v_scale_cnt[i] = 0;
-		m_v_axis_mark_font[i] = c_my_resource::get_font(FONT_ENG_S);
+		m_v_axis_mark_font[i] = c_my_resource::get_font(FONT_DEFAULT);
 	}
 	memset(m_v_scale_value , 0 , sizeof( m_v_scale_value ));
 
@@ -275,22 +275,22 @@ void c_trend_graph::on_paint(void)
 	switch (m_type)
 	{
 	case TREND_TYPE_VITAL:
-		draw_title(0, "--Vitals", GL_RGB(255, 255, 255), c_my_resource::get_font(FONT_ENG_SB));
-		draw_title(1, " -HR", HR_COLOR, c_my_resource::get_font(FONT_ENG_SB));
-		draw_title(2, " -SPO2", SPO2_COLOR, c_my_resource::get_font(FONT_ENG_SB));
-		draw_title(3, " -RR", RR_COLOR, c_my_resource::get_font(FONT_ENG_SB));
-		set_v_axis_atrrs(0, HR_COLOR, c_my_resource::get_font(FONT_ENG_SB), hr_y_axis_scale, 5);
-		set_v_axis_atrrs(1, SPO2_COLOR, c_my_resource::get_font(FONT_ENG_SB), spo2_y_axis_scale, 7);
-		set_v_axis_atrrs(2, RR_COLOR, c_my_resource::get_font(FONT_ENG_SB), rr_y_axis_scale, 7);
-		set_h_axis_atrrs(c_my_resource::get_font(FONT_ENG_SB), x_axis_marks, m_h_scale_cnt);
+		draw_title(0, "--Vitals", GL_RGB(255, 255, 255), c_my_resource::get_font(FONT_DEFAULT));
+		draw_title(1, " -HR", HR_COLOR, c_my_resource::get_font(FONT_DEFAULT));
+		draw_title(2, " -SPO2", SPO2_COLOR, c_my_resource::get_font(FONT_DEFAULT));
+		draw_title(3, " -RR", RR_COLOR, c_my_resource::get_font(FONT_DEFAULT));
+		set_v_axis_atrrs(0, HR_COLOR, c_my_resource::get_font(FONT_DEFAULT), hr_y_axis_scale, 5);
+		set_v_axis_atrrs(1, SPO2_COLOR, c_my_resource::get_font(FONT_DEFAULT), spo2_y_axis_scale, 7);
+		set_v_axis_atrrs(2, RR_COLOR, c_my_resource::get_font(FONT_DEFAULT), rr_y_axis_scale, 7);
+		set_h_axis_atrrs(c_my_resource::get_font(FONT_DEFAULT), x_axis_marks, m_h_scale_cnt);
 		break;
 	case TREND_TYPE_NIBP:
-		draw_title(0, "--PRESSURES", GL_RGB(255, 255, 255), c_my_resource::get_font(FONT_ENG_SB));
-		draw_title(1, "-NIBP(sys) mmHg", NIBP_COLOR, c_my_resource::get_font(FONT_ENG_SB));
-		draw_title(2, "-NIBP(dia) mmHg", NIBP_COLOR, c_my_resource::get_font(FONT_ENG_SB));
-		draw_title(3, "-NIBP(mean) mmHg", NIBP_COLOR, c_my_resource::get_font(FONT_ENG_SB));
-		set_v_axis_atrrs(0, NIBP_COLOR, c_my_resource::get_font(FONT_ENG_SB), pressure_y_axis_scale, 5);
-		set_h_axis_atrrs(c_my_resource::get_font(FONT_ENG_SB), x_axis_marks, m_h_scale_cnt);
+		draw_title(0, "--PRESSURES", GL_RGB(255, 255, 255), c_my_resource::get_font(FONT_DEFAULT));
+		draw_title(1, "-NIBP(sys) mmHg", NIBP_COLOR, c_my_resource::get_font(FONT_DEFAULT));
+		draw_title(2, "-NIBP(dia) mmHg", NIBP_COLOR, c_my_resource::get_font(FONT_DEFAULT));
+		draw_title(3, "-NIBP(mean) mmHg", NIBP_COLOR, c_my_resource::get_font(FONT_DEFAULT));
+		set_v_axis_atrrs(0, NIBP_COLOR, c_my_resource::get_font(FONT_DEFAULT), pressure_y_axis_scale, 5);
+		set_h_axis_atrrs(c_my_resource::get_font(FONT_DEFAULT), x_axis_marks, m_h_scale_cnt);
 		break;
 	default:
 		return;

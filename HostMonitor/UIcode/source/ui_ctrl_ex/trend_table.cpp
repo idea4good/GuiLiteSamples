@@ -17,7 +17,7 @@ void c_trend_table::on_init_children(void)
 	m_bg_color = GL_RGB(80, 87, 104);
 
 	m_align_type = ALIGN_LEFT | ALIGN_VCENTER;
-	m_font_type = c_my_resource::get_font(FONT_ENG_SMB);
+	m_font_type = c_my_resource::get_font(FONT_DEFAULT);
 
 	set_col_num(9);
 	set_row_num(9);

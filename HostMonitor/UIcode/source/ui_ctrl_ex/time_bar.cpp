@@ -53,7 +53,7 @@ void c_time_bar::on_paint(void)
 
 void c_time_bar::set_time(long time)
 {
-	set_scale_bar_atrrs((time - ((TIME_MARK_CNT - 1) * 60)), time, GL_RGB(255, 255, 255), c_my_resource::get_font(FONT_ENG_SB));
+	set_scale_bar_atrrs((time - ((TIME_MARK_CNT - 1) * 60)), time, GL_RGB(255, 255, 255), c_my_resource::get_font(FONT_DEFAULT));
 	draw_mark();
 }
 

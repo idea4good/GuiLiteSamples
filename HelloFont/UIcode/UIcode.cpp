@@ -66,7 +66,7 @@ void c_myUI::on_clicked(unsigned int ctrl_id)
 		{
 			memset(one_word, 0, sizeof(one_word));
 			memcpy(one_word, tmp, 3);
-			c_word::draw_string(m_surface, m_z_order, one_word, (START_X - x * FONT_SIZE), (START_Y + y * FONT_SIZE), c_my_resource::get_font(FONT_ENG_SMB), GL_RGB(0, 0, 0), GL_ARGB(0, 0, 0, 0));
+			c_word::draw_string(m_surface, m_z_order, one_word, (START_X - x * FONT_SIZE), (START_Y + y * FONT_SIZE), c_my_resource::get_font(FONT_DEFAULT), GL_RGB(0, 0, 0), GL_ARGB(0, 0, 0, 0));
 			thread_sleep(500);
 			tmp += 3;
 		}
@@ -105,7 +105,7 @@ static c_display* s_display;
 void load_resource()
 {
 	c_my_resource::add_bitmap(BITMAP_CUSTOM1, &background_bmp);
-	c_my_resource::add_font(FONT_ENG_SMB, &KaiTi_33B);//for button
+	c_my_resource::add_font(FONT_DEFAULT, &KaiTi_33B);//for button
 	c_my_resource::add_color(CTRL_FORE_GROUND, GL_RGB(36, 36, 36));//for button
 	c_my_resource::add_color(CTRL_BACK_GROUND, GL_RGB(255, 255, 255));//for button
 }

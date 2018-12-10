@@ -30,7 +30,7 @@ void c_nibplist_view::on_init_children(void)
 	m_table_colnum = 3;
 	int col_width = total_width/(m_table_colnum+3);
 
-	p_table->set_font_type(c_my_resource::get_font(FONT_ENG_SMB));
+	p_table->set_font_type(c_my_resource::get_font(FONT_DEFAULT));
 	int row_height = 26;
 
 	m_table_rownum = total_height / row_height;

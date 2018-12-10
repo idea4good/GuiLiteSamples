@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2050
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloFont", "HelloFont.vcxproj", "{6C318571-A30A-41E2-A42B-5B6FCF718C6A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UIcode", "..\UIcode\UIcode.vcxproj", "{8BE32B2A-F5E4-49E7-A2C9-0FAEA62B7FED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6C318571-A30A-41E2-A42B-5B6FCF718C6A}.Debug|x86.ActiveCfg = Debug|Win32
+		{6C318571-A30A-41E2-A42B-5B6FCF718C6A}.Debug|x86.Build.0 = Debug|Win32
+		{8BE32B2A-F5E4-49E7-A2C9-0FAEA62B7FED}.Debug|x86.ActiveCfg = Debug|Win32
+		{8BE32B2A-F5E4-49E7-A2C9-0FAEA62B7FED}.Debug|x86.Build.0 = Debug|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4D4EFDD8-0280-4E57-8EFA-135209FC9CB0}
+	EndGlobalSection
+EndGlobal

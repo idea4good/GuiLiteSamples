@@ -58,3 +58,7 @@ xcuserdata
 /HelloGuiLite/BuildLinux/HelloGuiLite
 /HelloGuiLite/BuildMFC/HelloGL.aps
 /HelloGuiLite/UIcode/libUIcode.a
+
+/HelloFont/BuildLinux/HelloFont
+/HelloFont/BuildMFC/HelloFont.aps
+/HelloFont/UIcode/libUIcode.a

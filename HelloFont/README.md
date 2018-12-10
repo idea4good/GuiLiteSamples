@@ -31,6 +31,6 @@
 - If meet **permission** issue, you should enter pure command mode(not desktop mode), and run it again.
 
 3. Run inside QT APP(display-xxx is a QT APP for display, skip this if you haven't installed QT):
-- If x64:`sudo ./display-x64 1 1280 720 | ./HelloFont shared-fb`
-- If raspberry pi:`sudo ./display-arm  1 1280 720 | ./HelloFont shared-fb`
+- If x64:`sudo ./display-x64 1 1400 580 | ./HelloFont shared-fb`
+- If raspberry pi:`sudo ./display-arm  1 1400 580 | ./HelloFont shared-fb`
 - The source code of display-xxx here: HostMonitor/BuildLinux/display.src

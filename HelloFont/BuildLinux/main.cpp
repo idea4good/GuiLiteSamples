@@ -48,8 +48,8 @@ int main(int argc, char** argv)
 	system("./.sync_build.sh HelloGuiLite");
 
 	int color_bytes = 2;
-	int screen_width = 1280;
-	int screen_height = 720;
+	int screen_width = 1400;
+	int screen_height = 580;
 
 	FRAMEBUFFER_MODE fb_mode = FB_NULL_MODE;
 	char *fb_dev_path = NULL;

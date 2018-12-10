@@ -77,7 +77,7 @@ static void* stdin_thread(void* param)
 		{
 			press_down(10, 550);
 			press_release(10, 550);
-			printf("start button pressed.");
+			printf("play button pressed.");
 		}
 		else if (strstr(buffer, "press") == buffer)
 		{

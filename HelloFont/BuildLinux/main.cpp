@@ -11,7 +11,7 @@
 #include <errno.h>
 #include <sys/stat.h>
 
-extern void start_helloGL(void* phy_fb, int width, int height, int color_bytes);
+extern void startHelloFont(void* phy_fb, int width, int height, int color_bytes);
 extern void init_std_io();
 
 static void* get_embeded_fb_in_display_app(int shared_id);
@@ -30,7 +30,7 @@ static const char* s_welcome =
 "Type command: ./HelloGuiLite /dev/fb-path\n\n"
 "-------------------- Help ------------------------\n"
 "ss: 	Snapshot UI in snapshot_0.bmp.\n"
-"bb: 	Press start button.\n"
+"bb: 	Press play button.\n"
 "exit: 	Exit the App.\n"
 "--------------------------------------------------\n";
 
@@ -89,7 +89,7 @@ int main(int argc, char** argv)
 	}
 
 	init_std_io();
-	start_helloGL(phy_fb, screen_width, screen_height, color_bytes);//never return;
+	startHelloFont(phy_fb, screen_width, screen_height, color_bytes);//never return;
     return 0;
 }
 

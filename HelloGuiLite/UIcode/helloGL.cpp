@@ -100,6 +100,8 @@ static WND_TREE s_root_children[] =
 //////////////////////// start UI ////////////////////////
 extern const BITMAP_INFO desktop_bmp;
 extern const BITMAP_INFO start_menu_bmp;
+static c_fifo s_hid_fifo;
+static c_display* s_display;
 void load_resource()
 {
 	c_my_resource::add_bitmap(BITMAP_CUSTOM1, &desktop_bmp);
@@ -112,15 +114,15 @@ void load_resource()
 void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes)
 {
 	load_resource();
-	c_display* display = new c_display(phy_fb, screen_width, screen_height, UI_WIDTH, UI_HEIGHT, color_bytes, 1);
-	c_surface* surface = display->alloc_surface(&s_root, Z_ORDER_LEVEL_1);
+	s_display = new c_display(phy_fb, screen_width, screen_height, UI_WIDTH, UI_HEIGHT, color_bytes, 1);
+	c_surface* surface = s_display->alloc_surface(&s_root, Z_ORDER_LEVEL_1);
 	surface->set_active(true);
 
 	s_root.set_surface(surface);
 	s_root.connect(NULL, ID_ROOT, 0, 0, 0, UI_WIDTH, UI_HEIGHT, s_root_children);
 	s_root.show_window();
 
-	new c_gesture(&s_root, NULL, display->get_hid_pipe());
+	new c_gesture(&s_root, NULL, &s_hid_fifo);
 	while(1)
 	{
 		thread_sleep(1000000);
@@ -133,21 +135,18 @@ void start_helloGL(void* phy_fb, int width, int height, int color_bytes)
 	create_ui(phy_fb, width, height, color_bytes);
 }
 
-int sendTouch2helloGL(void* buf, int len, int display_id)
+int sendTouch2helloGL(void* buf, int len)
 {
-	if (len != sizeof(MSG_INFO))
-	{
-		ASSERT(FALSE);
-	}
-	return c_hid_pipe::write_hid_msg((MSG_INFO*)buf, display_id);
+	ASSERT(len == sizeof(MSG_INFO));
+	return s_hid_fifo.write(buf, len);
 }
 
 void* getUiOfhelloGL(int* width, int* height)
 {
-	return c_display::get_frame_buffer(0, width, height);
+	return s_display->get_frame_buffer(width, height);
 }
 
 int captureUiOfhelloGL()
 {
-	return c_display::snap_shot(0);
+	return s_display->snap_shot("snap_short.bmp");
 }

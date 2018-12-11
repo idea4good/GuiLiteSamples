@@ -167,7 +167,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SampleCode\sample.vcxproj">
+    <ProjectReference Include="..\..\UIcode\sample.vcxproj">
       <Project>{289e64c1-73c4-4533-9a06-9ddbf52235bb}</Project>
     </ProjectReference>
   </ItemGroup>

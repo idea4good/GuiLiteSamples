@@ -4,6 +4,11 @@
 - GuiLite samples contain 3 cross-platform projects. They all based on [GuiLite](https://github.com/idea4good/GuiLite). They show you how to use GuiLite's interface, and how GuiLite works on iOS, Android, GNU/Linux, Windows and macOS platform.
 - GuiLite samples are easy to compile & run. With the help of QQ group, you will pass the compiling nearly 100%.
 
+## Hello Font
+![HelloFont](doc/HelloFont.gif)
+
+Hello Font has only [100+ lines code](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloFont/UIcode/UIcode.cpp) for beginner, showing you how to use muti languages(UTF-8). You can run it both on Windows and Linux.
+
 ## Hello GuiLite
 ![HelloGuiLite](doc/HelloGuiLite.gif)
 

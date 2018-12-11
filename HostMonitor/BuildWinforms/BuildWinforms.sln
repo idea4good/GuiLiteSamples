@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildWinforms", "BuildWinfo
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HostMonitor", "HostMonitorDll\HostMonitorDll.vcxproj", "{FC5CF269-9CAB-47E1-BDAF-02D0A6C1A47E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sample", "..\SampleCode\sample.vcxproj", "{289E64C1-73C4-4533-9A06-9DDBF52235BB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sample", "..\UIcode\sample.vcxproj", "{289E64C1-73C4-4533-9A06-9DDBF52235BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

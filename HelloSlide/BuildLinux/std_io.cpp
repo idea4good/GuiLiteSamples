@@ -11,8 +11,8 @@ typedef struct
 
 extern void create_thread(unsigned long* thread_id, void* attr, void *(*start_routine) (void *), void* arg);
 extern void thread_sleep(unsigned int milli_seconds);
-extern int sendTouch2HelloFont(void* buf, int len);
-extern int captureUiOfHelloFont();
+extern int sendTouch2HelloSlide(void* buf, int len);
+extern int captureUiOfHelloSlide();
 
 static int get_std_input(char *buffer, int size)
 {
@@ -38,7 +38,7 @@ static void press_down(int x, int y)
 	msg.dwMsgId = 0x4700;
 	msg.dwParam1 = x;
 	msg.dwParam2 = y;
-	sendTouch2HelloFont(&msg, sizeof(msg));
+	sendTouch2HelloSlide(&msg, sizeof(msg));
 }
 
 static void press_release(int x, int y)
@@ -47,7 +47,7 @@ static void press_release(int x, int y)
 	msg.dwMsgId = 0x4600;
 	msg.dwParam1 = x;
 	msg.dwParam2 = y;
-	sendTouch2HelloFont(&msg, sizeof(msg));
+	sendTouch2HelloSlide(&msg, sizeof(msg));
 }
 
 static void* stdin_thread(void* param)
@@ -70,14 +70,22 @@ static void* stdin_thread(void* param)
 		}
 		else if (strcmp(buffer, "ss") == 0)
 		{
-			captureUiOfHelloFont();
+			captureUiOfHelloSlide();
 			printf("snapshot done.");
 		}
-		else if (strcmp(buffer, "bb") == 0)
+		else if (strcmp(buffer, "aa") == 0)
 		{
+			press_down(100, 550);
 			press_down(10, 550);
 			press_release(10, 550);
-			printf("play button pressed.");
+			printf("Left slide.");
+		}
+		else if (strcmp(buffer, "dd") == 0)
+		{
+			press_down(10, 550);
+			press_down(100, 550);
+			press_release(100, 550);
+			printf("Right slide.");
 		}
 		else if (strstr(buffer, "press") == buffer)
 		{

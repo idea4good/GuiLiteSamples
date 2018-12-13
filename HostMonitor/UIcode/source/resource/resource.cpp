@@ -42,10 +42,10 @@ void load_theme(int index)
 		c_my_resource::add_font(FONT_CUSTOM2, &Arial_56B);
 		c_my_resource::add_font(FONT_CUSTOM3, &Arial_62B);
 		//icon
-		c_my_resource::add_bitmap(BITMAP_UP_BT_NORMAL, &bmspin_up_button_normal);
-		c_my_resource::add_bitmap(BITMAP_UP_BT_FOCUS, &bmspin_up_button_focus);
-		c_my_resource::add_bitmap(BITMAP_DOWN_BT_NORMAL, &bmspin_down_button_normal);
-		c_my_resource::add_bitmap(BITMAP_DOWN_BT_FOCUS, &bmspin_down_button_focus);
+		c_my_resource::add_bitmap(BITMAP_UP_ARROW1, &bmspin_up_button_normal);
+		c_my_resource::add_bitmap(BITMAP_UP_ARROW2, &bmspin_up_button_focus);
+		c_my_resource::add_bitmap(BITMAP_DOWN_ARROW1, &bmspin_down_button_normal);
+		c_my_resource::add_bitmap(BITMAP_DOWN_ARROW2, &bmspin_down_button_focus);
 		c_my_resource::add_bitmap(BITMAP_CUSTOM1, &wave_background_1_bmp);
 		c_my_resource::add_bitmap(BITMAP_CUSTOM2, &wave_background_2_bmp);
 		//shape
@@ -58,8 +58,8 @@ void load_theme(int index)
 		c_my_resource::add_shape(KEY_BUTTON_NORMAL, shape_keyboard_bt_normal);
 		c_my_resource::add_shape(KEY_BUTTON_PUSH, shape_keyboard_bt_push);
 		//color
-		c_my_resource::add_color(CTRL_FORE_GROUND, GL_RGB(255, 255, 255));
-		c_my_resource::add_color(CTRL_BACK_GROUND, GL_RGB(36, 36, 36));
+		c_my_resource::add_color(WND_FORECOLOR, GL_RGB(255, 255, 255));
+		c_my_resource::add_color(WND_BACKCOLOR, GL_RGB(36, 36, 36));
 		break;
 	case 1:
 		//font
@@ -72,18 +72,17 @@ void load_theme(int index)
 		c_my_resource::add_font(FONT_CUSTOM2, &Arial_56B);
 		c_my_resource::add_font(FONT_CUSTOM3, &Arial_62B);
 		//icon
-		c_my_resource::add_bitmap(BITMAP_UP_BT_NORMAL, &bmspin_up_button_normal);
-		c_my_resource::add_bitmap(BITMAP_UP_BT_FOCUS, &bmspin_up_button_focus);
-		c_my_resource::add_bitmap(BITMAP_DOWN_BT_NORMAL, &bmspin_down_button_normal);
-		c_my_resource::add_bitmap(BITMAP_DOWN_BT_FOCUS, &bmspin_down_button_focus);
+		c_my_resource::add_bitmap(BITMAP_UP_ARROW1, &bmspin_up_button_normal);
+		c_my_resource::add_bitmap(BITMAP_UP_ARROW2, &bmspin_up_button_focus);
+		c_my_resource::add_bitmap(BITMAP_DOWN_ARROW1, &bmspin_down_button_normal);
+		c_my_resource::add_bitmap(BITMAP_DOWN_ARROW2, &bmspin_down_button_focus);
 		//no shape
 		//color
-		c_my_resource::add_color(CTRL_FORE_GROUND, GL_RGB(36, 36, 36));
-		c_my_resource::add_color(CTRL_BACK_GROUND, GL_RGB(255, 255, 255));
+		c_my_resource::add_color(WND_FORECOLOR, GL_RGB(36, 36, 36));
+		c_my_resource::add_color(WND_BACKCOLOR, GL_RGB(255, 255, 255));
 		break;
 	default:
 		ASSERT(FALSE);
 		break;
 	}
-	
 }

@@ -106,8 +106,8 @@ void load_resource()
 {
 	c_my_resource::add_bitmap(BITMAP_CUSTOM1, &background_bmp);
 	c_my_resource::add_font(FONT_DEFAULT, &KaiTi_33B);//for button
-	c_my_resource::add_color(CTRL_FORE_GROUND, GL_RGB(36, 36, 36));//for button
-	c_my_resource::add_color(CTRL_BACK_GROUND, GL_RGB(255, 255, 255));//for button
+	c_my_resource::add_color(WND_FORECOLOR, GL_RGB(36, 36, 36));//for button
+	c_my_resource::add_color(WND_BACKCOLOR, GL_RGB(255, 255, 255));//for button
 }
 
 void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes)

@@ -23,13 +23,13 @@ static const char* s_welcome =
 "*  Any feedback will be appreciated. Email: idea4good@outlook.com *\n"
 "-------------------------------------------------------------------\n"
 "How to run inside QT APP?\n"
-"If x64: ./display-x64 | ./HelloGuiLite shared-fb\n"
-"If ARM: ./display-arm | ./HelloGuiLite shared-fb\n\n"
+"If x64: ./display-x64 | ./HelloFont shared-fb\n"
+"If ARM: ./display-arm | ./HelloFont shared-fb\n\n"
 
 "How to run on Linux?\n"
-"Type command: ./HelloGuiLite /dev/fb-path\n\n"
+"Type command: ./HelloFont /dev/fb-path\n\n"
 "-------------------- Help ------------------------\n"
-"ss: 	Snapshot UI in snapshot_0.bmp.\n"
+"ss: 	Save UI in snapshot.bmp.\n"
 "bb: 	Press play button.\n"
 "exit: 	Exit the App.\n"
 "--------------------------------------------------\n";
@@ -45,7 +45,7 @@ int main(int argc, char** argv)
 {
 	printf(s_welcome);
 	system("chmod 777 .sync_build.sh");
-	system("./.sync_build.sh HelloGuiLite");
+	system("./.sync_build.sh HelloFont");
 
 	int color_bytes = 2;
 	int screen_width = 1400;

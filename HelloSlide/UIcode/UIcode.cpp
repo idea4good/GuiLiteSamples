@@ -51,6 +51,12 @@ void c_page::on_paint()
 	case ID_PAGE3:
 		bmp = c_my_resource::get_bmp(BITMAP_CUSTOM3);
 		break;
+	case ID_PAGE4:
+		bmp = c_my_resource::get_bmp(BITMAP_CUSTOM4);
+		break;
+	case ID_PAGE5:
+		bmp = c_my_resource::get_bmp(BITMAP_CUSTOM5);
+		break;
 	default:
 		break;
 	}
@@ -74,12 +80,14 @@ void load_resource()
 	c_my_resource::add_bitmap(BITMAP_CUSTOM1, &ten_bmp);
 	c_my_resource::add_bitmap(BITMAP_CUSTOM2, &jack_bmp);
 	c_my_resource::add_bitmap(BITMAP_CUSTOM3, &queen_bmp);
+	c_my_resource::add_bitmap(BITMAP_CUSTOM4, &king_bmp);
+	c_my_resource::add_bitmap(BITMAP_CUSTOM5, &ace_bmp);
 }
 
 void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes)
 {
 	load_resource();
-	s_display = new c_display(phy_fb, screen_width, screen_height, UI_WIDTH, UI_HEIGHT, color_bytes, 5);
+	s_display = new c_display(phy_fb, screen_width, screen_height, UI_WIDTH, UI_HEIGHT, color_bytes, (1 + 5)/*1 root + 5 pages*/);
 	c_surface* surface = s_display->alloc_surface(&s_root, Z_ORDER_LEVEL_1);
 	surface->set_active(true);
 
@@ -89,7 +97,9 @@ void create_ui(void* phy_fb, int screen_width, int screen_height, int color_byte
 	s_root.add_slide(&s_page1, ID_PAGE1, 0, 0, UI_WIDTH, UI_HEIGHT, NULL);
 	s_root.add_slide(&s_page2, ID_PAGE2, 0, 0, UI_WIDTH, UI_HEIGHT, NULL);
 	s_root.add_slide(&s_page3, ID_PAGE3, 0, 0, UI_WIDTH, UI_HEIGHT, NULL);
-	s_root.set_active_slide(1);
+	s_root.add_slide(&s_page4, ID_PAGE4, 0, 0, UI_WIDTH, UI_HEIGHT, NULL);
+	s_root.add_slide(&s_page5, ID_PAGE5, 0, 0, UI_WIDTH, UI_HEIGHT, NULL);
+	s_root.set_active_slide(0);
 	s_root.show_window();
 
 	new c_gesture(&s_root, &s_root, &s_hid_fifo);

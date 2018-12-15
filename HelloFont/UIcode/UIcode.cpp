@@ -140,7 +140,7 @@ int sendTouch2HelloFont(void* buf, int len)
 	return s_hid_fifo.write(buf, len);
 }
 
-void* getUiOfHelloFont(int* width, int* height)
+void* getUiOfHelloFont(int* width, int* height, bool force_update)
 {
 	return s_display->get_frame_buffer(width, height);
 }

@@ -121,7 +121,7 @@ int sendTouch2HelloSlide(void* buf, int len)
 	return s_hid_fifo.write(buf, len);
 }
 
-void* getUiOfHelloSlide(int* width, int* height)
+void* getUiOfHelloSlide(int* width, int* height, bool force_update)
 {
 	return s_display->get_frame_buffer(width, height);
 }

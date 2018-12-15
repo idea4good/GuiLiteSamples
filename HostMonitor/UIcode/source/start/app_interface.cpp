@@ -35,7 +35,7 @@ int sendTouch2HostMonitor(void* buf, int len, int display_id)
 	return 0;
 }
 
-void* getUiOfHostMonitor(int display_id, int* width, int* height)
+void* getUiOfHostMonitor(int display_id, int* width, int* height, bool force_update)
 {
 	c_display* display = get_display(display_id);
 	if (display)

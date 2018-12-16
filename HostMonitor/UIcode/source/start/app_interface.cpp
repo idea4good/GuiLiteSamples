@@ -40,7 +40,7 @@ void* getUiOfHostMonitor(int display_id, int* width, int* height, bool force_upd
 	c_display* display = get_display(display_id);
 	if (display)
 	{
-		return display->get_frame_buffer(width, height);
+		return display->get_updated_fb(width, height, force_update);
 	}
 	return NULL;
 }

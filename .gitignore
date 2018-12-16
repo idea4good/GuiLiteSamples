@@ -49,12 +49,11 @@ profile
 xcuserdata
 
 # For output
-/HostMonitor/BuildMacCmd/sample_native
-/HostMonitor/BuildLinux/sample_native
+/HostMonitor/BuildMacCmd/HostMonitor
+/HostMonitor/BuildLinux/HostMonitor
 /HostMonitor/BuildMFC/HostMonitor/BuildMFC.aps
 /HostMonitor/UIcode/libUIcode.a
 
-/HelloGuiLite/BuildMacCmd/HelloGuiLite
 /HelloGuiLite/BuildLinux/HelloGuiLite
 /HelloGuiLite/BuildMFC/HelloGL.aps
 /HelloGuiLite/UIcode/libUIcode.a
@@ -62,3 +61,7 @@ xcuserdata
 /HelloFont/BuildLinux/HelloFont
 /HelloFont/BuildMFC/HelloFont.aps
 /HelloFont/UIcode/libUIcode.a
+
+/HelloSlide/BuildLinux/HelloSlide
+/HelloSlide/BuildMFC/HelloSlide.aps
+/HelloSlide/UIcode/libUIcode.a

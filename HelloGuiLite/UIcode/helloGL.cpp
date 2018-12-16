@@ -138,9 +138,9 @@ int sendTouch2helloGL(void* buf, int len)
 	return s_hid_fifo.write(buf, len);
 }
 
-void* getUiOfhelloGL(int* width, int* height)
+void* getUiOfhelloGL(int* width, int* height, bool force_update)
 {
-	return s_display->get_frame_buffer(width, height);
+	return s_display->get_updated_fb(width, height, force_update);
 }
 
 int captureUiOfhelloGL()

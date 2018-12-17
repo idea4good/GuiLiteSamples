@@ -1,5 +1,5 @@
 # GuiLite Samples - 你自己的精彩
-- GuiLite samples包括3个跨平台工程，他们都是基于[GuiLite](https://github.com/idea4good/GuiLite)编写的实际应用，用来说明GuiLite的接口使用方法，并让你的程序同时运行在：iOS，Android，Linux，Windows，Mac平台上。
+- GuiLite samples包括4个跨平台工程，他们都是基于[GuiLite](https://github.com/idea4good/GuiLite)编写的实际应用，用来说明GuiLite的接口使用方法，并让你的程序同时运行在：iOS，Android，Linux，Windows，Mac平台上。
 - GuiLite samples极易编译，在QQ开发群的帮助下，现在的编译通过率接近100%
 
 ## Hello Slide
@@ -49,11 +49,6 @@ HostMonitor有2千行UI代码, 用来布局UI和自定义控件
 [手机连串口设备](Serial.md)
 
 [下载体验Android版App](http://zhushou.360.cn/detail/index/soft_id/1754231)
-
-## Snake
-Snake只有200+行代码，用来解释如何绘制、渲染，通过对它的学习，你可以把GuiLite运行在单片机上。
-
-[编译 "snake"](../Snake/README.md)
 
 ## 一些建议
 是不是感觉很复杂？我们只是资质平庸的开发者，我们能做到的，你也可以！

@@ -12,7 +12,7 @@ namespace BuildWinforms
     public partial class UiBlock : PictureBox
     {
         [DllImport("HostMonitor.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr getHbitmapOfHostMonitorUiFromDll(int display_id, int witdth, int height);
+        public static extern IntPtr getHbitmapOfHostMonitorUiFromDll(int display_id, int witdth, int height, bool force_update);
 
         [DllImport("HostMonitor.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern void sendTouch2HostMonitorFromDll(int display_id, uint msg_id, int x, int y);
@@ -25,7 +25,7 @@ namespace BuildWinforms
                 Image = null;
             }
 
-            IntPtr bitmap = getHbitmapOfHostMonitorUiFromDll(m_index, m_ui_width, m_ui_height);
+            IntPtr bitmap = getHbitmapOfHostMonitorUiFromDll(m_index, m_ui_width, m_ui_height, true);
             if(bitmap != IntPtr.Zero)
             {
                 Image = System.Drawing.Image.FromHbitmap(bitmap);

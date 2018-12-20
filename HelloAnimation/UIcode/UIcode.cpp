@@ -78,7 +78,7 @@ static c_button	s_button;
 
 static WND_TREE s_myUI_children[] =
 {
-	{(c_wnd*)&s_button, ID_BUTTON, (char*)NULL, 0, 0, 150, 40, NULL},
+	{(c_wnd*)&s_button, ID_BUTTON, "\xe5\x8f\x98\xe5\xbd\xa2", 0, 149, 40, 20, NULL},
 	{ NULL,0,0,0,0,0,0 }
 };
 
@@ -90,12 +90,12 @@ static WND_TREE s_root_children[] =
 };
 
 //////////////////////// start UI ////////////////////////
-//extern const FONT_INFO KaiTi_33B;
+extern const FONT_INFO KaiTi_19;
 static c_fifo s_hid_fifo;
 static c_display* s_display;
 void load_resource()
 {
-	//c_my_resource::add_font(FONT_DEFAULT, &KaiTi_33B);//for button
+	c_my_resource::add_font(FONT_DEFAULT, &KaiTi_19);//for button
 	c_my_resource::add_color(WND_FORECOLOR, GL_RGB(36, 36, 36));//for button
 	c_my_resource::add_color(WND_BACKCOLOR, GL_RGB(255, 255, 255));//for button
 }

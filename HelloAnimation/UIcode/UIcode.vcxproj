@@ -43,6 +43,7 @@
     <ClCompile Include="resource\frame_21_bmp.cpp" />
     <ClCompile Include="resource\frame_22_bmp.cpp" />
     <ClCompile Include="resource\frame_23_bmp.cpp" />
+    <ClCompile Include="resource\KaiTi_19.cpp" />
     <ClCompile Include="UIcode.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

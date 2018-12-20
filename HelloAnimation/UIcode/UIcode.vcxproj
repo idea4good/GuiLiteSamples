@@ -41,6 +41,8 @@
     <ClCompile Include="resource\frame_19_bmp.cpp" />
     <ClCompile Include="resource\frame_20_bmp.cpp" />
     <ClCompile Include="resource\frame_21_bmp.cpp" />
+    <ClCompile Include="resource\frame_22_bmp.cpp" />
+    <ClCompile Include="resource\frame_23_bmp.cpp" />
     <ClCompile Include="UIcode.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

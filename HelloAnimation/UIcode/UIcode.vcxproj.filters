@@ -68,6 +68,12 @@
     <ClCompile Include="resource\frame_21_bmp.cpp">
       <Filter>resource</Filter>
     </ClCompile>
+    <ClCompile Include="resource\frame_22_bmp.cpp">
+      <Filter>resource</Filter>
+    </ClCompile>
+    <ClCompile Include="resource\frame_23_bmp.cpp">
+      <Filter>resource</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="resource">

@@ -42,31 +42,32 @@ GL_BEGIN_MESSAGE_MAP(c_myUI)
 ON_GL_BN_CLICKED(ID_BUTTON, c_myUI::on_clicked)
 GL_END_MESSAGE_MAP()
 
-extern const BITMAP_INFO frame_00_bmp, frame_01_bmp, frame_02_bmp, frame_03_bmp, frame_04_bmp, frame_05_bmp, frame_06_bmp;
+extern const BITMAP_INFO frame_00_bmp, frame_01_bmp, frame_02_bmp, frame_03_bmp, frame_04_bmp, frame_05_bmp, frame_06_bmp,
+frame_07_bmp, frame_08_bmp, frame_09_bmp, frame_10_bmp, frame_11_bmp, frame_12_bmp, frame_13_bmp, frame_14_bmp,
+frame_15_bmp, frame_16_bmp, frame_17_bmp, frame_18_bmp, frame_19_bmp, frame_20_bmp, frame_21_bmp, frame_22_bmp, frame_23_bmp;
+
+BITMAP_INFO s_frames[] = { frame_00_bmp, frame_01_bmp, frame_02_bmp,  frame_03_bmp,  frame_04_bmp,  frame_05_bmp,
+							frame_06_bmp,  frame_07_bmp,  frame_08_bmp,  frame_09_bmp,  frame_10_bmp,  frame_11_bmp, 
+							frame_12_bmp, frame_13_bmp, frame_14_bmp, frame_15_bmp, frame_16_bmp, frame_17_bmp,
+							frame_18_bmp, frame_19_bmp, frame_20_bmp, frame_21_bmp, frame_22_bmp, frame_23_bmp };
 void c_myUI::on_clicked(unsigned int ctrl_id)
 {
 	c_rect rect;
 	get_screen_rect(rect);
-	c_my_resource::add_bitmap(BITMAP_CUSTOM1, &frame_00_bmp);
-	c_bitmap::draw_bitmap(m_surface, m_z_order, c_my_resource::get_bmp(BITMAP_CUSTOM1), rect.m_left, rect.m_top);
-	c_my_resource::add_bitmap(BITMAP_CUSTOM1, &frame_01_bmp);
-	c_bitmap::draw_bitmap(m_surface, m_z_order, c_my_resource::get_bmp(BITMAP_CUSTOM1), rect.m_left, rect.m_top);
-	c_my_resource::add_bitmap(BITMAP_CUSTOM1, &frame_02_bmp);
-	c_bitmap::draw_bitmap(m_surface, m_z_order, c_my_resource::get_bmp(BITMAP_CUSTOM1), rect.m_left, rect.m_top);
-	c_my_resource::add_bitmap(BITMAP_CUSTOM1, &frame_03_bmp);
-	c_bitmap::draw_bitmap(m_surface, m_z_order, c_my_resource::get_bmp(BITMAP_CUSTOM1), rect.m_left, rect.m_top);
-	c_my_resource::add_bitmap(BITMAP_CUSTOM1, &frame_04_bmp);
-	c_bitmap::draw_bitmap(m_surface, m_z_order, c_my_resource::get_bmp(BITMAP_CUSTOM1), rect.m_left, rect.m_top);
-	c_my_resource::add_bitmap(BITMAP_CUSTOM1, &frame_05_bmp);
-	c_bitmap::draw_bitmap(m_surface, m_z_order, c_my_resource::get_bmp(BITMAP_CUSTOM1), rect.m_left, rect.m_top);
-	c_my_resource::add_bitmap(BITMAP_CUSTOM1, &frame_06_bmp);
-	c_bitmap::draw_bitmap(m_surface, m_z_order, c_my_resource::get_bmp(BITMAP_CUSTOM1), rect.m_left, rect.m_top);
+
+	for (int i = 0; i < sizeof(s_frames)/sizeof(BITMAP_INFO); i++)
+	{
+		c_my_resource::add_bitmap(BITMAP_CUSTOM1, &s_frames[i]);
+		c_bitmap::draw_bitmap(m_surface, m_z_order, c_my_resource::get_bmp(BITMAP_CUSTOM1), rect.m_left, rect.m_top);
+		thread_sleep(60);
+	}
 }
 
 void c_myUI::on_paint()
 {
 	c_rect rect;
 	get_screen_rect(rect);
+	c_my_resource::add_bitmap(BITMAP_CUSTOM1, &frame_00_bmp);
 	c_bitmap::draw_bitmap(m_surface, m_z_order, c_my_resource::get_bmp(BITMAP_CUSTOM1), rect.m_left, rect.m_top);
 }
 
@@ -94,7 +95,6 @@ static c_fifo s_hid_fifo;
 static c_display* s_display;
 void load_resource()
 {
-	c_my_resource::add_bitmap(BITMAP_CUSTOM1, &frame_00_bmp);
 	//c_my_resource::add_font(FONT_DEFAULT, &KaiTi_33B);//for button
 	c_my_resource::add_color(WND_FORECOLOR, GL_RGB(36, 36, 36));//for button
 	c_my_resource::add_color(WND_BACKCOLOR, GL_RGB(255, 255, 255));//for button

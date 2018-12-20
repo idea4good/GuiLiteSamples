@@ -65,3 +65,7 @@ xcuserdata
 /HelloSlide/BuildLinux/HelloSlide
 /HelloSlide/BuildMFC/HelloSlide.aps
 /HelloSlide/UIcode/libUIcode.a
+
+/HelloAnimation/BuildLinux/HelloAnimation
+/HelloAnimation/BuildMFC/HelloAnimation.aps
+/HelloAnimation/UIcode/libUIcode.a

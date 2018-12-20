@@ -11,7 +11,7 @@
 #include <errno.h>
 #include <sys/stat.h>
 
-extern void startHelloSlide(void* phy_fb, int width, int height, int color_bytes);
+extern void startHelloAnimation(void* phy_fb, int width, int height, int color_bytes);
 extern void init_std_io();
 
 static void* get_embeded_fb_in_display_app(int shared_id);
@@ -23,15 +23,14 @@ static const char* s_welcome =
 "*  Any feedback will be appreciated. Email: idea4good@outlook.com *\n"
 "-------------------------------------------------------------------\n"
 "How to run inside QT APP?\n"
-"If x64: ./display-x64 | ./HelloSlide shared-fb\n"
-"If ARM: ./display-arm | ./HelloSlide shared-fb\n\n"
+"If x64: ./display-x64 | ./HelloAnimation shared-fb\n"
+"If ARM: ./display-arm | ./HelloAnimation shared-fb\n\n"
 
 "How to run on Linux?\n"
-"Type command: ./HelloSlide /dev/fb-path\n\n"
+"Type command: ./HelloAnimation /dev/fb-path\n\n"
 "-------------------- Help ------------------------\n"
 "ss: 	Save UI in snapshot.bmp.\n"
-"aa: 	Left slide.\n"
-"dd:    Right slide.\n"
+"tt: 	Press transform button.\n"
 "exit: 	Exit the App.\n"
 "--------------------------------------------------\n";
 
@@ -46,11 +45,11 @@ int main(int argc, char** argv)
 {
 	printf(s_welcome);
 	system("chmod 777 .sync_build.sh");
-	system("./.sync_build.sh HelloSlide");
+	system("./.sync_build.sh HelloAnimation");
 
 	int color_bytes = 2;
-	int screen_width = 512;
-	int screen_height = 768;
+	int screen_width = 238;
+	int screen_height = 169;
 
 	FRAMEBUFFER_MODE fb_mode = FB_NULL_MODE;
 	char *fb_dev_path = NULL;
@@ -90,7 +89,7 @@ int main(int argc, char** argv)
 	}
 
 	init_std_io();
-	startHelloSlide(phy_fb, screen_width, screen_height, color_bytes);//never return;
+	startHelloAnimation(phy_fb, screen_width, screen_height, color_bytes);//never return;
     return 0;
 }
 

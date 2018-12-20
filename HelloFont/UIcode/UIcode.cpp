@@ -86,7 +86,7 @@ static c_button	s_button;
 
 static WND_TREE s_myUI_children[] =
 {
-	{(c_wnd*)&s_button, ID_BUTTON, (char*)"PLAY", 0, 540, 150, 40, NULL},
+	{(c_wnd*)&s_button, ID_BUTTON, "PLAY", 0, 540, 150, 40, NULL},
 	{ NULL,0,0,0,0,0,0 }
 };
 

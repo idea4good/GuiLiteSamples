@@ -39,9 +39,9 @@ public:
 	c_wnd();
 	virtual ~c_wnd() {};
 	virtual const char* get_class_name() const { return "c_wnd"; }
-	virtual int connect(c_wnd *parent, unsigned short resource_id, char* str,
+	virtual int connect(c_wnd *parent, unsigned short resource_id, const char* str,
 		short x, short y, short width, short height, WND_TREE* p_child_tree = NULL);
-	virtual c_wnd* connect_clone(c_wnd *parent, unsigned short resource_id, char* str,
+	virtual c_wnd* connect_clone(c_wnd *parent, unsigned short resource_id, const char* str,
 		short x, short y, short width, short height, WND_TREE* p_child_tree = NULL);
 	void disconnect();
 	virtual c_wnd* clone() = 0;

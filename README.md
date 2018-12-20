@@ -1,8 +1,13 @@
 # GuiLite Samples - Do it yourself!
 [中文](doc/README-cn.md)
 
-- GuiLite samples contain 4 cross-platform projects. They all based on [GuiLite](https://github.com/idea4good/GuiLite). They show you how to use GuiLite's interface, and how GuiLite works on iOS, Android, GNU/Linux, Windows and macOS platform.
+- GuiLite samples contain 5 cross-platform projects. They all based on [GuiLite](https://github.com/idea4good/GuiLite). They show you how to use GuiLite's interface, and how GuiLite works on iOS, Android, GNU/Linux, Windows and macOS platform.
 - GuiLite samples are easy to compile & run. With the help of QQ group, you will pass the compiling nearly 100%.
+
+## Hello Animation
+![HelloAnimation](doc/HelloAnimation.gif)
+
+Hello Animation has only [100+ lines code](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloAnimation/UIcode/UIcode.cpp) for beginner, showing you how to make animation. You can run it both on Windows and Linux.
 
 ## Hello Slide
 ![HelloSlide](doc/HelloSlide.gif)

@@ -1,6 +1,11 @@
-# GuiLite Samples - 你自己的精彩
-- GuiLite samples包括4个跨平台工程，他们都是基于[GuiLite](https://github.com/idea4good/GuiLite)编写的实际应用，用来说明GuiLite的接口使用方法，并让你的程序同时运行在：iOS，Android，Linux，Windows，Mac平台上。
+# GuiLite Samples - 是你造就了漂亮的界面，而不是UI框架
+- GuiLite samples包括5个跨平台工程，他们都是基于[GuiLite](https://github.com/idea4good/GuiLite)编写的实际应用，用来说明GuiLite的接口使用方法，并让你的程序同时运行在：iOS，Android，Linux，Windows，Mac平台上。
 - GuiLite samples极易编译，在QQ开发群的帮助下，现在的编译通过率接近100%
+
+## Hello Animation
+![HelloAnimation](HelloAnimation.gif)
+
+Hello Animation 仅有[100多行代码](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloAnimation/UIcode/UIcode.cpp)，用于向初学者展示：如何制作动画。该实例可支持Windows和Linux平台。
 
 ## Hello Slide
 ![HelloSlide](HelloSlide.gif)

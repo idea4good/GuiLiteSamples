@@ -28,7 +28,7 @@
     <Filter Include="source\ui_ctrl_ex">
       <UniqueIdentifier>{b0c8b34d-75e2-43f1-8d2b-3d521bf45a1e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="source\ui_tree">
+    <Filter Include="source\ui_layout">
       <UniqueIdentifier>{5166a1f0-bb6d-482b-92b3-dd612b5142a5}</UniqueIdentifier>
     </Filter>
     <Filter Include="source\resource\font">
@@ -37,13 +37,13 @@
     <Filter Include="source\resource\bitmap">
       <UniqueIdentifier>{0155a7ef-1d0c-48da-be34-ee095354b9af}</UniqueIdentifier>
     </Filter>
-    <Filter Include="source\ui_tree\Dialog">
+    <Filter Include="source\ui_layout\Dialog">
       <UniqueIdentifier>{e6c2d2e9-c10e-4b50-8e65-cfac87f7c737}</UniqueIdentifier>
     </Filter>
-    <Filter Include="source\ui_tree\View">
+    <Filter Include="source\ui_layout\View">
       <UniqueIdentifier>{e35a5a27-745c-4754-bcb9-03c5d294ce11}</UniqueIdentifier>
     </Filter>
-    <Filter Include="source\ui_tree\ViewMini">
+    <Filter Include="source\ui_layout\ViewMini">
       <UniqueIdentifier>{83d49cda-5778-426b-83f3-7bb1c96429d9}</UniqueIdentifier>
     </Filter>
     <Filter Include="source\data">
@@ -156,104 +156,104 @@
     <ClInclude Include="source\ui_ctrl_ex\time_label.h">
       <Filter>source\ui_ctrl_ex</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\Dialog\patient_setup\patient_setup_dlg.h">
-      <Filter>source\ui_tree\Dialog</Filter>
+    <ClInclude Include="source\ui_layout\Dialog\patient_setup\patient_setup_dlg.h">
+      <Filter>source\ui_layout\Dialog</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\Dialog\about\about_dlg.h">
-      <Filter>source\ui_tree\Dialog</Filter>
+    <ClInclude Include="source\ui_layout\Dialog\about\about_dlg.h">
+      <Filter>source\ui_layout\Dialog</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\View\spo2_wave\spo2_wave_view.h">
-      <Filter>source\ui_tree\View</Filter>
+    <ClInclude Include="source\ui_layout\View\spo2_wave\spo2_wave_view.h">
+      <Filter>source\ui_layout\View</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\View\spo2_wave\spo2_wave_xml.h">
-      <Filter>source\ui_tree\View</Filter>
+    <ClInclude Include="source\ui_layout\View\spo2_wave\spo2_wave_xml.h">
+      <Filter>source\ui_layout\View</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\View\temp_value\temp_value_view.h">
-      <Filter>source\ui_tree\View</Filter>
+    <ClInclude Include="source\ui_layout\View\temp_value\temp_value_view.h">
+      <Filter>source\ui_layout\View</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\View\temp_value\temp_value_xml.h">
-      <Filter>source\ui_tree\View</Filter>
+    <ClInclude Include="source\ui_layout\View\temp_value\temp_value_xml.h">
+      <Filter>source\ui_layout\View</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\View\top_bar\patient\patient_view.h">
-      <Filter>source\ui_tree\View</Filter>
+    <ClInclude Include="source\ui_layout\View\top_bar\patient\patient_view.h">
+      <Filter>source\ui_layout\View</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\View\top_bar\top_bar.h">
-      <Filter>source\ui_tree\View</Filter>
+    <ClInclude Include="source\ui_layout\View\top_bar\top_bar.h">
+      <Filter>source\ui_layout\View</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\View\top_bar\top_bar_xml.h">
-      <Filter>source\ui_tree\View</Filter>
+    <ClInclude Include="source\ui_layout\View\top_bar\top_bar_xml.h">
+      <Filter>source\ui_layout\View</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\View\trend\trend_view.h">
-      <Filter>source\ui_tree\View</Filter>
+    <ClInclude Include="source\ui_layout\View\trend\trend_view.h">
+      <Filter>source\ui_layout\View</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\View\ecg_7wave\ecg_7wave_view.h">
-      <Filter>source\ui_tree\View</Filter>
+    <ClInclude Include="source\ui_layout\View\ecg_7wave\ecg_7wave_view.h">
+      <Filter>source\ui_layout\View</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\View\ecg_value\ecg_value_view.h">
-      <Filter>source\ui_tree\View</Filter>
+    <ClInclude Include="source\ui_layout\View\ecg_value\ecg_value_view.h">
+      <Filter>source\ui_layout\View</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\View\ecg_value\ecg_value_xml.h">
-      <Filter>source\ui_tree\View</Filter>
+    <ClInclude Include="source\ui_layout\View\ecg_value\ecg_value_xml.h">
+      <Filter>source\ui_layout\View</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\View\ecg_wave\ecg_wave_view.h">
-      <Filter>source\ui_tree\View</Filter>
+    <ClInclude Include="source\ui_layout\View\ecg_wave\ecg_wave_view.h">
+      <Filter>source\ui_layout\View</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\View\ecg_wave\ecg_wave_xml.h">
-      <Filter>source\ui_tree\View</Filter>
+    <ClInclude Include="source\ui_layout\View\ecg_wave\ecg_wave_xml.h">
+      <Filter>source\ui_layout\View</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\View\nibp_list\nibp_list_view.h">
-      <Filter>source\ui_tree\View</Filter>
+    <ClInclude Include="source\ui_layout\View\nibp_list\nibp_list_view.h">
+      <Filter>source\ui_layout\View</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\View\nibp_list\nibp_list_xml.h">
-      <Filter>source\ui_tree\View</Filter>
+    <ClInclude Include="source\ui_layout\View\nibp_list\nibp_list_xml.h">
+      <Filter>source\ui_layout\View</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\View\nibp_value\nibp_value_view.h">
-      <Filter>source\ui_tree\View</Filter>
+    <ClInclude Include="source\ui_layout\View\nibp_value\nibp_value_view.h">
+      <Filter>source\ui_layout\View</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\View\nibp_value\nibp_value_xml.h">
-      <Filter>source\ui_tree\View</Filter>
+    <ClInclude Include="source\ui_layout\View\nibp_value\nibp_value_xml.h">
+      <Filter>source\ui_layout\View</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\View\resp_value\resp_value_view.h">
-      <Filter>source\ui_tree\View</Filter>
+    <ClInclude Include="source\ui_layout\View\resp_value\resp_value_view.h">
+      <Filter>source\ui_layout\View</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\View\resp_value\resp_value_xml.h">
-      <Filter>source\ui_tree\View</Filter>
+    <ClInclude Include="source\ui_layout\View\resp_value\resp_value_xml.h">
+      <Filter>source\ui_layout\View</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\View\resp_wave\resp_wave_view.h">
-      <Filter>source\ui_tree\View</Filter>
+    <ClInclude Include="source\ui_layout\View\resp_wave\resp_wave_view.h">
+      <Filter>source\ui_layout\View</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\View\resp_wave\resp_wave_xml.h">
-      <Filter>source\ui_tree\View</Filter>
+    <ClInclude Include="source\ui_layout\View\resp_wave\resp_wave_xml.h">
+      <Filter>source\ui_layout\View</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\View\spo2_value\spo2_value_view.h">
-      <Filter>source\ui_tree\View</Filter>
+    <ClInclude Include="source\ui_layout\View\spo2_value\spo2_value_view.h">
+      <Filter>source\ui_layout\View</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\View\spo2_value\spo2_value_xml.h">
-      <Filter>source\ui_tree\View</Filter>
+    <ClInclude Include="source\ui_layout\View\spo2_value\spo2_value_xml.h">
+      <Filter>source\ui_layout\View</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\ViewMini\wav\mini_wave_view.h">
-      <Filter>source\ui_tree\ViewMini</Filter>
+    <ClInclude Include="source\ui_layout\ViewMini\wav\mini_wave_view.h">
+      <Filter>source\ui_layout\ViewMini</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\ViewMini\wav\mini_wave_xml.h">
-      <Filter>source\ui_tree\ViewMini</Filter>
+    <ClInclude Include="source\ui_layout\ViewMini\wav\mini_wave_xml.h">
+      <Filter>source\ui_layout\ViewMini</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\ViewMini\trend\mini_trend_view.h">
-      <Filter>source\ui_tree\ViewMini</Filter>
+    <ClInclude Include="source\ui_layout\ViewMini\trend\mini_trend_view.h">
+      <Filter>source\ui_layout\ViewMini</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\ViewMini\trend\mini_trend_xml.h">
-      <Filter>source\ui_tree\ViewMini</Filter>
+    <ClInclude Include="source\ui_layout\ViewMini\trend\mini_trend_xml.h">
+      <Filter>source\ui_layout\ViewMini</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\ViewMini\value\mini_value_view.h">
-      <Filter>source\ui_tree\ViewMini</Filter>
+    <ClInclude Include="source\ui_layout\ViewMini\value\mini_value_view.h">
+      <Filter>source\ui_layout\ViewMini</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\ViewMini\value\mini_value_xml.h">
-      <Filter>source\ui_tree\ViewMini</Filter>
+    <ClInclude Include="source\ui_layout\ViewMini\value\mini_value_xml.h">
+      <Filter>source\ui_layout\ViewMini</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\Dialog\about\about_dlg_xml.h">
-      <Filter>source\ui_tree\Dialog</Filter>
+    <ClInclude Include="source\ui_layout\Dialog\about\about_dlg_xml.h">
+      <Filter>source\ui_layout\Dialog</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_tree\Dialog\patient_setup\patient_setup_dlg_xml.h">
-      <Filter>source\ui_tree\Dialog</Filter>
+    <ClInclude Include="source\ui_layout\Dialog\patient_setup\patient_setup_dlg_xml.h">
+      <Filter>source\ui_layout\Dialog</Filter>
     </ClInclude>
     <ClInclude Include="source\manager\value_ctrl_manager.h">
       <Filter>source\manager</Filter>
@@ -317,104 +317,104 @@
     <ClCompile Include="source\ui_ctrl_ex\time_label.cpp">
       <Filter>source\ui_ctrl_ex</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\root.cpp">
-      <Filter>source\ui_tree</Filter>
+    <ClCompile Include="source\ui_layout\root.cpp">
+      <Filter>source\ui_layout</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\Dialog\patient_setup\patient_setup_dlg.cpp">
-      <Filter>source\ui_tree\Dialog</Filter>
+    <ClCompile Include="source\ui_layout\Dialog\patient_setup\patient_setup_dlg.cpp">
+      <Filter>source\ui_layout\Dialog</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\View\spo2_wave\spo2_wave_view.cpp">
-      <Filter>source\ui_tree\View</Filter>
+    <ClCompile Include="source\ui_layout\View\spo2_wave\spo2_wave_view.cpp">
+      <Filter>source\ui_layout\View</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\View\spo2_wave\spo2_wave_xml.cpp">
-      <Filter>source\ui_tree\View</Filter>
+    <ClCompile Include="source\ui_layout\View\spo2_wave\spo2_wave_xml.cpp">
+      <Filter>source\ui_layout\View</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\View\temp_value\temp_value_view.cpp">
-      <Filter>source\ui_tree\View</Filter>
+    <ClCompile Include="source\ui_layout\View\temp_value\temp_value_view.cpp">
+      <Filter>source\ui_layout\View</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\View\temp_value\temp_value_xml.cpp">
-      <Filter>source\ui_tree\View</Filter>
+    <ClCompile Include="source\ui_layout\View\temp_value\temp_value_xml.cpp">
+      <Filter>source\ui_layout\View</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\View\top_bar\patient\patient_view.cpp">
-      <Filter>source\ui_tree\View</Filter>
+    <ClCompile Include="source\ui_layout\View\top_bar\patient\patient_view.cpp">
+      <Filter>source\ui_layout\View</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\View\top_bar\top_bar.cpp">
-      <Filter>source\ui_tree\View</Filter>
+    <ClCompile Include="source\ui_layout\View\top_bar\top_bar.cpp">
+      <Filter>source\ui_layout\View</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\View\top_bar\top_bar_xml.cpp">
-      <Filter>source\ui_tree\View</Filter>
+    <ClCompile Include="source\ui_layout\View\top_bar\top_bar_xml.cpp">
+      <Filter>source\ui_layout\View</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\View\trend\trend_view.cpp">
-      <Filter>source\ui_tree\View</Filter>
+    <ClCompile Include="source\ui_layout\View\trend\trend_view.cpp">
+      <Filter>source\ui_layout\View</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\View\ecg_7wave\ecg_7wave_view.cpp">
-      <Filter>source\ui_tree\View</Filter>
+    <ClCompile Include="source\ui_layout\View\ecg_7wave\ecg_7wave_view.cpp">
+      <Filter>source\ui_layout\View</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\View\ecg_value\ecg_value_view.cpp">
-      <Filter>source\ui_tree\View</Filter>
+    <ClCompile Include="source\ui_layout\View\ecg_value\ecg_value_view.cpp">
+      <Filter>source\ui_layout\View</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\View\ecg_value\ecg_value_xml.cpp">
-      <Filter>source\ui_tree\View</Filter>
+    <ClCompile Include="source\ui_layout\View\ecg_value\ecg_value_xml.cpp">
+      <Filter>source\ui_layout\View</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\View\ecg_wave\ecg_wave_view.cpp">
-      <Filter>source\ui_tree\View</Filter>
+    <ClCompile Include="source\ui_layout\View\ecg_wave\ecg_wave_view.cpp">
+      <Filter>source\ui_layout\View</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\View\ecg_wave\ecg_wave_xml.cpp">
-      <Filter>source\ui_tree\View</Filter>
+    <ClCompile Include="source\ui_layout\View\ecg_wave\ecg_wave_xml.cpp">
+      <Filter>source\ui_layout\View</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\View\nibp_list\nibp_list_view.cpp">
-      <Filter>source\ui_tree\View</Filter>
+    <ClCompile Include="source\ui_layout\View\nibp_list\nibp_list_view.cpp">
+      <Filter>source\ui_layout\View</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\View\nibp_list\nibp_list_xml.cpp">
-      <Filter>source\ui_tree\View</Filter>
+    <ClCompile Include="source\ui_layout\View\nibp_list\nibp_list_xml.cpp">
+      <Filter>source\ui_layout\View</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\View\nibp_value\nibp_value_view.cpp">
-      <Filter>source\ui_tree\View</Filter>
+    <ClCompile Include="source\ui_layout\View\nibp_value\nibp_value_view.cpp">
+      <Filter>source\ui_layout\View</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\View\nibp_value\nibp_value_xml.cpp">
-      <Filter>source\ui_tree\View</Filter>
+    <ClCompile Include="source\ui_layout\View\nibp_value\nibp_value_xml.cpp">
+      <Filter>source\ui_layout\View</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\View\resp_value\resp_value_view.cpp">
-      <Filter>source\ui_tree\View</Filter>
+    <ClCompile Include="source\ui_layout\View\resp_value\resp_value_view.cpp">
+      <Filter>source\ui_layout\View</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\View\resp_value\resp_value_xml.cpp">
-      <Filter>source\ui_tree\View</Filter>
+    <ClCompile Include="source\ui_layout\View\resp_value\resp_value_xml.cpp">
+      <Filter>source\ui_layout\View</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\View\resp_wave\resp_wave_view.cpp">
-      <Filter>source\ui_tree\View</Filter>
+    <ClCompile Include="source\ui_layout\View\resp_wave\resp_wave_view.cpp">
+      <Filter>source\ui_layout\View</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\View\resp_wave\resp_wave_xml.cpp">
-      <Filter>source\ui_tree\View</Filter>
+    <ClCompile Include="source\ui_layout\View\resp_wave\resp_wave_xml.cpp">
+      <Filter>source\ui_layout\View</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\View\spo2_value\spo2_value_view.cpp">
-      <Filter>source\ui_tree\View</Filter>
+    <ClCompile Include="source\ui_layout\View\spo2_value\spo2_value_view.cpp">
+      <Filter>source\ui_layout\View</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\View\spo2_value\spo2_value_xml.cpp">
-      <Filter>source\ui_tree\View</Filter>
+    <ClCompile Include="source\ui_layout\View\spo2_value\spo2_value_xml.cpp">
+      <Filter>source\ui_layout\View</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\ViewMini\wav\mini_wave_view.cpp">
-      <Filter>source\ui_tree\ViewMini</Filter>
+    <ClCompile Include="source\ui_layout\ViewMini\wav\mini_wave_view.cpp">
+      <Filter>source\ui_layout\ViewMini</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\ViewMini\wav\mini_wave_xml.cpp">
-      <Filter>source\ui_tree\ViewMini</Filter>
+    <ClCompile Include="source\ui_layout\ViewMini\wav\mini_wave_xml.cpp">
+      <Filter>source\ui_layout\ViewMini</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\ViewMini\trend\mini_trend_view.cpp">
-      <Filter>source\ui_tree\ViewMini</Filter>
+    <ClCompile Include="source\ui_layout\ViewMini\trend\mini_trend_view.cpp">
+      <Filter>source\ui_layout\ViewMini</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\ViewMini\trend\mini_trend_xml.cpp">
-      <Filter>source\ui_tree\ViewMini</Filter>
+    <ClCompile Include="source\ui_layout\ViewMini\trend\mini_trend_xml.cpp">
+      <Filter>source\ui_layout\ViewMini</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\ViewMini\value\mini_value_view.cpp">
-      <Filter>source\ui_tree\ViewMini</Filter>
+    <ClCompile Include="source\ui_layout\ViewMini\value\mini_value_view.cpp">
+      <Filter>source\ui_layout\ViewMini</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\ViewMini\value\mini_value_xml.cpp">
-      <Filter>source\ui_tree\ViewMini</Filter>
+    <ClCompile Include="source\ui_layout\ViewMini\value\mini_value_xml.cpp">
+      <Filter>source\ui_layout\ViewMini</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\Dialog\about\about_dlg_xml.cpp">
-      <Filter>source\ui_tree\Dialog</Filter>
+    <ClCompile Include="source\ui_layout\Dialog\about\about_dlg_xml.cpp">
+      <Filter>source\ui_layout\Dialog</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\Dialog\patient_setup\patient_setup_dlg_xml.cpp">
-      <Filter>source\ui_tree\Dialog</Filter>
+    <ClCompile Include="source\ui_layout\Dialog\patient_setup\patient_setup_dlg_xml.cpp">
+      <Filter>source\ui_layout\Dialog</Filter>
     </ClCompile>
     <ClCompile Include="source\manager\value_ctrl_manager.cpp">
       <Filter>source\manager</Filter>
@@ -425,23 +425,23 @@
     <ClCompile Include="source\manager\value_manager.cpp">
       <Filter>source\manager</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\slide_config.cpp">
-      <Filter>source\ui_tree</Filter>
+    <ClCompile Include="source\ui_layout\slide_config.cpp">
+      <Filter>source\ui_layout</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\slide_ecg_7wave.cpp">
-      <Filter>source\ui_tree</Filter>
+    <ClCompile Include="source\ui_layout\slide_ecg_7wave.cpp">
+      <Filter>source\ui_layout</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\slide_main.cpp">
-      <Filter>source\ui_tree</Filter>
+    <ClCompile Include="source\ui_layout\slide_main.cpp">
+      <Filter>source\ui_layout</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\slide_mini_trend.cpp">
-      <Filter>source\ui_tree</Filter>
+    <ClCompile Include="source\ui_layout\slide_mini_trend.cpp">
+      <Filter>source\ui_layout</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\slide_mini_wav.cpp">
-      <Filter>source\ui_tree</Filter>
+    <ClCompile Include="source\ui_layout\slide_mini_wav.cpp">
+      <Filter>source\ui_layout</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_tree\slide_trend.cpp">
-      <Filter>source\ui_tree</Filter>
+    <ClCompile Include="source\ui_layout\slide_trend.cpp">
+      <Filter>source\ui_layout</Filter>
     </ClCompile>
     <ClCompile Include="source\data\database.cpp">
       <Filter>source\data</Filter>

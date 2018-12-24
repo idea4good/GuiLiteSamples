@@ -7,29 +7,29 @@ FILE(GLOB RESOURCE resource/font/*.cpp
 FILE(GLOB START start/*.cpp)
 FILE(GLOB DATA data/*.cpp data/*.c)
 FILE(GLOB UI_CTRL_EX ui_ctrl_ex/*.cpp)
-FILE(GLOB UI_TREE ui_tree/*.cpp
+FILE(GLOB UI_TREE ui_layout/*.cpp
 
-	ui_tree/Dialog/about/*.cpp
-	ui_tree/Dialog/patient_setup/*.cpp
+	ui_layout/Dialog/about/*.cpp
+	ui_layout/Dialog/patient_setup/*.cpp
 
-	ui_tree/View/*.cpp
-	ui_tree/View/ecg_7wave/*.cpp
-	ui_tree/View/ecg_value/*.cpp
-	ui_tree/View/ecg_wave/*.cpp
-	ui_tree/View/nibp_list/*.cpp
-	ui_tree/View/nibp_value/*.cpp
-	ui_tree/View/resp_value/*.cpp
-	ui_tree/View/resp_wave/*.cpp
-	ui_tree/View/spo2_value/*.cpp
-	ui_tree/View/spo2_wave/*.cpp
-	ui_tree/View/temp_value/*.cpp
-	ui_tree/View/top_bar/*.cpp
-	ui_tree/View/top_bar/patient/*.cpp
-	ui_tree/View/trend/*.cpp
+	ui_layout/View/*.cpp
+	ui_layout/View/ecg_7wave/*.cpp
+	ui_layout/View/ecg_value/*.cpp
+	ui_layout/View/ecg_wave/*.cpp
+	ui_layout/View/nibp_list/*.cpp
+	ui_layout/View/nibp_value/*.cpp
+	ui_layout/View/resp_value/*.cpp
+	ui_layout/View/resp_wave/*.cpp
+	ui_layout/View/spo2_value/*.cpp
+	ui_layout/View/spo2_wave/*.cpp
+	ui_layout/View/temp_value/*.cpp
+	ui_layout/View/top_bar/*.cpp
+	ui_layout/View/top_bar/patient/*.cpp
+	ui_layout/View/trend/*.cpp
 
-	ui_tree/ViewMini/trend/*.cpp
-	ui_tree/ViewMini/wav/*.cpp
-	ui_tree/ViewMini/value/*.cpp
+	ui_layout/ViewMini/trend/*.cpp
+	ui_layout/ViewMini/wav/*.cpp
+	ui_layout/ViewMini/value/*.cpp
 )
 
 ADD_LIBRARY(UIcode

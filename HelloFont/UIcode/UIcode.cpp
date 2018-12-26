@@ -105,9 +105,13 @@ static c_display* s_display;
 void load_resource()
 {
 	c_my_resource::add_bitmap(BITMAP_CUSTOM1, &background_bmp);
-	c_my_resource::add_font(FONT_DEFAULT, &KaiTi_33B);//for button
-	c_my_resource::add_color(WND_FORECOLOR, GL_RGB(36, 36, 36));//for button
-	c_my_resource::add_color(WND_BACKCOLOR, GL_RGB(255, 255, 255));//for button
+	//for button
+	c_my_resource::add_font(FONT_DEFAULT, &KaiTi_33B);
+	c_my_resource::add_color(COLOR_WND_FONT, GL_RGB(255, 255, 255));
+	c_my_resource::add_color(COLOR_WND_NORMAL, GL_RGB(59, 75, 94));
+	c_my_resource::add_color(COLOR_WND_PUSHED, GL_RGB(33, 42, 53));
+	c_my_resource::add_color(COLOR_WND_FOCUS, GL_RGB(43, 118, 219));
+	c_my_resource::add_color(COLOR_WND_BORDER, GL_RGB(46, 59, 73));
 }
 
 void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes)

@@ -114,7 +114,6 @@
     <ClCompile Include="source\resource\font\Arial_56B.cpp" />
     <ClCompile Include="source\resource\font\Arial_62B.cpp" />
     <ClCompile Include="source\resource\resource.cpp" />
-    <ClCompile Include="source\resource\shape\shape.cpp" />
     <ClCompile Include="source\start\app_interface.cpp" />
     <ClCompile Include="source\start\host_monitor.cpp" />
     <ClCompile Include="source\ui_ctrl_ex\wave_ctrl_ex.cpp" />

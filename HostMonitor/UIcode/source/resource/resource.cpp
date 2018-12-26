@@ -48,18 +48,12 @@ void load_theme(int index)
 		c_my_resource::add_bitmap(BITMAP_DOWN_ARROW2, &bmspin_down_button_focus);
 		c_my_resource::add_bitmap(BITMAP_CUSTOM1, &wave_background_1_bmp);
 		c_my_resource::add_bitmap(BITMAP_CUSTOM2, &wave_background_2_bmp);
-		//shape
-		c_my_resource::add_shape(BUTTON_NORMAL, shape_bt_normal);
-		c_my_resource::add_shape(BUTTON_FOCUS, shape_bt_focus);
-		c_my_resource::add_shape(BUTTON_PUSH, shape_bt_push);
-		c_my_resource::add_shape(LIST_BOX_SELECT, shape_listbox_select);
-		c_my_resource::add_shape(LIST_BOX_PUSH, shape_listbox_push);
-		c_my_resource::add_shape(LIST_BOX_EXTEND, shape_listbox_extend);
-		c_my_resource::add_shape(KEY_BUTTON_NORMAL, shape_keyboard_bt_normal);
-		c_my_resource::add_shape(KEY_BUTTON_PUSH, shape_keyboard_bt_push);
 		//color
-		c_my_resource::add_color(WND_FORECOLOR, GL_RGB(255, 255, 255));
-		c_my_resource::add_color(WND_BACKCOLOR, GL_RGB(36, 36, 36));
+		c_my_resource::add_color(COLOR_WND_FONT, GL_RGB(255, 255, 255));
+		c_my_resource::add_color(COLOR_WND_NORMAL, GL_RGB(59, 75, 94));
+		c_my_resource::add_color(COLOR_WND_PUSHED, GL_RGB(33, 42, 53));
+		c_my_resource::add_color(COLOR_WND_FOCUS, GL_RGB(43, 118, 219));
+		c_my_resource::add_color(COLOR_WND_BORDER, GL_RGB(46, 59, 73));
 		break;
 	case 1:
 		//font
@@ -76,10 +70,8 @@ void load_theme(int index)
 		c_my_resource::add_bitmap(BITMAP_UP_ARROW2, &bmspin_up_button_focus);
 		c_my_resource::add_bitmap(BITMAP_DOWN_ARROW1, &bmspin_down_button_normal);
 		c_my_resource::add_bitmap(BITMAP_DOWN_ARROW2, &bmspin_down_button_focus);
-		//no shape
 		//color
-		c_my_resource::add_color(WND_FORECOLOR, GL_RGB(36, 36, 36));
-		c_my_resource::add_color(WND_BACKCOLOR, GL_RGB(255, 255, 255));
+		
 		break;
 	default:
 		ASSERT(FALSE);

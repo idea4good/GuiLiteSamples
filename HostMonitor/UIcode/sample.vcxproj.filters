@@ -49,9 +49,6 @@
     <Filter Include="source\data">
       <UniqueIdentifier>{c922db45-01ad-43b2-b2e4-22f7ab8fafe7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="source\resource\shape">
-      <UniqueIdentifier>{1de96bb6-2fbd-4482-9991-e7abf5d455b0}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core_include\display.h">
@@ -460,9 +457,6 @@
     </ClCompile>
     <ClCompile Include="source\resource\resource.cpp">
       <Filter>source\resource</Filter>
-    </ClCompile>
-    <ClCompile Include="source\resource\shape\shape.cpp">
-      <Filter>source\resource\shape</Filter>
     </ClCompile>
     <ClCompile Include="source\resource\font\Arial_16B.cpp">
       <Filter>source\resource\font</Filter>

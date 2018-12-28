@@ -53,14 +53,14 @@ void c_nibplist_view::on_paint()
 		return;
 	}
 
-	p_table->set_item(0, 0, "NIBP List");
-	p_table->set_item(0, 1, "PR");
-	p_table->set_item(0, 2, "Time");
+	p_table->set_item(0, 0, "NIBP List", m_bg_color);
+	p_table->set_item(0, 1, "PR", m_bg_color);
+	p_table->set_item(0, 2, "Time", m_bg_color);
 
 	for (unsigned int i = 1; i < (m_table_rownum - 1); i++)
 	{
-		p_table->set_item(i, 0, "120/80(100)");
-		p_table->set_item(i, 1, "60");
-		p_table->set_item(i, 2, "14:27:53");
+		p_table->set_item(i, 0, "120/80(100)", m_bg_color);
+		p_table->set_item(i, 1, "60", m_bg_color);
+		p_table->set_item(i, 2, "14:27:53", m_bg_color);
 	}
 }

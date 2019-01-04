@@ -51,7 +51,7 @@
 - Command `sslp` and open "BuildLinux\Display.html" with internet browser(such like: Firefox, Chrome)
 
 ## How to build for iOS?
-#### libcore.a libgui.a libsample.a should be in \BuildIos\BuildIos\libs, rebuild them if meet link error.
+#### libcore.a libgui.a libUIcode.a should be in \BuildIos\BuildIos\libs, rebuild them if meet link error.
 - `cd HostMonitor\BuildIos`
 - Open `BuildIos.xcodeproj` with Xcode
 - Build & Run
@@ -67,7 +67,7 @@
 - `./sample_native 1 8`, you will see UI in internet browser(Safari).
 
 ### Run in UI mode
-#### libcore.a libgui.a libsample.a should be in BuildMacCocoa\GuiLiteDemo\libs, rebuild them if meet link error.
+#### libcore.a libgui.a libUIcode.a should be in BuildMacCocoa\GuiLiteDemo\libs, rebuild them if meet link error.
 - Open `BuildMacCocoa\GuiLiteDemo.xcodeproj` with Xcode
 - Build and Run
 
@@ -78,16 +78,14 @@
 
 - `cd HostMonitor`
 - `cmake -D CMAKE_C_COMPILER="/usr/bin/arm-linux-androideabi-gcc" -D CMAKE_CXX_COMPILER="/usr/bin/arm-linux-androideabi-g++" .`
-- `make`
-- `cp SampleCode/libsample.a  BuildAndroid/jni/libs`
+- `make`⚠️You will meet: `fatal error: sys/shm.h: No such file` -- Don't worry, ignore it.
+- `cp UIcode/libUIcode.a  BuildAndroid/jni/libs`
 - `cd BuildAndroid/jni/libs`
 - `./merge-libs.sh`
-
-### Use NDK command, for example: Windows command
 - `cd BuildAndroid\jni`
 - `ndk-build clean`
 - `ndk-build`
-- `copy ..\libs\armeabi-v7a\libnative.so ..\app\libs\armeabi-v7a\
+- `copy ..\libs\armeabi-v7a\libnative.so ..\app\libs\armeabi-v7a\`
 - Open "BuildAndroid" with Android studio
 - Click `build/debug/run`
 
@@ -97,9 +95,9 @@ Run `./merge_libs.sh` meet error, maybe you need run `dos2unix merge_libs.sh`
 ## How to build for Windows UWP?
 depdency: Windows 10, visul stdio 2015/2017
 
-- Open "SampleCode\sample.sln" by Visual studio 2017
+- Open "UIcode\sample.sln" by Visual studio 2017
 - Click `build` 
-- `copy SampleCode\debug\sample.lib BuildUWP\sample_uwp_cpp\libs\x86(x64)\`
+- `copy UIcode\debug\sample.lib BuildUWP\sample_uwp_cpp\libs\x86(x64)\`
 - Open "BuildUWP\HostMonitor.sln" by Visual studio 2017
 - Click `build`
 - Click `debug/run`

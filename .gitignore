@@ -48,6 +48,12 @@ Makefile
 profile
 xcuserdata
 
+# For Keil
+*.uvguix.*
+*.uvoptx
+*.lst
+EventRecorderStub.scvd
+
 # For output
 /HostMonitor/BuildMacCmd/HostMonitor
 /HostMonitor/BuildLinux/HostMonitor

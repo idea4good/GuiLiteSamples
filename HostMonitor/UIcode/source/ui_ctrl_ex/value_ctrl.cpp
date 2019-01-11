@@ -27,9 +27,10 @@ void c_value_ctrl::refurbish_value(short value, unsigned short dot_position, boo
 
 	memset(m_value_in_str, 0, sizeof(m_value_in_str));
 	c_word::value_2_string(value, dot_position, m_value_in_str, sizeof(m_value_in_str));
-	int strLen = c_word::get_str_pixel_length(m_value_in_str, m_value_font_type);
+	int strWidth, strHeight;
+	c_word::get_str_size(m_value_in_str, m_value_font_type, strWidth, strHeight);
 
-	m_value_rect.m_right = m_value_rect.m_left + strLen;
+	m_value_rect.m_right = m_value_rect.m_left + strWidth;
 	if (m_value_rect.m_right > rect.m_right)
 	{
 		m_value_rect.m_right = rect.m_right - 2;
@@ -114,9 +115,10 @@ void c_value_ctrl::on_paint(void)
 	m_value_rect.m_top = rect.m_top +(height - (m_value_font_type->height)) / 2;
 
 	c_word::value_2_string(m_value, m_limit_dot_position, m_value_in_str, sizeof(m_value_in_str));
-	int strLen = c_word::get_str_pixel_length(m_value_in_str, m_value_font_type);
+	int strWidth, strHeight;
+	c_word::get_str_size(m_value_in_str, m_value_font_type, strWidth, strHeight);
 
-	m_value_rect.m_right = m_value_rect.m_left + strLen;
+	m_value_rect.m_right = m_value_rect.m_left + strWidth;
 	m_value_rect.m_bottom = m_value_rect.m_top + (m_value_font_type->height);
 
 	m_max_value_rect = m_value_rect;

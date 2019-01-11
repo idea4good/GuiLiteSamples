@@ -23,9 +23,9 @@ void c_ecg_wave_ctrl::on_paint()
 	c_rect rect;
 	get_screen_rect(rect);
 	//show name
-	c_word::draw_string(m_surface, m_z_order, m_wave_name, m_wave_left + 10, rect.m_top, m_wave_name_font_type, m_wave_name_color, GL_ARGB(0, 0, 0, 0));
+	c_word::draw_string(m_surface, m_z_order, m_wave_name, m_wave_left + 10, rect.m_top, m_wave_name_font, m_wave_name_color, GL_ARGB(0, 0, 0, 0));
 	//show unit
-	c_word::draw_string(m_surface, m_z_order, m_wave_unit, m_wave_left + 60, rect.m_top, m_wave_unit_font_type, m_wave_unit_color, GL_ARGB(0, 0, 0, 0));
+	c_word::draw_string(m_surface, m_z_order, m_wave_unit, m_wave_left + 60, rect.m_top, m_wave_unit_font, m_wave_unit_color, GL_ARGB(0, 0, 0, 0));
 	//show gain
 	c_word::draw_string(m_surface, m_z_order, "X1", m_wave_left + 70 , rect.m_top, c_my_resource::get_font(FONT_DEFAULT), m_wave_color, GL_ARGB(0, 0, 0, 0));
 
@@ -44,7 +44,7 @@ void c_ecg_wave_ctrl::on_paint()
 	mvRect.m_bottom = mvRect.m_top + 30;
 
 	//show unit
-	c_word::draw_string_in_rect(m_surface, m_z_order, "1mv", mvRect, m_wave_unit_font_type, m_wave_color, GL_ARGB(0, 0, 0, 0));
+	c_word::draw_string_in_rect(m_surface, m_z_order, "1mv", mvRect, m_wave_unit_font, m_wave_color, GL_ARGB(0, 0, 0, 0));
 
 	save_background();
 }
@@ -83,9 +83,9 @@ void c_bitmap_wave_ctrl::on_paint()
 	c_bitmap::draw_bitmap(m_surface, m_z_order, c_my_resource::get_bmp(m_bitmap_type), rect.m_left, rect.m_top);
 
 	//show name
-	c_word::draw_string(m_surface, m_z_order, m_wave_name, m_wave_left + 10, rect.m_top, m_wave_name_font_type, m_wave_name_color, GL_ARGB(0, 0, 0, 0), ALIGN_LEFT);
+	c_word::draw_string(m_surface, m_z_order, m_wave_name, m_wave_left + 10, rect.m_top, m_wave_name_font, m_wave_name_color, GL_ARGB(0, 0, 0, 0), ALIGN_LEFT);
 	//show unit
-	c_word::draw_string(m_surface, m_z_order, m_wave_unit, m_wave_left + 60, rect.m_top, m_wave_unit_font_type, m_wave_unit_color, GL_ARGB(0, 0, 0, 0), ALIGN_LEFT);
+	c_word::draw_string(m_surface, m_z_order, m_wave_unit, m_wave_left + 60, rect.m_top, m_wave_unit_font, m_wave_unit_color, GL_ARGB(0, 0, 0, 0), ALIGN_LEFT);
 
 	save_background();
 }

@@ -1,8 +1,15 @@
 # GuiLite Samples - It's you make UI beautiful, not UI framework!
 [中文](doc/README-cn.md)
 
-- GuiLite samples contain 5 cross-platform projects. They all based on [GuiLite](https://github.com/idea4good/GuiLite). They show you how to use GuiLite's interface, and how GuiLite works on iOS, Android, GNU/Linux, Windows and macOS platform.
+- GuiLite samples contain 6 cross-platform projects. They all based on [GuiLite](https://github.com/idea4good/GuiLite). They show you how to use GuiLite's interface, and how GuiLite works on iOS, Android, GNU/Linux, Windows and macOS platform.
 - GuiLite samples are easy to compile & run. With the help of QQ group, you will pass the compiling nearly 100%.
+
+## Hello MCU
+![HelloMCU](doc/HelloMCU.gif)
+- Hardware: STM32F103ZET6(512K ROM, 64K RAM) + 240*320 16bits color TFT LCD
+- Software: None of OS + GuiLite
+- Hello MCU has only [100+ lines code](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloMCU/UIcode/UIcode.cpp) for beginner, showing you how to use GuiLite on MCU.
+- [How to porting for any MCU?](https://github.com/idea4good/GuiLiteSamples/blob/master/doc/HowToPorting.jpg)
 
 ## Hello Animation
 ![HelloAnimation](doc/HelloAnimation.gif)

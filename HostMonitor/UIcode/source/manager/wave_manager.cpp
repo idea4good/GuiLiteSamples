@@ -51,12 +51,12 @@ int c_wave_manage::register_wave_ctrl(WAVE_TYPE wave_type, c_wave_ctrl* p_wave)
 							p_disp[wave_type].pivot_data);
 	p_wave->set_wave_name(p_disp[wave_type].wave_name);
 	p_wave->set_wave_unit(p_disp[wave_type].wave_unit);
-	p_wave->set_wave_name_font_type(c_my_resource::get_font(p_disp[wave_type].wave_name_font_type));
-	p_wave->set_wave_unit_font_type(c_my_resource::get_font(p_disp[wave_type].wave_unit_font_type));
+	p_wave->set_wave_name_font(c_my_resource::get_font(p_disp[wave_type].wave_name_font_type));
+	p_wave->set_wave_unit_font(c_my_resource::get_font(p_disp[wave_type].wave_unit_font_type));
 	p_wave->set_wave_name_color(p_disp[wave_type].wave_name_color);
 	p_wave->set_wave_unit_color(p_disp[wave_type].wave_unit_color);
 	p_wave->set_wave_color(p_disp[wave_type].wave_color);
-	p_wave->set_wave_sample_rate(p_disp[wave_type].sample_rate);
+	p_wave->set_wave_in_out_rate(p_disp[wave_type].sample_rate, REAL_TIME_TASK_CYCLE_MS);
 	p_wave->set_wave(&m_waves[p_disp[wave_type].wave_id]);
 	i = 0;
 	while(i < WAVE_CTRL_MAX)

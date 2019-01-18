@@ -19,14 +19,9 @@ const int UI_HEIGHT = 720;
 //////////////////////// define widgets & map message ////////////////////////
 enum WND_ID
 {
-	ID_ROOT = 1,
-	ID_DESKTOP,
+	ID_DESKTOP = 1,
 	ID_START_BUTTON,
 	ID_START_MENU
-};
-class c_root : public c_wnd
-{
-	virtual c_wnd* clone() { return new c_root(); }
 };
 
 class c_desktop : public c_wnd
@@ -76,9 +71,7 @@ void c_start_menu::on_paint(void)
 	c_bitmap::draw_bitmap(m_surface, m_z_order, c_my_resource::get_bmp(BITMAP_CUSTOM2), rect.m_left, rect.m_top);
 }
 
-
 //////////////////////// layout UI ////////////////////////
-static c_root s_root;
 static c_desktop s_desktop;
 static c_button s_start_button;
 static c_start_menu s_start_menu;
@@ -87,13 +80,6 @@ static WND_TREE s_desktop_children[] =
 {
 	{(c_wnd*)&s_start_menu, ID_START_MENU, 0, 0, 100, 650, 580, NULL},
 	{(c_wnd*)&s_start_button, ID_START_BUTTON, 0, 0, 682, 47, 38, NULL},
-	{ NULL,0,0,0,0,0,0 }
-};
-
-static WND_TREE s_root_children[] =
-{
-	//start button
-	{(c_wnd*)&s_desktop, ID_DESKTOP, 0, 0, 0, UI_WIDTH, UI_HEIGHT, s_desktop_children},
 	{ NULL,0,0,0,0,0,0 }
 };
 
@@ -112,14 +98,14 @@ void create_ui(void* phy_fb, int screen_width, int screen_height, int color_byte
 {
 	load_resource();
 	s_display = new c_display(phy_fb, screen_width, screen_height, UI_WIDTH, UI_HEIGHT, color_bytes, 1);
-	c_surface* surface = s_display->alloc_surface(&s_root, Z_ORDER_LEVEL_1);
+	c_surface* surface = s_display->alloc_surface(&s_desktop, Z_ORDER_LEVEL_1);
 	surface->set_active(true);
 
-	s_root.set_surface(surface);
-	s_root.connect(NULL, ID_ROOT, 0, 0, 0, UI_WIDTH, UI_HEIGHT, s_root_children);
-	s_root.show_window();
+	s_desktop.set_surface(surface);
+	s_desktop.connect(NULL, ID_DESKTOP, 0, 0, 0, UI_WIDTH, UI_HEIGHT, s_desktop_children);
+	s_desktop.show_window();
 
-	new c_gesture(&s_root, NULL, &s_hid_fifo);
+	new c_gesture(&s_desktop, NULL, &s_hid_fifo);
 	while(1)
 	{
 		thread_sleep(1000000);

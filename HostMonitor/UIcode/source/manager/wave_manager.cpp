@@ -10,16 +10,16 @@
 #include "wave_manager.h"
 
 static WAVE_CTRL_DISCPRITOR s_demo_wave_ctrl_discpritor[WAVE_TYPE_MAX] =
-{	/*wave data*/  /*name*/ /*unit*/	/*name_font*/  		/*unit_font*/      /*name_color*/		/*unit_color*/		  /*wave_color*/			/*max*/		/*min*/  /*pivot*/ /*sample rate*/
-	{ WAVE_ECG1,	"I",	NULL,		FONT_DEFAULT,	FONT_DEFAULT,	   GL_RGB(0,255,0),		GL_RGB(0,255,0),	  GL_RGB(0,255,0),		 190,        60,    	128,	DEMO_ECG_WAVE_SPEED },
-	{ WAVE_ECG2,	"II",	NULL,		FONT_DEFAULT,	FONT_DEFAULT,	   GL_RGB(0,255,0),		GL_RGB(0,255,0),	  GL_RGB(0,255,0),      190/*240*/, 60/*10*/,	128,	DEMO_ECG_WAVE_SPEED },
-	{ WAVE_ECG3,	"III",	NULL,		FONT_DEFAULT,	FONT_DEFAULT,	   GL_RGB(0,255,0),		GL_RGB(0,255,0),	  GL_RGB(0,255,0),      190,        60,    	128,	DEMO_ECG_WAVE_SPEED },
-	{ WAVE_ECG4,	"AVR",	NULL,		FONT_DEFAULT,	FONT_DEFAULT,	   GL_RGB(0,255,0),		GL_RGB(0,255,0),	  GL_RGB(0,255,0),      190,        60,    	128,	DEMO_ECG_WAVE_SPEED },
-	{ WAVE_ECG5,	"AVL",	NULL,		FONT_DEFAULT,	FONT_DEFAULT,	   GL_RGB(0,255,0),		GL_RGB(0,255,0),	  GL_RGB(0,255,0),      190,        60,    	128,	DEMO_ECG_WAVE_SPEED },
-	{ WAVE_ECG6,	"AVF",	NULL,		FONT_DEFAULT,	FONT_DEFAULT,	   GL_RGB(0,255,0),		GL_RGB(0,255,0),	  GL_RGB(0,255,0),      190,        60,    	128,	DEMO_ECG_WAVE_SPEED },
-	{ WAVE_ECG7,	"V",	NULL,		FONT_DEFAULT,	FONT_DEFAULT,	   GL_RGB(0,255,0),		GL_RGB(0,255,0),	  GL_RGB(0,255,0),      190,        60,    	128,	DEMO_ECG_WAVE_SPEED },
-	{ WAVE_SPO2,	"SPO2",	NULL,		FONT_DEFAULT,	FONT_DEFAULT,	   GL_RGB(41,189,189),		GL_RGB(131,129,131), GL_RGB(41,189,189),   128,        0, 		64,		DEMO_SPO2_WAVE_SPEED},
-	{ WAVE_RESP,	"RESP",	NULL,		FONT_DEFAULT,	FONT_DEFAULT,	   GL_RGB(255,255,0),		GL_RGB(255,255,0),	  GL_RGB(255,255,0),    255,        0,    		128,	DEMO_RESP_WAVE_SPEED}
+{	/*wave data*/  /*name*/ /*unit*/	/*name_font*/  	/*unit_font*/      /*name_color*/		/*unit_color*/		  /*wave_color*/	/*max*/		/*min*/   /*sample rate*/
+	{ WAVE_ECG1,	"I",	NULL,		FONT_DEFAULT,	FONT_DEFAULT,	   GL_RGB(0,255,0),		GL_RGB(0,255,0),	GL_RGB(0,255,0),	190,        60,    		DEMO_ECG_WAVE_SPEED },
+	{ WAVE_ECG2,	"II",	NULL,		FONT_DEFAULT,	FONT_DEFAULT,	   GL_RGB(0,255,0),		GL_RGB(0,255,0),	GL_RGB(0,255,0),	190/*240*/, 60/*10*/,	DEMO_ECG_WAVE_SPEED },
+	{ WAVE_ECG3,	"III",	NULL,		FONT_DEFAULT,	FONT_DEFAULT,	   GL_RGB(0,255,0),		GL_RGB(0,255,0),	GL_RGB(0,255,0),	190,        60,    		DEMO_ECG_WAVE_SPEED },
+	{ WAVE_ECG4,	"AVR",	NULL,		FONT_DEFAULT,	FONT_DEFAULT,	   GL_RGB(0,255,0),		GL_RGB(0,255,0),	GL_RGB(0,255,0),	190,        60,    		DEMO_ECG_WAVE_SPEED },
+	{ WAVE_ECG5,	"AVL",	NULL,		FONT_DEFAULT,	FONT_DEFAULT,	   GL_RGB(0,255,0),		GL_RGB(0,255,0),	GL_RGB(0,255,0),	190,        60,    		DEMO_ECG_WAVE_SPEED },
+	{ WAVE_ECG6,	"AVF",	NULL,		FONT_DEFAULT,	FONT_DEFAULT,	   GL_RGB(0,255,0),		GL_RGB(0,255,0),	GL_RGB(0,255,0),	190,        60,    		DEMO_ECG_WAVE_SPEED },
+	{ WAVE_ECG7,	"V",	NULL,		FONT_DEFAULT,	FONT_DEFAULT,	   GL_RGB(0,255,0),		GL_RGB(0,255,0),	GL_RGB(0,255,0),	190,        60,    		DEMO_ECG_WAVE_SPEED },
+	{ WAVE_SPO2,	"SPO2",	NULL,		FONT_DEFAULT,	FONT_DEFAULT,	   GL_RGB(41,189,189),	GL_RGB(131,129,131),GL_RGB(41,189,189),	128,        0, 			DEMO_SPO2_WAVE_SPEED},
+	{ WAVE_RESP,	"RESP",	NULL,		FONT_DEFAULT,	FONT_DEFAULT,	   GL_RGB(255,255,0),	GL_RGB(255,255,0),	GL_RGB(255,255,0),	255,        0,    		DEMO_RESP_WAVE_SPEED}
 };
 
 c_wave_manage::c_wave_manage()
@@ -47,8 +47,7 @@ int c_wave_manage::register_wave_ctrl(WAVE_TYPE wave_type, c_wave_ctrl* p_wave)
 
 	WAVE_CTRL_DISCPRITOR* p_disp = s_demo_wave_ctrl_discpritor;
 
-	p_wave->set_max_min_base(p_disp[wave_type].max_data,p_disp[wave_type].min_data,
-							p_disp[wave_type].pivot_data);
+	p_wave->set_max_min(p_disp[wave_type].max_data,p_disp[wave_type].min_data);
 	p_wave->set_wave_name(p_disp[wave_type].wave_name);
 	p_wave->set_wave_unit(p_disp[wave_type].wave_unit);
 	p_wave->set_wave_name_font(c_my_resource::get_font(p_disp[wave_type].wave_name_font_type));

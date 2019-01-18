@@ -31,7 +31,7 @@ void c_ecg_wave_ctrl::on_paint()
 
 	//show scale rule
 	int base_line = (m_wave_top + m_wave_bottom) / 2;
-	int ruler_Height = 17 * ((m_gain > ZOOM_100) ? 2 : 1);
+	int ruler_Height = 17;
 	m_surface->draw_vline(rect.m_left + 74, base_line-ruler_Height, base_line+ruler_Height, m_wave_color, m_z_order);
 	m_surface->draw_vline(rect.m_left + 75, base_line-ruler_Height, base_line+ruler_Height, m_wave_color, m_z_order);
 	m_surface->draw_vline(rect.m_left + 76, base_line-ruler_Height, base_line+ruler_Height, m_wave_color, m_z_order);

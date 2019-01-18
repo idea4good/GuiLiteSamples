@@ -1,0 +1,6 @@
+include_directories(../base)
+include_directories(../song)
+include_directories(./core_include)
+include_directories(./gui_include)
+aux_source_directory(. src)
+add_library(gui STATIC ${src})

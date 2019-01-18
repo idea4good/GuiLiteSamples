@@ -1,0 +1,7 @@
+include_directories(../base)
+include_directories(../song)
+include_directories(../gui/core_include)
+include_directories(../gui/gui_include)
+aux_source_directory(. src)
+add_executable(App.elf ${src})
+target_link_libraries(App.elf base song gui)

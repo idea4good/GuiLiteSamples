@@ -21,13 +21,8 @@ const int UI_HEIGHT = 580;
 //////////////////////// define widgets & map message ////////////////////////
 enum WND_ID
 {
-	ID_ROOT = 1,
-	ID_DESKTOP,
+	ID_DESKTOP = 1,
 	ID_BUTTON
-};
-class c_root : public c_wnd
-{
-	virtual c_wnd* clone() { return new c_root(); }
 };
 
 class c_myUI : public c_wnd
@@ -80,20 +75,12 @@ void c_myUI::on_paint()
 }
 
 //////////////////////// layout UI ////////////////////////
-static c_root s_root;
 static c_myUI s_myUI;
 static c_button	s_button;
 
 static WND_TREE s_myUI_children[] =
 {
 	{(c_wnd*)&s_button, ID_BUTTON, "PLAY", 0, 540, 150, 40, NULL},
-	{ NULL,0,0,0,0,0,0 }
-};
-
-static WND_TREE s_root_children[] =
-{
-	//start button
-	{(c_wnd*)&s_myUI, ID_DESKTOP, 0, 0, 0, UI_WIDTH, UI_HEIGHT, s_myUI_children},
 	{ NULL,0,0,0,0,0,0 }
 };
 
@@ -118,14 +105,14 @@ void create_ui(void* phy_fb, int screen_width, int screen_height, int color_byte
 {
 	load_resource();
 	s_display = new c_display(phy_fb, screen_width, screen_height, UI_WIDTH, UI_HEIGHT, color_bytes, 1);
-	c_surface* surface = s_display->alloc_surface(&s_root, Z_ORDER_LEVEL_1);
+	c_surface* surface = s_display->alloc_surface(&s_myUI, Z_ORDER_LEVEL_1);
 	surface->set_active(true);
 
-	s_root.set_surface(surface);
-	s_root.connect(NULL, ID_ROOT, 0, 0, 0, UI_WIDTH, UI_HEIGHT, s_root_children);
-	s_root.show_window();
+	s_myUI.set_surface(surface);
+	s_myUI.connect(NULL, ID_DESKTOP, 0, 0, 0, UI_WIDTH, UI_HEIGHT, s_myUI_children);
+	s_myUI.show_window();
 
-	new c_gesture(&s_root, NULL, &s_hid_fifo);
+	new c_gesture(&s_myUI, NULL, &s_hid_fifo);
 	while(1)
 	{
 		thread_sleep(1000000);

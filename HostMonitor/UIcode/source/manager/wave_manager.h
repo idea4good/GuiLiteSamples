@@ -42,7 +42,6 @@ typedef struct struct_wave_ctrl_discpritor
 
 	int         	max_data;
 	int         	min_data;
-	int         	pivot_data;
 	int				sample_rate;
 }WAVE_CTRL_DISCPRITOR;
 

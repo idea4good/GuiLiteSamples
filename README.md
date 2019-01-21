@@ -6,10 +6,11 @@
 
 ## Hello Wave
 ![HelloWave](doc/HelloWave.gif)
-- Hardware: STM32F103ZET6(512K ROM, 64K RAM) + 240*320 16bits color TFT LCD
-- Software: None OS + GuiLite
+- MCU Hardware: STM32F103ZET6(512K ROM, 64K RAM) + 240*320 16bits color TFT LCD
+- MCU Software: None OS + GuiLite
 - Hello Wave has only [100+ lines code](HelloWave/UIcode/UIcode.cpp). Showing you how to use wave widget, and port it on MCU.
 - [How to porting for any MCU?](HelloWave/README.md#How-to-port-on-any-MCU-)
+- Still support: Windows & Linux
 
 ## Hello Animation
 ![HelloAnimation](doc/HelloAnimation.gif)

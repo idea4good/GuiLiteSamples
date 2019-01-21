@@ -2,8 +2,8 @@
 ### Prerequisite:
 - core.lib gui.lib should be in BuildMFC\BuildMFC\libs\x86(x64), ⚠️rebuild them if meet link error.
 ### Build
-1. Open "HelloMCU\BuildMFC\HelloMCU.sln" by Visual studio 2017
-2. Click `F5` to build/run `HelloMCU`
+1. Open "HelloWave\BuildMFC\HelloWave.sln" by Visual studio 2017
+2. Click `F5` to build/run `HelloWave`
 
 ## How to build for STM32F103 + ILI934x?
 ### Prerequisite:
@@ -11,9 +11,9 @@
 - GuiLite.lib should be in BuildSTM32F103-Keil\USER, ⚠️rebuild it if meet Linking error.
 - Your hardware should be compatible with: [正点原子精英STM32F103ZET6开发板套装](https://item.taobao.com/item.htm?spm=a230r.1.14.20.17b441b9u49Ujg&id=582084489839&ns=1&abbucket=7#detail).
 ### Build
-1. Open "HelloMCU\BuildSTM32F103-Keil\USER\HelloWave.uvprojx" with Keil uvsion.
+1. Open "HelloWave\BuildSTM32F103-Keil\USER\HelloWave.uvprojx" with Keil uvsion.
 2. Choose your Device type(Default: STM32F103ZE) from option for target.
-3. Build HelloMCU.
+3. Build HelloWave.
 4. Connect your hardware with your host PC, and flash/run HEX file on it.
 
 ## How to port on any MCU?
@@ -23,3 +23,21 @@
 3. Encapsulate draw piexel driver in `main.c`
 4. Link your LCD driver with GuiLite, and call UI entry function(e.g, startHelloWave)
 5. Build & Run ⚠️rebuild `GuiLite.lib` if meet Linking error.
+
+## How to build for x64 Linux or Rasperry Pi?
+### libcore.a libgui.a should be in BuildLinux\libs, ⚠️rebuild them if meet Linking error, e.g: -fPIC, libxxx not found.
+1. Build target:
+- `cd HelloWave`
+- `cmake .`
+- `make`
+- `cd BuildLinux`
+- `chmod 777 *`
+
+2. Run on Ubuntu:
+- `sudo ./HelloWave /dev/fb0`   /dev/fb0: The path of framebuffer device file.
+- If meet **permission** issue, you should enter pure command mode(not desktop mode), and run it again.
+
+3. Run inside QT APP(display-xxx is a QT APP for display, skip this if you haven't installed QT):
+- If x64:`sudo ./display-x64 1 240 320 | ./HelloWave shared-fb`
+- If raspberry pi:`sudo ./display-arm  1 240 320 | ./HelloWave shared-fb`
+- The source code of display-xxx here: HostMonitor/BuildLinux/display.src

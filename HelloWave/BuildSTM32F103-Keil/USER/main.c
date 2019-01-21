@@ -20,7 +20,7 @@ struct EXTERNAL_GFX_OP
 	void (*draw_pixel)(int x, int y, unsigned int rgb);
 	void (*fill_rect)(int x0, int y0, int x1, int y1, unsigned int rgb);
 } my_gfx_op;
-extern void startHelloWave(int width, int height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op);
+extern void startHelloWave(void* phy_fb, int width, int height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op);
 
 int main(void)
 {
@@ -32,6 +32,6 @@ int main(void)
 	//Link your LCD driver & start UI:
 	my_gfx_op.draw_pixel = gfx_draw_pixel;
 	my_gfx_op.fill_rect = NULL;//gfx_fill_rect;
-	startHelloWave(240, 320, 16, &my_gfx_op);
+	startHelloWave(NULL, 240, 320, 2, &my_gfx_op);
 	while(1);
 }

@@ -1,4 +1,4 @@
-#include "core_include/api.h"
+﻿#include "core_include/api.h"
 #include "core_include/rect.h"
 #include "core_include/cmd_target.h"
 #include "core_include/wnd.h"
@@ -145,11 +145,12 @@ void load_resource()
 	c_my_resource::add_color(COLOR_WND_BORDER, GL_RGB(46, 59, 73));
 }
 
-void create_ui(int screen_width, int screen_height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op)
+static c_display* s_display;
+void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op)
 {
 	load_resource();
-	static c_display s_display(screen_width, screen_height, color_bytes, gfx_op);
-	c_surface* surface = s_display.alloc_surface(&s_myUI, Z_ORDER_LEVEL_0);
+	s_display = new c_display(phy_fb, screen_width, screen_height, UI_WIDTH, UI_HEIGHT, color_bytes, 1, gfx_op);
+	c_surface* surface = s_display->alloc_surface(&s_myUI, Z_ORDER_LEVEL_0);
 	surface->set_active(true);
 	s_myUI.set_surface(surface);
 	s_myUI.connect(NULL, ID_ROOT, 0, 0, 0, UI_WIDTH, UI_HEIGHT, s_myUI_children);
@@ -178,13 +179,17 @@ void create_ui(int screen_width, int screen_height, int color_bytes, struct EXTE
 }
 
 //////////////////////// interface for all platform ////////////////////////
-extern "C" void startHelloWave(int width, int height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op)
+extern "C" void startHelloWave(void* phy_fb, int width, int height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op)
 {
-	create_ui(width, height, color_bytes, gfx_op);
+	create_ui(phy_fb, width, height, color_bytes, gfx_op);
 }
 
-extern "C" void pressButtonHelloWave()
+void sendTouch2HelloWave(int x, int y, bool is_down)
 {
-	s_myUI.on_touch_down(70, 290);
-	s_myUI.on_touch_up(70, 290);
+	is_down ? s_myUI.on_touch_down(x, y) : s_myUI.on_touch_up(x,y);
+}
+
+int captureUiOfHelloWave()
+{
+	return s_display->snap_shot("snap_short.bmp");
 }

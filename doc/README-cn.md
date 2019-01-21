@@ -4,10 +4,11 @@
 
 ## Hello Wave
 ![HelloWave](HelloWave.gif)
-- 硬件配置：STM32F103ZET6(512K ROM，64K RAM) + 240*320 16位TFT屏
-- 软件配置：无操作系统 + GuiLite
+- 单片机硬件配置：STM32F103ZET6(512K ROM，64K RAM) + 240*320 16位TFT屏
+- 单片机软件配置：无操作系统 + GuiLite
 - Hello Wave 仅有[100多行代码](../HelloWave/UIcode/UIcode.cpp)，用于向开发者展示：如何使用GuiLite进行波形开发，及如何进行单片机移植。
 - [移植方法 -- 适用于任意单片机平台？](../HelloWave/README.md#How-to-port-on-any-MCU-)
+- 该实例亦可支持Windows和Linux平台
 
 ## Hello Animation
 ![HelloAnimation](HelloAnimation.gif)

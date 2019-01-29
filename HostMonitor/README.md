@@ -8,8 +8,13 @@
 - Open "HostMonitor\BuildMFC\HostMonitor.sln" by Visual studio 2017
 - Click `F5` to build/run `HostMonitor`
 
+## How to build for Win32?
+### core.lib gui.lib should be in BuildWin32\sample_native\libs, rebuild them if meet link error.
+- Open "HostMonitor\BuildWin32\HostMonitor.sln" by Visual studio 2017
+- Click `F5` to build/run `HostMonitor`, you will see UI in internet browser.
+
 ## How to build for Win console mode?
-### core.lib gui.lib should be in BuildWin32\sample_native\libs\x86(x64), rebuild them if meet link error.
+### core.lib gui.lib should be in BuildWinCmd\sample_native\libs\x86(x64), rebuild them if meet link error.
 - Open "HostMonitor\BuildWinCmd\WinCmd.sln" by Visual studio 2017
 - Click `F5` to build/run `WinCmd`, you will see UI in internet browser.
 

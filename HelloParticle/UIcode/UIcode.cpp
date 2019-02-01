@@ -66,8 +66,8 @@ void create_ui(void* phy_fb, int screen_width, int screen_height, int color_byte
 	s_surface->set_active(true);
 
 	s_surface->fill_rect(0, 0, UI_WIDTH - 1, UI_HEIGHT - 1, 0, Z_ORDER_LEVEL_0);
-	c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, "\xe7\xa5\x9d\x47\x75\x69\x4c\x69\x74\x65\xe5\xbc\x80\xe5\x8f\x91\xe8\x80\x85\xef\xbc\x9a", 10, 10, c_my_resource::get_font(FONT_DEFAULT), GL_RGB(255, 0, 0), GL_ARGB(0, 0, 0, 0));
-	c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, "\xe6\x89\x8d\xe6\x80\x9d\xe6\xb3\x89\xe6\xb6\x8c\xef\xbc\x8c\xe6\x96\xb0\xe5\xb9\xb4\xe5\xbf\xab\xe4\xb9\x90\xe2\x9d\xa4", 10, 48, c_my_resource::get_font(FONT_DEFAULT), GL_RGB(255, 0, 0), GL_ARGB(0, 0, 0, 0));
+	c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, "\xe7\xa5\x9d\x47\x75\x69\x4c\x69\x74\x65\xe5\xbc\x80\xe5\x8f\x91\xe8\x80\x85\:", 10, 10, c_my_resource::get_font(FONT_DEFAULT), GL_RGB(255, 0, 0), GL_ARGB(0, 0, 0, 0));
+	c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, "\xe5\xa4\xa9\xe5\xa5\xb3\xe6\x95\xa3\xe8\x8a\xb1\xef\xbc\x8c\xe6\x96\xb0\xe5\xb9\xb4\xe5\xbf\xab\xe4\xb9\x90\xe2\x9d\xa4", 10, 48, c_my_resource::get_font(FONT_DEFAULT), GL_RGB(255, 0, 0), GL_ARGB(0, 0, 0, 0));
 	
 	while(1) {
 		for (int i = 0; i < sizeof(particle_array)/sizeof(c_particle); i++) {

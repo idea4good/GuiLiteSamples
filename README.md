@@ -1,54 +1,54 @@
 # GuiLite Samples - It's you make UI beautiful, not UI framework!
 [中文](doc/README-cn.md)
 
-- GuiLite samples contain 7 cross-platform projects. They all based on [GuiLite](https://github.com/idea4good/GuiLite). They show you how to use GuiLite's interface, and how GuiLite works on iOS, Android, GNU/Linux, Windows and macOS platform.
-- GuiLite samples are easy to compile & run. With the help of QQ group, you will pass the compiling nearly 100%.
+- GuiLite samples contain 7 cross-platform projects. They all based on [GuiLite](https://github.com/idea4good/GuiLite). They could show you how to use GuiLite's interface, and how GuiLite works on iOS, Android, GNU/Linux, Windows and macOS platform.
+- GuiLite samples are easy to compile & run. With the help of community, the passing rate of compiling is near 100%.
 
 ## Hello Wave & Hello Particle
 ![HelloWave](doc/HelloWave.gif)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![HelloParticle](doc/HelloParticle.gif)
 - MCU Hardware: STM32F103ZET6(512K ROM, 64K RAM) + 240*320 16bits color TFT LCD
-- MCU Software: None OS + GuiLite
-- Hello Wave has only [100+ lines code](HelloWave/UIcode/UIcode.cpp). Showing you how to use wave widget.
-- Hello Particle has only [100- lines code](HelloParticle/UIcode/UIcode.cpp). Showing you how to develop a particle system.
+- MCU Software: No OS, Only GuiLite
+- Hello Wave has only [100+ lines code](HelloWave/UIcode/UIcode.cpp). It shows you how to use wave widget.
+- Hello Particle has only [100- lines code](HelloParticle/UIcode/UIcode.cpp). It shows you how to develop a particle system.
 - [How to porting for any MCU?](HelloWave/README.md#How-to-port-on-any-MCU-)
-- Still support: Windows & Linux
+- Also support: Windows & Linux
 
 ## Hello Animation
 ![HelloAnimation](doc/HelloAnimation.gif)
 
-Hello Animation has only [100+ lines code](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloAnimation/UIcode/UIcode.cpp) for beginner, showing you how to make animation. You can run it both on Windows and Linux.
+Hello Animation has only [100+ lines code](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloAnimation/UIcode/UIcode.cpp) for beginner, showing you how to making animation. You can run it on Windows and also Linux.
 
 ## Hello Slide
 ![HelloSlide](doc/HelloSlide.gif)
 
-Hello Slide has only [100+ lines code](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloSlide/UIcode/UIcode.cpp) for beginner, showing you how to make sliding UI. You can run it both on Windows and Linux.
+Hello Slide has only [100+ lines code](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloSlide/UIcode/UIcode.cpp). It shows beginner how to make sliding UI. You can run it on Windows and also Linux.
 
 ## Hello Font
 ![HelloFont](doc/HelloFont.gif)
 
-Hello Font has only [100+ lines code](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloFont/UIcode/UIcode.cpp) for beginner, showing you how to use muti languages(UTF-8). You can run it both on Windows and Linux.
+Hello Font has only [100+ lines code](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloFont/UIcode/UIcode.cpp) .It shows beginner how to use multi-language feature(UTF-8). You can run it on Windows and also Linux.
 
 ## Hello GuiLite
 ![HelloGuiLite](doc/HelloGuiLite.gif)
 
-Hello GuiLite has only [100+ lines code](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloGuiLite/UIcode/helloGL.cpp) for beginner, showing you how to initialize GuiLite, layout UI widgets, and map messages. You can run it both on Windows and Linux.
+Hello GuiLite has only [100+ lines code](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloGuiLite/UIcode/helloGL.cpp). It shows beginner how to initialize GuiLite, layout UI widgets, and map messages. You can run it on Windows and also Linux.
 
 ## Host Monitor
-Runs on Mac & iOS:
+On Mac & iOS:
 
 ![Mac](doc/Mac.gif) ![iOS](doc/Ios.landscape.gif)
 
-Runs on Android & ARM Linux embedded:
+On Android & ARM Linux embedded:
 
 ![Android](doc/Android.gif) ![Linux](doc/Linux.gif)
 
-Runs on Windows Mixed Reality:
+On Windows Mixed Reality:
 
 ![Win MR](doc/WinMR.gif)
 
-Host Monitor has 2,000 lines of code related to UI, showing you how to layout UI, and customize/extend your UI widgets.
-### Code Walkthrough
-- HostMonitor\SampleCode\source\ui_tree: **Layout UI**
+Host Monitor has 2,000 lines of code related to UI, showing you how to make UI layout , and customize/extend your UI widgets.
+### Code Description
+- HostMonitor\SampleCode\source\ui_tree: **UI Layout**
 - HostMonitor\SampleCode\source\ui_ctrl_ex: **Customize your widgets**
 
 ### Cross platform
@@ -67,15 +67,15 @@ Host Monitor has 2,000 lines of code related to UI, showing you how to layout UI
 [Download Android APP](http://zhushou.360.cn/detail/index/soft_id/1754231)
 
 ## Suggestions
-Looks complex? Trust me that you can do everything we did since we are ordinary guys.
-- Dare to build
-- Dare to make modification
+Looks complex? Trust me that you can do everything we did because we are the same.
+- Dare to build it
+- Dare to make your own modification
 - Dare to create your UI framework
 
 ## Repository Mirror
-[Link to Gitee in China](https://gitee.com/idea4good/GuiLiteSamples)
+[Gitee in China](https://gitee.com/idea4good/GuiLiteSamples)
 
 ## Thanks
-Thanks the help from QQ group, you guys make GuiLite better! and you're welcome to join us.
+Thanks the help from QQ group, you guys make GuiLite better! And we welcome you to join us.
 
 ![QQ group: 527251257](doc/qq.group.jpg)

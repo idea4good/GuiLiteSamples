@@ -1,5 +1,5 @@
 # GuiLite Samples - 是你造就了漂亮的界面，而不是UI框架
-- GuiLite samples包括6个跨平台工程，他们都是基于[GuiLite](https://github.com/idea4good/GuiLite)编写的实际应用，用来说明GuiLite的接口使用方法，并让你的程序同时运行在：iOS，Android，Linux，Windows，Mac平台上。
+- GuiLite samples包括7个跨平台工程，他们都是基于[GuiLite](https://github.com/idea4good/GuiLite)编写的实际应用，用来说明GuiLite的接口使用方法，并让你的程序同时运行在：iOS，Android，Linux，Windows，Mac平台上。
 - GuiLite samples极易编译，在QQ开发群的帮助下，现在的编译通过率接近100%
 
 ## Hello Wave & Hello Particle

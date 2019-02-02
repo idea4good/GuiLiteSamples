@@ -1,7 +1,7 @@
 # GuiLite Samples - It's you make UI beautiful, not UI framework!
 [中文](doc/README-cn.md)
 
-- GuiLite samples contain 6 cross-platform projects. They all based on [GuiLite](https://github.com/idea4good/GuiLite). They show you how to use GuiLite's interface, and how GuiLite works on iOS, Android, GNU/Linux, Windows and macOS platform.
+- GuiLite samples contain 7 cross-platform projects. They all based on [GuiLite](https://github.com/idea4good/GuiLite). They show you how to use GuiLite's interface, and how GuiLite works on iOS, Android, GNU/Linux, Windows and macOS platform.
 - GuiLite samples are easy to compile & run. With the help of QQ group, you will pass the compiling nearly 100%.
 
 ## Hello Wave & Hello Particle

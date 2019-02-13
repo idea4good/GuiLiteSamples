@@ -52,6 +52,7 @@ xcuserdata
 *.uvguix.*
 *.uvoptx
 *.lst
+*.dbgconf
 EventRecorderStub.scvd
 
 # For output
@@ -75,3 +76,11 @@ EventRecorderStub.scvd
 /HelloAnimation/BuildLinux/HelloAnimation
 /HelloAnimation/BuildMFC/HelloAnimation.aps
 /HelloAnimation/UIcode/libUIcode.a
+
+/HelloWave/BuildLinux/HelloWave
+/HelloWave/BuildMFC/HelloWave.aps
+/HelloWave/UIcode/libUIcode.a
+
+/HelloParticle/BuildLinux/HelloParticle
+/HelloParticle/BuildMFC/HelloParticle.aps
+/HelloParticle/UIcode/libUIcode.a

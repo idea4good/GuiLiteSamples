@@ -8,12 +8,12 @@
 #include <shellapi.h>
 
 #define MAX_LOADSTRING 100
-
+#define COLOR_BYTES		2
 // Global Variables:
 HINSTANCE hInst;                                // current instance
 WCHAR szTitle[MAX_LOADSTRING];                  // The title bar text
 WCHAR szWindowClass[MAX_LOADSTRING];            // the main window class name
-CUiBlock UIblock(0, 2);
+CUiBlock UIblock(0, COLOR_BYTES);
 
 // Forward declarations of functions included in this code module:
 ATOM                MyRegisterClass(HINSTANCE hInstance);
@@ -167,7 +167,7 @@ DWORD WINAPI ThreadHostMonitor(LPVOID pParam)
 	ShellExecute(0, L"open", L"https://github.com/idea4good/GuiLite", L"", L"", SW_SHOWNORMAL);
 	gSyncData = sync_data;
 	sync_data(60, 98, 30, 120, 80, 100);//Ping cloud
-	return startHostMonitor(1, 1024, 768, 0, 0, 0, 2);
+	return startHostMonitor(1, 1024, 768, 0, 0, 0, COLOR_BYTES);
 }
 
 DWORD WINAPI ThreadUpdateUI(LPVOID pParam)

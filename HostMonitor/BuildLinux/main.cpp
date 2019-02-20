@@ -37,11 +37,11 @@ static const char* s_tip_welcome =
 "2. Type command: sslp\n\n"
 
 "How to run inside QT APP?\n"
-"If x64: ./display-x64 | ./sample_native shared-fb\n"
-"If ARM: ./display-arm | ./sample_native shared-fb\n\n"
+"If x64: ./display-x64 | ./HostMonitor shared-fb\n"
+"If ARM: ./display-arm | ./HostMonitor shared-fb\n\n"
 
 "How to run on Linux?\n"
-"Type command: ./sample_native /dev/fb-path\n\n";
+"Type command: ./HostMonitor /dev/fb-path\n\n";
 
 int main(int argc, char** argv)
 {

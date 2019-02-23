@@ -9,9 +9,14 @@
 - Click `F5` to build/run `HostMonitor`
 
 ## How to build for Win32?
-### core.lib gui.lib should be in BuildWin32\libs, rebuild them if meet link error.
+### core.lib gui.lib should be in BuildWin32\sample_native\libs, rebuild them if meet link error.
 - Open "HostMonitor\BuildWin32\HostMonitor.sln" by Visual studio 2017
 - Click `F5` to build/run `HostMonitor`, you will see UI in internet browser.
+
+## How to build for Win console mode?
+### core.lib gui.lib should be in BuildWinCmd\sample_native\libs\x86(x64), rebuild them if meet link error.
+- Open "HostMonitor\BuildWinCmd\WinCmd.sln" by Visual studio 2017
+- Click `F5` to build/run `WinCmd`, you will see UI in internet browser.
 
 ## How to build for ARM Linux device?
 ### libcore.a libgui.a should be in BuildLinux\libs\arm, ⚠️rebuild them if meet Linking error, e.g: -fPIC, libxxx not found.
@@ -25,7 +30,7 @@
 - `make`
 - `cd BuildLinux`
 - `chmod 777 *`
-- `sudo ./HostMonitor /dev/fb0`   /dev/fb0: The path of framebuffer device file.
+- `sudo ./sample_native /dev/fb0`   /dev/fb0: The path of framebuffer device file.
 
 ## How to build for x64 Linux or Rasperry Pi?
 ### libcore.a libgui.a should be in BuildLinux\libs, ⚠️rebuild them if meet Linking error, e.g: -fPIC, libxxx not found.
@@ -37,17 +42,17 @@
 - `chmod 777 *`
 
 2. Run on Ubuntu:
-- `sudo ./HostMonitor /dev/fb0`   /dev/fb0: The path of framebuffer device file.
+- `sudo ./sample_native /dev/fb0`   /dev/fb0: The path of framebuffer device file.
 - If meet **permission** issue, you should enter pure command mode(not desktop mode), and run it again.
 
 3. Run inside QT APP(display-xxx is a QT APP for display, skip this if you haven't installed QT):
-- If x64:`sudo ./display-x64 | ./HostMonitor shared-fb`
-- If raspberry pi:`sudo ./display-arm | ./HostMonitor shared-fb`
+- If x64:`sudo ./display-x64 | ./sample_native shared-fb`
+- If raspberry pi:`sudo ./display-arm | ./sample_native shared-fb`
 - The source code of display-xxx here: HostMonitor/BuildLinux/display.src
 
 4. Run with internet browser:
-- `./HostMonitor 1 8`
-- Command `ss` you will get snapshot in BuildLinux\HostMonitor\snapshotx.bmp
+- `./sample_native 1 8`
+- Command `ss` you will get snapshot in BuildLinux\sample_native\snapshotx.bmp
 - Command `sslp` and open "BuildLinux\Display.html" with internet browser(such like: Firefox, Chrome)
 
 ## How to build for iOS?
@@ -64,7 +69,7 @@
 
 ### Run in command mode
 - `cd BuildMacCmd`
-- `./HostMonitor 1 8`, you will see UI in internet browser(Safari).
+- `./sample_native 1 8`, you will see UI in internet browser(Safari).
 
 ### Run in UI mode
 #### libcore.a libgui.a libUIcode.a should be in BuildMacCocoa\GuiLiteDemo\libs, rebuild them if meet link error.

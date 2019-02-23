@@ -1,14 +1,13 @@
 # GuiLite Samples - 是你造就了漂亮的界面，而不是UI框架
-- GuiLite samples包括8个跨平台项目，他们都是基于[GuiLite](https://github.com/idea4good/GuiLite)编写的实际应用，用来说明GuiLite的接口使用方法，并让你的程序同时运行在：iOS，Android，Linux，Windows，Mac平台上。
+- GuiLite samples包括7个跨平台工程，他们都是基于[GuiLite](https://github.com/idea4good/GuiLite)编写的实际应用，用来说明GuiLite的接口使用方法，并让你的程序同时运行在：iOS，Android，Linux，Windows，Mac平台上。
 - GuiLite samples极易编译，在QQ开发群的帮助下，现在的编译通过率接近100%
 
-## 单片机系列: Hello Mario + Hello Particle + Hello Wave
-![HelloMario](HelloMario.gif)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![HelloParticle](HelloParticle.gif)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![HelloWave](HelloWave.gif)
+## Hello Wave & Hello Particle
+![HelloWave](HelloWave.gif)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![HelloParticle](HelloParticle.gif)
 - 单片机硬件配置：STM32F103ZET6(512K ROM，64K RAM) + 240*320 16位TFT屏
 - 单片机软件配置：无操作系统 + GuiLite
-- Hello Mario 仅有[100+行代码](../HelloMario/UIcode/UIcode.cpp)，重现了“超级玛丽”的游戏片段，用于向开发者展示：如何使用GuiLite进行多图层的开发。
-- Hello Particle 仅有[100-行代码](../HelloParticle/UIcode/UIcode.cpp)，用于向开发者展示：如何使用GuiLite进行粒子效果的开发。
-- Hello Wave 仅有[100+行代码](../HelloWave/UIcode/UIcode.cpp)，用于向开发者展示：如何使用GuiLite进行波形开发。
+- Hello Wave 仅有[100+行代码](HelloWave/UIcode/UIcode.cpp)，用于向开发者展示：如何使用GuiLite进行波形开发。
+- Hello Particle 仅有[100-行代码](HelloParticle/UIcode/UIcode.cpp)，用于向开发者展示：如何使用GuiLite进行粒子效果的开发。
 - [移植方法 -- 适用于任意单片机平台？](HelloWave/README.md#How-to-port-on-any-MCU-)
 - 该实例亦可支持Windows和Linux平台
 

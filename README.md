@@ -1,16 +1,15 @@
 # GuiLite Samples - It's you make UI beautiful, not UI framework!
 [中文](doc/README-cn.md)
 
-- GuiLite samples contain 8 cross-platform projects. They all based on [GuiLite](https://github.com/idea4good/GuiLite). They could show you how to use GuiLite's interface, and how GuiLite works on iOS, Android, GNU/Linux, Windows and macOS platform.
+- GuiLite samples contain 7 cross-platform projects. They all based on [GuiLite](https://github.com/idea4good/GuiLite). They could show you how to use GuiLite's interface, and how GuiLite works on iOS, Android, GNU/Linux, Windows and macOS platform.
 - GuiLite samples are easy to compile & run. With the help of community, the passing rate of compiling is near 100%.
 
-## MCU demos: Hello Mario + Hello Particle + Hello Wave
-![HelloMario](doc/HelloMario.gif)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![HelloParticle](doc/HelloParticle.gif)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![HelloWave](doc/HelloWave.gif)
+## Hello Wave & Hello Particle
+![HelloWave](doc/HelloWave.gif)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![HelloParticle](doc/HelloParticle.gif)
 - MCU Hardware: STM32F103ZET6(512K ROM, 64K RAM) + 240*320 16bits color TFT LCD
 - MCU Software: No OS, Only GuiLite
-- Hello Mario has [100+ lines code](HelloMario/UIcode/UIcode.cpp), showing you how to develop a multi-layer UI system.
-- Hello Particle has [100- lines code](HelloParticle/UIcode/UIcode.cpp), showing you how to develop a particle system.
-- Hello Wave has [100+ lines code](HelloWave/UIcode/UIcode.cpp), showing you how to use wave widget.
+- Hello Wave has only [100+ lines code](HelloWave/UIcode/UIcode.cpp). It shows you how to use wave widget.
+- Hello Particle has only [100- lines code](HelloParticle/UIcode/UIcode.cpp). It shows you how to develop a particle system.
 - [How to porting for any MCU?](HelloWave/README.md#How-to-port-on-any-MCU-)
 - Also support: Windows & Linux
 

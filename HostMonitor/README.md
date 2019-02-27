@@ -13,42 +13,44 @@
 - Open "HostMonitor\BuildWin32\HostMonitor.sln" by Visual studio 2017
 - Click `F5` to build/run `HostMonitor`, you will see UI in internet browser.
 
-## How to build for ARM Linux device?
-### libcore.a libgui.a should be in BuildLinux\libs\arm, ⚠️rebuild them if meet Linking error, e.g: -fPIC, libxxx not found.
+## How to build for Linux(x64/ARM/Raspberry Pi)?
 ### Install cross compiler:
 - For ARM32: `sudo apt-get install g++-arm-linux-gnueabi gcc-arm-linux-gnueabi`
 - For ARM64: `sudo apt-get install g++-aarch64-linux-gnu gcc-aarch64-linux-gnu`
-### Build
+### Build & Run:
+1. Build:
 - `cd HostMonitor`
-- For ARM32: `cmake -D CMAKE_C_COMPILER="/usr/bin/arm-linux-gnueabi-gcc" -D CMAKE_CXX_COMPILER="/usr/bin/arm-linux-gnueabi-g++" -D TARGET_ARCH="ARM" .`
-- For ARM64: `cmake -D CMAKE_C_COMPILER="/usr/bin/aarch64-linux-gnu-gcc" -D CMAKE_CXX_COMPILER="/usr/bin/aarch64-linux-gnu-g++" -D TARGET_ARCH="ARM" .`
-- `make`
-- `cd BuildLinux`
-- `chmod 777 *`
-- `sudo ./HostMonitor /dev/fb0`   /dev/fb0: The path of framebuffer device file.
-
-## How to build for x64 Linux or Rasperry Pi?
-### libcore.a libgui.a should be in BuildLinux\libs, ⚠️rebuild them if meet Linking error, e.g: -fPIC, libxxx not found.
-1. Build target:
-- `cd HostMonitor`
-- `cmake .`
+- If x64: `cmake .`
+- If raspberry pi: `cmake -D TARGET_ARCH="ARM" .`
+- If ARM32: `cmake -D CMAKE_C_COMPILER="/usr/bin/arm-linux-gnueabi-gcc" -D CMAKE_CXX_COMPILER="/usr/bin/arm-linux-gnueabi-g++" -D TARGET_ARCH="ARM" .`
+- If ARM64: `cmake -D CMAKE_C_COMPILER="/usr/bin/aarch64-linux-gnu-gcc" -D CMAKE_CXX_COMPILER="/usr/bin/aarch64-linux-gnu-g++" -D TARGET_ARCH="ARM" .`
 - `make`
 - `cd BuildLinux`
 - `chmod 777 *`
 
-2. Run on Ubuntu:
-- `sudo ./HostMonitor /dev/fb0`   /dev/fb0: The path of framebuffer device file.
-- If meet **permission** issue, you should enter pure command mode(not desktop mode), and run it again.
+2. Run with framebuffer:
+- `sudo ./HostMonitor /dev/fb0`&nbsp;&nbsp;&nbsp;&nbsp;/dev/fb0: The path of framebuffer device file.
 
 3. Run inside QT APP(display-xxx is a QT APP for display, skip this if you haven't installed QT):
-- If x64:`sudo ./display-x64 | ./HostMonitor shared-fb`
-- If raspberry pi:`sudo ./display-arm | ./HostMonitor shared-fb`
+- If x64: `sudo ./display-x64 1 1024 768 | ./HostMonitor shared-fb`
+- If ARM/Raspberry Pi: `sudo ./display-arm  1 1024 768 | ./HostMonitor shared-fb`
 - The source code of display-xxx here: HostMonitor/BuildLinux/display.src
 
 4. Run with internet browser:
 - `./HostMonitor 1 8`
 - Command `ss` you will get snapshot in BuildLinux\HostMonitor\snapshotx.bmp
 - Command `sslp` and open "BuildLinux\Display.html" with internet browser(such like: Firefox, Chrome)
+
+### Q&A:
+1. Meet linking error(e.g: -fPIC, libxxx not found)
+- If x64: rebuild libcore.a libgui.a, and replace them in BuildLinux/libs
+- If ARM: rebuild libcore.a libgui.a, and replace them in BuildLinux/libs/arm
+2. How to run HostMonitor on ARM Linux device?
+- Copy HostMonitor you build on ARM Linux device
+- `sudo ./HostMonitor /dev/fb0`&nbsp;&nbsp;&nbsp;&nbsp;/dev/fb0: The path of framebuffer
+3. Could not display UI on Ubuntu
+- Update Ubuntu to 18.04, and run again
+- Enter pure command line mode, and run again
 
 ## How to build for iOS?
 #### libcore.a libgui.a libUIcode.a should be in \BuildIos\BuildIos\libs, rebuild them if meet link error.

@@ -1,6 +1,10 @@
 # GuiLite Samples - 是你造就了漂亮的界面，而不是UI框架
 - GuiLite samples包括8个跨平台项目，他们都是基于[GuiLite](https://github.com/idea4good/GuiLite)编写的实际应用，用来说明GuiLite的接口使用方法，并让你的程序同时运行在：iOS，Android，Linux，Windows，Mac平台上。
 - GuiLite samples极易编译，在QQ开发群的帮助下，现在的编译通过率接近100%
+- GuiLite samples可运行在**Docker容器**里面，具体命令如下:
+  - For x64 Linux: `sudo docker run -it --privileged -v /dev:/dev-share idea4good/gui-lite:0.3 bash /run.sh`
+  - For armhf Linux(Raspberry Pi): `sudo docker run -it --privileged -v /dev:/dev-share idea4good/gui-lite-armhf:0.2 bash /run.sh`
+
 
 ## 单片机系列: Hello Mario + Hello Particle + Hello Wave
 ![HelloMario](HelloMario.gif)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![HelloParticle](HelloParticle.gif)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![HelloWave](HelloWave.gif)

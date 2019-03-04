@@ -2,7 +2,7 @@
 [中文](doc/README-cn.md)
 
 - GuiLite samples contain 8 cross-platform projects. They all based on [GuiLite](https://github.com/idea4good/GuiLite). They could show you how to use GuiLite's interface, and how GuiLite works on iOS, Android, GNU/Linux, Windows and macOS platform.
-- GuiLite samples are easy to compile & run. With the help of community, the passing rate of compiling is near 100%.
+- GuiLite samples could pass compiling in 100%, could run on all kinds of PC, phone, MCU and embedded(IoT) devices.
 - GuiLite samples could run in **Docker container** with single command below:
   - For x64 Linux: `sudo docker run -it --privileged -v /dev:/dev-share idea4good/gui-lite:0.3 bash /run.sh`
   - For armhf Linux(Raspberry Pi): `sudo docker run -it --privileged -v /dev:/dev-share idea4good/gui-lite-armhf:0.2 bash /run.sh`

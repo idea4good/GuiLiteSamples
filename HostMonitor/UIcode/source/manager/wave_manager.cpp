@@ -90,7 +90,7 @@ void c_wave_manage::refurbish_all_waves()
 	{
 		if (m_wave_ctrls[i][0] && (m_wave_ctrls[i][0]->is_data_enough() == false))
 		{
-			log_out("Out of wave data\n");
+			//log_out("Out of wave data\n");//For debug
 		}
 	}
 

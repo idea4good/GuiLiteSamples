@@ -63,7 +63,7 @@ int main(int argc, char** argv)
 		{
 			fb_mode = FB_APP_MODE;
 		}
-		else if(strncmp(argument, "/dev/", 5) == 0)
+		else if(strncmp(argument, "/dev", 4) == 0)
 		{
 			fb_dev_path = argument;
 			fb_mode = FB_DEV_MODE;

@@ -1,0 +1,1 @@
+int Cmain(int argc, char* args);

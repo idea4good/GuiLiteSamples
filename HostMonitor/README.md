@@ -52,6 +52,26 @@
 - Update Ubuntu to 18.04, and run again
 - Enter pure command line mode, and run again
 
+## How to build with GoLang?
+1. Build UIcode:
+- `cd HostMonitor/UIcode`
+- If x64/raspberry pi:
+    - `cmake .`
+    - `make`
+    - `cp libUIcode.a ../BuildGo/libs/amd64/`
+- If ARM32:
+    - `cmake -D CMAKE_C_COMPILER="/usr/bin/arm-linux-gnueabi-gcc" -D CMAKE_CXX_COMPILER="/usr/bin/arm-linux-gnueabi-g++" .`
+    - `make`
+    - `cp libUIcode.a ../BuildGo/libs/arm/`
+2. Build Golang:
+- `cd HostMonitor/BuildGo`
+- `go build -o HostMonitor`
+3. Run with framebuffer:
+- `sudo ./HostMonitor /dev/fb0`&nbsp;&nbsp;&nbsp;&nbsp;/dev/fb0: The path of framebuffer device file.
+4. Run inside QT APP(display-xxx is a QT APP for display, skip this if you haven't installed QT):
+- If x64: `sudo ./display-x64 1 1024 768 | ./HostMonitor shared-fb`
+- If ARM/Raspberry Pi: `sudo ./display-arm  1 1024 768 | ./HostMonitor shared-fb`
+
 ## How to build for iOS?
 #### libcore.a libgui.a libUIcode.a should be in \BuildIos\BuildIos\libs, rebuild them if meet link error.
 - `cd HostMonitor\BuildIos`

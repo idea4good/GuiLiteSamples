@@ -44,6 +44,5 @@ void c_value_sub_ctrl::on_paint(void)
 	}
 
 	c_word::value_2_string(m_value, m_limit_dot_position, m_value_in_str, sizeof(m_value_in_str));
-	m_max_value_rect = m_value_rect;
 	c_word::draw_string_in_rect(m_surface, m_z_order, m_value_in_str, m_value_rect, m_value_font_type, m_name_color, m_bg_color, m_value_align_type);
 }

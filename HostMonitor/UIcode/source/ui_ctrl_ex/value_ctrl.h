@@ -35,7 +35,7 @@ public:
 	void set_high_limit(short value, short dot_position){m_high_limit = value; m_limit_dot_position = dot_position;}
 	void set_low_limit(short value, short dot_position){m_low_limit = value; m_limit_dot_position = dot_position;}
 	void set_value_dot_position(unsigned short dot_position){m_value_dot_position = m_limit_dot_position = dot_position;}
-	virtual void refurbish_value(short value, unsigned short dot_position, bool flash_or_not, unsigned int flash_color);
+	virtual void refresh_value(short value, unsigned short dot_position, bool flash_or_not, unsigned int flash_color);
 
 	void set_name_font_type(const FONT_INFO *name_font_type){m_name_font_type = name_font_type;}
 	void set_unit_font_type(const FONT_INFO *unit_font_type){m_unit_font_type = unit_font_type;}
@@ -55,7 +55,6 @@ protected:
 	unsigned int	m_value_align_type;
 
 	c_rect			m_value_rect;
-	c_rect          m_max_value_rect;
 
 	char*			m_name_str;
 	char*			m_unit_str;

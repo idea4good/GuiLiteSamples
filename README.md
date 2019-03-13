@@ -51,8 +51,8 @@ On Windows Mixed Reality:
 
 Host Monitor has 2,000 lines of code related to UI, showing you how to make UI layout , and customize/extend your UI widgets.
 ### Code Description
-- HostMonitor\SampleCode\source\ui_tree: **UI Layout**
-- HostMonitor\SampleCode\source\ui_ctrl_ex: **Customize your widgets**
+- HostMonitor\UICode\source\ui_layout: **UI Layout**
+- HostMonitor\UICode\source\ui_ctrl_ex: **Customize your widgets**
 
 ### Cross platform
 - HostMonitor\BuildAndroid: **Java code, for Android**
@@ -62,6 +62,7 @@ Host Monitor has 2,000 lines of code related to UI, showing you how to make UI l
 - HostMonitor\BuildUWP: **CX code, for UWP(include Mixed/Virtual Reality)**
 - HostMonitor\BuildMacCmd: **Swift code, for Mac command mode**
 - HostMonitor\BuildMacCocoa: **Swift code, for Mac APP with UI**
+- HostMonitor\BuildGo: **Golang & C++, for Linux**
 
 [Build "host monitor"](HostMonitor/README.md)
 

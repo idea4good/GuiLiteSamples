@@ -49,8 +49,8 @@ Hello GuiLite 仅有[100多行代码](https://github.com/idea4good/GuiLiteSample
 
 HostMonitor有2千行UI代码, 用来布局UI和自定义控件
 ### 代码走读
-- HostMonitor\SampleCode\source\ui_tree: **布局UI**
-- HostMonitor\SampleCode\source\ui_ctrl_ex: **自定义控件**
+- HostMonitor\UIcode\source\ui_layout: **布局UI**
+- HostMonitor\UIcode\source\ui_ctrl_ex: **自定义控件**
 
 ### 跨平台办法
 - HostMonitor\BuildAndroid: **Java 语言, 用于Android平台**
@@ -60,6 +60,7 @@ HostMonitor有2千行UI代码, 用来布局UI和自定义控件
 - HostMonitor\BuildUWP: **CX 语言, 用于通用Windows平台(包括：虚拟/混合现实)**
 - HostMonitor\BuildMacCmd: **Swift语言, 用于Mac命令行模式**
 - HostMonitor\BuildMacCocoa: **Swift语言, 用于Mac图形应用**
+- HostMonitor\BuildGo: **Go语言 & C++, 用于Linux平台**
 
 [编译"host monitor"](HostMonitor/README.md)
 

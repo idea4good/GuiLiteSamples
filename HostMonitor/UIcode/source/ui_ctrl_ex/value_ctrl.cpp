@@ -20,26 +20,18 @@ c_value_ctrl::c_value_ctrl()
 	memset(m_value_in_str, 0, sizeof(m_value_in_str));
 }
 
-void c_value_ctrl::refurbish_value(short value, unsigned short dot_position, bool flash_or_not, unsigned int flash_color)
+void c_value_ctrl::refresh_value(short value, unsigned short dot_position, bool flash_or_not, unsigned int flash_color)
 {
 	c_rect rect;
 	get_screen_rect(rect);
 
-	memset(m_value_in_str, 0, sizeof(m_value_in_str));
-	c_word::value_2_string(value, dot_position, m_value_in_str, sizeof(m_value_in_str));
-	int strWidth, strHeight;
-	c_word::get_str_size(m_value_in_str, m_value_font_type, strWidth, strHeight);
-
-	m_value_rect.m_right = m_value_rect.m_left + strWidth;
-	if (m_value_rect.m_right > rect.m_right)
-	{
-		m_value_rect.m_right = rect.m_right - 2;
-	}
-	m_max_value_rect.m_right = ((m_value_rect.m_right > m_max_value_rect.m_right) ? m_value_rect.m_right : m_max_value_rect.m_right);
-
 	if (flash_or_not)
 	{
-		fill_rect(m_max_value_rect.m_left, m_max_value_rect.m_top, m_max_value_rect.m_right, m_max_value_rect.m_bottom, m_bg_color);
+		//Remove old value
+		c_word::draw_string_in_rect(m_surface, m_z_order, m_value_in_str, m_value_rect, m_value_font_type, m_bg_color, GL_ARGB(0, 0, 0, 0), m_value_align_type);
+		
+		memset(m_value_in_str, 0, sizeof(m_value_in_str));
+		c_word::value_2_string(value, dot_position, m_value_in_str, sizeof(m_value_in_str));
 		if (flash_color)
 		{
 			c_word::draw_string_in_rect(m_surface, m_z_order, m_value_in_str, m_value_rect, m_value_font_type, m_bg_color, flash_color, m_value_align_type);
@@ -53,14 +45,16 @@ void c_value_ctrl::refurbish_value(short value, unsigned short dot_position, boo
 	
 	if ((m_value != value) || (m_value_dot_position != dot_position))
 	{
-		fill_rect(m_max_value_rect.m_left, m_max_value_rect.m_top, m_max_value_rect.m_right, m_max_value_rect.m_bottom, m_bg_color);
+		//Remove old value
+		c_word::draw_string_in_rect(m_surface, m_z_order, m_value_in_str, m_value_rect, m_value_font_type, m_bg_color, GL_ARGB(0, 0, 0, 0), m_value_align_type);
+		
+		memset(m_value_in_str, 0, sizeof(m_value_in_str));
+		c_word::value_2_string(value, dot_position, m_value_in_str, sizeof(m_value_in_str));
 		c_word::draw_string_in_rect(m_surface, m_z_order, m_value_in_str, m_value_rect, m_value_font_type, m_name_color, m_bg_color, m_value_align_type);
 	}
-
 EXIT:
 	m_value = value;
 	m_value_dot_position = dot_position;
-	m_max_value_rect = m_value_rect;
 }
 
 void c_value_ctrl::pre_create_wnd()
@@ -121,6 +115,5 @@ void c_value_ctrl::on_paint(void)
 	m_value_rect.m_right = m_value_rect.m_left + strWidth;
 	m_value_rect.m_bottom = m_value_rect.m_top + (m_value_font_type->height);
 
-	m_max_value_rect = m_value_rect;
 	c_word::draw_string_in_rect(m_surface, m_z_order, m_value_in_str, m_value_rect, m_value_font_type, m_name_color, m_bg_color, m_value_align_type);
 }

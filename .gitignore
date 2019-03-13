@@ -59,6 +59,7 @@ EventRecorderStub.scvd
 /HostMonitor/BuildMacCmd/HostMonitor
 /HostMonitor/BuildLinux/HostMonitor
 /HostMonitor/BuildMFC/HostMonitor/BuildMFC.aps
+/HostMonitor/BuildGo/HostMonitor
 /HostMonitor/UIcode/libUIcode.a
 
 /HelloGuiLite/BuildLinux/HelloGuiLite

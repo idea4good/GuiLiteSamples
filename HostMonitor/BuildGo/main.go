@@ -4,12 +4,20 @@ package main
 // #include "main.h"
 import "C"
 import "os"
+import "time"
+import "fmt"
 
 func main() {
     argc := C.int(len(os.Args))
     if(argc == 2){
-        C.Cmain(argc, C.CString(os.Args[1]))
+        go C.Cmain(argc, C.CString(os.Args[1]))
     }else{
-        C.Cmain(argc, C.CString(""))
+        go C.Cmain(argc, C.CString(""))
+    }
+
+    // Do something with Golang here:
+    for {
+        fmt.Println("Hello, I'm Golang")
+        time.Sleep(time.Second * 1000)
     }
 }

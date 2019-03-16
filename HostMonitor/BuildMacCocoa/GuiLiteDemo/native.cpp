@@ -10,7 +10,7 @@ extern int startHostMonitor(int main_cnt, int main_width, int main_height,
                int sub_cnt, int sub_width, int sub_height,
                int color_bytes);
 extern int sendTouch2HostMonitor(void* buf, int len, int display_id);
-extern void* getUiOfHostMonitor(int display_id, int* width, int* height);
+extern void* getUiOfHostMonitor(int display_id, int* width, int* height, bool force_update);
 
 void run_host_monitor()
 {
@@ -19,7 +19,7 @@ void run_host_monitor()
 
 void* get_frame_buffer(int display_id, int* width, int* height)
 {
-    return getUiOfHostMonitor(display_id, width, height);
+    return getUiOfHostMonitor(display_id, width, height, false);
 }
 
 void mouse_down(int x, int y)

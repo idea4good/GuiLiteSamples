@@ -80,4 +80,4 @@ HostMonitor有2千行UI代码, 用来布局UI和自定义控件
 ## 致谢
 感谢开发者群的所有同学，是你们塑造了今天的GuiLite！也欢迎你加入我们。
 
-![QQ group: 527251257](qq.group.jpg)
+![QQ group: 841031761](qq.group.jpg)

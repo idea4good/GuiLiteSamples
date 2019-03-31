@@ -82,4 +82,4 @@ Looks complex? Trust me that you can do everything we did because we are the sam
 ## Thanks
 Thanks the help from QQ group, you guys make GuiLite better! And we welcome you to join us.
 
-![QQ group: 527251257](doc/qq.group.jpg)
+![QQ group: 841031761](doc/qq.group.jpg)

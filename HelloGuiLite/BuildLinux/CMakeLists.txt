@@ -11,4 +11,4 @@ endif()
 ADD_EXECUTABLE(HelloGuiLite
 			main.cpp
 			std_io.cpp)
-TARGET_LINK_LIBRARIES(HelloGuiLite UIcode gui core pthread dl)
+TARGET_LINK_LIBRARIES(HelloGuiLite UIcode GuiLite pthread dl)

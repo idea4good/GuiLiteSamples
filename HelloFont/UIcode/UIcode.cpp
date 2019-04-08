@@ -8,10 +8,10 @@
 #include "core_include/word.h"
 #include "core_include/msg.h"
 #include "core_include/display.h"
-#include "gui_include/my_resource.h"
-#include "gui_include/button.h"
-#include "gui_include/dialog.h"
-#include "gui_include/gesture.h"
+#include "core_include/theme.h"
+#include "widgets_include/button.h"
+#include "widgets_include/dialog.h"
+#include "widgets_include/gesture.h"
 #include <stdlib.h>
 #include <string.h>
 
@@ -52,7 +52,7 @@ void c_myUI::on_clicked(unsigned int ctrl_id)
 {
 	c_rect rect;
 	get_screen_rect(rect);
-	c_bitmap::draw_bitmap(m_surface, m_z_order, c_my_resource::get_bmp(BITMAP_CUSTOM1), rect.m_left, rect.m_top);
+	c_bitmap::draw_bitmap(m_surface, m_z_order, c_theme::get_bmp(BITMAP_CUSTOM1), rect.m_left, rect.m_top);
 
 	char one_word[4];
 	const char* tmp = s_text;
@@ -61,7 +61,7 @@ void c_myUI::on_clicked(unsigned int ctrl_id)
 		{
 			memset(one_word, 0, sizeof(one_word));
 			memcpy(one_word, tmp, 3);
-			c_word::draw_string(m_surface, m_z_order, one_word, (START_X - x * FONT_SIZE), (START_Y + y * FONT_SIZE), c_my_resource::get_font(FONT_DEFAULT), GL_RGB(0, 0, 0), GL_ARGB(0, 0, 0, 0));
+			c_word::draw_string(m_surface, m_z_order, one_word, (START_X - x * FONT_SIZE), (START_Y + y * FONT_SIZE), c_theme::get_font(FONT_DEFAULT), GL_RGB(0, 0, 0), GL_ARGB(0, 0, 0, 0));
 			thread_sleep(500);
 			tmp += 3;
 		}
@@ -71,7 +71,7 @@ void c_myUI::on_paint()
 {
 	c_rect rect;
 	get_screen_rect(rect);
-	c_bitmap::draw_bitmap(m_surface, m_z_order, c_my_resource::get_bmp(BITMAP_CUSTOM1), rect.m_left, rect.m_top);
+	c_bitmap::draw_bitmap(m_surface, m_z_order, c_theme::get_bmp(BITMAP_CUSTOM1), rect.m_left, rect.m_top);
 }
 
 //////////////////////// layout UI ////////////////////////
@@ -91,14 +91,14 @@ static c_fifo s_hid_fifo;
 static c_display* s_display;
 void load_resource()
 {
-	c_my_resource::add_bitmap(BITMAP_CUSTOM1, &background_bmp);
+	c_theme::add_bitmap(BITMAP_CUSTOM1, &background_bmp);
 	//for button
-	c_my_resource::add_font(FONT_DEFAULT, &KaiTi_33B);
-	c_my_resource::add_color(COLOR_WND_FONT, GL_RGB(255, 255, 255));
-	c_my_resource::add_color(COLOR_WND_NORMAL, GL_RGB(59, 75, 94));
-	c_my_resource::add_color(COLOR_WND_PUSHED, GL_RGB(33, 42, 53));
-	c_my_resource::add_color(COLOR_WND_FOCUS, GL_RGB(43, 118, 219));
-	c_my_resource::add_color(COLOR_WND_BORDER, GL_RGB(46, 59, 73));
+	c_theme::add_font(FONT_DEFAULT, &KaiTi_33B);
+	c_theme::add_color(COLOR_WND_FONT, GL_RGB(255, 255, 255));
+	c_theme::add_color(COLOR_WND_NORMAL, GL_RGB(59, 75, 94));
+	c_theme::add_color(COLOR_WND_PUSHED, GL_RGB(33, 42, 53));
+	c_theme::add_color(COLOR_WND_FOCUS, GL_RGB(43, 118, 219));
+	c_theme::add_color(COLOR_WND_BORDER, GL_RGB(46, 59, 73));
 }
 
 void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes)

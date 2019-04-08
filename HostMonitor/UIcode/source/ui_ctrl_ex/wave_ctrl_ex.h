@@ -11,7 +11,7 @@ protected:
 
 ///////////////////////////////////////////////////
 
-#include "../gui_include/my_resource.h"
+#include "../core_include/theme.h"
 class c_bitmap_wave_ctrl : public c_wave_ctrl
 {
 public:

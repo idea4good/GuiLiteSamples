@@ -170,7 +170,8 @@ static void* get_dev_fb(char* path, int &width, int &height, int &color_bytes)
     color_bytes = vinfo.bits_per_pixel / 8;
     if (width & 0x3)
     {
-        printf("Warning: vinfo.xres should be divided by 4!\nChange your display resolution to meet the rule.\n");
+        width = (width + 0x3) & (~0x3);
+        printf("Warning: Round screen width to be multiple of 4.\n");
     }
     printf("vinfo.xres=%d\n",vinfo.xres);
     printf("vinfo.yres=%d\n",vinfo.yres);

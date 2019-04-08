@@ -32,7 +32,7 @@ typedef struct
 	unsigned int dwParam2;
 }OUTMSGINFO;
 
-extern void* getUiOfHostMonitor(int display_id, int* width, int* height);
+extern void* getUiOfHostMonitor(int display_id, int* width, int* height, bool force_update);
 extern int sendTouch2HostMonitor(void* buf, int len, int display_id);
 
 SubScreen::SubScreen()
@@ -74,7 +74,7 @@ void SubScreen::update_screen()
 {
 	if (nullptr == m_fb_bitmap)
 	{
-		unsigned short* raw_data = (unsigned short*)getUiOfHostMonitor(m_index, &m_fb_width, &m_fb_height);
+		unsigned short* raw_data = (unsigned short*)getUiOfHostMonitor(m_index, &m_fb_width, &m_fb_height, false);
 		if (raw_data)
 		{
 			m_fb_bitmap = ref new Windows::UI::Xaml::Media::Imaging::WriteableBitmap(m_fb_width, m_fb_height);
@@ -86,7 +86,7 @@ void SubScreen::update_screen()
 	unsigned int length;
 	byte* sourcePixels = get_pixel_data(m_fb_bitmap->PixelBuffer, &length);
 
-	void* raw_data = getUiOfHostMonitor(m_index, NULL, NULL);
+	void* raw_data = getUiOfHostMonitor(m_index, NULL, NULL, false);
 	if (!raw_data)
 	{
 		return;

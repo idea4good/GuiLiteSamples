@@ -5,7 +5,7 @@
 #include "core_include/bitmap.h"
 #include "core_include/word.h"
 #include "core_include/display.h"
-#include "gui_include/my_resource.h"
+#include "core_include/theme.h"
 
 #define UI_WIDTH			240
 #define UI_BOTTOM_HEIGHT	76
@@ -32,8 +32,8 @@ void draw_easter_egg()
 {
 	for (int i = 0; i < sizeof(s_frames) / sizeof(BITMAP_INFO); i++)
 	{
-		c_my_resource::add_bitmap(BITMAP_CUSTOM1, &s_frames[i]);
-		c_bitmap::draw_bitmap(s_surface_top, Z_ORDER_LEVEL_0, c_my_resource::get_bmp(BITMAP_CUSTOM1), RYU_X, RYU_Y, GL_RGB(85, 136, 221));
+		c_theme::add_bitmap(BITMAP_CUSTOM1, &s_frames[i]);
+		c_bitmap::draw_bitmap(s_surface_top, Z_ORDER_LEVEL_0, c_theme::get_bmp(BITMAP_CUSTOM1), RYU_X, RYU_Y, GL_RGB(85, 136, 221));
 		thread_sleep(20);
 	}
 	s_surface_top->fill_rect(RYU_X, RYU_Y, RYU_X + frame_00_bmp.XSize - 1, RYU_Y + frame_00_bmp.YSize - 1, GL_RGB(131, 110, 83), Z_ORDER_LEVEL_0);

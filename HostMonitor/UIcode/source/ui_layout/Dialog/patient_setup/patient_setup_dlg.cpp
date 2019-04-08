@@ -5,12 +5,12 @@
 #include "../core_include/msg.h"
 #include "../core_include/surface.h"
 #include "../core_include/display.h"
-#include "../gui_include/label.h"
-#include "../gui_include/button.h"
-#include "../gui_include/dialog.h"
-#include "../gui_include/spinbox.h"
-#include "../gui_include/list_box.h"
-#include "../gui_include/edit.h"
+#include "../widgets_include/label.h"
+#include "../widgets_include/button.h"
+#include "../widgets_include/dialog.h"
+#include "../widgets_include/spinbox.h"
+#include "../widgets_include/list_box.h"
+#include "../widgets_include/edit.h"
 #include "../include/ctrl_id.h"
 #include <stdlib.h>
 #include <stdio.h>
@@ -20,11 +20,6 @@
 GL_BEGIN_MESSAGE_MAP(c_patient_setup_dlg)
 ON_SPIN_CONFIRM(ID_SETUP_DLG_SB_BIRTHDAY_DAY, c_patient_setup_dlg::on_spinbox_confirm)
 GL_END_MESSAGE_MAP()
-
-void c_patient_setup_dlg::on_init_children(void)
-{
-	set_divider_lines(11);
-}
 
 void c_patient_setup_dlg::on_paint()
 {

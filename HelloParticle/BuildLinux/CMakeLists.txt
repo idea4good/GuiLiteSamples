@@ -11,4 +11,4 @@ endif()
 ADD_EXECUTABLE(HelloParticle
 			main.cpp
 			std_io.cpp)
-TARGET_LINK_LIBRARIES(HelloParticle UIcode gui core pthread dl)
+TARGET_LINK_LIBRARIES(HelloParticle UIcode GuiLite pthread dl)

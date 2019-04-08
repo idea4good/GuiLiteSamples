@@ -2,8 +2,9 @@
 #include "../core_include/rect.h"
 #include "../core_include/cmd_target.h"
 #include "../core_include/wnd.h"
-#include "../gui_include/table.h"
-#include "../gui_include/my_resource.h"
+#include "../core_include/surface.h"
+#include "../core_include/theme.h"
+#include "../widgets_include/table.h"
 #include "../include/ctrl_id.h"
 #include "../include/msg_id.h"
 #include "../source/data/database.h"
@@ -38,11 +39,11 @@ void c_trend_view::on_paint(void)
 {
 	c_rect rect;
 	get_screen_rect(rect);
-	draw_rect(rect.m_left-2, rect.m_top-2, rect.m_right,	rect.m_bottom-5, GL_RGB(99,101,99));
-	draw_rect(rect.m_left-1, rect.m_top-1, rect.m_right-1,	rect.m_bottom-6, GL_RGB(123,125,123));
-	draw_rect(rect.m_left,   rect.m_top,   rect.m_right-2,  rect.m_bottom-7, GL_RGB(165,166,156));
-	draw_rect(rect.m_left+1, rect.m_top+1, rect.m_right-3,	rect.m_bottom-8, GL_RGB(123,125,123));
-	draw_rect(rect.m_left+2, rect.m_top+2, rect.m_right-4,	rect.m_bottom-9, GL_RGB(99,101,99));
+	m_surface->draw_rect(rect.m_left-2, rect.m_top-2, rect.m_right,	rect.m_bottom-5, GL_RGB(99,101,99), m_z_order);
+	m_surface->draw_rect(rect.m_left-1, rect.m_top-1, rect.m_right-1,	rect.m_bottom-6, GL_RGB(123,125,123), m_z_order);
+	m_surface->draw_rect(rect.m_left,   rect.m_top,   rect.m_right-2,  rect.m_bottom-7, GL_RGB(165,166,156), m_z_order);
+	m_surface->draw_rect(rect.m_left+1, rect.m_top+1, rect.m_right-3,	rect.m_bottom-8, GL_RGB(123,125,123), m_z_order);
+	m_surface->draw_rect(rect.m_left+2, rect.m_top+2, rect.m_right-4,	rect.m_bottom-9, GL_RGB(99,101,99), m_z_order);
 }
 
 void c_trend_view::on_time_bar_change(unsigned int ctrl_id)
@@ -126,9 +127,9 @@ void c_trend_view::refresh_trend_graphic(long time)
 	{
 		x_axis_marks[(H_AXIS_MARK_CNT - 1) - i] = (time - (i * H_AXIS_MARK_INTERVAL));
 	}
-	p_vitals_trend_graph->set_h_axis_atrrs(c_my_resource::get_font(FONT_DEFAULT), x_axis_marks, H_AXIS_MARK_CNT);
+	p_vitals_trend_graph->set_h_axis_atrrs(c_theme::get_font(FONT_DEFAULT), x_axis_marks, H_AXIS_MARK_CNT);
 	p_vitals_trend_graph->draw_h_axis();
-	p_nibp_trend->set_h_axis_atrrs(c_my_resource::get_font(FONT_DEFAULT), x_axis_marks, H_AXIS_MARK_CNT);
+	p_nibp_trend->set_h_axis_atrrs(c_theme::get_font(FONT_DEFAULT), x_axis_marks, H_AXIS_MARK_CNT);
 	p_nibp_trend->draw_h_axis();
 
 	//update data

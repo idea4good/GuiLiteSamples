@@ -11,4 +11,4 @@ endif()
 ADD_EXECUTABLE(HelloFont
 			main.cpp
 			std_io.cpp)
-TARGET_LINK_LIBRARIES(HelloFont UIcode gui core pthread dl)
+TARGET_LINK_LIBRARIES(HelloFont UIcode GuiLite pthread dl)

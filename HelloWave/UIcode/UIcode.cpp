@@ -8,10 +8,10 @@
 #include "core_include/word.h"
 #include "core_include/msg.h"
 #include "core_include/display.h"
-#include "core_include/wave_ctrl.h"
-#include "core_include/wave_buffer.h"
-#include "gui_include/my_resource.h"
-#include "gui_include/button.h"
+#include "core_include/theme.h"
+#include "widgets_include/wave_ctrl.h"
+#include "widgets_include/wave_buffer.h"
+#include "widgets_include/button.h"
 #include <stdlib.h>
 #include <string.h>
 
@@ -84,7 +84,7 @@ class c_myUI : public c_wnd
 	{
 		c_rect rect;
 		get_screen_rect(rect);
-		fill_rect(rect, GL_RGB(33, 33, 33));
+		m_surface->fill_rect(rect, GL_RGB(33, 33, 33), m_z_order);
 	}
 	void on_clicked(unsigned int ctrl_id) {
 		static int index;
@@ -136,13 +136,13 @@ static WND_TREE s_myUI_children[] =
 extern const FONT_INFO Lucida_Console_27;
 void load_resource()
 {
-	c_my_resource::add_font(FONT_DEFAULT, &Lucida_Console_27);
+	c_theme::add_font(FONT_DEFAULT, &Lucida_Console_27);
 	//for button
-	c_my_resource::add_color(COLOR_WND_FONT, GL_RGB(255, 0, 0));
-	c_my_resource::add_color(COLOR_WND_NORMAL, GL_RGB(59, 75, 94));
-	c_my_resource::add_color(COLOR_WND_PUSHED, GL_RGB(33, 42, 53));
-	c_my_resource::add_color(COLOR_WND_FOCUS, GL_RGB(33, 42, 53));
-	c_my_resource::add_color(COLOR_WND_BORDER, GL_RGB(46, 59, 73));
+	c_theme::add_color(COLOR_WND_FONT, GL_RGB(255, 0, 0));
+	c_theme::add_color(COLOR_WND_NORMAL, GL_RGB(59, 75, 94));
+	c_theme::add_color(COLOR_WND_PUSHED, GL_RGB(33, 42, 53));
+	c_theme::add_color(COLOR_WND_FOCUS, GL_RGB(33, 42, 53));
+	c_theme::add_color(COLOR_WND_BORDER, GL_RGB(46, 59, 73));
 }
 
 static c_display* s_display;

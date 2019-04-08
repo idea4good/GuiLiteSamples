@@ -8,10 +8,10 @@
 #include "core_include/word.h"
 #include "core_include/msg.h"
 #include "core_include/display.h"
-#include "gui_include/my_resource.h"
-#include "gui_include/button.h"
-#include "gui_include/slide_group.h"
-#include "gui_include/gesture.h"
+#include "core_include/theme.h"
+#include "widgets_include/button.h"
+#include "widgets_include/slide_group.h"
+#include "widgets_include/gesture.h"
 #include <stdlib.h>
 #include <string.h>
 
@@ -43,19 +43,19 @@ void c_page::on_paint()
 	switch (m_resource_id)
 	{
 	case ID_PAGE1:
-		bmp = c_my_resource::get_bmp(BITMAP_CUSTOM1);
+		bmp = c_theme::get_bmp(BITMAP_CUSTOM1);
 		break;
 	case ID_PAGE2:
-		bmp = c_my_resource::get_bmp(BITMAP_CUSTOM2);
+		bmp = c_theme::get_bmp(BITMAP_CUSTOM2);
 		break;
 	case ID_PAGE3:
-		bmp = c_my_resource::get_bmp(BITMAP_CUSTOM3);
+		bmp = c_theme::get_bmp(BITMAP_CUSTOM3);
 		break;
 	case ID_PAGE4:
-		bmp = c_my_resource::get_bmp(BITMAP_CUSTOM4);
+		bmp = c_theme::get_bmp(BITMAP_CUSTOM4);
 		break;
 	case ID_PAGE5:
-		bmp = c_my_resource::get_bmp(BITMAP_CUSTOM5);
+		bmp = c_theme::get_bmp(BITMAP_CUSTOM5);
 		break;
 	default:
 		break;
@@ -77,11 +77,11 @@ static c_fifo s_hid_fifo;
 static c_display* s_display;
 void load_resource()
 {
-	c_my_resource::add_bitmap(BITMAP_CUSTOM1, &ten_bmp);
-	c_my_resource::add_bitmap(BITMAP_CUSTOM2, &jack_bmp);
-	c_my_resource::add_bitmap(BITMAP_CUSTOM3, &queen_bmp);
-	c_my_resource::add_bitmap(BITMAP_CUSTOM4, &king_bmp);
-	c_my_resource::add_bitmap(BITMAP_CUSTOM5, &ace_bmp);
+	c_theme::add_bitmap(BITMAP_CUSTOM1, &ten_bmp);
+	c_theme::add_bitmap(BITMAP_CUSTOM2, &jack_bmp);
+	c_theme::add_bitmap(BITMAP_CUSTOM3, &queen_bmp);
+	c_theme::add_bitmap(BITMAP_CUSTOM4, &king_bmp);
+	c_theme::add_bitmap(BITMAP_CUSTOM5, &ace_bmp);
 }
 
 void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes)

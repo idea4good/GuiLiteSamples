@@ -2,7 +2,7 @@
 #include "../core_include/rect.h"
 #include "../core_include/cmd_target.h"
 #include "../core_include/wnd.h"
-#include "../core_include/wave_ctrl.h"
+#include "../widgets_include/wave_ctrl.h"
 #include "../source/ui_ctrl_ex/wave_ctrl_ex.h"
 #include "../include/ctrl_id.h"
 #include "../source/manager/wave_manager.h"

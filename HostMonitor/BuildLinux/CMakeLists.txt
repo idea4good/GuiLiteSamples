@@ -11,4 +11,4 @@ endif()
 ADD_EXECUTABLE(HostMonitor
 			main.cpp
 			std_io.cpp)
-TARGET_LINK_LIBRARIES(HostMonitor UIcode gui core pthread dl)
+TARGET_LINK_LIBRARIES(HostMonitor UIcode GuiLite pthread dl)

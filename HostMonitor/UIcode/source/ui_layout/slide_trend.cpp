@@ -5,9 +5,9 @@
 #include "../core_include/msg.h"
 #include "../core_include/surface.h"
 #include "../core_include/display.h"
-#include "../gui_include/dialog.h"
-#include "../gui_include/slide_group.h"
-#include "../gui_include/table.h"
+#include "../widgets_include/dialog.h"
+#include "../widgets_include/slide_group.h"
+#include "../widgets_include/table.h"
 
 #include "../include/define.h"
 #include "../include/ctrl_id.h"

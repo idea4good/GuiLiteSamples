@@ -5,7 +5,7 @@
 #include "../core_include/surface.h"
 #include "../core_include/resource.h"
 #include "../core_include/word.h"
-#include "../gui_include/my_resource.h"
+#include "../core_include/theme.h"
 #include "../include/ctrl_id.h"
 #include "trend_graph.h"
 #include <string.h>
@@ -45,12 +45,12 @@ void c_trend_graph::on_init_children(void)
 	m_v_axis_height = V_AXIS_HEIGHT;
 	m_org_y_of_h_axis = (m_v_axis_height + 10);
 	m_org_x_of_h_axis = X_ORG_OF_H_AXIS;
-	m_h_axis_mark_font = c_my_resource::get_font(FONT_DEFAULT);
+	m_h_axis_mark_font = c_theme::get_font(FONT_DEFAULT);
 
 	for ( int i = 0; i < V_AXIS_CNT; i++ )
 	{
 		m_v_axis_min[i] = m_v_axis_max[i] = m_v_scale_cnt[i] = 0;
-		m_v_axis_mark_font[i] = c_my_resource::get_font(FONT_DEFAULT);
+		m_v_axis_mark_font[i] = c_theme::get_font(FONT_DEFAULT);
 	}
 	memset(m_v_scale_value , 0 , sizeof( m_v_scale_value ));
 
@@ -115,8 +115,8 @@ void c_trend_graph::draw_h_axis(void)
 	c_rect rect;
 	get_screen_rect(rect);
 	//Draw x axis -- double line
-	draw_hline((rect.m_left + m_org_x_of_h_axis), (rect.m_left + m_org_x_of_h_axis + m_h_axis_width), (rect.m_top + m_org_y_of_h_axis), H_AXIS_COLOR);
-	draw_hline((rect.m_left + m_org_x_of_h_axis), (rect.m_left + m_org_x_of_h_axis + m_h_axis_width), (rect.m_top + m_org_y_of_h_axis + 1), H_AXIS_COLOR);
+	m_surface->draw_hline((rect.m_left + m_org_x_of_h_axis), (rect.m_left + m_org_x_of_h_axis + m_h_axis_width), (rect.m_top + m_org_y_of_h_axis), H_AXIS_COLOR, m_z_order);
+	m_surface->draw_hline((rect.m_left + m_org_x_of_h_axis), (rect.m_left + m_org_x_of_h_axis + m_h_axis_width), (rect.m_top + m_org_y_of_h_axis + 1), H_AXIS_COLOR, m_z_order);
 
 	//Draw mark
 	char str_scale_value[16];
@@ -133,8 +133,8 @@ void c_trend_graph::draw_h_axis(void)
 		y_end = y_start + SCALE_LINE_LENGTH;
 
 		//Draw scale line
-		draw_vline( x_start, y_start, y_end, H_AXIS_COLOR);
-		draw_vline( x_start+1, y_start, y_end, H_AXIS_COLOR);
+		m_surface->draw_vline( x_start, y_start, y_end, H_AXIS_COLOR, m_z_order);
+		m_surface->draw_vline( x_start+1, y_start, y_end, H_AXIS_COLOR, m_z_order);
 		//Draw mark
 		c_word::draw_string(m_surface, m_z_order, str_scale_value, x_start - 20, y_start + 5, m_h_axis_mark_font, H_AXIS_COLOR, BACKGROUND_COLOR);
 	}
@@ -179,7 +179,7 @@ void c_trend_graph::draw_v_axis(int index)
 
 	//draw axis line
 	int line_bottom = rect.m_top + m_org_y_of_v_axis;
-	draw_vline(axis_line_x, (line_bottom - m_v_axis_height), line_bottom, m_v_axis_color[index]);
+	m_surface->draw_vline(axis_line_x, (line_bottom - m_v_axis_height), line_bottom, m_v_axis_color[index], m_z_order);
 
 	//draw mark & scale line
 	char str_scale_value[8];
@@ -188,7 +188,7 @@ void c_trend_graph::draw_v_axis(int index)
 	{
 		sprintf(str_scale_value,"%d",  m_v_scale_value[index][i]);
 		int scale_line_y = rect.m_top + m_org_y_of_v_axis - (int)( y_pixel_per_value * (m_v_scale_value[index][i] - m_v_axis_min[index]));
-		draw_hline( scale_line_left, scale_line_right, scale_line_y, m_v_axis_color[index] );//scale line
+		m_surface->draw_hline( scale_line_left, scale_line_right, scale_line_y, m_v_axis_color[index], m_z_order);//scale line
 		c_word::draw_string(m_surface, m_z_order, str_scale_value, mark_text_x, (scale_line_y - 8), m_v_axis_mark_font[index], m_v_axis_color[index], BACKGROUND_COLOR);//mark
 	}
 }
@@ -248,7 +248,7 @@ void c_trend_graph::draw_line_by_pixel(int* line_x_buf, int* line_y_buf, int len
 				last_valid_index = i;
 				continue;
 			}
-			c_wnd::draw_line(line_x_buf[last_valid_index], line_y_buf[last_valid_index], line_x_buf[i], line_y_buf[i], color);
+			m_surface->draw_line(line_x_buf[last_valid_index], line_y_buf[last_valid_index], line_x_buf[i], line_y_buf[i], color, m_z_order);
 			last_valid_index = i;
 		}
 	}
@@ -258,7 +258,7 @@ void c_trend_graph::on_paint(void)
 {
 	c_rect rect;
 	get_screen_rect(rect);
-	fill_rect(rect.m_left, rect.m_top, rect.m_right, rect.m_bottom, BACKGROUND_COLOR);
+	m_surface->fill_rect(rect.m_left, rect.m_top, rect.m_right, rect.m_bottom, BACKGROUND_COLOR, m_z_order);
 	int hr_y_axis_scale[5] = { 0, 50, 100, 150, 180 };
 	int rr_y_axis_scale[7] = { 0, 10, 20, 30, 40, 50, 60 };
 	int spo2_y_axis_scale[7] = { 70, 75, 80, 85, 90, 95, 100 };
@@ -275,22 +275,22 @@ void c_trend_graph::on_paint(void)
 	switch (m_type)
 	{
 	case TREND_TYPE_VITAL:
-		draw_title(0, "--Vitals", GL_RGB(255, 255, 255), c_my_resource::get_font(FONT_DEFAULT));
-		draw_title(1, " -HR", HR_COLOR, c_my_resource::get_font(FONT_DEFAULT));
-		draw_title(2, " -SPO2", SPO2_COLOR, c_my_resource::get_font(FONT_DEFAULT));
-		draw_title(3, " -RR", RR_COLOR, c_my_resource::get_font(FONT_DEFAULT));
-		set_v_axis_atrrs(0, HR_COLOR, c_my_resource::get_font(FONT_DEFAULT), hr_y_axis_scale, 5);
-		set_v_axis_atrrs(1, SPO2_COLOR, c_my_resource::get_font(FONT_DEFAULT), spo2_y_axis_scale, 7);
-		set_v_axis_atrrs(2, RR_COLOR, c_my_resource::get_font(FONT_DEFAULT), rr_y_axis_scale, 7);
-		set_h_axis_atrrs(c_my_resource::get_font(FONT_DEFAULT), x_axis_marks, m_h_scale_cnt);
+		draw_title(0, "--Vitals", GL_RGB(255, 255, 255), c_theme::get_font(FONT_DEFAULT));
+		draw_title(1, " -HR", HR_COLOR, c_theme::get_font(FONT_DEFAULT));
+		draw_title(2, " -SPO2", SPO2_COLOR, c_theme::get_font(FONT_DEFAULT));
+		draw_title(3, " -RR", RR_COLOR, c_theme::get_font(FONT_DEFAULT));
+		set_v_axis_atrrs(0, HR_COLOR, c_theme::get_font(FONT_DEFAULT), hr_y_axis_scale, 5);
+		set_v_axis_atrrs(1, SPO2_COLOR, c_theme::get_font(FONT_DEFAULT), spo2_y_axis_scale, 7);
+		set_v_axis_atrrs(2, RR_COLOR, c_theme::get_font(FONT_DEFAULT), rr_y_axis_scale, 7);
+		set_h_axis_atrrs(c_theme::get_font(FONT_DEFAULT), x_axis_marks, m_h_scale_cnt);
 		break;
 	case TREND_TYPE_NIBP:
-		draw_title(0, "--PRESSURES", GL_RGB(255, 255, 255), c_my_resource::get_font(FONT_DEFAULT));
-		draw_title(1, "-NIBP(sys) mmHg", NIBP_COLOR, c_my_resource::get_font(FONT_DEFAULT));
-		draw_title(2, "-NIBP(dia) mmHg", NIBP_COLOR, c_my_resource::get_font(FONT_DEFAULT));
-		draw_title(3, "-NIBP(mean) mmHg", NIBP_COLOR, c_my_resource::get_font(FONT_DEFAULT));
-		set_v_axis_atrrs(0, NIBP_COLOR, c_my_resource::get_font(FONT_DEFAULT), pressure_y_axis_scale, 5);
-		set_h_axis_atrrs(c_my_resource::get_font(FONT_DEFAULT), x_axis_marks, m_h_scale_cnt);
+		draw_title(0, "--PRESSURES", GL_RGB(255, 255, 255), c_theme::get_font(FONT_DEFAULT));
+		draw_title(1, "-NIBP(sys) mmHg", NIBP_COLOR, c_theme::get_font(FONT_DEFAULT));
+		draw_title(2, "-NIBP(dia) mmHg", NIBP_COLOR, c_theme::get_font(FONT_DEFAULT));
+		draw_title(3, "-NIBP(mean) mmHg", NIBP_COLOR, c_theme::get_font(FONT_DEFAULT));
+		set_v_axis_atrrs(0, NIBP_COLOR, c_theme::get_font(FONT_DEFAULT), pressure_y_axis_scale, 5);
+		set_h_axis_atrrs(c_theme::get_font(FONT_DEFAULT), x_axis_marks, m_h_scale_cnt);
 		break;
 	default:
 		return;

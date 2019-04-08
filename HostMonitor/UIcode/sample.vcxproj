@@ -28,21 +28,21 @@
     <ClInclude Include="core_include\rect.h" />
     <ClInclude Include="core_include\resource.h" />
     <ClInclude Include="core_include\surface.h" />
-    <ClInclude Include="core_include\wave_buffer.h" />
-    <ClInclude Include="core_include\wave_ctrl.h" />
+    <ClInclude Include="widgets_include\wave_buffer.h" />
+    <ClInclude Include="widgets_include\wave_ctrl.h" />
     <ClInclude Include="core_include\wnd.h" />
     <ClInclude Include="core_include\word.h" />
-    <ClInclude Include="gui_include\button.h" />
-    <ClInclude Include="gui_include\dialog.h" />
-    <ClInclude Include="gui_include\edit.h" />
-    <ClInclude Include="gui_include\gesture.h" />
-    <ClInclude Include="gui_include\keyboard.h" />
-    <ClInclude Include="gui_include\label.h" />
-    <ClInclude Include="gui_include\list_box.h" />
-    <ClInclude Include="gui_include\my_resource.h" />
-    <ClInclude Include="gui_include\slide_group.h" />
-    <ClInclude Include="gui_include\spinbox.h" />
-    <ClInclude Include="gui_include\table.h" />
+    <ClInclude Include="widgets_include\button.h" />
+    <ClInclude Include="widgets_include\dialog.h" />
+    <ClInclude Include="widgets_include\edit.h" />
+    <ClInclude Include="widgets_include\gesture.h" />
+    <ClInclude Include="widgets_include\keyboard.h" />
+    <ClInclude Include="widgets_include\label.h" />
+    <ClInclude Include="widgets_include\list_box.h" />
+    <ClInclude Include="widgets_include\my_resource.h" />
+    <ClInclude Include="widgets_include\slide_group.h" />
+    <ClInclude Include="widgets_include\spinbox.h" />
+    <ClInclude Include="widgets_include\table.h" />
     <ClInclude Include="include\ctrl_id.h" />
     <ClInclude Include="include\define.h" />
     <ClInclude Include="include\msg_id.h" />
@@ -240,7 +240,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>core_include;gui_include;include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>core_include;widgets_include;include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -260,7 +260,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>core_include;gui_include;include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>core_include;widgets_include;include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -280,7 +280,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>core_include;gui_include;include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>core_include;widgets_include;include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -302,7 +302,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>core_include;gui_include;include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>core_include;widgets_include;include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

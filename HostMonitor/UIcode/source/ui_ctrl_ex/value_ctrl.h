@@ -2,7 +2,7 @@
 #define _VALUE_CTRL_H_
 
 #include "../core_include/resource.h"
-#include "../gui_include/my_resource.h"
+#include "../core_include/theme.h"
 
 typedef struct
 {

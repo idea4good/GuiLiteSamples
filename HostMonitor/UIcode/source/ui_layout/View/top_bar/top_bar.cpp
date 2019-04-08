@@ -2,9 +2,10 @@
 #include "../core_include/rect.h"
 #include "../core_include/cmd_target.h"
 #include "../core_include/wnd.h"
+#include "../core_include/surface.h"
 #include "../core_include/msg.h"
-#include "../gui_include/label.h"
 #include "../core_include/resource.h"
+#include "../widgets_include/label.h"
 #include "../include/msg_id.h"
 #include "../include/ctrl_id.h"
 #include "top_bar.h"
@@ -24,8 +25,8 @@ void c_top_bar::on_paint(void)
 {
 	c_rect rect;
 	get_screen_rect(rect);
-	fill_rect(rect.m_left, rect.m_top, rect.m_right, rect.m_bottom, m_bg_color);
-	draw_hline(rect.m_left,rect.m_right,rect.m_bottom,GL_RGB(74,74,74));
+	m_surface->fill_rect(rect.m_left, rect.m_top, rect.m_right, rect.m_bottom, m_bg_color, m_z_order);
+	m_surface->draw_hline(rect.m_left,rect.m_right,rect.m_bottom,GL_RGB(74,74,74), m_z_order);
 }
 
 void c_top_bar::on_refurbish_time(unsigned int wParam, unsigned int lParam)

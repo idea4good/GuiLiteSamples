@@ -11,4 +11,4 @@ endif()
 ADD_EXECUTABLE(HelloSlide
 			main.cpp
 			std_io.cpp)
-TARGET_LINK_LIBRARIES(HelloSlide UIcode gui core pthread dl)
+TARGET_LINK_LIBRARIES(HelloSlide UIcode GuiLite pthread dl)

@@ -11,4 +11,4 @@ endif()
 ADD_EXECUTABLE(HelloWave
 			main.cpp
 			std_io.cpp)
-TARGET_LINK_LIBRARIES(HelloWave UIcode gui core pthread dl)
+TARGET_LINK_LIBRARIES(HelloWave UIcode GuiLite pthread dl)

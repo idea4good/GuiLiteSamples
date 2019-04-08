@@ -2,7 +2,7 @@
 #include "../core_include/rect.h"
 #include "../core_include/cmd_target.h"
 #include "../core_include/wnd.h"
-#include "../gui_include/label.h"
+#include "../widgets_include/label.h"
 
 #include "../include/ctrl_id.h"
 #include "../include/msg_id.h"

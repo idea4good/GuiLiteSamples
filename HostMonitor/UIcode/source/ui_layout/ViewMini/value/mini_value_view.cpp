@@ -2,7 +2,7 @@
 #include "../core_include/rect.h"
 #include "../core_include/cmd_target.h"
 #include "../core_include/wnd.h"
-#include "../gui_include/label.h"
+#include "../widgets_include/label.h"
 
 #include "../include/ctrl_id.h"
 
@@ -29,9 +29,9 @@ void c_mini_value_view::on_init_children(void)
 	c_value_ctrl_manage::get_instance()->config_param_ctrl_att(VALUE_SPO2, pSpo2_value);
 	c_value_ctrl_manage::get_instance()->config_param_ctrl_att(VALUE_RESP, pResp_value);
 	
-	pHr_value->set_value_font_type(c_my_resource::get_font(FONT_CUSTOM2));
-	pSpo2_value->set_value_font_type(c_my_resource::get_font(FONT_CUSTOM2));
-	pResp_value->set_value_font_type(c_my_resource::get_font(FONT_CUSTOM2));
+	pHr_value->set_value_font_type(c_theme::get_font(FONT_CUSTOM2));
+	pSpo2_value->set_value_font_type(c_theme::get_font(FONT_CUSTOM2));
+	pResp_value->set_value_font_type(c_theme::get_font(FONT_CUSTOM2));
 
 	c_value_view::register_value_view(this);
 }

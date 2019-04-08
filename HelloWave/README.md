@@ -1,6 +1,6 @@
 ## How to build for Win MFC?
 ### Prerequisite:
-- core.lib gui.lib should be in BuildMFC\BuildMFC\libs\x86(x64), ⚠️rebuild them if meet link error.
+- GuiLite.lib should be in BuildMFC\BuildMFC\libs\x86(x64), ⚠️rebuild them if meet link error.
 ### Build
 1. Open "HelloWave\BuildMFC\HelloWave.sln" by Visual studio 2017
 2. Click `F5` to build/run `HelloWave`
@@ -53,8 +53,8 @@
 
 ### Q&A:
 1. Meet linking error(e.g: -fPIC, libxxx not found)
-- If x64: rebuild libcore.a libgui.a, and replace them in BuildLinux/libs
-- If ARM: rebuild libcore.a libgui.a, and replace them in BuildLinux/libs/arm
+- If x64: rebuild libGuiLite.a, and replace them in BuildLinux/libs
+- If ARM: rebuild libGuiLite.a, and replace them in BuildLinux/libs/arm
 2. How to run HelloWave on ARM Linux device?
 - Copy HelloWave you build on ARM Linux device
 - `sudo ./HelloWave /dev/fb0`&nbsp;&nbsp;&nbsp;&nbsp;/dev/fb0: The path of framebuffer

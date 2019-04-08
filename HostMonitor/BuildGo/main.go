@@ -1,6 +1,6 @@
 package main
 
-// #cgo LDFLAGS: -L./libs/amd64 -L./libs/arm -lUIcode -lcore -lgui -lpthread -ldl
+// #cgo LDFLAGS: -L./libs/amd64 -L./libs/arm -lUIcode -lGuiLite -lpthread -ldl
 // #include "main.h"
 import "C"
 import "os"

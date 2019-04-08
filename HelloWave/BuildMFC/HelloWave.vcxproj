@@ -97,7 +97,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <AdditionalDependencies>core.lib; gui.lib;</AdditionalDependencies>
+      <AdditionalDependencies>GuiLite.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>libs</AdditionalLibraryDirectories>
     </Link>
     <Midl>

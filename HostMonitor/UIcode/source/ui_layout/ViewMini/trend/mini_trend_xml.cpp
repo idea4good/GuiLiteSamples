@@ -2,7 +2,7 @@
 #include "../core_include/rect.h"
 #include "../core_include/cmd_target.h"
 #include "../core_include/wnd.h"
-#include "../gui_include/table.h"
+#include "../widgets_include/table.h"
 #include "../source/ui_ctrl_ex/trend_table.h"
 #include "../source/ui_ctrl_ex/trend_graph.h"
 #include "../source/ui_ctrl_ex/time_bar.h"

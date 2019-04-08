@@ -1,15 +1,15 @@
 ## How to build for WinForms - C#?
-### core.lib gui.lib should be in BuildWinforms\HostMonitorDll, rebuild them if meet link error.
+### GuiLite.lib should be in BuildWinforms\HostMonitorDll, rebuild them if meet link error.
 - Open "HostMonitor\BuildWinforms\BuildWinforms.sln" by Visual studio 2017
 - Build `sample`, `HostMonitor`, `BuildWinforms` in turn, then run BuildWinforms.
 
 ## How to build for Win MFC?
-### core.lib gui.lib should be in BuildMFC\BuildMFC\libs\x86(x64), rebuild them if meet link error.
+### GuiLite.lib should be in BuildMFC\BuildMFC\libs\x86(x64), rebuild them if meet link error.
 - Open "HostMonitor\BuildMFC\HostMonitor.sln" by Visual studio 2017
 - Click `F5` to build/run `HostMonitor`
 
 ## How to build for Win32?
-### core.lib gui.lib should be in BuildWin32\libs, rebuild them if meet link error.
+### GuiLite.lib should be in BuildWin32\libs, rebuild them if meet link error.
 - Open "HostMonitor\BuildWin32\HostMonitor.sln" by Visual studio 2017
 - Click `F5` to build/run `HostMonitor`, you will see UI in internet browser.
 
@@ -43,8 +43,8 @@
 
 ### Q&A:
 1. Meet linking error(e.g: -fPIC, libxxx not found)
-- If x64: rebuild libcore.a libgui.a, and replace them in BuildLinux/libs
-- If ARM: rebuild libcore.a libgui.a, and replace them in BuildLinux/libs/arm
+- If x64: rebuild libGuiLite.a, and replace them in BuildLinux/libs
+- If ARM: rebuild libGuiLite.a, and replace them in BuildLinux/libs/arm
 2. How to run HostMonitor on ARM Linux device?
 - Copy HostMonitor you build on ARM Linux device
 - `sudo ./HostMonitor /dev/fb0`&nbsp;&nbsp;&nbsp;&nbsp;/dev/fb0: The path of framebuffer
@@ -73,13 +73,13 @@
 - If ARM/Raspberry Pi: `sudo ./display-arm  1 1024 768 | ./HostMonitor shared-fb`
 
 ## How to build for iOS?
-#### libcore.a libgui.a libUIcode.a should be in \BuildIos\BuildIos\libs, rebuild them if meet link error.
+#### libGuiLite.a libUIcode.a should be in \BuildIos\BuildIos\libs, rebuild them if meet link error.
 - `cd HostMonitor\BuildIos`
 - Open `BuildIos.xcodeproj` with Xcode
 - Build & Run
 
 ## How to build for Mac?
-#### libcore.a libgui.a should be in BuildMacCmd\libs, rebuild them if meet link error.
+#### libGuiLite.a should be in BuildMacCmd\libs, rebuild them if meet link error.
 - `cd HostMonitor`
 - `cmake -D TARGET_OS="MAC" .`
 - `make`
@@ -89,7 +89,7 @@
 - `./HostMonitor 1 8`, you will see UI in internet browser(Safari).
 
 ### Run in UI mode
-#### libcore.a libgui.a libUIcode.a should be in BuildMacCocoa\GuiLiteDemo\libs, rebuild them if meet link error.
+#### libGuiLite.a libUIcode.a should be in BuildMacCocoa\GuiLiteDemo\libs, rebuild them if meet link error.
 - Open `BuildMacCocoa\GuiLiteDemo.xcodeproj` with Xcode
 - Build and Run
 

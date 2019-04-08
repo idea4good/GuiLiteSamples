@@ -8,10 +8,10 @@
 #include "core_include/word.h"
 #include "core_include/msg.h"
 #include "core_include/display.h"
-#include "gui_include/my_resource.h"
-#include "gui_include/button.h"
-#include "gui_include/slide_group.h"
-#include "gui_include/gesture.h"
+#include "core_include/theme.h"
+#include "widgets_include/button.h"
+#include "widgets_include/slide_group.h"
+#include "widgets_include/gesture.h"
 #include <stdlib.h>
 #include <string.h>
 
@@ -52,8 +52,8 @@ void c_myUI::on_clicked(unsigned int ctrl_id)
 
 	for (int i = 0; i < sizeof(s_frames)/sizeof(BITMAP_INFO); i++)
 	{
-		c_my_resource::add_bitmap(BITMAP_CUSTOM1, &s_frames[i]);
-		c_bitmap::draw_bitmap(m_surface, m_z_order, c_my_resource::get_bmp(BITMAP_CUSTOM1), rect.m_left, rect.m_top);
+		c_theme::add_bitmap(BITMAP_CUSTOM1, &s_frames[i]);
+		c_bitmap::draw_bitmap(m_surface, m_z_order, c_theme::get_bmp(BITMAP_CUSTOM1), rect.m_left, rect.m_top);
 		thread_sleep(60);
 	}
 }
@@ -62,8 +62,8 @@ void c_myUI::on_paint()
 {
 	c_rect rect;
 	get_screen_rect(rect);
-	c_my_resource::add_bitmap(BITMAP_CUSTOM1, &frame_00_bmp);
-	c_bitmap::draw_bitmap(m_surface, m_z_order, c_my_resource::get_bmp(BITMAP_CUSTOM1), rect.m_left, rect.m_top);
+	c_theme::add_bitmap(BITMAP_CUSTOM1, &frame_00_bmp);
+	c_bitmap::draw_bitmap(m_surface, m_z_order, c_theme::get_bmp(BITMAP_CUSTOM1), rect.m_left, rect.m_top);
 }
 
 //////////////////////// layout UI ////////////////////////
@@ -83,12 +83,12 @@ static c_display* s_display;
 void load_resource()
 {
 	//for button
-	c_my_resource::add_font(FONT_DEFAULT, &KaiTi_19);
-	c_my_resource::add_color(COLOR_WND_FONT, GL_RGB(255, 255, 255));
-	c_my_resource::add_color(COLOR_WND_NORMAL, GL_RGB(59, 75, 94));
-	c_my_resource::add_color(COLOR_WND_PUSHED, GL_RGB(33, 42, 53));
-	c_my_resource::add_color(COLOR_WND_FOCUS, GL_RGB(43, 118, 219));
-	c_my_resource::add_color(COLOR_WND_BORDER, GL_RGB(46, 59, 73));
+	c_theme::add_font(FONT_DEFAULT, &KaiTi_19);
+	c_theme::add_color(COLOR_WND_FONT, GL_RGB(255, 255, 255));
+	c_theme::add_color(COLOR_WND_NORMAL, GL_RGB(59, 75, 94));
+	c_theme::add_color(COLOR_WND_PUSHED, GL_RGB(33, 42, 53));
+	c_theme::add_color(COLOR_WND_FOCUS, GL_RGB(43, 118, 219));
+	c_theme::add_color(COLOR_WND_BORDER, GL_RGB(46, 59, 73));
 }
 
 void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes)

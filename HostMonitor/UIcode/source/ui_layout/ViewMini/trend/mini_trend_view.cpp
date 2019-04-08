@@ -2,8 +2,8 @@
 #include "../core_include/rect.h"
 #include "../core_include/cmd_target.h"
 #include "../core_include/wnd.h"
-#include "../gui_include/table.h"
-#include "../gui_include/my_resource.h"
+#include "../widgets_include/table.h"
+#include "../core_include/theme.h"
 #include "../include/ctrl_id.h"
 #include "../include/msg_id.h"
 #include "../source/data/database.h"
@@ -49,7 +49,7 @@ void c_trend_view_mini::on_update_trend_view(unsigned int wParam, unsigned int l
 	{
 		x_axis_marks[(H_AXIS_MARK_CNT - 1) - i] = (time - (i * H_AXIS_MARK_INTERVAL));
 	}
-	p_vitals_trend_graph->set_h_axis_atrrs(c_my_resource::get_font(FONT_DEFAULT), x_axis_marks, H_AXIS_MARK_CNT);
+	p_vitals_trend_graph->set_h_axis_atrrs(c_theme::get_font(FONT_DEFAULT), x_axis_marks, H_AXIS_MARK_CNT);
 	p_vitals_trend_graph->draw_h_axis();
 
 	//update data

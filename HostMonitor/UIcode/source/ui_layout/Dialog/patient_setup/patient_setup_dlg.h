@@ -7,7 +7,6 @@ protected:
     void patient_dlg_crtl_init(void);
     virtual c_wnd* clone(){return new c_patient_setup_dlg();}
 	virtual void on_paint(void);
-	virtual void on_init_children(void);
 
 	void on_spinbox_confirm(unsigned int ctrl_id);
 	GL_DECLARE_MESSAGE_MAP()

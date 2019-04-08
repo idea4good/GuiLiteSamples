@@ -67,7 +67,7 @@ void c_value_ctrl::on_paint(void)
 {
 	c_rect rect;
 	get_screen_rect(rect);
-	fill_rect(rect.m_left,rect.m_top,rect.m_right,rect.m_bottom,m_bg_color);
+	m_surface->fill_rect(rect, m_bg_color, m_z_order);
 
 	int width, height;
 	width = rect.m_right - rect.m_left;

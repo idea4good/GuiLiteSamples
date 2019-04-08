@@ -5,9 +5,9 @@
 #include "../core_include/surface.h"
 #include "../core_include/resource.h"
 #include "../core_include/word.h"
-#include "../gui_include/my_resource.h"
+#include "../core_include/theme.h"
 #include "../include/ctrl_id.h"
-#include "../gui_include/table.h"
+#include "../widgets_include/table.h"
 #include <stdio.h>
 #include "trend_table.h"
 
@@ -17,7 +17,7 @@ void c_trend_table::on_init_children(void)
 	m_bg_color = GL_RGB(80, 87, 104);
 
 	m_align_type = ALIGN_LEFT | ALIGN_VCENTER;
-	m_font_type = c_my_resource::get_font(FONT_DEFAULT);
+	m_font_type = c_theme::get_font(FONT_DEFAULT);
 
 	set_col_num(9);
 	set_row_num(9);

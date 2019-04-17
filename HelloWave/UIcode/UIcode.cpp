@@ -186,7 +186,7 @@ extern "C" void startHelloWave(void* phy_fb, int width, int height, int color_by
 
 void sendTouch2HelloWave(int x, int y, bool is_down)
 {
-	is_down ? s_myUI.on_touch_down(x, y) : s_myUI.on_touch_up(x,y);
+	is_down ? s_myUI.on_touch(x, y, TOUCH_DOWN) : s_myUI.on_touch(x, y, TOUCH_UP);
 }
 
 int captureUiOfHelloWave()

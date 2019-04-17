@@ -89,3 +89,7 @@ EventRecorderStub.scvd
 /HelloMario/BuildLinux/HelloMario
 /HelloMario/BuildMFC/HelloMario.aps
 /HelloMario/UIcode/libUIcode.a
+
+/HelloNavigation/BuildLinux/HelloNavigation
+/HelloNavigation/BuildMFC/HelloNavigation.aps
+/HelloNavigation/UIcode/libUIcode.a

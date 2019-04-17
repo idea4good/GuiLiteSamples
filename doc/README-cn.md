@@ -12,7 +12,7 @@
 - Hello Particle 仅有[100-行代码](../HelloParticle/UIcode/UIcode.cpp)，用于向开发者展示：如何使用GuiLite进行粒子效果的开发。
 - Hello Wave 仅有[100+行代码](../HelloWave/UIcode/UIcode.cpp)，用于向开发者展示：如何使用GuiLite进行波形开发。
 - Hello Navigation 仅有[100+行代码](../HelloNavigation/UIcode/UIcode.cpp)，用于向开发者展示：如何在非触摸屏场景下，使用硬按键进行：“移动焦点”和“点击”操作。
-- [移植方法 -- 适用于任意单片机平台？](HelloWave/README.md#How-to-port-on-any-MCU-)
+- [移植方法 -- 适用于任意单片机平台？](../HelloWave/README.md#How-to-port-on-any-MCU-)
 - 该实例亦可支持Windows和Linux平台
 
 ## Hello Animation

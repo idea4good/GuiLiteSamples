@@ -1,7 +1,7 @@
 # GuiLite Samples - It's you make UI beautiful, not UI framework!
 [中文](doc/README-cn.md)
 
-- GuiLite samples contain 8 cross-platform projects. They all based on [GuiLite](https://github.com/idea4good/GuiLite). They could show you how to use GuiLite's interface, and how GuiLite works on iOS, Android, GNU/Linux, Windows and macOS platform.
+- GuiLite samples contain 9 cross-platform projects. They all based on [GuiLite](https://github.com/idea4good/GuiLite). They could show you how to use GuiLite's interface, and how GuiLite works on iOS, Android, GNU/Linux, Windows and macOS platform.
 - GuiLite samples could pass compiling in 100%, could run on all kinds of PC, phones, MCU and embedded(IoT) devices.
 - GuiLite samples could run in **Docker container** with single command below:
   - `sudo docker run -it --privileged -v /dev:/dev-share idea4good/gui-lite:latest bash /run.sh`
@@ -13,7 +13,7 @@
 - Hello Mario has [100+ lines code](HelloMario/UIcode/UIcode.cpp), showing you how to develop a multi-layer UI system.
 - Hello Particle has [100- lines code](HelloParticle/UIcode/UIcode.cpp), showing you how to develop a particle system.
 - Hello Wave has [100+ lines code](HelloWave/UIcode/UIcode.cpp), showing you how to use wave widget.
-- Hello Navigation has only [100+ lines code](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloNavigation/UIcode/UIcode.cpp), showing you how to navigate/click widgets by hard button in non-touch GUI scenario.
+- Hello Navigation has only [100+ lines code](HelloNavigation/UIcode/UIcode.cpp), showing you how to navigate/click widgets by hard button in non-touch GUI scenario.
 - [How to porting for any MCU?](HelloWave/README.md#How-to-port-on-any-MCU-)
 - Also support: Windows / Linux
 

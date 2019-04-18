@@ -16,7 +16,7 @@
 3. Build HelloNavigation.
 4. Connect your hardware with your host PC, and flash/run HEX file on it.
 
-## How to port on any MCU?
+## How to port on any type of MCU?
 ### Prerequisite:
 - You have Keil/IAR project which can enable LCD
 - Your project should implement function `void delay_ms(unsigned short nms)`, which would be used by core/src/adapter/api_none.cpp::thread_sleep

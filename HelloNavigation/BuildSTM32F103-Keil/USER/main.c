@@ -35,8 +35,12 @@ int main(void)
 	my_gfx_op.fill_rect = NULL;//gfx_fill_rect;
 	startHelloNavigation(NULL, 240, 320, 2, &my_gfx_op);
 	
-	sendKey2HelloNavigation(0);//Forward focus
-	sendKey2HelloNavigation(2);//Click
-	sendKey2HelloNavigation(1);//Backward focus
-	while(1);
+	while(1)
+	{
+		//sendKey2HelloNavigation(1);//Backward focus
+		sendKey2HelloNavigation(0);//Forward focus
+		delay_ms(1000);
+		sendKey2HelloNavigation(2);//Click
+		delay_ms(1000);
+	}
 }

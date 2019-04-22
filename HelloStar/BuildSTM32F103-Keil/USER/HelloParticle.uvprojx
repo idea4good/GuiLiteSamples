@@ -502,11 +502,6 @@
               <FileType>8</FileType>
               <FilePath>..\..\UIcode\UIcode.cpp</FilePath>
             </File>
-            <File>
-              <FileName>Microsoft_YaHei_28.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\..\UIcode\resource\Microsoft_YaHei_28.cpp</FilePath>
-            </File>
           </Files>
         </Group>
       </Groups>

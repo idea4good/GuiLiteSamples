@@ -6,14 +6,15 @@
 - GuiLite samples could run in **Docker container** with single command below:
   - `sudo docker run -it --privileged -v /dev:/dev-share idea4good/gui-lite:latest bash /run.sh`
 
-## MCU demos: Hello Mario + Hello Particle + Hello Wave + Hello Navigation
-![HelloMario](doc/HelloMario.gif)&nbsp;&nbsp;![HelloParticle](doc/HelloParticle.gif)&nbsp;&nbsp;![HelloWave](doc/HelloWave.gif)&nbsp;&nbsp;![HelloNavigation](doc/HelloNavigation.gif)
+## MCU demos: Hello Star + Hello Particle + Hello Wave + Hello Navigation + Hello Mario
+![HelloStar](doc/HelloStar.gif)&nbsp;&nbsp;![HelloParticle](doc/HelloParticle.gif)&nbsp;&nbsp;![HelloWave](doc/HelloWave.gif)&nbsp;&nbsp;![HelloNavigation](doc/HelloNavigation.gif)&nbsp;&nbsp;![HelloMario](doc/HelloMario.gif)
 - MCU Hardware: STM32F103ZET6(512K ROM, 64K RAM) + 240*320 16bits color TFT LCD
 - MCU Software: No OS, Only GuiLite
-- Hello Mario has [100+ lines code](HelloMario/UIcode/UIcode.cpp), showing you how to develop a multi-layer UI system.
-- Hello Particle has [100- lines code](HelloParticle/UIcode/UIcode.cpp), showing you how to develop a particle system.
+- Hello Star has [100+ lines code](HelloStar/UIcode/UIcode.cpp), showing you how to develop a star field effect.
+- Hello Particle has [100- lines code](HelloParticle/UIcode/UIcode.cpp), showing you how to develop a particle effect.
 - Hello Wave has [100+ lines code](HelloWave/UIcode/UIcode.cpp), showing you how to use wave widget.
 - Hello Navigation has only [100+ lines code](HelloNavigation/UIcode/UIcode.cpp), showing you how to navigate/click widgets by hard button in non-touch GUI scenario.
+- Hello Mario has [100+ lines code](HelloMario/UIcode/UIcode.cpp), showing you how to develop a multi-layer UI system.
 - [How to porting for any MCU?](HelloWave/README.md#How-to-port-on-any-MCU-)
 - Also support: Windows / Linux
 

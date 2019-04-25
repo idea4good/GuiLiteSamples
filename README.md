@@ -1,4 +1,4 @@
-# GuiLite Samples - It's you make UI beautiful, not UI framework!
+# GuiLite Samples - Crack GuiLite with live demo
 [中文](doc/README-cn.md)
 
 - GuiLite samples contain 9 cross-platform projects. They all based on [GuiLite](https://github.com/idea4good/GuiLite). They could show you how to use GuiLite's interface, and how GuiLite works on iOS, Android, GNU/Linux, Windows and macOS platform.

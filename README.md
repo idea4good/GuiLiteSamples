@@ -64,7 +64,7 @@ Host Monitor has 2,000 lines of code related to UI, showing you how to make UI l
 - HostMonitor\BuildUWP: **CX code, for UWP(include Mixed/Virtual Reality)**
 - HostMonitor\BuildMacCmd: **Swift code, for Mac command mode**
 - HostMonitor\BuildMacCocoa: **Swift code, for Mac APP with UI**
-- HostMonitor\BuildGo: **Golang & C++, for Linux**
+- HostMonitor\BuildGo: **Golang + C++, for Linux**
 
 [Build "host monitor"](HostMonitor/README.md)
 

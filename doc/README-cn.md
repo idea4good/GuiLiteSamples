@@ -1,4 +1,4 @@
-# GuiLite Samples - 是你造就了漂亮的界面，而不是UI框架
+# GuiLite Samples - 用“百行Demo”，剖析GuiLite的设计/使用方法
 - GuiLite samples包括10个跨平台项目，他们都是基于[GuiLite](https://github.com/idea4good/GuiLite)编写的实际应用，用来说明GuiLite的接口使用方法，并让你的程序同时运行在：iOS，Android，Linux，Windows，Mac平台上。
 - GuiLite samples编译成功率100%，可以运行在市面所有的：PC，手机，单片机及各种嵌入式（IoT）设备上。
 - GuiLite samples可运行在**Docker容器**里面，具体命令如下:
@@ -62,7 +62,7 @@ HostMonitor有2千行UI代码, 用来布局UI和自定义控件
 - HostMonitor\BuildUWP: **CX 语言, 用于通用Windows平台(包括：虚拟/混合现实)**
 - HostMonitor\BuildMacCmd: **Swift语言, 用于Mac命令行模式**
 - HostMonitor\BuildMacCocoa: **Swift语言, 用于Mac图形应用**
-- HostMonitor\BuildGo: **Go语言 & C++, 用于Linux平台**
+- HostMonitor\BuildGo: **Go语言 + C++, 用于Linux平台**
 
 [编译"host monitor"](HostMonitor/README.md)
 
@@ -80,6 +80,6 @@ HostMonitor有2千行UI代码, 用来布局UI和自定义控件
 [国内码云链接](https://gitee.com/idea4good/GuiLiteSamples)
 
 ## 致谢
-感谢开发者群的所有同学，是你们塑造了今天的GuiLite！也欢迎你加入我们。
+感谢开发者群的所有同学，是你们塑造了今天的GuiLite！也欢迎新的大神/小白加入我们。
 
 ![QQ group: 841031761](qq.group.jpg)

@@ -1,6 +1,7 @@
 # GuiLite Samples - Crack GuiLite with live demo
-[中文](doc/README-cn.md)
+![badge_build](https://img.shields.io/badge/build-passing-brightgreen.svg) ![badge_docker](https://img.shields.io/badge/docker%20build-passing-brightgreen.svg) ![badge_platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS%20%7C%20iOS%20%7C%20Android%20%7C%20MCU-brightgreen.svg) ![badge_lincense](https://img.shields.io/badge/license-Apache%202-blue.svg) ![badge_lincense](https://img.shields.io/badge/architecture-amd64%20%7C%20arm%20%7C%20arm64-blue.svg) 
 
+[中文](doc/README-cn.md)
 - GuiLite samples contain 10 cross-platform projects. They all based on [GuiLite](https://github.com/idea4good/GuiLite). They could show you how to use GuiLite's interface, and how GuiLite works on iOS, Android, GNU/Linux, Windows and macOS platform.
 - GuiLite samples could pass compiling in 100%, could run on all kinds of PC, phones, MCU and embedded(IoT) devices.
 - GuiLite samples could run in **Docker container** with single command below:
@@ -82,6 +83,4 @@ Looks complex? Trust me that you can do everything we did because we are the sam
 [Gitee in China](https://gitee.com/idea4good/GuiLiteSamples)
 
 ## Thanks
-Thanks the help from QQ group, you guys make GuiLite better! And we welcome you to join us.
-
-![QQ group: 841031761](doc/qq.group.jpg)
+Thanks the help from QQ group, you guys make GuiLite better! And welcome to join us.<br>[<img src="doc/qq.group.jpg">](https://jq.qq.com/?_wv=1027&k=5EO8D9i)

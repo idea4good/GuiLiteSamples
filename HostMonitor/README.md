@@ -50,7 +50,7 @@
 - `sudo ./HostMonitor /dev/fb0`&nbsp;&nbsp;&nbsp;&nbsp;/dev/fb0: The path of framebuffer
 3. Could not display UI on Ubuntu
 - Update Ubuntu to 18.04, and run again
-- Enter pure command line mode, and run again
+- Enter pure command line mode(Ctrl + Alt + F1), and run again
 
 ## How to build with GoLang?
 1. Build UIcode:

@@ -59,5 +59,5 @@
 - Copy HelloNavigation you build on ARM Linux device
 - `sudo ./HelloNavigation /dev/fb0`&nbsp;&nbsp;&nbsp;&nbsp;/dev/fb0: The path of framebuffer
 3. Could not display UI on Ubuntu
+- Enter pure command line mode(Ctrl + Alt + F1), and run again
 - Update Ubuntu to 18.04, and run again
-- Enter pure command line mode, and run again

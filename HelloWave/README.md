@@ -26,7 +26,7 @@
 2. Import all cpp files from `UIcode` in your project.
 3. Encapsulate draw piexel driver in `main.c`
 4. Link your LCD driver with GuiLite, and call UI entry function(e.g, startHelloWave)
-5. Build & Run ⚠️rebuild `GuiLite.lib` if meet Linking error.
+5. Build & Run ⚠️[rebuild `GuiLite.lib`](https://github.com/idea4good/GuiLite/blob/master/doc/HowToBuild.md) if meet Linking error, or your MCU do not compatible with STM32F103
 
 ## How to build for Linux(x64/ARM/Raspberry Pi)?
 ### Install cross compiler:

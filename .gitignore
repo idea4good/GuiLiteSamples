@@ -90,6 +90,10 @@ EventRecorderStub.scvd
 /HelloMario/BuildMFC/HelloMario.aps
 /HelloMario/UIcode/libUIcode.a
 
-/HelloNavigation/BuildLinux/HelloNavigation
-/HelloNavigation/BuildMFC/HelloNavigation.aps
-/HelloNavigation/UIcode/libUIcode.a
+/HelloNoTouch/BuildLinux/HelloNoTouch
+/HelloNoTouch/BuildMFC/HelloNoTouch.aps
+/HelloNoTouch/UIcode/libUIcode.a
+
+/HelloWidgetsHelloWidgets/BuildLinux/HelloWidgets
+/HelloWidgets/BuildMFC/HelloWidgets.aps
+/HelloWidgets/UIcode/libUIcode.a

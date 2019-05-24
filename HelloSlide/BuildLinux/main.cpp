@@ -5,7 +5,6 @@
 #include <sys/ioctl.h>
 #include <sys/shm.h>
 #include <unistd.h>
-#include <execinfo.h>
 #include <sys/mman.h>
 #include <linux/fb.h>
 #include <errno.h>

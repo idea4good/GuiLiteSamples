@@ -18,7 +18,7 @@ void c_value_view::refresh_value(bool flash_or_not, unsigned int flash_color)
 	unsigned int value_id;
 	while(p_child)
 	{
-		if (0 == strcmp(p_child->get_class_name(),"c_value_ctrl"))
+		if ((p_child->get_style() & GL_ATTR_VALUE) == GL_ATTR_VALUE)
 		{
 			value_id = ((c_value_ctrl*)p_child)->get_value_id();
 			p_real_data_mag->get_value(value_id, value);

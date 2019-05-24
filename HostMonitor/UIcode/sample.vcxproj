@@ -103,10 +103,6 @@
     <ClCompile Include="source\manager\wave_manager.cpp" />
     <ClCompile Include="source\modules\demo_module.cpp" />
     <ClCompile Include="source\modules\module_group.cpp" />
-    <ClCompile Include="source\resource\bitmap\spin_down_button_focus.cpp" />
-    <ClCompile Include="source\resource\bitmap\spin_down_button_normal.cpp" />
-    <ClCompile Include="source\resource\bitmap\spin_up_button_focus.cpp" />
-    <ClCompile Include="source\resource\bitmap\spin_up_button_normal.cpp" />
     <ClCompile Include="source\resource\bitmap\wave_background_1_bmp.cpp" />
     <ClCompile Include="source\resource\bitmap\wave_background_2_bmp.cpp" />
     <ClCompile Include="source\resource\font\Arial_16B.cpp" />

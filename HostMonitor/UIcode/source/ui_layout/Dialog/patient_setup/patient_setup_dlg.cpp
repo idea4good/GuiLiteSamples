@@ -17,10 +17,6 @@
 #include <string.h>
 #include "patient_setup_dlg.h"
 
-GL_BEGIN_MESSAGE_MAP(c_patient_setup_dlg)
-ON_SPIN_CONFIRM(ID_SETUP_DLG_SB_BIRTHDAY_DAY, c_patient_setup_dlg::on_spinbox_confirm)
-GL_END_MESSAGE_MAP()
-
 void c_patient_setup_dlg::on_paint()
 {
 	c_dialog::on_paint();
@@ -87,27 +83,22 @@ void c_patient_setup_dlg::patient_dlg_crtl_init(void)
 	psbox_day->set_value(1);
 
 	c_edit *pEdit = (c_edit*)get_wnd_ptr(ID_SETUP_DLG_EDIT_FIRST_NAME);
-    pEdit->modify_style(KEY_BOARD_STYLE);
+    pEdit->set_style(pEdit->get_style() | KEY_BOARD_STYLE);
     pEdit->set_text("Gui");
 
 	pEdit = (c_edit*)get_wnd_ptr(ID_SETUP_DLG_EDIT_SECOND_NAME);
-	pEdit->modify_style(KEY_BOARD_STYLE);
+	pEdit->set_style(pEdit->get_style() | KEY_BOARD_STYLE);
 	pEdit->set_text("Lite");
 
 	pEdit = (c_edit*)get_wnd_ptr(ID_SETUP_DLG_EDIT_CASE);
-	pEdit->modify_style(KEY_BOARD_STYLE);
+	pEdit->set_style(pEdit->get_style() | KEY_BOARD_STYLE);
     pEdit->set_text("001");
 
     pEdit = (c_edit*)get_wnd_ptr(ID_SETUP_DLG_EDIT_HEIGHT);
-	pEdit->modify_style(NUM_BOARD_STYLE, KEY_BOARD_STYLE);
+	pEdit->set_style((pEdit->get_style() | NUM_BOARD_STYLE) & (~KEY_BOARD_STYLE));
 	pEdit->set_text("120");
 
 	pEdit = (c_edit*)get_wnd_ptr(ID_SETUP_DLG_EDIT_WEIGHT);
-	pEdit->modify_style(NUM_BOARD_STYLE, KEY_BOARD_STYLE);
+	pEdit->set_style((pEdit->get_style() | NUM_BOARD_STYLE) & (~KEY_BOARD_STYLE));
 	pEdit->set_text("150");
-}
-
-void c_patient_setup_dlg::on_spinbox_confirm(unsigned int ctrl_id)
-{//Do your bussiness here.
-
 }

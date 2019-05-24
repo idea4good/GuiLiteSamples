@@ -42,10 +42,6 @@ void load_theme(int index)
 		c_theme::add_font(FONT_CUSTOM2, &Arial_56B);
 		c_theme::add_font(FONT_CUSTOM3, &Arial_62B);
 		//icon
-		c_theme::add_bitmap(BITMAP_UP_ARROW1, &bmspin_up_button_normal);
-		c_theme::add_bitmap(BITMAP_UP_ARROW2, &bmspin_up_button_focus);
-		c_theme::add_bitmap(BITMAP_DOWN_ARROW1, &bmspin_down_button_normal);
-		c_theme::add_bitmap(BITMAP_DOWN_ARROW2, &bmspin_down_button_focus);
 		c_theme::add_bitmap(BITMAP_CUSTOM1, &wave_background_1_bmp);
 		c_theme::add_bitmap(BITMAP_CUSTOM2, &wave_background_2_bmp);
 		//color
@@ -66,10 +62,6 @@ void load_theme(int index)
 		c_theme::add_font(FONT_CUSTOM2, &Arial_56B);
 		c_theme::add_font(FONT_CUSTOM3, &Arial_62B);
 		//icon
-		c_theme::add_bitmap(BITMAP_UP_ARROW1, &bmspin_up_button_normal);
-		c_theme::add_bitmap(BITMAP_UP_ARROW2, &bmspin_up_button_focus);
-		c_theme::add_bitmap(BITMAP_DOWN_ARROW1, &bmspin_down_button_normal);
-		c_theme::add_bitmap(BITMAP_DOWN_ARROW2, &bmspin_down_button_focus);
 		//color
 		
 		break;

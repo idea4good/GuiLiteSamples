@@ -281,18 +281,6 @@
     <ClCompile Include="source\modules\demo_module.cpp">
       <Filter>source\modules</Filter>
     </ClCompile>
-    <ClCompile Include="source\resource\bitmap\spin_down_button_focus.cpp">
-      <Filter>source\resource\bitmap</Filter>
-    </ClCompile>
-    <ClCompile Include="source\resource\bitmap\spin_down_button_normal.cpp">
-      <Filter>source\resource\bitmap</Filter>
-    </ClCompile>
-    <ClCompile Include="source\resource\bitmap\spin_up_button_focus.cpp">
-      <Filter>source\resource\bitmap</Filter>
-    </ClCompile>
-    <ClCompile Include="source\resource\bitmap\spin_up_button_normal.cpp">
-      <Filter>source\resource\bitmap</Filter>
-    </ClCompile>
     <ClCompile Include="source\ui_ctrl_ex\trend_graph.cpp">
       <Filter>source\ui_ctrl_ex</Filter>
     </ClCompile>

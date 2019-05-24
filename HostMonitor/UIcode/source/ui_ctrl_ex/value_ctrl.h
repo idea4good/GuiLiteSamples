@@ -4,6 +4,8 @@
 #include "../core_include/resource.h"
 #include "../core_include/theme.h"
 
+#define GL_ATTR_VALUE	0x00000001L
+
 typedef struct
 {
 	char*			name;
@@ -26,7 +28,6 @@ public:
 	c_value_ctrl();
 	virtual c_wnd* clone(){return new c_value_ctrl();}
 	virtual void pre_create_wnd();
-	virtual const char* get_class_name(void) const {return "c_value_ctrl";}
 	void set_name(char* str){m_name_str = str;}
 	void set_unit_str(char* str){m_unit_str = str;}
 	void set_value_id(unsigned int value_id) { m_value_id = value_id; }

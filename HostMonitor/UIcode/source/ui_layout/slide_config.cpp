@@ -33,10 +33,10 @@ void c_config_root::on_clicked(unsigned int ctrl_id)
 	switch(ctrl_id)
 	{
 	case 5:
-		c_dialog::open_dialog((c_dialog*)get_wnd_ptr(IDD_SETUP_DLG));
+		c_dialog::open_dialog((c_dialog*)get_wnd_ptr(IDD_SETUP_DLG), false);
 		break;
 	case 7:
-		c_dialog::open_dialog((c_dialog*)get_wnd_ptr(IDD_ABOUT_DLG));
+		c_dialog::open_dialog((c_dialog*)get_wnd_ptr(IDD_ABOUT_DLG), false);
 		break;
 	default:
 		ASSERT(FALSE);
@@ -68,8 +68,6 @@ static WND_TREE s_config_children[]=
 	{&s_about,				IDD_ABOUT_DLG, "About",				0,	DIALOG_Y,	PAGE_WIDTH, DIALOG_HEIGHT, g_about_children},
 	{NULL,0,0,0,0,0,0}
 };
-
-
 
 void create_page_config(c_slide_group* group)
 {

@@ -4,6 +4,7 @@ build
 .gradle
 .DS_Store
 /HostMonitor/BuildAndroid/local.properties
+/HostMonitor/BuildAndroid/.idea/gradle.xml
 /HostMonitor/BuildAndroid/.idea/workspace.xml
 /HostMonitor/BuildAndroid/.idea/libraries
 /HostMonitor/BuildAndroid/.idea/caches

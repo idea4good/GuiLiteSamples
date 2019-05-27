@@ -4,7 +4,7 @@
 
 extern int startHostMonitor(int main_cnt, int main_width, int main_height, int sub_cnt, int sub_width, int sub_height, int color_bytes);
 extern int sendTouch2HostMonitor(void* buf, int len, int display_id);
-extern void* getUiOfHostMonitor(int display_id, int* width, int* height);
+extern void* getUiOfHostMonitor(int display_id, int* width, int* height, bool force_update);
 extern void on_receive_data(void* data, int length);
 
 extern void InitJavaEnv(JNIEnv* env, jobject obj);
@@ -40,7 +40,7 @@ extern "C" JNIEXPORT jint  JNICALL Java_gui_1lite_1sample_ThreadNative_GetBitmap
 {
 	int width, height;
 	width = height = -1;
-	getUiOfHostMonitor(display_id, &width, &height);
+	getUiOfHostMonitor(display_id, &width, &height, false);
 	return width;
 }
 
@@ -48,7 +48,7 @@ extern "C" JNIEXPORT jint  JNICALL Java_gui_1lite_1sample_ThreadNative_GetBitmap
 {
 	int width, height;
 	width = height = -1;
-	getUiOfHostMonitor(display_id, &width, &height);	
+	getUiOfHostMonitor(display_id, &width, &height, false);	
 	return height;
 }
 
@@ -65,7 +65,7 @@ extern "C" JNIEXPORT jint  JNICALL Java_gui_1lite_1sample_ThreadNative_UpdateBit
 	if (AndroidBitmap_lockPixels(env, bitmap, &pixelscolor) < 0) {
 		return -2;
 	}
-	void* src = getUiOfHostMonitor(display_id, NULL, NULL);
+	void* src = getUiOfHostMonitor(display_id, NULL, NULL, false);
 	if(src)
 	{
 		memcpy(pixelscolor, src, width * height * 2);

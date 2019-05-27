@@ -78,9 +78,9 @@ public class ThreadNative extends Thread {
             os.flush();
             os.close();
 
-            Log.e("JSON", raw_data.toString());
-            Log.e("STATUS", String.valueOf(conn.getResponseCode()));
-            Log.e("MSG" , conn.getResponseMessage());
+            Log.d("JSON", raw_data.toString());
+            Log.d("STATUS", String.valueOf(conn.getResponseCode()));
+            Log.d("MSG" , conn.getResponseMessage());
 
             conn.disconnect();
         }catch (Exception e){
@@ -100,7 +100,7 @@ public class ThreadNative extends Thread {
     static private final int OUTMSG_LBUTTONUP = 0x4600;
     static private final int OUTMSG_LBUTTONDOWN = 0x4700;
     static private final int MAX_MAIN_DISPLAY = 1;
-    static private final int MAX_SUB_DISPLAY = 9;
+    static private final int MAX_SUB_DISPLAY = 8;
 
     static {
         System.loadLibrary("native");

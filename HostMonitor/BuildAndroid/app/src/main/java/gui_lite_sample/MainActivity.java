@@ -155,14 +155,14 @@ public class MainActivity extends AppCompatActivity {
         sourceDialog.setCancelable(true);
         sourceDialog.show();
 
-        webView = (android.webkit.WebView)sourceDialog.findViewById(R.id.wb_webview);
+        webView = sourceDialog.findViewById(R.id.wb_webview);
         webView.setScrollbarFadingEnabled(false);
         webView.setHorizontalScrollBarEnabled(false);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl("https://github.com/idea4good/GuiLiteSamples/blob/master/doc/README-cn.md");
 
 
-        buttonVideo = (Button) sourceDialog.findViewById(R.id.bt_watchVideo);
+        buttonVideo = sourceDialog.findViewById(R.id.bt_watchVideo);
         buttonVideo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

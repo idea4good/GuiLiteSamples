@@ -22,27 +22,27 @@
 ## Hello Widgets
 ![HelloWidgets](doc/HelloWidgets.gif)
 
-Hello Widgets has only [100+ lines code](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloWidgets/UIcode/UIcode.cpp) for beginner, showing you how to develop GUI with GuiLite widgets. You can run it on Windows and Linux.
+Hello Widgets has only [100+ lines code](HelloWidgets/UIcode/UIcode.cpp) for beginner, showing you how to develop GUI with GuiLite widgets. You can run it on Windows and Linux.
 
 ## Hello Animation
 ![HelloAnimation](doc/HelloAnimation.gif)
 
-Hello Animation has only [100+ lines code](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloAnimation/UIcode/UIcode.cpp) for beginner, showing you how to making animation. You can run it on Windows and Linux.
+Hello Animation has only [100+ lines code](HelloAnimation/UIcode/UIcode.cpp) for beginner, showing you how to making animation. You can run it on Windows and Linux.
 
 ## Hello Slide
 ![HelloSlide](doc/HelloSlide.gif)
 
-Hello Slide has only [100+ lines code](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloSlide/UIcode/UIcode.cpp). It shows beginner how to make sliding UI. You can run it on Windows and Linux.
+Hello Slide has only [100+ lines code](HelloSlide/UIcode/UIcode.cpp). It shows beginner how to make sliding UI. You can run it on Windows and Linux.
 
 ## Hello Font
 ![HelloFont](doc/HelloFont.gif)
 
-Hello Font has only [100+ lines code](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloFont/UIcode/UIcode.cpp) .It shows beginner how to use multi-language feature(UTF-8). You can run it on Windows and Linux.
+Hello Font has only [100+ lines code](HelloFont/UIcode/UIcode.cpp) .It shows beginner how to use multi-language feature(UTF-8). You can run it on Windows and Linux.
 
 ## Hello GuiLite
 ![HelloGuiLite](doc/HelloGuiLite.gif)
 
-Hello GuiLite has only [100+ lines code](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloGuiLite/UIcode/helloGL.cpp). It shows beginner how to initialize GuiLite, layout UI widgets, and map messages. You can run it on Windows and Linux.
+Hello GuiLite has only [100+ lines code](HelloGuiLite/UIcode/helloGL.cpp). It shows beginner how to initialize GuiLite, layout UI widgets, and map messages. You can run it on Windows and Linux.
 
 ## Host Monitor
 On Mac & iOS:
@@ -66,7 +66,7 @@ Host Monitor has 2,000 lines of code related to UI, showing you how to make UI l
 - HostMonitor\BuildAndroid: **Java code, for Android**
 - HostMonitor\BuildIOS: **Swift code, for iOS**
 - HostMonitor\BuildLinux: **C code, for Linux**
-- HostMonitor\BuildWin32: **C code, for Windows command mode**
+- HostMonitor\BuildWin32: **C code, for Windows**
 - HostMonitor\BuildUWP: **CX code, for UWP(include Mixed/Virtual Reality)**
 - HostMonitor\BuildMacCmd: **Swift code, for Mac command mode**
 - HostMonitor\BuildMacCocoa: **Swift code, for Mac APP with UI**

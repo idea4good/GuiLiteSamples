@@ -20,27 +20,27 @@
 ## Hello Widgets
 ![HelloWidgets](doc/HelloWidgets.gif)
 
-Hello Widgets 仅有[100多行代码](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloWidgets/UIcode/UIcode.cpp)，用于向初学者展示：如何使用GuiLite自带的控件。
+Hello Widgets 仅有[100多行代码](HelloWidgets/UIcode/UIcode.cpp)，用于向初学者展示：如何使用GuiLite自带的控件。
 
 ## Hello Animation
 ![HelloAnimation](doc/HelloAnimation.gif)
 
-Hello Animation 仅有[100多行代码](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloAnimation/UIcode/UIcode.cpp)，用于向初学者展示：如何制作动画。该实例可支持Windows和Linux平台。
+Hello Animation 仅有[100多行代码](HelloAnimation/UIcode/UIcode.cpp)，用于向初学者展示：如何制作动画。该实例可支持Windows和Linux平台。
 
 ## Hello Slide
 ![HelloSlide](doc/HelloSlide.gif)
 
-Hello Slide 仅有[100多行代码](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloSlide/UIcode/UIcode.cpp)，用于向初学者展示：如何制作滑屏界面。该实例可支持Windows和Linux平台。
+Hello Slide 仅有[100多行代码](HelloSlide/UIcode/UIcode.cpp)，用于向初学者展示：如何制作滑屏界面。该实例可支持Windows和Linux平台。
 
 ## Hello Font
 ![HelloFont](doc/HelloFont.gif)
 
-Hello Font 仅有[100多行代码](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloFont/UIcode/UIcode.cpp)，用于向初学者展示：如何基于UTF-8，实现多语言。该实例可支持Windows和Linux平台。
+Hello Font 仅有[100多行代码](HelloFont/UIcode/UIcode.cpp)，用于向初学者展示：如何基于UTF-8，实现多语言。该实例可支持Windows和Linux平台。
 
 ## Hello GuiLite
 ![HelloGuiLite](doc/HelloGuiLite.gif)
 
-Hello GuiLite 仅有[100多行代码](https://github.com/idea4good/GuiLiteSamples/blob/master/HelloGuiLite/UIcode/helloGL.cpp)，用于向初学者展示：初始化GuiLite，布局UI元素，消息映射。该实例可支持Windows和Linux平台。
+Hello GuiLite 仅有[100多行代码](HelloGuiLite/UIcode/helloGL.cpp)，用于向初学者展示：初始化GuiLite，布局UI元素，消息映射。该实例可支持Windows和Linux平台。
 
 ## Host Monitor
 在iOS，Mac下的运行效果:
@@ -64,7 +64,7 @@ HostMonitor有2千行UI代码, 用来布局UI和自定义控件
 - HostMonitor\BuildAndroid: **Java 语言, 用于Android平台**
 - HostMonitor\BuildIOS: **Swift code, 用于 iOS平台**
 - HostMonitor\BuildLinux: **C 语言, 用于Linux平台**
-- HostMonitor\BuildWin32: **C 语言, 用于Windows控制台**
+- HostMonitor\BuildWin32: **C 语言, 用于Windows**
 - HostMonitor\BuildUWP: **CX 语言, 用于通用Windows平台(包括：虚拟/混合现实)**
 - HostMonitor\BuildMacCmd: **Swift语言, 用于Mac命令行模式**
 - HostMonitor\BuildMacCocoa: **Swift语言, 用于Mac图形应用**

@@ -11,6 +11,7 @@
 #include "widgets_include/button.h"
 #include "widgets_include/spinbox.h"
 #include "widgets_include/list_box.h"
+#include "widgets_include/keyboard.h"
 #include "widgets_include/edit.h"
 #include "widgets_include/dialog.h"
 
@@ -28,7 +29,8 @@ enum WND_ID
 	ID_BUTTON,
 	ID_SPIN_BOX,
 	ID_LIST_BOX,
-	ID_EDIT,
+	ID_EDIT_1,
+	ID_EDIT_2,
 	ID_DIALOG,
 	ID_EXIT_BUTTON
 };
@@ -40,6 +42,12 @@ class c_my_ui : public c_wnd
 	virtual c_wnd* clone() { return new c_my_ui(); }
 	virtual void on_init_children() 
 	{
+		c_edit* edit = (c_edit*)get_wnd_ptr(ID_EDIT_1);
+		edit->set_keyboard_style(STYLE_ALL_BOARD);
+
+		edit = (c_edit*)get_wnd_ptr(ID_EDIT_2);
+		edit->set_keyboard_style(STYLE_NUM_BOARD);
+
 		c_list_box  *list_box = (c_list_box*)get_wnd_ptr(ID_LIST_BOX);
 		list_box->clear_item();
 		list_box->add_item((char*)"Item 0");
@@ -117,7 +125,7 @@ static c_label s_label_1, s_label_2, s_label_3;
 static c_button s_button;
 static c_spin_box s_spin_box;
 static c_list_box s_list_box;
-static c_edit s_edit;
+static c_edit s_edit1, s_edit2;
 static c_my_dialog s_my_dialog;
 
 static c_button s_exit_button;
@@ -129,7 +137,8 @@ WND_TREE s_dialog_widgets[] =
 
 WND_TREE s_main_widgets[] =
 {
-	{ &s_edit,		ID_EDIT,	"Input",	275, 10, 100, 50},
+	{ &s_edit1,		ID_EDIT_1,	"ABC",	150, 10, 100, 50},
+	{ &s_edit2,		ID_EDIT_2,	"123",	400, 10, 100, 50},
 
 	{ &s_label_1,	ID_LABEL_1,	"label 1",	150, 100, 100, 50},
 	{ &s_label_2,	ID_LABEL_2,	"label 2",	150, 170, 100, 50},

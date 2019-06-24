@@ -10,6 +10,7 @@
 #include "../widgets_include/dialog.h"
 #include "../widgets_include/spinbox.h"
 #include "../widgets_include/list_box.h"
+#include "../widgets_include/keyboard.h"
 #include "../widgets_include/edit.h"
 #include "../include/ctrl_id.h"
 #include <stdlib.h>
@@ -83,22 +84,22 @@ void c_patient_setup_dlg::patient_dlg_crtl_init(void)
 	psbox_day->set_value(1);
 
 	c_edit *pEdit = (c_edit*)get_wnd_ptr(ID_SETUP_DLG_EDIT_FIRST_NAME);
-    pEdit->set_style(pEdit->get_style() | KEY_BOARD_STYLE);
+	pEdit->set_keyboard_style(STYLE_ALL_BOARD);
     pEdit->set_text("Gui");
 
 	pEdit = (c_edit*)get_wnd_ptr(ID_SETUP_DLG_EDIT_SECOND_NAME);
-	pEdit->set_style(pEdit->get_style() | KEY_BOARD_STYLE);
+	pEdit->set_keyboard_style(STYLE_ALL_BOARD);
 	pEdit->set_text("Lite");
 
 	pEdit = (c_edit*)get_wnd_ptr(ID_SETUP_DLG_EDIT_CASE);
-	pEdit->set_style(pEdit->get_style() | KEY_BOARD_STYLE);
+	pEdit->set_keyboard_style(STYLE_ALL_BOARD);
     pEdit->set_text("001");
 
     pEdit = (c_edit*)get_wnd_ptr(ID_SETUP_DLG_EDIT_HEIGHT);
-	pEdit->set_style((pEdit->get_style() | NUM_BOARD_STYLE) & (~KEY_BOARD_STYLE));
+	pEdit->set_keyboard_style(STYLE_NUM_BOARD);
 	pEdit->set_text("120");
 
 	pEdit = (c_edit*)get_wnd_ptr(ID_SETUP_DLG_EDIT_WEIGHT);
-	pEdit->set_style((pEdit->get_style() | NUM_BOARD_STYLE) & (~KEY_BOARD_STYLE));
+	pEdit->set_keyboard_style(STYLE_NUM_BOARD);
 	pEdit->set_text("150");
 }

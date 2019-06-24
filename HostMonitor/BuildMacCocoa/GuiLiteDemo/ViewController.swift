@@ -21,7 +21,7 @@ class ViewController: NSViewController {
         }
     }
     
-    func runNative()
+    @objc func runNative()
     {
         run_host_monitor();
     }

@@ -6,6 +6,7 @@
 #include "../widgets_include/spinbox.h"
 #include "../widgets_include/label.h"
 #include "../widgets_include/list_box.h"
+#include "../widgets_include/keyboard.h"
 #include "../widgets_include/edit.h"
 #include "../include/ctrl_id.h"
 #include "../include/define.h"

@@ -17,24 +17,24 @@ class NativeView: NSView {
         let img = buildImage(imgWidth: self.nativeUiWidth!, imgHeight: self.nativeUiHeight!)
         let bg = NSColor.init(patternImage: img!)
         bg.setFill()
-        NSRectFill(dirtyRect)
+        bounds.fill()
     }
     
     override func mouseUp(with event: NSEvent) {
         self.isMouseDown = false;
-        let pos = NSEvent.mouseLocation()
+        let pos = NSEvent.mouseLocation
         mouse_up(Int32(pos.x), Int32(768 - pos.y))
     }
     
     override func mouseDown(with event: NSEvent) {
         self.isMouseDown = true;
-        let pos = NSEvent.mouseLocation()
+        let pos = NSEvent.mouseLocation
         mouse_down(Int32(pos.x), Int32(768 - pos.y))
     }
     
     override func mouseDragged(with event: NSEvent) {
         if self.isMouseDown{
-            let pos = NSEvent.mouseLocation()
+            let pos = NSEvent.mouseLocation
             mouse_down(Int32(pos.x), Int32(768 - pos.y))
         }
     }

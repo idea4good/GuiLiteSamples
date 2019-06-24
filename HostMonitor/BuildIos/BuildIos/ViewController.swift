@@ -94,7 +94,7 @@ class ViewController: UIViewController {
         self.imgView.setNeedsDisplay()
     }
     
-    func runNative(){
+    @objc func runNative(){
         run_host_monitor()
     }
 }

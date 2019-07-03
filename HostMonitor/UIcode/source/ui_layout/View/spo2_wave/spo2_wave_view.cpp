@@ -11,7 +11,7 @@
 void c_spo2_wave_view::on_init_children(void)
 {
 	c_bitmap_wave_ctrl *p_spo2_wav = (c_bitmap_wave_ctrl*)get_wnd_ptr(ID_MAIN_SCREEN_SPO2_WAVE_CTRL);
-	if (p_spo2_wav == NULL)
+	if (p_spo2_wav == 0)
 	{
 		ASSERT(false);
 		return;

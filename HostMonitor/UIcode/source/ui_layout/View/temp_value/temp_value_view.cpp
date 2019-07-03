@@ -16,7 +16,7 @@ void c_temp_value_view::on_init_children(void)
 	c_value_ctrl *p_value_t1 = (c_value_ctrl*)get_wnd_ptr(ID_TEMP_VIEW_T1_VALUE);
 	c_value_sub_ctrl *p_value_t2 = (c_value_sub_ctrl*)get_wnd_ptr(ID_TEMP_VIEW_T2_VALUE);
 	c_value_sub_ctrl *p_value_td = (c_value_sub_ctrl*)get_wnd_ptr(ID_TEMP_VIEW_TD_VALUE);
-	if ((p_value_t1==NULL) || (p_value_t2==NULL) || (p_value_td == NULL))
+	if ((p_value_t1==0) || (p_value_t2==0) || (p_value_td == 0))
 	{
 	    ASSERT(false);
 		return;

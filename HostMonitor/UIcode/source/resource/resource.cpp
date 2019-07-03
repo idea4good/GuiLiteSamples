@@ -66,7 +66,7 @@ void load_theme(int index)
 		
 		break;
 	default:
-		ASSERT(FALSE);
+		ASSERT(false);
 		break;
 	}
 }

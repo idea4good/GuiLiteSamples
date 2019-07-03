@@ -23,7 +23,7 @@ void c_nibp_value_view::on_init_children(void)
 	c_value_ctrl *p_dia_value = (c_value_ctrl*)get_wnd_ptr(ID_NIBP_VIEW_DIA_VALUE);
 	c_value_ctrl *p_mean_value = (c_value_ctrl*)get_wnd_ptr( ID_NIBP_VIEW_MEAN_VALUE);
 
-	if ((p_name==NULL) ||(p_sys_value==NULL) || (p_dia_value==NULL) || (p_mean_value==NULL))
+	if ((p_name==0) ||(p_sys_value==0) || (p_dia_value==0) || (p_mean_value==0))
 	{
         ASSERT(false);
 		return;

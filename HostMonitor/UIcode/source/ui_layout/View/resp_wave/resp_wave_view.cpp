@@ -11,7 +11,7 @@
 void c_resp_wave_view::on_init_children(void)
 {
 	c_bitmap_wave_ctrl *p_resp_wav = ((c_bitmap_wave_ctrl*)get_wnd_ptr(ID_MAIN_SCREEN_RESP_WAVE_CTRL));
-	if(p_resp_wav == NULL)
+	if(p_resp_wav == 0)
 	{
 		ASSERT(false);
 		return;

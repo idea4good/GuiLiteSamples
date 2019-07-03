@@ -22,5 +22,5 @@ WND_TREE g_ecg_value_view_children[] =
 	{	&s_value_hr,	ID_ECG_VIEW_HR_VALUE,	0, 8,	5,	199,	125},
 	{	&s_value_pvcs,	ID_ECG_VIEW_PVCs_VALUE,	0, 207,	15,	112,	53},
 	{	&s_value_stii,	ID_ECG_VIEW_STII_VALUE,	0, 207,	68,	112,	53},
-	{	NULL,0,0,0,0,0,0}
+	{	0,0,0,0,0,0,0}
 };

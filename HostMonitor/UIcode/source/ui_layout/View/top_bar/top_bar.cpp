@@ -32,7 +32,7 @@ void c_top_bar::on_paint(void)
 void c_top_bar::on_refurbish_time(unsigned int wParam, unsigned int lParam)
 {
 	c_wnd *p_ctl = get_wnd_ptr(ID_TOP_BAR_TIME_ID);
-    if(p_ctl == NULL)
+    if(p_ctl == 0)
     {
        ASSERT(false);
 	   return;

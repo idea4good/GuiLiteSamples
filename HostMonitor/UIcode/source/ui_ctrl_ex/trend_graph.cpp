@@ -77,7 +77,7 @@ void c_trend_graph::set_h_axis_atrrs(const FONT_INFO* font, long scale_value[], 
 {
 	if (!font || scale_count < 0  || scale_count > MAX_MARK_CNT)
 	{
-		ASSERT(FALSE);
+		ASSERT(false);
 	}
 	if (scale_count == 0)
 	{
@@ -96,7 +96,7 @@ void c_trend_graph::set_v_axis_atrrs(unsigned int v_axis_index, unsigned int col
 {
 	if ( !font || scale_count <= 0 || scale_count > MAX_MARK_CNT || v_axis_index >= V_AXIS_CNT )
 	{
-		ASSERT(FALSE);
+		ASSERT(false);
 	}
 	m_v_axis_color[v_axis_index] = color;
 	m_v_scale_cnt[v_axis_index] = scale_count;
@@ -197,7 +197,7 @@ void c_trend_graph::draw_line(unsigned int v_axis_index, unsigned int line_index
 {
 	if ( v_axis_index > V_AXIS_CNT || len > MAX_TREND_DATA_CNT || line_index > MAX_LINE_CNT)
 	{
-		ASSERT(FALSE);
+		ASSERT(false);
 	}
 	
 	//Erase expired trend line.
@@ -229,7 +229,7 @@ void c_trend_graph::draw_title(unsigned int row_index, char* str, unsigned int c
 {
 	if (row_index >= MAX_TITLE_CNT || !font)
 	{
-		ASSERT(FALSE);
+		ASSERT(false);
 	}
 	c_rect rect;
 	get_screen_rect(rect);

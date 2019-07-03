@@ -43,7 +43,7 @@ static WND_TREE s_view_children[] =
 	{ (c_wnd*)&s_wave_5, ID_ECG_FULL_SCREEN_VIEW_ECG_WAVE5,   0,   0,    (WAVE_HEIGHT * 4),   WAVE_WIDTH,   WAVE_HEIGHT },
 	{ (c_wnd*)&s_wave_6, ID_ECG_FULL_SCREEN_VIEW_ECG_WAVE6,   0,   0,    (WAVE_HEIGHT * 5),   WAVE_WIDTH,   WAVE_HEIGHT },
 	{ (c_wnd*)&s_wave_7, ID_ECG_FULL_SCREEN_VIEW_ECG_WAVE7,   0,   0,    (WAVE_HEIGHT * 6),   WAVE_WIDTH,   WAVE_HEIGHT },
-	{ NULL,0,0,0,0,0,0 }
+	{ 0,0,0,0,0,0,0 }
 };
 
 static c_ecg_7wave_screen_view	s_ecg_7wave_view;
@@ -52,7 +52,7 @@ static c_slide_root				s_root;
 static WND_TREE s_children[]=
 {
 	{   &s_ecg_7wave_view, ID_ECG_FULL_SCREEN_VIEW_ID, 0, 0, 0, PAGE_WIDTH,  PAGE_HEIGHT, s_view_children },
-	{	NULL,0,0,0,0,0,0}
+	{	0,0,0,0,0,0,0}
 };
 
 void create_page_ecg_7wave(c_slide_group* group)

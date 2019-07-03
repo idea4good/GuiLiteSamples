@@ -10,5 +10,5 @@ static c_bitmap_wave_ctrl s_resp_wavectrl;
 WND_TREE g_resp_wave_view_children[] = 
 {
 	{&s_resp_wavectrl,ID_MAIN_SCREEN_RESP_WAVE_CTRL,0,	3,	5,	673,	159},
-	{NULL,0,0,0,0,0,0}
+	{0,0,0,0,0,0,0}
 };

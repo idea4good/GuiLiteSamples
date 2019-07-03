@@ -4,7 +4,7 @@
 #include "../core_include/resource.h"
 #include "../core_include/theme.h"
 
-#define GL_ATTR_VALUE	0x00000001L
+#define ATTR_VALUE	0x00000001L
 
 typedef struct
 {

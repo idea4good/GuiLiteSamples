@@ -51,9 +51,9 @@ void c_patient_setup_dlg::patient_dlg_crtl_init(void)
 	c_spin_box  *psbox_year = (c_spin_box*)get_wnd_ptr(ID_SETUP_DLG_SB_BIRTHDAY_YEAR);
 	c_spin_box  *psbox_month = (c_spin_box*)get_wnd_ptr(ID_SETUP_DLG_SB_BIRTHDAY_MONTH);
 	c_spin_box  *psbox_day = (c_spin_box*)get_wnd_ptr(ID_SETUP_DLG_SB_BIRTHDAY_DAY);
-	if((psbox_year==NULL) || (psbox_month==NULL) || (psbox_day==NULL))
+	if((psbox_year==0) || (psbox_month==0) || (psbox_day==0))
 	{
-		ASSERT(FALSE);
+		ASSERT(false);
 		return;
 	}
 

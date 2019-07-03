@@ -26,7 +26,7 @@ static c_slide_root s_root;
 static WND_TREE s_root_normal_children[] =
 {
 	{ (c_wnd*)&s_wave_view, ID_MINI_WAV_VIEW_ID, 0, 0, 0, WAVE_WIDTH, WAVE_HEIGHT, g_mini_wave_view_children },
-	{ NULL,0,0,0,0,0,0 }
+	{ 0,0,0,0,0,0,0 }
 };
 
 void create_page_mini_wav(c_slide_group* group)

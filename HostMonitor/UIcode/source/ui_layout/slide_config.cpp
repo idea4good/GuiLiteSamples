@@ -39,7 +39,7 @@ void c_config_root::on_clicked(unsigned int ctrl_id)
 		c_dialog::open_dialog((c_dialog*)get_wnd_ptr(IDD_ABOUT_DLG), false);
 		break;
 	default:
-		ASSERT(FALSE);
+		ASSERT(false);
 		break;
 	}
 }
@@ -66,7 +66,7 @@ static WND_TREE s_config_children[]=
 
 	{&s_patient_setup_dlg,	IDD_SETUP_DLG, "Patient Setup",		0,	DIALOG_Y,	PAGE_WIDTH, DIALOG_HEIGHT, g_patient_setup_children},
 	{&s_about,				IDD_ABOUT_DLG, "About",				0,	DIALOG_Y,	PAGE_WIDTH, DIALOG_HEIGHT, g_about_children},
-	{NULL,0,0,0,0,0,0}
+	{0,0,0,0,0,0,0}
 };
 
 void create_page_config(c_slide_group* group)

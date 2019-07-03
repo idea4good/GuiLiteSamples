@@ -15,5 +15,5 @@ WND_TREE g_top_view_children[] =
 {
 	{&s_patient_info,	ID_PATIENT_VIEW_ID,	0,	5,	0, 335,	43},
 	{&s_time_label,		ID_TOP_BAR_TIME_ID,	0,	899,0, 90,	43},
-	{NULL,0,0,0,0,0,0}
+	{0,0,0,0,0,0,0}
 };

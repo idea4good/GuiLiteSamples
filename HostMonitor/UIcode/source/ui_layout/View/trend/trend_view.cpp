@@ -64,9 +64,9 @@ void c_trend_view::on_update_trend_view(unsigned int wParam, unsigned int lParam
 void c_trend_view::refresh_trend_table(long start_time, long end_time)
 {
 	c_trend_table* p_table = (c_trend_table*)get_wnd_ptr(ID_TREND_SCREEN_TABLE_CTRL);
-	if ( p_table == NULL )
+	if ( p_table == 0 )
 	{
-		ASSERT(FALSE);
+		ASSERT(false);
 		return;
 	}
 
@@ -117,7 +117,7 @@ void c_trend_view::refresh_trend_graphic(long time)
 	c_trend_graph*	p_nibp_trend = (c_trend_graph*)get_wnd_ptr(ID_TREND_SCREEN_PRESSURE_CTRL);
 	if (!p_vitals_trend_graph || !p_nibp_trend)
 	{
-		ASSERT(FALSE);
+		ASSERT(false);
 		return;
 	}
 	
@@ -154,14 +154,14 @@ int c_trend_view::read_trend_data(long start_time, long end_time, int hr[], int 
 	static VALUE_SET data[60];
 	if ((0 >= len) || (len > (sizeof(data) / sizeof(VALUE_SET))))
 	{
-		ASSERT(FALSE);
+		ASSERT(false);
 		return 0;
 	}
 
 	int read_cnt = c_database::get_instance()->read(start_time, end_time, data, len);
 	if (read_cnt > len)
 	{
-		ASSERT(FALSE);
+		ASSERT(false);
 	}
 
 	long time = start_time;

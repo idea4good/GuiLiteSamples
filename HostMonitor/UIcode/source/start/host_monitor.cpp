@@ -34,7 +34,7 @@ int read_usr_msg(MSG_INFO* msg)
 
 int write_usr_msg(MSG_INFO* msg)
 {
-	if (msg->dwMsgId & 0xf000000)ASSERT(FALSE);
+	if (msg->dwMsgId & 0xf000000)ASSERT(false);
 	return s_usr_fifo.write(msg, sizeof(MSG_INFO));
 }
 

@@ -5,6 +5,7 @@
 #define MAX_MARK_CNT			10
 #define MAX_TREND_DATA_CNT		60
 #define MAX_LINE_CNT			3
+#define XXX -999
 
 enum TREND_TYPE
 {

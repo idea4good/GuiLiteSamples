@@ -10,5 +10,5 @@ static c_bitmap_wave_ctrl s_spo2wavectrl;
 WND_TREE g_spo2_wave_view_children[] = 
 {
 	{&s_spo2wavectrl, ID_MAIN_SCREEN_SPO2_WAVE_CTRL, 0, 3, 5, 673, 159},
-	{NULL,0,0,0,0,0,0}
+	{0,0,0,0,0,0,0}
 };

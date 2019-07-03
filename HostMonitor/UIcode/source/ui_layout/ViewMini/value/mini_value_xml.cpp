@@ -17,5 +17,5 @@ WND_TREE g_mini_wav_value_view_children[] =
 	{ &s_hr_value_wav,		ID_MINI_VALUE_VIEW_HR_VALUE,	0, 8,	5,	 130, 100 },
 	{ &s_resp_value_wav,	ID_MINI_VALUE_VIEW_RESP_VALUE,	0, 200,	5,	 130, 100 },
 	{ &s_spo2_value_wav,	ID_MINI_VALUE_VIEW_SPO2_VALUE,	0, 8,	165, 130, 100 },
-	{ NULL,0,0,0,0,0,0 }
+	{ 0,0,0,0,0,0,0 }
 };

@@ -39,7 +39,7 @@ void c_trend_view_mini::on_update_trend_view(unsigned int wParam, unsigned int l
 	c_trend_graph*	p_vitals_trend_graph = (c_trend_graph*)get_wnd_ptr(ID_TREND_SCREEN_VITAL_TREND_CTRL);
 	if (!p_vitals_trend_graph)
 	{
-		ASSERT(FALSE);
+		ASSERT(false);
 		return;
 	}
 	
@@ -70,14 +70,14 @@ int c_trend_view_mini::read_trend_data(long start_time, long end_time, int hr[],
 	static VALUE_SET data[60];
 	if ((0 >= len) || (len > (sizeof(data) / sizeof(VALUE_SET))))
 	{
-		ASSERT(FALSE);
+		ASSERT(false);
 		return 0;
 	}
 
 	int read_cnt = c_database::get_instance()->read(start_time, end_time, data, len);
 	if (read_cnt > len)
 	{
-		ASSERT(FALSE);
+		ASSERT(false);
 	}
 
 	long time = start_time;

@@ -9,13 +9,13 @@
 
 void c_ecg_7wave_screen_view::on_init_children(void)
 {
-	c_wave_ctrl *p_ecg_wave = NULL;
+	c_wave_ctrl *p_ecg_wave = 0;
 
 	int index = 0;
 	for (int id = ID_ECG_FULL_SCREEN_VIEW_ECG_WAVE1; id <= ID_ECG_FULL_SCREEN_VIEW_ECG_WAVE7; id++,index++)
 	{
 		p_ecg_wave = (c_wave_ctrl*)get_wnd_ptr(id);
-		if (p_ecg_wave == NULL)
+		if (p_ecg_wave == 0)
 		{
 			ASSERT(false);
 			return;

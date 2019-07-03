@@ -31,7 +31,7 @@ static c_slide_root			s_root;
 static WND_TREE g_trend_page_children[] =
 {
 	{ (c_wnd*)&s_trend_view,  ID_TREND_SCREEN_TREND, 0, 0, 0, TREND_WIDTH, TREND_HEIGHT, g_mini_trend_view_children},
-	{ NULL,0,0,0,0,0,0 }
+	{ 0,0,0,0,0,0,0 }
 };
 
 void create_page_mini_trend(c_slide_group* group)

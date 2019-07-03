@@ -52,7 +52,7 @@ static WND_TREE s_root_normal_children[] =
 	//temp & nibp list
 	{(c_wnd*)&s_param_temp_view, ID_TEMP_VALUE_VIEW,		0,	0,					(WAVE_HEIGHT * 3),	(WAVE_WIDTH / 2),	WAVE_HEIGHT, g_temp_value_view_children},
 	{(c_wnd*)&s_nibp_list_view, ID_NIBP_LIST_VALUE_VIEW,	0,	(WAVE_WIDTH / 2),	(WAVE_HEIGHT * 3),	(WAVE_WIDTH / 2),	WAVE_HEIGHT, g_nibp_list_view_children},
-	{NULL,0,0,0,0,0,0 }
+	{0,0,0,0,0,0,0 }
 };
 
 void create_page_main(c_slide_group* group)

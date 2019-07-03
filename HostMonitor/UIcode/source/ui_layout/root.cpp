@@ -85,7 +85,7 @@ static WND_TREE s_root_children[] =
 	{ (c_wnd*)&s_param_spo2_view, ID_SPO2_VALUE_VIEW, 0, VALUE_VIEW_X, (TOP_BAR_HEIGHT + VALUE_VIEW_HEIGHT * 1),	VALUE_VIEW_WIDTH, VALUE_VIEW_HEIGHT, g_spo2_value_view_children },
 	{ (c_wnd*)&s_param_resp_view, ID_RESP_VALUE_VIEW, 0, VALUE_VIEW_X, (TOP_BAR_HEIGHT + VALUE_VIEW_HEIGHT * 2),	VALUE_VIEW_WIDTH, VALUE_VIEW_HEIGHT, g_resp_value_view_children },
 	{ (c_wnd*)&s_param_nibp_view, ID_NIBP_VALUE_VIEW, 0, VALUE_VIEW_X, (TOP_BAR_HEIGHT + VALUE_VIEW_HEIGHT * 3),	VALUE_VIEW_WIDTH, VALUE_VIEW_HEIGHT, g_nibp_value_view_children },
-	{	NULL,0,0,0,0,0,0}
+	{	0,0,0,0,0,0,0}
 };
 
 void load_ui_single(void* phy_fb, int width, int height, int color_bytes)
@@ -94,7 +94,7 @@ void load_ui_single(void* phy_fb, int width, int height, int color_bytes)
 	c_surface* surface = display->alloc_surface(&s_root, Z_ORDER_LEVEL_0);
 	surface->set_active(true);
 	s_root.set_surface(surface);
-	s_root.connect(NULL, ID_ROOT, 0, 0, 0, UI_WIDTH, UI_HEIGHT, s_root_children);
+	s_root.connect(0, ID_ROOT, 0, 0, 0, UI_WIDTH, UI_HEIGHT, s_root_children);
 
 	create_page_ecg_7wave(&s_slide_group);
 	create_page_main(&s_slide_group);
@@ -113,7 +113,7 @@ void load_ui_multi(void* phy_fb, int width, int height, int color_bytes)
 	c_surface* surface = display->alloc_surface(&s_root, Z_ORDER_LEVEL_0);
 	surface->set_active(true);
 	s_root.set_surface(surface);
-	c_wnd* root = s_root.connect_clone(NULL, ID_ROOT, 0, 0, 0, UI_WIDTH, UI_HEIGHT, s_root_children);
+	c_wnd* root = s_root.connect_clone(0, ID_ROOT, 0, 0, 0, UI_WIDTH, UI_HEIGHT, s_root_children);
 
 	c_slide_group* page_group = (c_slide_group*)(root->get_wnd_ptr(ID_PAGE_GROUP));
 
@@ -140,7 +140,7 @@ static WND_TREE s_mini_root_children[] =
 {
 	{ (c_wnd*)&s_mini_slide_group, ID_PAGE_GROUP, 0, 0, 0, (MINI_UI_WIDTH * 2 / 3), MINI_UI_HEIGHT },
 	{ (c_wnd*)&s_value_view,  ID_MINI_VALUE_VIEW_ID, 0, (MINI_UI_WIDTH * 2 / 3), 0, (MINI_UI_WIDTH * 1 / 3), MINI_UI_HEIGHT, g_mini_wav_value_view_children },
-	{ NULL,0,0,0,0,0,0 }
+	{ 0,0,0,0,0,0,0 }
 };
 
 extern void create_page_mini_wav(c_slide_group* group);
@@ -155,7 +155,7 @@ void load_mini_ui_single(void* phy_fb, int width, int height, int color_bytes)
 	c_surface* surface = display->alloc_surface(&s_mini_root, Z_ORDER_LEVEL_0);
 	surface->set_active(true);
 	s_mini_root.set_surface(surface);
-	s_mini_root.connect(NULL, ID_ROOT, 0, 0, 0, MINI_UI_WIDTH, MINI_UI_HEIGHT, s_mini_root_children);
+	s_mini_root.connect(0, ID_ROOT, 0, 0, 0, MINI_UI_WIDTH, MINI_UI_HEIGHT, s_mini_root_children);
 
 	create_page_mini_wav(&s_mini_slide_group);
 	create_page_mini_trend(&s_mini_slide_group);
@@ -172,7 +172,7 @@ void load_mini_ui_multi(void* phy_fb, int width, int height, int color_bytes)
 	c_surface* surface = display->alloc_surface(&s_mini_root, Z_ORDER_LEVEL_0);
 	surface->set_active(true);
 	s_mini_root.set_surface(surface);
-	c_wnd* root = s_mini_root.connect_clone(NULL, ID_ROOT, 0, 0, 0, MINI_UI_WIDTH, MINI_UI_HEIGHT, s_mini_root_children);
+	c_wnd* root = s_mini_root.connect_clone(0, ID_ROOT, 0, 0, 0, MINI_UI_WIDTH, MINI_UI_HEIGHT, s_mini_root_children);
 
 	c_slide_group* page_group = (c_slide_group*)(root->get_wnd_ptr(ID_PAGE_GROUP));
 

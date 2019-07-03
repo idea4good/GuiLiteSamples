@@ -4,29 +4,29 @@
 
 VALUE_INFO c_value_manager::ms_value_info[VALUE_MAX] = 
 {
-	{VALUE_HR,		XXX},
-	{VALUE_PVCs,	XXX},
-	{VALUE_ST_II,	XXX,	DIGIT_2},
+	{VALUE_HR,		0},
+	{VALUE_PVCs,	0},
+	{VALUE_ST_II,	0,	DIGIT_2},
 
-	{VALUE_SPO2,	XXX},
-	{VALUE_PR,		XXX},
+	{VALUE_SPO2,	0},
+	{VALUE_PR,		0},
 
-	{VALUE_RESP,	XXX},
+	{VALUE_RESP,	0},
 
-	{VALUE_TEMP_T1, XXX,	DIGIT_1	},
-	{VALUE_TEMP_T2, XXX,	DIGIT_1	},
-	{VALUE_TEMP_TD, XXX,	DIGIT_1	},
+	{VALUE_TEMP_T1, 0,	DIGIT_1	},
+	{VALUE_TEMP_T2, 0,	DIGIT_1	},
+	{VALUE_TEMP_TD, 0,	DIGIT_1	},
 
-	{VALUE_NIBP_SYS,    XXX},
-	{VALUE_NIBP_MEAN,   XXX},
-	{VALUE_NIBP_DIA,    XXX}
+	{VALUE_NIBP_SYS,    0},
+	{VALUE_NIBP_MEAN,   0},
+	{VALUE_NIBP_DIA,    0}
 };
 
 int c_value_manager::save_value(unsigned int id, short value)
 {
 	if (ms_value_info[id].id != id)
 	{
-		ASSERT(FALSE);
+		ASSERT(false);
 		return -1;
 	}
 

@@ -16,5 +16,5 @@ WND_TREE g_temp_value_view_children[] =
 	{&s_value_temp_t1, ID_TEMP_VIEW_T1_VALUE,	"T1", 8,	2,	202, 127},
 	{&s_value_temp_t2, ID_TEMP_VIEW_T2_VALUE,	"T2", 210,	2,	113, 66},
 	{&s_value_temp_td, ID_TEMP_VIEW_TD_VALUE,	"TD", 210,	68,	113, 65},
-	{NULL,0,0,0,0,0,0}
+	{0,0,0,0,0,0,0}
 };

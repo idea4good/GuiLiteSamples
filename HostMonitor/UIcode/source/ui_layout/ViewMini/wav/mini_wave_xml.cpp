@@ -17,8 +17,8 @@ static c_wave_ctrl		s_resp_wave;
 
 WND_TREE g_mini_wave_view_children[]=
 {
-	{(c_wnd*)&s_ecg_wave, ID_MINI_WAV_VIEW_ECG_WAVE,   0, 0, 0,					WAVE_WIDTH, WAVE_HEIGHT, NULL },
-	{(c_wnd*)&s_spo2_wave, ID_MINI_WAV_VIEW_SPO2_WAVE, 0, 0, WAVE_HEIGHT,		WAVE_WIDTH, WAVE_HEIGHT, NULL },
-	{(c_wnd*)&s_resp_wave, ID_MINI_WAV_VIEW_RESP_WAVE, 0, 0, WAVE_HEIGHT * 2,	WAVE_WIDTH, WAVE_HEIGHT, NULL },
-	{NULL,0,0,0,0,0,0}
+	{(c_wnd*)&s_ecg_wave, ID_MINI_WAV_VIEW_ECG_WAVE,   0, 0, 0,					WAVE_WIDTH, WAVE_HEIGHT, 0 },
+	{(c_wnd*)&s_spo2_wave, ID_MINI_WAV_VIEW_SPO2_WAVE, 0, 0, WAVE_HEIGHT,		WAVE_WIDTH, WAVE_HEIGHT, 0 },
+	{(c_wnd*)&s_resp_wave, ID_MINI_WAV_VIEW_RESP_WAVE, 0, 0, WAVE_HEIGHT * 2,	WAVE_WIDTH, WAVE_HEIGHT, 0 },
+	{0,0,0,0,0,0,0}
 };

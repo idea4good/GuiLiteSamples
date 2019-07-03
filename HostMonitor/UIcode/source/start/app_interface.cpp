@@ -42,7 +42,7 @@ void* getUiOfHostMonitor(int display_id, int* width, int* height, bool force_upd
 	{
 		return display->get_updated_fb(width, height, force_update);
 	}
-	return NULL;
+	return 0;
 }
 
 int captureUiOfHostMonitor(int display_id)

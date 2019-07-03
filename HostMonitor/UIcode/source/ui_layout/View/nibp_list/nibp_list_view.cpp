@@ -16,9 +16,9 @@ void c_nibplist_view::on_init_children(void)
 	this->get_screen_rect(rect);
 
     c_table *p_table = (c_table*)get_wnd_ptr(ID_NIBP_LIST_VIEW_TABLE);
-	if (p_table == NULL)
+	if (p_table == 0)
 	{
-		ASSERT(FALSE);
+		ASSERT(false);
 		return;
 	}
 
@@ -47,9 +47,9 @@ void c_nibplist_view::on_init_children(void)
 void c_nibplist_view::on_paint()
 {
 	c_table *p_table = (c_table*)get_wnd_ptr(ID_NIBP_LIST_VIEW_TABLE);
-	if (p_table == NULL)
+	if (p_table == 0)
 	{
-		ASSERT(FALSE);
+		ASSERT(false);
 		return;
 	}
 

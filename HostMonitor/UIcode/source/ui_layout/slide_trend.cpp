@@ -50,7 +50,7 @@ WND_TREE g_page_trend_view_children[] =
 	{(c_wnd*)&s_trend_vitals,	ID_TREND_SCREEN_VITAL_TREND_CTRL,	0,	20,	VITAL_TREND_Y,		TREND_WIDTH,	TREND_HEIGHT},
 	{(c_wnd*)&s_trend_pressure,ID_TREND_SCREEN_PRESSURE_CTRL,		0,	20,	PRESSURE_TREND_Y,	TREND_WIDTH,	TREND_HEIGHT},
 	{(c_wnd*)&s_time_bar,		ID_TREND_SCREEN_TIME_SCALE_BAR_CTRL,0,	16,	TIME_BAR_Y,			TIME_BAR_WIDTH,	TIME_BAR_HEIGHT},
-	{NULL,0,0,0,0,0,0,0 }
+	{0,0,0,0,0,0,0,0 }
 };
 
 static c_trend_view 	s_trend_view;
@@ -59,7 +59,7 @@ static c_slide_root		s_root;
 WND_TREE g_trend_page_children[]=
 {
 	{ (c_wnd*)&s_trend_view,  ID_TREND_SCREEN_TREND, 0, 0, 0, PAGE_WIDTH, PAGE_HEIGHT, g_page_trend_view_children},
-	{ NULL,0,0,0,0,0,0 }
+	{ 0,0,0,0,0,0,0 }
 };
 
 void create_page_trend(c_slide_group* group)

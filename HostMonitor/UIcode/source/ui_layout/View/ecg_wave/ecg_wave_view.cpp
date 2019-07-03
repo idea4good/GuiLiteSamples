@@ -12,7 +12,7 @@
 void c_ecg_wave_view::on_init_children(void)
 {
 	c_ecg_wave_ctrl *p_ecg_wave = (c_ecg_wave_ctrl*)get_wnd_ptr(ID_MAIN_SCREEN_ECG_WAVE_CTRL);
-	if ( p_ecg_wave ==  NULL )
+	if ( p_ecg_wave ==  0 )
 	{
 		ASSERT(false);
 		return;

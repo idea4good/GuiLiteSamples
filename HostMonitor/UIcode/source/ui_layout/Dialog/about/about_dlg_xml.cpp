@@ -22,5 +22,5 @@ WND_TREE g_about_children[]=
 	{	&s_copy_right,   	4, "Source code: www.github.com/idea4good (Apache lience)",		DLG_LEFT_CTRL_X, DLG_CTRL_Y(3), DLG_CTRL_WIDTH, DLG_CTRL_HEIGHT},
 	{	&s_author, 			5, "Author: idea4good",			DLG_LEFT_CTRL_X, DLG_CTRL_Y(4), DLG_CTRL_WIDTH, DLG_CTRL_HEIGHT},
 	{	&s_email,   		6, "Email: idea4good@outlook.com",			DLG_LEFT_CTRL_X, DLG_CTRL_Y(5), DLG_CTRL_WIDTH, DLG_CTRL_HEIGHT},
-	{	NULL,0,0,0,0,0,0}
+	{	0,0,0,0,0,0,0}
 };

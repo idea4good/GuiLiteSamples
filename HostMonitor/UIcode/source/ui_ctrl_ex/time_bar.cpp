@@ -62,7 +62,7 @@ int c_time_bar::set_scale_bar_atrrs(long start_time, long end_time, unsigned int
 {
 	if ( !font ||  end_time <= start_time)
 	{
-		ASSERT(FALSE);
+		ASSERT(false);
 		return -1;
 	}
 	m_end_seconds = end_time;
@@ -77,7 +77,7 @@ unsigned int c_time_bar::time_2_pos_x(int time_seconds)
 {
 	if ( time_seconds > m_end_seconds || time_seconds < m_start_seconds )
 	{
-		ASSERT(FALSE);
+		ASSERT(false);
 		return -1;
 	}
 	c_rect rect;
@@ -103,7 +103,7 @@ void c_time_bar::draw_scale()
 {
 	if (m_end_seconds <= m_start_seconds)
 	{
-		ASSERT(FALSE);
+		ASSERT(false);
 	}
 
 	c_rect rect;
@@ -139,7 +139,7 @@ void c_time_bar::draw_mark()
 {
 	if (m_end_seconds <= m_start_seconds)
 	{
-		ASSERT(FALSE);
+		ASSERT(false);
 	}
 
 	c_rect rect;
@@ -173,7 +173,7 @@ void c_time_bar::on_btn_click(unsigned int ctrl_id)
 		increment = ( m_end_seconds - m_start_seconds );
 		break;
 	default:
-		ASSERT(FALSE);
+		ASSERT(false);
 		return;
 	}
 	m_end_seconds += increment;

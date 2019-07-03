@@ -15,7 +15,7 @@ c_value_ctrl::c_value_ctrl()
 	m_name_str = m_unit_str = 0;
 	m_high_limit = m_low_limit = 0;
 	m_value_dot_position = m_limit_dot_position = 0;
-	m_value = XXX;
+	m_value = 0;
 	m_value_align_type = ALIGN_LEFT | ALIGN_VCENTER;
 	memset(m_value_in_str, 0, sizeof(m_value_in_str));
 }
@@ -59,7 +59,7 @@ EXIT:
 
 void c_value_ctrl::pre_create_wnd()
 {
-	m_style = GL_ATTR_VISIBLE | GL_ATTR_VALUE;
+	m_attr = (WND_ATTRIBUTION)(ATTR_VISIBLE | ATTR_VALUE);
 	m_bg_color = GL_RGB(0,0,0);
 }
 
@@ -86,23 +86,15 @@ void c_value_ctrl::on_paint(void)
 	m_limit_rect.m_top =  rect.m_bottom - height*0.05 - 2.0 * (m_limit_font_type->height);
 	m_limit_rect.m_right = rect.m_left + width*0.25;		
 	m_limit_rect.m_bottom = m_limit_rect.m_top + (m_limit_font_type->height);
-	int temp_high_limit_bottom = m_limit_rect.m_bottom;
-	if (m_high_limit != XXX)
-	{
-		c_word::value_2_string(m_high_limit, m_limit_dot_position, limit, sizeof(limit));
-		c_word::draw_string_in_rect(m_surface, m_z_order, limit, m_limit_rect, m_limit_font_type, m_limit_color, m_bg_color, m_value_align_type);
-	}
+	c_word::draw_value_in_rect(m_surface, m_z_order, m_high_limit, m_limit_dot_position, m_limit_rect, m_limit_font_type, m_limit_color, m_bg_color, m_value_align_type);
+
 
 	//show low limit
 	m_limit_rect.m_left = rect.m_left + 1;
 	m_limit_rect.m_top = rect.m_bottom - height*0.05 - (m_limit_font_type->height);
 	m_limit_rect.m_right = rect.m_left + width*0.25;
 	m_limit_rect.m_bottom = m_limit_rect.m_top + (m_limit_font_type->height);
-	if (m_low_limit != XXX)
-	{
-		c_word::value_2_string(m_low_limit, m_limit_dot_position, limit, sizeof(limit));
-		c_word::draw_string_in_rect(m_surface, m_z_order, limit, m_limit_rect, m_limit_font_type, m_limit_color, m_bg_color, m_value_align_type);
-	}
+	c_word::draw_value_in_rect(m_surface, m_z_order, m_low_limit, m_limit_dot_position, m_limit_rect, m_limit_font_type, m_limit_color, m_bg_color, m_value_align_type);
 
 	//show value
 	m_value_rect.m_left = rect.m_left + 50;

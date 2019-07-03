@@ -158,10 +158,10 @@ void load_resource()
 {
 	c_theme::add_font(FONT_DEFAULT, &Consolas_24B);
 	//for button
-	c_theme::add_color(COLOR_WND_FONT, GL_RGB(1, 184, 170));
+	c_theme::add_color(COLOR_WND_FONT, GL_RGB(255, 255, 243));
 	c_theme::add_color(COLOR_WND_NORMAL, GL_RGB(59, 75, 94));
 	c_theme::add_color(COLOR_WND_PUSHED, GL_RGB(33, 42, 53));
-	c_theme::add_color(COLOR_WND_FOCUS, GL_RGB(33, 42, 53));
+	c_theme::add_color(COLOR_WND_FOCUS, GL_RGB(78, 198, 76));
 	c_theme::add_color(COLOR_WND_BORDER, GL_RGB(46, 59, 73));
 }
 
@@ -190,6 +190,11 @@ void startHelloWidgets(void* phy_fb, int width, int height, int color_bytes) {
 void sendTouch2HelloWidgets(int x, int y, bool is_down)
 {
 	is_down ? s_my_ui.on_touch(x, y, TOUCH_DOWN) : s_my_ui.on_touch(x, y, TOUCH_UP);
+}
+
+void sendKey2HelloWidgets(unsigned int key)
+{
+	s_my_ui.on_key(KEY_TYPE(key));
 }
 
 void* getUiOfHelloWidgets(int* width, int* height, bool force_update)

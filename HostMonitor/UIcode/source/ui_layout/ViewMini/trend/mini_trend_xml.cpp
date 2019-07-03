@@ -17,6 +17,6 @@ static c_trend_graph s_trend_ctrl_vitals ;
 
 WND_TREE g_mini_trend_view_children[] =
 {
-	{(c_wnd*)&s_trend_ctrl_vitals, ID_TREND_SCREEN_VITAL_TREND_CTRL, 0, 0, 0, WIDHT, HEIGHT, NULL},
+	{(c_wnd*)&s_trend_ctrl_vitals, ID_TREND_SCREEN_VITAL_TREND_CTRL, 0, 0, 0, WIDHT, HEIGHT, 0},
 	{0,0,0,0,0,0,0,0}
 };

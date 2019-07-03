@@ -19,7 +19,7 @@ void c_mini_value_view::on_init_children(void)
 	c_value_sub_ctrl *pHr_value = (c_value_sub_ctrl*)get_wnd_ptr(ID_MINI_VALUE_VIEW_HR_VALUE);
 	c_value_sub_ctrl *pSpo2_value = (c_value_sub_ctrl*)get_wnd_ptr(ID_MINI_VALUE_VIEW_SPO2_VALUE);
 	c_value_sub_ctrl *pResp_value =(c_value_sub_ctrl*)get_wnd_ptr(ID_MINI_VALUE_VIEW_RESP_VALUE);
-	if (pHr_value == NULL || pSpo2_value == NULL || pResp_value==NULL)
+	if (pHr_value == 0 || pSpo2_value == 0 || pResp_value==0)
 	{
 		ASSERT(false);
 		return;

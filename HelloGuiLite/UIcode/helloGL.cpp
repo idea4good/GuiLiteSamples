@@ -83,7 +83,7 @@ void c_desktop::on_paint()
 	int block_cols = desktop_bmp.XSize / block_width;
 	int block_sum = block_rows * block_cols;
 	bool* block_map = (bool*)calloc(block_sum, sizeof(bool));
-
+	if (!block_map)	{ return; }
 	int sum = 0;
 	while (sum < block_sum)
 	{
@@ -111,7 +111,12 @@ void c_start_menu::on_paint(void)
 	c_rect rect;
 	get_screen_rect(rect);
 	extern const BITMAP_INFO start_menu_bmp;
-	c_bitmap::draw_bitmap(m_surface, m_z_order, &start_menu_bmp, rect.m_left, rect.m_top);
+	int step = 10;
+	for (int i = 0; i < start_menu_bmp.YSize; i += step)
+	{
+		thread_sleep(10);
+		c_bitmap::draw_bitmap(m_surface, m_z_order, &start_menu_bmp, rect.m_left, rect.m_top + i, 0, i, start_menu_bmp.XSize, step, GL_RGB(0, 0, 0));
+	}
 }
 
 //////////////////////// layout UI ////////////////////////
@@ -121,7 +126,7 @@ static c_start_menu s_start_menu;
 
 static WND_TREE s_desktop_children[] =
 {
-	{(c_wnd*)&s_start_menu, ID_START_MENU, 0, 0, 100, 650, 580, NULL},
+	{(c_wnd*)&s_start_menu, ID_START_MENU, 0, 400, 50, 475, 633, NULL},
 	{(c_wnd*)&s_start_button, ID_START_BUTTON, 0, 0, 682, 47, 38, NULL},
 	{ NULL,0,0,0,0,0,0 }
 };

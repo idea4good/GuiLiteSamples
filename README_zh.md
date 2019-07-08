@@ -18,7 +18,7 @@
 - 该实例亦可支持Windows和Linux平台
 
 ## Hello 3D
-![Hello3D](doc/Hello3D.gif)
+![Hello3D-pc](doc/Hello3D-pc.gif)![Hello3D-mcu](doc/Hello3D-mcu.gif)
 
 Hello 3D 仅有[100多行代码](Hello3D/UIcode/UIcode.cpp)，用于向初学者展示：如何使用GuiLite模拟3D物理过程。该实例可支持Windows，Linux和单片机平台。
 

@@ -20,7 +20,7 @@
 - Also support: Windows / Linux
 
 ## Hello 3D
-![Hello3D](doc/Hello3D.gif)
+![Hello3D-pc](doc/Hello3D-pc.gif)![Hello3D-mcu](doc/Hello3D-mcu.gif)
 
 Hello 3D has only [100+ lines code](Hello3D/UIcode/UIcode.cpp) for beginner, showing you how to build 3D physics App with GuiLite. You can run it on Windows, Linux and MCU.
 

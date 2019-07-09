@@ -16,7 +16,7 @@
 - Hello Wave has [100+ lines code](HelloWave/UIcode/UIcode.cpp), showing you how to use wave widget.
 - Hello NoTouch has only [100+ lines code](HelloNoTouch/UIcode/UIcode.cpp), showing you how to navigate/click widgets by hard button in non-touch GUI scenario.
 - Hello Mario has [100+ lines code](HelloMario/UIcode/UIcode.cpp), showing you how to develop a multi-layer UI system.
-- [How to porting for any MCU?](HelloWave/README.md#How-to-port-on-any-MCU-)
+- [How to porting for any MCU?](HelloWave/README.md#how-to-port-on-any-type-of-mcu)
 - Also support: Windows / Linux
 
 ## Hello 3D

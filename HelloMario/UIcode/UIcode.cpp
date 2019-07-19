@@ -95,7 +95,7 @@ public:
 			}
 		}
 		c_rect mario_rect(m_x, m_y - mario_bmp->YSize, m_x + mario_bmp->XSize - 1, m_y);
-		s_surface_bottom->set_frame_layer(mario_rect, Z_ORDER_LEVEL_1);
+		s_surface_bottom->set_frame_layer_visible_rect(mario_rect, Z_ORDER_LEVEL_1);
 		c_bitmap::draw_bitmap(s_surface_bottom, Z_ORDER_LEVEL_1, mario_bmp, m_x, m_y - mario_bmp->YSize, GL_RGB(255, 255, 255));
 	}
 	int m_x, m_y, m_x_velocity, m_y_velocity;

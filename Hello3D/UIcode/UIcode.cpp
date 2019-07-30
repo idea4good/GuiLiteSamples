@@ -5,18 +5,18 @@
 #include "core_include/display.h"
 #include <math.h>
 
-#if (defined __linux__) || (defined WIN32)  
+#if (defined __linux__) || (defined WIN32)
 	#define POINT_COL		25
 	#define POINT_ROW		20
 	#define X_SPACE			18
 	#define Y_SPACE			25
 	#define STRING_LENGHT	12
 #else
-	#define POINT_COL		10
-	#define POINT_ROW		12
-	#define X_SPACE			18
-	#define Y_SPACE			24
-	#define STRING_LENGHT	10
+	#define POINT_COL		20
+	#define POINT_ROW		24
+	#define X_SPACE			9
+	#define Y_SPACE			14
+	#define STRING_LENGHT	4
 #endif
 
 #define FRICTION		0.98
@@ -38,10 +38,10 @@ public:
 	{
 		if (m_fixed) { return; }
 		m_last_x = m_x; m_last_y = m_y;
-		//s_surface->draw_pixel(m_x, m_y, GL_RGB(0, 0, 0), Z_ORDER_LEVEL_0);
+		s_surface->draw_pixel(m_x, m_y, GL_RGB(0, 0, 0), Z_ORDER_LEVEL_0);
 		m_vx *= FRICTION; m_vy *= FRICTION;
 		m_x += m_vx * dt; m_y += m_vy * dt;
-		//s_surface->draw_pixel(m_x, m_y, GL_RGB(255, 255, 255), Z_ORDER_LEVEL_0);
+		s_surface->draw_pixel(m_x, m_y, GL_RGB(255, 255, 255), Z_ORDER_LEVEL_0);
 	}
 	float distance(c_point* p)
 	{
@@ -100,6 +100,21 @@ private:
 
 c_point points[POINT_COL][POINT_ROW];
 c_string strings[(POINT_COL - 1) * POINT_ROW + POINT_COL * (POINT_ROW - 1)];
+
+void trigger(int x, int y, bool is_down)
+{
+	if (is_down)
+	{
+		points[POINT_COL / 2][POINT_ROW / 2].m_x = points[POINT_COL / 2][POINT_ROW / 2].m_last_x = x;
+		points[POINT_COL / 2][POINT_ROW / 2].m_y = points[POINT_COL / 2][POINT_ROW / 2].m_last_y = y;
+		points[POINT_COL / 2][POINT_ROW / 2].m_fixed = true;
+	}
+	else
+	{
+		points[POINT_COL / 2][POINT_ROW / 2].m_fixed = false;
+	}
+}
+
 void run(void* phy_fb, int screen_width, int screen_height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op)
 {
 	s_display = new c_display(phy_fb, screen_width, screen_height, screen_width, screen_height, color_bytes, 1, gfx_op);
@@ -152,9 +167,21 @@ void run(void* phy_fb, int screen_width, int screen_height, int color_bytes, str
 
 		for (int i = 0; i < sum; i++)
 		{
+		#if (defined __linux__) || (defined WIN32)
 			strings[i].draw();
+		#endif
 		}
 		thread_sleep(10);
+		// Auto trigger for MCU
+	#if (defined __linux__) || (defined WIN32)
+	#else
+		static int count;
+		if (++count % 500 == 0)
+		{
+			trigger(0, 0, true);
+			trigger(0, 0, false);
+		}
+	#endif
 	}
 }
 //////////////////////// interface for all platform ////////////////////////
@@ -164,16 +191,7 @@ extern "C" void startHello3D(void* phy_fb, int width, int height, int color_byte
 
 void sendTouch2Hello3D(int x, int y, bool is_down)
 {
-	if (is_down)
-	{
-		points[POINT_COL / 2][POINT_ROW / 2].m_x = points[POINT_COL / 2][POINT_ROW / 2].m_last_x = x;
-		points[POINT_COL / 2][POINT_ROW / 2].m_y = points[POINT_COL / 2][POINT_ROW / 2].m_last_y = y;
-		points[POINT_COL / 2][POINT_ROW / 2].m_fixed = true;
-	}
-	else
-	{
-		points[POINT_COL / 2][POINT_ROW / 2].m_fixed = false;
-	}
+	trigger(x, y, is_down);
 }
 
 void* getUiOfHello3D(int* width, int* height, bool force_update)

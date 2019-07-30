@@ -5,8 +5,8 @@
 - GuiLite samples可运行在**Docker容器**里面，具体命令如下:
   - `sudo docker run -it --privileged -v /dev:/dev-share idea4good/gui-lite:latest bash /run.sh`
 
-## 单片机系列: Hello Star + Hello Particle + Hello Wave + Hello NoTouch + Hello Mario
-![HelloStar](doc/HelloStar.gif)&nbsp;&nbsp;![HelloParticle](doc/HelloParticle.gif)&nbsp;&nbsp;![HelloWave](doc/HelloWave.gif)&nbsp;&nbsp;![HelloNoTouch](doc/HelloNoTouch.gif)&nbsp;&nbsp;![HelloMario](doc/HelloMario.gif)
+## 单片机系列: Hello Star + Hello Particle + Hello Wave + Hello NoTouch + Hello Mario + Hello 3D
+![HelloStar](doc/HelloStar.gif)&nbsp;&nbsp;![HelloParticle](doc/HelloParticle.gif)&nbsp;&nbsp;![HelloWave](doc/HelloWave.gif)&nbsp;&nbsp;![HelloNoTouch](doc/HelloNoTouch.gif)&nbsp;&nbsp;![HelloMario](doc/HelloMario.gif)&nbsp;&nbsp;![Hello3D-mcu](doc/Hello3D-mcu.gif)
 - 单片机硬件配置：STM32F103ZET6(512K ROM，64K RAM) + 240*320 16位TFT屏
 - 单片机软件配置：无操作系统 + GuiLite
 - Hello Star 仅有[100+行代码](HelloStar/UIcode/UIcode.cpp)，用于向开发者展示：如何使用GuiLite进行“星空”效果的开发。
@@ -14,11 +14,12 @@
 - Hello Wave 仅有[100+行代码](HelloWave/UIcode/UIcode.cpp)，用于向开发者展示：如何使用GuiLite进行波形开发。
 - Hello NoTouch 仅有[100+行代码](HelloNoTouch/UIcode/UIcode.cpp)，用于向开发者展示：如何在非触摸屏场景下，使用硬按键进行：“移动焦点”和“点击”操作。
 - Hello Mario 仅有[100+行代码](HelloMario/UIcode/UIcode.cpp)，重现了“超级玛丽”的游戏片段，用于向开发者展示：如何使用GuiLite进行多图层的开发。
+- Hello 3D 仅有[100多行代码](Hello3D/UIcode/UIcode.cpp)，用于向开发者展示：如何使用GuiLite制作3D效果。
 - [移植方法 -- 适用于任意单片机平台？](HelloWave/README.md#how-to-port-on-any-type-of-mcu)
 - 该实例亦可支持Windows和Linux平台
 
 ## Hello 3D
-![Hello3D-pc](doc/Hello3D-pc.gif)![Hello3D-mcu](doc/Hello3D-mcu.gif)
+![Hello3D-pc](doc/Hello3D-pc.gif)
 
 Hello 3D 仅有[100多行代码](Hello3D/UIcode/UIcode.cpp)，用于向初学者展示：如何使用GuiLite模拟3D物理过程。该实例可支持Windows，Linux和单片机平台。
 

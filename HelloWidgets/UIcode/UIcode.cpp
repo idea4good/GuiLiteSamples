@@ -1,19 +1,4 @@
-﻿#include "core_include/api.h"
-#include "core_include/rect.h"
-#include "core_include/surface.h"
-#include "core_include/resource.h"
-#include "core_include/display.h"
-#include "core_include/cmd_target.h"
-#include "core_include/wnd.h"
-#include "core_include/theme.h"
-
-#include "widgets_include/label.h"
-#include "widgets_include/button.h"
-#include "widgets_include/spinbox.h"
-#include "widgets_include/list_box.h"
-#include "widgets_include/keyboard.h"
-#include "widgets_include/edit.h"
-#include "widgets_include/dialog.h"
+﻿#include "GuiLite.h"
 
 #include <stdio.h>
 

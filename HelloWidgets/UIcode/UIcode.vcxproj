@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GuiLite.cpp" />
+    <ClCompile Include="GuiLite-win.cpp" />
     <ClCompile Include="resource\Consolas_24B.cpp" />
     <ClCompile Include="UIcode.cpp" />
   </ItemGroup>

@@ -29,9 +29,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     m_is_pressed = false;
-
-
-
     ui->setupUi(this);
 }
 
@@ -42,6 +39,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::init()
 {
+    setAttribute(Qt::WA_NoBackground);
     setFixedHeight(UI_HEIGHT);
     setFixedWidth(UI_WIDTH);
 
@@ -56,12 +54,13 @@ void MainWindow::init()
 void MainWindow::paintEvent(QPaintEvent* p)
 {
     (void)p;//kill warning.
-    QPainter painter(this);
-
-    void* fb = getUiOfHelloWidgets(NULL, NULL, true);
+    static bool fore_update = true;
+    void* fb = getUiOfHelloWidgets(NULL, NULL, fore_update);
     if(fb){
+        QPainter painter(this);
         QImage img((uchar*)fb, UI_WIDTH, UI_HEIGHT, QImage::Format_RGB16);
         painter.drawImage(0, 0, img);
+        fore_update = false;
     }
 }
 

@@ -56,6 +56,11 @@ xcuserdata
 *.dbgconf
 EventRecorderStub.scvd
 
+# For Qt
+.qmake.cache
+.qmake.stash
+Makefile*
+
 # For output
 /HostMonitor/BuildMacCmd/HostMonitor
 /HostMonitor/BuildLinux/HostMonitor

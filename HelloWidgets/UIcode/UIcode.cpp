@@ -1,7 +1,10 @@
-﻿#include "GuiLite.h"
-
-#include <stdio.h>
-
+﻿#include <stdio.h>
+#include "GuiLite.h"
+#ifdef __linux__
+    #include "GuiLite-linux.cpp"
+#else
+    #include "GuiLite-win.cpp"
+#endif
 #define UI_WIDTH 680
 #define UI_HEIGHT 512
 
@@ -49,7 +52,7 @@ class c_my_ui : public c_wnd
 	{
 		m_surface->draw_rect(0, 0, UI_WIDTH - 1, UI_HEIGHT - 1, GL_RGB(0, 255, 0), Z_ORDER_LEVEL_0);
 		m_surface->draw_rect(2, 2, UI_WIDTH - 3, UI_HEIGHT - 3, GL_RGB(0, 255, 0), Z_ORDER_LEVEL_0);
-	};
+    }
 	void on_button_clicked(unsigned int ctrl_id)
 	{
 		static int s_cnt;

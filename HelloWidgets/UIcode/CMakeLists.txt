@@ -11,5 +11,5 @@ ADD_LIBRARY(UIcode  ${SOURCE}
                     ${RESOURCE})
 
 execute_process(
-    COMMAND ${CMAKE_SOURCE_DIR}/.sync_build.sh HelloWave
+    COMMAND ${CMAKE_SOURCE_DIR}/.sync_build.sh HelloWidgets
 )

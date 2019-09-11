@@ -1,38 +1,34 @@
-## How to build for Win MFC?
-### GuiLite.lib should be in BuildMFC\BuildMFC\libs\x86(x64), rebuild them if meet link error.
+# How to build for Win MFC?
+## GuiLite.lib should be in BuildMFC\BuildMFC\libs\x86(x64), rebuild them if meet link error.
 - Open "HelloGuiLite\BuildMFC\HelloGL.sln" by Visual studio 2017
 - Click `F5` to build/run `HelloGL`
 
-## How to build for Linux(x64/ARM/Raspberry Pi)?
-### Install cross compiler:
-- For ARM32: `sudo apt-get install g++-arm-linux-gnueabi gcc-arm-linux-gnueabi`
-- For ARM64: `sudo apt-get install g++-aarch64-linux-gnu gcc-aarch64-linux-gnu`
-### Build & Run:
-1. Build:
-- `cd HelloGuiLite`
-- If x64: `cmake .`
-- If raspberry pi: `cmake -D TARGET_ARCH="ARM" .`
-- If ARM32: `cmake -D CMAKE_C_COMPILER="/usr/bin/arm-linux-gnueabi-gcc" -D CMAKE_CXX_COMPILER="/usr/bin/arm-linux-gnueabi-g++" -D TARGET_ARCH="ARM" .`
-- If ARM64: `cmake -D CMAKE_C_COMPILER="/usr/bin/aarch64-linux-gnu-gcc" -D CMAKE_CXX_COMPILER="/usr/bin/aarch64-linux-gnu-g++" -D TARGET_ARCH="ARM" .`
-- `make`
-- `cd BuildLinux`
-- `chmod 777 *`
+# How to build for Linux?
+## Compile & Run locally:
+1. Compile:
+    - `cd HelloGuiLite`
+    - `cmake . && make`
+    - `cd BuildLinux`
+    - `chmod 777 *`
+2. Run locally(e.g, Ubuntu):
+    - Run with framebuffer: `sudo ./HelloGuiLite /dev/fb0`&nbsp;&nbsp;&nbsp;&nbsp;/dev/fb0: The path of framebuffer device file.
+    - Run inside X Window: `sudo ./xWindow 1280 720 | ./HelloGuiLite shared-fb`
 
-2. Run with framebuffer:
-- `sudo ./HelloGuiLite /dev/fb0`&nbsp;&nbsp;&nbsp;&nbsp;/dev/fb0: The path of framebuffer device file.
+## Cross compiler & Run on target:
+1. install compiler:
+    - For ARM32: `sudo apt-get install g++-arm-linux-gnueabi gcc-arm-linux-gnueabi`
+    - For ARM64: `sudo apt-get install g++-aarch64-linux-gnu gcc-aarch64-linux-gnu`
+2. Cross compile:
+    - `cd HelloGuiLite`
+    - For ARM32: `cmake -D CMAKE_C_COMPILER="/usr/bin/arm-linux-gnueabi-gcc" -D CMAKE_CXX_COMPILER="/usr/bin/arm-linux-gnueabi-g++" . && make`
+    - For ARM64: `cmake -D CMAKE_C_COMPILER="/usr/bin/aarch64-linux-gnu-gcc" -D CMAKE_CXX_COMPILER="/usr/bin/aarch64-linux-gnu-g++" . && make`
+3. Run on target Linux device:
+    - Copy BuildLinux/HelloGuiLite to target Linux device
+    - `chmod 777 HelloGuiLite`
+    - `sudo ./HelloGuiLite /dev/fb0`&nbsp;&nbsp;&nbsp;&nbsp;/dev/fb0: The path of framebuffer
 
-3. Run inside QT APP(display-xxx is a QT APP for display, skip this if you haven't installed QT):
-- If x64: `sudo ./display-x64 1 1280 720 | ./HelloGuiLite shared-fb`
-- If ARM/Raspberry Pi: `sudo ./display-arm  1 1280 720 | ./HelloGuiLite shared-fb`
-- The source code of display-xxx here: HostMonitor/BuildLinux/display.src
-
-### Q&A:
-1. Meet linking error(e.g: -fPIC, libxxx not found)
-- If x64: rebuild libGuiLite.a, and replace them in BuildLinux/libs
-- If ARM: rebuild libGuiLite.a, and replace them in BuildLinux/libs/arm
-2. How to run HelloGuiLite on ARM Linux device?
-- Copy HelloGuiLite you build on ARM Linux device
-- `sudo ./HelloGuiLite /dev/fb0`&nbsp;&nbsp;&nbsp;&nbsp;/dev/fb0: The path of framebuffer
-3. Could not display UI on Ubuntu
-- Enter pure command line mode(Ctrl + Alt + F1), and run again
-- Update Ubuntu to 18.04, and run again
+## Q&A:
+1. Could not display UI on Ubuntu with framebuffer
+    - Enter pure command line mode(Ctrl + Alt + F1), and run again
+    - Update Ubuntu to 18.10, and run again
+2. Linking error: rebuild libGuiLite.a, and replace them in BuildLinux/libs

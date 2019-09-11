@@ -2,8 +2,10 @@
 #include "GuiLite.h"
 #ifdef __linux__
     #include "GuiLite-linux.cpp"
-#else
+#elif defined(_WIN32) || defined(WIN32)
     #include "GuiLite-win.cpp"
+#else
+	#include "GuiLite-unknow.cpp"
 #endif
 #define UI_WIDTH 680
 #define UI_HEIGHT 512

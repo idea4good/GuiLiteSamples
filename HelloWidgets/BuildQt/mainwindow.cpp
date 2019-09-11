@@ -10,9 +10,9 @@
 #include <unistd.h>
 #include <sys/stat.h>
 
-void startHelloWidgets(void* phy_fb, int width, int height, int color_bytes);
-void sendTouch2HelloWidgets(int x, int y, bool is_down);
-void* getUiOfHelloWidgets(int* width, int* height, bool force_update);
+extern void startHelloWidgets(void* phy_fb, int width, int height, int color_bytes);
+extern void sendTouch2HelloWidgets(int x, int y, bool is_down);
+extern void* getUiOfHelloWidgets(int* width, int* height, bool force_update);
 
 #define UI_WIDTH 680
 #define UI_HEIGHT 512

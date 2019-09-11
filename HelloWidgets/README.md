@@ -13,11 +13,10 @@
     - `cmake . && make`
     - `cd BuildLinux`
     - `chmod 777 *`
-2. Run locally(e.g, Ubuntu, Raspbian):
+2. Run locally(e.g, Ubuntu):
     - Run with framebuffer: `sudo ./HelloWidgets /dev/fb0`&nbsp;&nbsp;&nbsp;&nbsp;/dev/fb0: The path of framebuffer device file.
-    - Run with Qt display(x64): `sudo ./display-x64 1 680 512 | ./HelloWidgets shared-fb`
-    - Run with Qt display(arm): `sudo ./display-arm  1 680 512 | ./HelloWidgets shared-fb`
-    - The source code of display-xxx here: HostMonitor/BuildLinux/display.src
+    - Run inside X Window: `sudo ./xWindow 680 512 | ./HelloWidgets shared-fb`
+
 ## Cross compiler & Run on target:
 1. install compiler:
     - For ARM32: `sudo apt-get install g++-arm-linux-gnueabi gcc-arm-linux-gnueabi`
@@ -30,7 +29,9 @@
     - Copy BuildLinux/HelloWidgets to target Linux device
     - `chmod 777 HelloWidgets`
     - `sudo ./HelloWidgets /dev/fb0`&nbsp;&nbsp;&nbsp;&nbsp;/dev/fb0: The path of framebuffer
+
 ## Q&A:
-1. Could not display UI on Ubuntu
+1. Could not display UI on Ubuntu with framebuffer
     - Enter pure command line mode(Ctrl + Alt + F1), and run again
-    - Update Ubuntu to 18.04, and run again
+    - Update Ubuntu to 18.10, and run again
+2. Linking error: rebuild libGuiLite.a, and replace them in BuildLinux/libs

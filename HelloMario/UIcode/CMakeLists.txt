@@ -4,9 +4,6 @@ PROJECT(UIcode)
 
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR})
 
-INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/core_include
-					${CMAKE_CURRENT_SOURCE_DIR}/widgets_include)
-
 FILE(GLOB SOURCE *.cpp)
 FILE(GLOB RESOURCE resource/*.cpp)
 
@@ -14,5 +11,5 @@ ADD_LIBRARY(UIcode  ${SOURCE}
                     ${RESOURCE})
 
 execute_process(
-    COMMAND ${CMAKE_SOURCE_DIR}/.sync_build.sh HelloWave
+    COMMAND ${CMAKE_SOURCE_DIR}/.sync_build.sh HelloMario
 )

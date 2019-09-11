@@ -1,4 +1,4 @@
-#include "../core_include/resource.h"
+#include "../GuiLite.h"
 
 static const unsigned char _32[] = {
 0, 255, 0, 109, };

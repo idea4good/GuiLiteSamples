@@ -1,8 +1,4 @@
-﻿#include "core_include/api.h"
-#include "core_include/rect.h"
-#include "core_include/surface.h"
-#include "core_include/resource.h"
-#include "core_include/display.h"
+﻿#include "GuiLite.h"
 #include <stdlib.h>
 
 #define UI_WIDTH 240

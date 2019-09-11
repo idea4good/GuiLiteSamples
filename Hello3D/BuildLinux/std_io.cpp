@@ -5,6 +5,7 @@
 extern void create_thread(unsigned long* thread_id, void* attr, void *(*start_routine) (void *), void* arg);
 extern void thread_sleep(unsigned int milli_seconds);
 extern int captureUiOfHello3D();
+extern void sendTouch2Hello3D(int x, int y, bool is_down);
 
 static int get_std_input(char *buffer, int size)
 {
@@ -52,12 +53,14 @@ static void* stdin_thread(void* param)
 			int x, y;
 			sscanf(buffer, "%*[a-z|(]%d,%d", &x, &y);
 			printf(buffer);
+			sendTouch2Hello3D(x, y, true);
 		}
 		else if (strstr(buffer, "release") == buffer)
 		{
 			int x, y;
 			sscanf(buffer, "%*[a-z|(]%d,%d", &x, &y);
 			printf(buffer);
+			sendTouch2Hello3D(x, y, false);
 		}
 		else
 		{

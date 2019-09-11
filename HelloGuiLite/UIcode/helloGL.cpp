@@ -1,4 +1,11 @@
 #include "GuiLite.h"
+#ifdef __linux__
+    #include "GuiLite-linux.cpp"
+#elif defined(_WIN32) || defined(WIN32)
+    #include "GuiLite-win.cpp"
+#else
+    #include "GuiLite-unknow.cpp"
+#endif
 #include <stdlib.h>
 
 const int UI_WIDTH = 1280;
@@ -120,7 +127,6 @@ static WND_TREE s_desktop_children[] =
 };
 
 //////////////////////// start UI ////////////////////////
-static c_fifo s_hid_fifo;
 static c_display* s_display;
 void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes)
 {
@@ -132,7 +138,6 @@ void create_ui(void* phy_fb, int screen_width, int screen_height, int color_byte
 	s_desktop.connect(NULL, ID_DESKTOP, 0, 0, 0, UI_WIDTH, UI_HEIGHT, s_desktop_children);
 	s_desktop.show_window();
 
-	new c_gesture(&s_desktop, NULL, &s_hid_fifo);
 	while(1)
 	{
 		thread_sleep(1000000);
@@ -145,10 +150,9 @@ void start_helloGL(void* phy_fb, int width, int height, int color_bytes)
 	create_ui(phy_fb, width, height, color_bytes);
 }
 
-int sendTouch2helloGL(void* buf, int len)
+void sendTouch2helloGL(int x, int y, bool is_down)
 {
-	ASSERT(len == sizeof(MSG_INFO));
-	return s_hid_fifo.write(buf, len);
+    is_down ? s_desktop.on_touch(x, y, TOUCH_DOWN) : s_desktop.on_touch(x, y, TOUCH_UP);
 }
 
 void* getUiOfhelloGL(int* width, int* height, bool force_update)

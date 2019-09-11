@@ -8,13 +8,15 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = HelloGL
+TARGET = HelloGuiLite
 TEMPLATE = app
-LIBS+=../UIcode/libUIcode.a
-LIBS+=../../../GuiLite/libGuiLite.a
-INCLUDEPATH+=../UIcode/core_include
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp\
+        ../UIcode/helloGL.cpp\
+        ../UIcode/resource/desktop_bmp.cpp\
+        ../UIcode/resource/start_icon_bmp.cpp\
+        ../UIcode/resource/start_icon_click_bmp.cpp\
+        ../UIcode/resource/start_menu_bmp.cpp
 
 HEADERS  += mainwindow.h
 

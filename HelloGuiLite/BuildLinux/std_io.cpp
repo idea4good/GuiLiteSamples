@@ -2,16 +2,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-typedef struct
-{
-	unsigned int dwMsgId;
-	unsigned int dwParam1;
-	unsigned int dwParam2;
-}MSG_INFO;
-
 extern void create_thread(unsigned long* thread_id, void* attr, void *(*start_routine) (void *), void* arg);
 extern void thread_sleep(unsigned int milli_seconds);
-extern int sendTouch2helloGL(void* buf, int len);
+extern void sendTouch2helloGL(int x, int y, bool is_down);
 extern int captureUiOfhelloGL();
 
 static int get_std_input(char *buffer, int size)
@@ -34,20 +27,12 @@ static int get_std_input(char *buffer, int size)
 
 static void press_down(int x, int y)
 {
-	MSG_INFO msg;
-	msg.dwMsgId = 0x4700;
-	msg.dwParam1 = x;
-	msg.dwParam2 = y;
-	sendTouch2helloGL(&msg, sizeof(msg));
+	sendTouch2helloGL(x, y, true);
 }
 
 static void press_release(int x, int y)
 {
-	MSG_INFO msg;
-	msg.dwMsgId = 0x4600;
-	msg.dwParam1 = x;
-	msg.dwParam2 = y;
-	sendTouch2helloGL(&msg, sizeof(msg));
+	sendTouch2helloGL(x, y, false);
 }
 
 static void* stdin_thread(void* param)

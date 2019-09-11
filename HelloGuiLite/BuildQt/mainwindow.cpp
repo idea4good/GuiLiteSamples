@@ -9,14 +9,13 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <sys/stat.h>
-#include "msg.h"
 
-void start_helloGL(void* phy_fb, int width, int height, int color_bytes);
-int sendTouch2helloGL(void* buf, int len);
-void* getUiOfhelloGL(int* width, int* height, bool force_update);
+extern void start_helloGL(void* phy_fb, int width, int height, int color_bytes);
+extern void sendTouch2helloGL(int x, int y, bool is_down);
+extern void* getUiOfhelloGL(int* width, int* height, bool force_update);
 
-#define UI_WIDTH 680
-#define UI_HEIGHT 512
+#define UI_WIDTH 1280
+#define UI_HEIGHT 720
 class GuiLiteThread: public QThread
 {
     void run()
@@ -68,22 +67,13 @@ void MainWindow::paintEvent(QPaintEvent* p)
 void MainWindow::mousePressEvent(QMouseEvent *e)
 {
     m_is_pressed = true;
-    MSG_INFO msg;
-    msg.dwMsgId = 0x4700;
-    msg.dwParam1 = e->x();
-    msg.dwParam2 = e->y();
-    sendTouch2helloGL(&msg,sizeof(msg));
+    sendTouch2helloGL(e->pos().x(), e->pos().y(), m_is_pressed);
 }
 
 void MainWindow::mouseReleaseEvent(QMouseEvent *e)
 {
     m_is_pressed = false;
-    MSG_INFO msg;
-    msg.dwMsgId = 0x4600;
-    msg.dwParam1 = e->x();
-    msg.dwParam2 = e->y();
-
-    sendTouch2helloGL(&msg,sizeof(msg));
+    sendTouch2helloGL(e->pos().x(), e->pos().y(), m_is_pressed);
 }
 
 void MainWindow::mouseMoveEvent(QMouseEvent *e)

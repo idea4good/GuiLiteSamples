@@ -10,7 +10,7 @@
 #include <errno.h>
 #include <sys/stat.h>
 
-extern "C" void startHello3D(void* phy_fb, int width, int height, int color_bytes);
+extern "C" void startHello3D(void* phy_fb, int width, int height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op);
 extern void init_std_io();
 
 static void* get_embeded_fb_in_display_app(int shared_id);
@@ -45,8 +45,8 @@ int main(int argc, char** argv)
 	system("./.sync_build.sh Hello3D");
 
 	int color_bytes = 2;
-	int screen_width = 500;
-	int screen_height = 500;
+	int screen_width = 240;
+	int screen_height = 320;
 
 	FRAMEBUFFER_MODE fb_mode = FB_NULL_MODE;
 	char *fb_dev_path = NULL;
@@ -86,7 +86,7 @@ int main(int argc, char** argv)
 	}
 
 	init_std_io();
-	startHello3D(phy_fb, screen_width, screen_height, color_bytes);//never return;
+	startHello3D(phy_fb, screen_width, screen_height, color_bytes, NULL);//never return;
     return 0;
 }
 

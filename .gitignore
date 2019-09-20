@@ -100,6 +100,18 @@ Makefile*
 /HelloNoTouch/BuildMFC/HelloNoTouch.aps
 /HelloNoTouch/UIcode/libUIcode.a
 
-/HelloWidgetsHelloWidgets/BuildLinux/HelloWidgets
+/HelloWidgets/BuildLinux/HelloWidgets
 /HelloWidgets/BuildMFC/HelloWidgets.aps
 /HelloWidgets/UIcode/libUIcode.a
+
+/HelloStar/BuildLinux/HelloStar
+/HelloStar/BuildMFC/HelloStar.aps
+/HelloStar/UIcode/libUIcode.a
+
+/Hello3D/BuildLinux/Hello3D
+/Hello3D/BuildMFC/Hello3D.aps
+/Hello3D/UIcode/libUIcode.a
+
+/HelloNets/BuildLinux/HelloNets
+/HelloNets/BuildMFC/HelloNets.aps
+/HelloNets/UIcode/libUIcode.a

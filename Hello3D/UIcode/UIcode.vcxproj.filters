@@ -3,4 +3,9 @@
   <ItemGroup>
     <ClCompile Include="UIcode.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Filter Include="resource">
+      <UniqueIdentifier>{ddf3430d-f9ca-4db5-b431-632e5e6a57ec}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
 </Project>

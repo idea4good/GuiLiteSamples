@@ -1,7 +1,8 @@
 # How to build for Win MFC?
 ## Prerequisite:
 - GuiLite.lib should be in BuildMFC\BuildMFC\libs\x86(x64), ⚠️rebuild them if meet link error.
-### Build
+
+## Build
 1. Open "Hello3D\BuildMFC\Hello3D.sln" by Visual studio 2017
 2. Click `F5` to build/run `Hello3D`
 
@@ -10,7 +11,7 @@
 - Install Keil uvsion 5.6 or above.
 - GuiLite.lib should be in BuildSTM32F103-Keil\USER, ⚠️rebuild it if meet Linking error.
 - Your hardware should be compatible with: Discovery kit/[正点原子开发板](https://item.taobao.com/item.htm?spm=a230r.1.14.20.17b441b9u49Ujg&id=582084489839&ns=1&abbucket=7#detail)/野火霸道开发板.
-### Build
+## Build
 1. Open "Hello3D\BuildSTM32F103-Keil\USER\Hello3D.uvprojx" with Keil uvsion.
 2. Choose your Device type(Default: STM32F103ZE) from option for target.
 3. Build Hello3D.
@@ -20,13 +21,14 @@
 ## Prerequisite:
 - You have Keil/IAR project which can enable LCD
 - Your project should implement function `void delay_ms(unsigned short nms)`, which would be used by core/src/adapter/api_none.cpp::thread_sleep
+
 ## Porting
 ![HowToPorting](../doc/HowToPorting.png)
-1. Open your MCU project(Keil/IAR), import GuiLite library - `GuiLite.lib`
-2. Import all cpp files from `UIcode` in your project.
+1. Open your MCU project(Keil/IAR), and copy GuiLite.h/GuiLite-unknow.cpp built by [1h-1cpp.sh](https://github.com/idea4good/GuiLite/blob/master/doc/HowToBuild.md#option-2-header--source) in UIcode folder.⚠️do not import `GuiLite.lib`
+2. Import all cpp files(⚠️except for GuiLite.h, GuiLite-unknow.cpp, because they have been included in UIcode.cpp) from `UIcode` in your project
 3. Encapsulate draw piexel driver in `main.c`
 4. Link your LCD driver with GuiLite, and call UI entry function(e.g, startHello3D)
-5. Build & Run ⚠️[rebuild `GuiLite.lib`](https://github.com/idea4good/GuiLite/blob/master/doc/HowToBuild.md) if meet Linking error, or your MCU do not compatible with STM32F103
+5. Build & Run
 
 # How to build for Linux?
 ## Compile & Run locally:
@@ -37,7 +39,7 @@
     - `chmod 777 *`
 2. Run locally(e.g, Ubuntu):
     - Run with framebuffer: `sudo ./Hello3D /dev/fb0`&nbsp;&nbsp;&nbsp;&nbsp;/dev/fb0: The path of framebuffer device file.
-    - Run inside X Window: `sudo ./xWindow 500 500 | ./Hello3D shared-fb`
+    - Run inside X Window: `sudo ./xWindow 240 320 | ./Hello3D shared-fb`
 
 ## Cross compiler & Run on target:
 1. install compiler:

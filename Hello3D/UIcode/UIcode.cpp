@@ -62,12 +62,11 @@ void rotateZ(double angle, double* point, double* output)// rotate matrix for Z
     multiply(3, 3, 1, (double*)rotation, point, output);
 }
 
-void projectOnXY(double* point, double* output)
+void projectOnXY(double* point, double* output, double zFactor = 1)
 {
-    static double projection[][3] = {//project on X/Y face
-        {1, 0, 0},// x, y, z
-        {0, 1, 0},
-    };
+	static double projection[2][3];//project on X/Y face
+	projection[0][0] = zFactor;//the raio of point.z and camera.z
+	projection[1][1] = zFactor;//the raio of point.z and camera.z
     multiply(2, 3, 1, (double*)projection, point, output);
 }
 
@@ -140,12 +139,13 @@ public:
 
 	virtual void rotate()
 	{
-		double rotateOut1[3][1], rotateOut2[3][1], rotateOut3[3][1];
+		double rotateOut1[3][1], rotateOut2[3][1];
 		for (int i = 0; i < 5; i++)
 		{
 			rotateY(angle, points[i], (double*)rotateOut1);
 			rotateX(0.1, (double*)rotateOut1, (double*)rotateOut2);
-			projectOnXY((double*)rotateOut2, (double*)points2d[i]);
+			double zFactor = SHAPE_SIZE / (2.2 * SHAPE_SIZE - rotateOut2[2][0]);
+			projectOnXY((double*)rotateOut2, (double*)points2d[i], zFactor);
 		}
 		angle += 0.1;
 	}

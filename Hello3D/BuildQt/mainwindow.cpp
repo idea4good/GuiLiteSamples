@@ -39,8 +39,8 @@ MainWindow::~MainWindow()
 void MainWindow::init()
 {
     setAttribute(Qt::WA_NoBackground);
-    setFixedHeight(UI_HEIGHT);
-    setFixedWidth(UI_WIDTH);
+    setFixedWidth(600);
+    setFixedHeight(400);
 
     GuiLiteThread* thread = new GuiLiteThread;
     thread->start();

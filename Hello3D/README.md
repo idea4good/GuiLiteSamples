@@ -23,8 +23,8 @@
 - Your project should implement function `void delay_ms(unsigned short nms)`, which would be used by core/src/adapter/api_none.cpp::thread_sleep
 
 ## Porting
-![HowToPorting](../doc/HowToPorting.png)
-1. Open your MCU project(Keil/IAR), and copy GuiLite.h/GuiLite-unknow.cpp built by [1h-1cpp.sh](https://github.com/idea4good/GuiLite/blob/master/doc/HowToBuild.md#option-2-header--source) in UIcode folder.⚠️do not import `GuiLite.lib`
+![HowToPorting](../doc/HowToPorting-1h1cpp.png)
+1. Open your Keil/IAR project, and copy GuiLite.h/GuiLite-unknow.cpp built by [1h-1cpp.sh](https://github.com/idea4good/GuiLite/blob/master/doc/HowToBuild.md#option-2-header--source) to UIcode folder
 2. Import all cpp files(⚠️except for GuiLite.h, GuiLite-unknow.cpp, because they have been included in UIcode.cpp) from `UIcode` in your project
 3. Encapsulate draw piexel driver in `main.c`
 4. Link your LCD driver with GuiLite, and call UI entry function(e.g, startHello3D)

@@ -4,7 +4,7 @@
 #elif defined(_WIN32) || defined(WIN32)
 	#include "GuiLite-win.cpp"
 #else
-	#include "GuiLite-unknow.cpp"
+	//#include "GuiLite-unknow.cpp"
 #endif
 #include <stdlib.h>
 #include <string.h>

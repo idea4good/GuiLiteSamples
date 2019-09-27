@@ -20,7 +20,8 @@
 ## Prerequisite:
 - You have Keil/IAR project which can enable LCD
 - Your project should implement function `void delay_ms(unsigned short nms)`, which would be used by core/src/adapter/api_none.cpp::thread_sleep
-### Porting
+
+## Porting
 ![HowToPorting](../doc/HowToPorting.png)
 1. Open your MCU project(Keil/IAR), import GuiLite library - `GuiLite.lib`
 2. Import all cpp files from `UIcode` in your project.

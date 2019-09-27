@@ -4,7 +4,7 @@
 #elif defined(_WIN32) || defined(WIN32)
 	#include "GuiLite-win.cpp"
 #else
-	#include "GuiLite-unknow.cpp"
+	//#include "GuiLite-unknow.cpp"//In keil, new operator will crash the program; but could work well in library
 #endif
 #include <stdlib.h>
 #include <string.h>

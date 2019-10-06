@@ -159,7 +159,7 @@ void create_ui(void* phy_fb, int screen_width, int screen_height, int color_byte
 	load_resource();
 
 	s_display = new c_display(phy_fb, screen_width, screen_height, UI_WIDTH, UI_HEIGHT, color_bytes, 1, NULL);
-	c_surface* s_surface = s_display->alloc_surface((void*)1, Z_ORDER_LEVEL_2);
+	c_surface* s_surface = s_display->alloc_surface(Z_ORDER_LEVEL_2);
 	s_surface->set_active(true);
 
 	s_my_ui.set_surface(s_surface);

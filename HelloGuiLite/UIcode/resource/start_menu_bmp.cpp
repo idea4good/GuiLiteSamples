@@ -640,5 +640,5 @@ const BITMAP_INFO start_menu_bmp ={
     475,
     633,
     16,
-    (unsigned char*)raw_data
+    raw_data
 };

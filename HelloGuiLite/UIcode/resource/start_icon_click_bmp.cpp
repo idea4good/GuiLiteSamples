@@ -45,5 +45,5 @@ const BITMAP_INFO start_icon_click_bmp ={
     47,
     38,
     16,
-    (unsigned char*)raw_data
+    raw_data
 };

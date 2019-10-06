@@ -161,5 +161,5 @@ const BITMAP_INFO frame_12_bmp ={
     74,
     154,
     16,
-    (unsigned char*)raw_data
+    raw_data
 };

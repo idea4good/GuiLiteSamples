@@ -1,16 +1,19 @@
 #include "GuiLite.h"
 #ifdef __linux__
 	#include "GuiLite-linux.cpp"
+	#define SHAPE_CNT 2
 #elif defined(_WIN32) || defined(WIN32)
 	#include "GuiLite-win.cpp"
+	#define SHAPE_CNT 2
 #else
 	//#include "GuiLite-unknow.cpp"//In keil, new operator will crash the program; but could work well in library
+	#define SHAPE_CNT 1
 #endif
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
 
-#define UI_WIDTH	240
+#define UI_WIDTH	480
 #define UI_HEIGHT	320
 #define SHAPE_SIZE	50
 static c_surface* s_surface;
@@ -73,6 +76,7 @@ void projectOnXY(double* point, double* output, double zFactor = 1)
 // Shape
 class Shape {
 public:
+	Shape() { angle = 0.5; }
 	virtual void draw(int x, int y, bool isErase) = 0;
 	virtual void rotate() = 0;
 protected:
@@ -82,7 +86,6 @@ protected:
 class Cube : public Shape
 {
 public:
-	Cube() { angle = 0.5; }
 	virtual void draw(int x, int y, bool isErase)
 	{
 		for (int i = 0; i < 4; i++)
@@ -123,7 +126,6 @@ double Cube::points[8][3] = {
 class Pyramid : public Shape
 {
 public:
-	Pyramid() { angle = 0.5; }
 	virtual void draw(int x, int y, bool isErase)
 	{
 		s_surface->draw_line(points2d[0][0] + x, points2d[0][1] + y, points2d[1][0] + x, points2d[1][1] + y, (isErase) ? 0 : 0xff007acc, Z_ORDER_LEVEL_0);
@@ -165,20 +167,22 @@ double Pyramid::points[5][3] = {
 // Demo
 void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op) {
     s_display = new c_display(phy_fb, screen_width, screen_height, UI_WIDTH, UI_HEIGHT, color_bytes, 1, gfx_op);
-    s_surface = s_display->alloc_surface((void*)1, Z_ORDER_LEVEL_0);
+    s_surface = s_display->alloc_surface(Z_ORDER_LEVEL_0);
 	s_surface->set_active(true);
 	s_surface->fill_rect(0, 0, UI_WIDTH - 1, UI_HEIGHT - 1, 0, Z_ORDER_LEVEL_0);
 	
-	Cube theCube; Pyramid thePyramid;
+	Cube theCube[SHAPE_CNT]; Pyramid thePyramid[SHAPE_CNT];
 	while(1) {
-		theCube.draw(120, 100, true);//erase footprint
-		theCube.rotate();
-		theCube.draw(120, 100, false);//refresh cube
+		for (int i = 0; i < SHAPE_CNT; i++)
+		{
+			theCube[i].draw(120 + i * 240, 100, true);//erase footprint
+			theCube[i].rotate();
+			theCube[i].draw(120 + i * 240, 100, false);//refresh cube
 
-		thePyramid.draw(120, 250, true);//erase footprint
-		thePyramid.rotate();
-		thePyramid.draw(120, 250, false);//refresh pyramid
-
+			thePyramid[i].draw(120 + i * 240, 250, true);//erase footprint
+			thePyramid[i].rotate();
+			thePyramid[i].draw(120 + i * 240, 250, false);//refresh pyramid
+		}
 		thread_sleep(50);
 	}
 }

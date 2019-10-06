@@ -12,9 +12,9 @@ void c_bitmap::draw_bitmap(c_surface* surface, int z_order, const BITMAP_INFO *p
 		lower_fb = surface->m_frame_layers[z_order - 1].fb;
 	}
 	unsigned int mask_rgb_16 = GL_RGB_32_to_16(mask_rgb);
-	int xsize = pBitmap->XSize;
-	int ysize = pBitmap->YSize;
-	const unsigned short* pData = (const unsigned short*)pBitmap->pData;
+	int xsize = pBitmap->width;
+	int ysize = pBitmap->height;
+	const unsigned short* pData = (const unsigned short*)pBitmap->pixel_color_array;
 	for (int j = 0; j < ysize; j++)
 	{
 		for (int i = 0; i < xsize; i++)
@@ -36,7 +36,7 @@ void c_bitmap::draw_bitmap(c_surface* surface, int z_order, const BITMAP_INFO *p
 }
 void c_bitmap::draw_bitmap(c_surface* surface, int z_order, const BITMAP_INFO* pBitmap, int x, int y, int src_x, int src_y, int width, int height, unsigned int mask_rgb)
 {
-	if (0 == pBitmap || (src_x + width > pBitmap->XSize) || (src_y + height > pBitmap->YSize))
+	if (0 == pBitmap || (src_x + width > pBitmap->width) || (src_y + height > pBitmap->height))
 	{
 		return;
 	}
@@ -47,10 +47,10 @@ void c_bitmap::draw_bitmap(c_surface* surface, int z_order, const BITMAP_INFO* p
 		lower_fb = surface->m_frame_layers[z_order - 1].fb;
 	}
 	unsigned int mask_rgb_16 = GL_RGB_32_to_16(mask_rgb);
-	const unsigned short* pData = (const unsigned short*)pBitmap->pData;
+	const unsigned short* pData = (const unsigned short*)pBitmap->pixel_color_array;
 	for (int j = 0; j < height; j++)
 	{
-		const unsigned short* p = &pData[src_x + (src_y + j) * pBitmap->XSize];
+		const unsigned short* p = &pData[src_x + (src_y + j) * pBitmap->width];
 		for (int i = 0; i < width; i++)
 		{
 			unsigned int rgb = *p++;
@@ -177,6 +177,7 @@ c_display::c_display(void* phy_fb, unsigned int display_width, unsigned int disp
 	m_phy_fb = phy_fb;
 	m_phy_read_index = m_phy_write_index = 0;
 	memset(m_surface_group, 0, sizeof(m_surface_group));
+	m_surface_index = 0;
 	m_surface_cnt = surface_cnt;
 	ASSERT(m_surface_cnt <= SURFACE_CNT_MAX);
 	
@@ -185,33 +186,16 @@ c_display::c_display(void* phy_fb, unsigned int display_width, unsigned int disp
 		m_surface_group[i] = phy_fb ? new c_surface(this, surface_width, surface_height, color_bytes) : new c_surface_no_fb(this, surface_width, surface_height, color_bytes, gfx_op);
 	}
 }
-c_surface* c_display::alloc_surface(void* usr, Z_ORDER_LEVEL max_zorder)
+c_surface* c_display::alloc_surface(Z_ORDER_LEVEL max_zorder)
 {
-	int i = 0;
-	ASSERT(max_zorder < Z_ORDER_LEVEL_MAX);
-	while (i < m_surface_cnt)
+	if(max_zorder >= Z_ORDER_LEVEL_MAX || m_surface_index >= m_surface_cnt)
 	{
-		if (m_surface_group[i]->m_usr == usr)
-		{
-			//repeat register
-			ASSERT(false);
-			return m_surface_group[i];
-		}
-		i++;
+		ASSERT(false);
+		return 0;
 	}
-	i = 0;
-	while (i < m_surface_cnt)
-	{
-		if (m_surface_group[i]->m_usr == 0)
-		{	
-			m_surface_group[i]->set_surface(usr, max_zorder);
-			return m_surface_group[i];
-		}
-		i++;
-	}
-	//no surface for use
-	ASSERT(false);
-	return 0;
+	int i = m_surface_index++;
+	m_surface_group[i]->set_surface(max_zorder);
+	return m_surface_group[i];
 }
 int c_display::merge_surface(c_surface* s0, c_surface* s1, int x0, int x1, int y0, int y1, int offset)
 {
@@ -392,14 +376,13 @@ c_surface::c_surface(c_display* display,  unsigned int width, unsigned int heigh
 	m_display = display;
 	m_phy_fb = display->m_phy_fb;
 	m_phy_write_index = &display->m_phy_write_index;
-	m_fb = m_usr = 0;
+	m_fb = 0;
 	m_top_zorder = m_max_zorder = Z_ORDER_LEVEL_0;
 	m_is_active = false;
 	m_frame_layers[Z_ORDER_LEVEL_0].visible_rect = c_rect(0, 0, m_width, m_height);
 }
-void c_surface::set_surface(void* wnd_root, Z_ORDER_LEVEL max_z_order)
+void c_surface::set_surface(Z_ORDER_LEVEL max_z_order)
 {
-	m_usr = wnd_root;
 	m_max_zorder = max_z_order;
 	if (m_display->m_surface_cnt > 1)
 	{
@@ -479,6 +462,10 @@ void c_surface::draw_pixel_on_fb(int x, int y, unsigned int rgb)
 }
 void c_surface::fill_rect(int x0, int y0, int x1, int y1, unsigned int rgb, unsigned int z_order)
 {
+	x0 = (x0 < 0) ? 0 : x0;
+	y0 = (y0 < 0) ? 0 : y0;
+	x1 = (x1 > (m_width - 1)) ? (m_width - 1) : x1;
+	y1 = (y1 > (m_height - 1)) ? (m_height - 1) : y1;
 	rgb = GL_ROUND_RGB_32(rgb);
 	if (z_order == m_max_zorder)
 	{
@@ -507,11 +494,6 @@ void c_surface::fill_rect(int x0, int y0, int x1, int y1, unsigned int rgb, unsi
 }
 void c_surface::fill_rect_on_fb(int x0, int y0, int x1, int y1, unsigned int rgb)
 {
-	if (x0 < 0 || y0 < 0 || x1 < 0 || y1 < 0 ||
-		x0 >= m_width || x1 >= m_width || y0 >= m_height || y1 >= m_height)
-	{
-		ASSERT(false);
-	}
 	int display_width = m_display->get_width();
 	int display_height = m_display->get_height();
 	if (m_color_bytes == 4)
@@ -561,7 +543,6 @@ void c_surface::fill_rect_on_fb(int x0, int y0, int x1, int y1, unsigned int rgb
 			}
 		}
 	}
-	
 }
 unsigned int c_surface::get_pixel(int x, int y, unsigned int z_order)
 {
@@ -1161,29 +1142,6 @@ void c_wnd::wnd2screen(c_rect &rect) const
 	int b = (t + rect.Height() - 1);
 	rect.SetRect(l, t, r, b);
 }
-void c_wnd::screen2wnd(short &x, short &y) const
-{
-	c_wnd *parent = m_parent;
-	c_rect rect;
-	x -= m_wnd_rect.m_left;
-	y -= m_wnd_rect.m_top;
-	while ( 0 != parent )
-	{
-		parent->get_wnd_rect(rect);
-		x -= rect.m_left;
-		y -= rect.m_top;
-		parent = parent->m_parent;
-	}
-}
-void c_wnd::screen2wnd(c_rect &rect) const
-{
-	short l = rect.m_left;
-	short t = rect.m_top;
-	screen2wnd(l, t);
-	short r = l + rect.Width() - 1;
-	short b = t + rect.Height() - 1;
-	rect.SetRect(l, t, r, b);
-}
 c_wnd* c_wnd::set_child_focus(c_wnd * focus_child)
 {
 	ASSERT(0 != focus_child);
@@ -1403,13 +1361,13 @@ bool c_wnd::on_key(KEY_TYPE key)
 	}
 	return true;
 }
-void c_wnd::notify_parent(unsigned int msg_id, unsigned int ctrl_id, int param)
+void c_wnd::notify_parent(unsigned int msg_id, int param)
 {
 	if (!m_parent)
 	{
 		return;
 	}
-	const GL_MSG_ENTRY* entry = m_parent->FindMsgEntry(m_parent->GetMSgEntries(), MSG_TYPE_WND, msg_id, ctrl_id);
+	const GL_MSG_ENTRY* entry = m_parent->FindMsgEntry(m_parent->GetMSgEntries(), MSG_TYPE_WND, msg_id, m_resource_id);
 	if (0 == entry)
 	{
 		return;
@@ -1425,10 +1383,10 @@ void c_wnd::notify_parent(unsigned int msg_id, unsigned int ctrl_id, int param)
 		(m_parent->*msg_funcs.func_vvl)(param);
 		break;
 	case MSG_CALLBACK_VWV:
-		(m_parent->*msg_funcs.func_vwv)(ctrl_id);
+		(m_parent->*msg_funcs.func_vwv)(m_resource_id);
 		break;
 	case MSG_CALLBACK_VWL:
-		(m_parent->*msg_funcs.func_vwl)(ctrl_id, param);
+		(m_parent->*msg_funcs.func_vwl)(m_resource_id, param);
 		break;
 	default:
 		ASSERT(false);
@@ -1568,7 +1526,7 @@ int c_word::draw_single_char(c_surface* surface, int z_order, unsigned int utf8_
 		const LATTICE* p_lattice = get_lattice(font, utf8_code);
 		if (p_lattice)
 		{
-			draw_lattice(surface, z_order, x, y, p_lattice->width, font->height, p_lattice->p_data, font_color, bg_color);
+			draw_lattice(surface, z_order, x, y, p_lattice->width, font->height, p_lattice->pixel_gray_array, font_color, bg_color);
 			return p_lattice->width;
 		}
 	}
@@ -2174,8 +2132,8 @@ void c_audio::init()
 									AUDCLNT_STREAMFLAGS_AUTOCONVERTPCM | AUDCLNT_STREAMFLAGS_EVENTCALLBACK,
 									AUDIO_OUTPUT_BUF_LEN * 2, 0, &s_wav_format,	0);
 	CHECK_ERROR(ret);
-        //s_audio_event = CreateEventEx(0, 0, 0, EVENT_ALL_ACCESS);
-        s_audio_event = CreateEvent(0, 0, 0, 0);
+	//s_audio_event = CreateEventEx(0, 0, 0, EVENT_ALL_ACCESS);
+	s_audio_event = CreateEvent(0, 0, 0, 0);
 	ret = s_audio_client->SetEventHandle(s_audio_event);
 	CHECK_ERROR(ret);
 	ret = s_audio_client->GetService(__uuidof(IAudioRenderClient), (void**)&s_audio_render_client);
@@ -2289,7 +2247,7 @@ bool c_button::on_touch(int x, int y, TOUCH_ACTION action)
 	{
 		m_status = STATUS_FOCUSED;
 		on_paint();
-		notify_parent(GL_BN_CLICKED, get_id(), 0);
+		notify_parent(GL_BN_CLICKED, 0);
 	}
 	return true;
 }
@@ -2297,7 +2255,7 @@ bool c_button::on_key(KEY_TYPE key)
 {
 	if (key == KEY_ENTER)
 	{
-		notify_parent(GL_BN_CLICKED, get_id(), 0);
+		notify_parent(GL_BN_CLICKED, 0);
 		return false;// Do not handle KEY_ENTER by other wnd.
 	}
 	return true;// Handle KEY_FOWARD/KEY_BACKWARD by parent wnd.
@@ -2988,12 +2946,12 @@ void c_keyboard::on_caps_clicked(unsigned int ctrl_id)
 void c_keyboard::on_enter_clicked(unsigned int ctrl_id)
 {
 	memset(m_str, 0, sizeof(m_str));
-    notify_parent(KEYBORAD_CLICK, get_id(), CLICK_ENTER);
+    notify_parent(KEYBORAD_CLICK, CLICK_ENTER);
 }
 void c_keyboard::on_esc_clicked(unsigned int ctrl_id)
 {
 	memset(m_str, 0, sizeof(m_str));
-	notify_parent(KEYBORAD_CLICK, get_id(), CLICK_ESC);
+	notify_parent(KEYBORAD_CLICK, CLICK_ESC);
 }
 void c_keyboard::on_del_clicked(unsigned int ctrl_id)
 {
@@ -3002,7 +2960,7 @@ void c_keyboard::on_del_clicked(unsigned int ctrl_id)
 		return;
 	}
 	m_str[--m_str_len] = 0;
-	notify_parent(KEYBORAD_CLICK, get_id(), CLICK_CHAR);
+	notify_parent(KEYBORAD_CLICK, CLICK_CHAR);
 }
 void c_keyboard::on_char_clicked(unsigned int ctrl_id)
 {//ctrl_id = char ascii code.
@@ -3025,7 +2983,7 @@ void c_keyboard::on_char_clicked(unsigned int ctrl_id)
 	ASSERT(false);
 InputChar:
 	m_str[m_str_len++] = ctrl_id;
-	notify_parent(KEYBORAD_CLICK, get_id(), CLICK_CHAR);
+	notify_parent(KEYBORAD_CLICK, CLICK_CHAR);
 }
 void c_keyboard::on_paint()
 {
@@ -3201,7 +3159,7 @@ void c_list_box::on_touch_down(int x, int y)
 		{
 			m_status = STATUS_FOCUSED;
 			on_paint();
-			notify_parent(GL_LIST_CONFIRM, get_id(), m_selected_item);
+			notify_parent(GL_LIST_CONFIRM, m_selected_item);
 		}        
 	}
 }
@@ -3224,7 +3182,7 @@ void c_list_box::on_touch_up(int x, int y)
 			m_status = STATUS_FOCUSED;
 			select_item((y - m_list_wnd_rect.m_top) / ITEM_HEIGHT);
 			on_paint();
-			notify_parent(GL_LIST_CONFIRM, get_id(), m_selected_item);
+			notify_parent(GL_LIST_CONFIRM, m_selected_item);
 		}
 		else
 		{
@@ -3339,7 +3297,7 @@ int c_slide_group::add_slide(c_wnd* slide, unsigned short resource_id, short x, 
 		return -1;
 	}
 	c_surface* old_surface = get_surface();
-	c_surface* new_surface = old_surface->get_display()->alloc_surface(slide,max_zorder);
+	c_surface* new_surface = old_surface->get_display()->alloc_surface(max_zorder);
 	new_surface->set_active(false);
 	set_surface(new_surface);
 	slide->connect(this, resource_id ,0 , x, y, width, height, p_child_tree);
@@ -3378,7 +3336,7 @@ int c_slide_group::add_clone_silde(c_wnd* slide, unsigned short resource_id, sho
 		return -1;
 	}
 	c_surface* old_surface = get_surface();
-	c_surface* new_surface = old_surface->get_display()->alloc_surface(slide,max_zorder);
+	c_surface* new_surface = old_surface->get_display()->alloc_surface(max_zorder);
 	new_surface->set_active(false);
 	set_surface(new_surface);
 	c_wnd* page_tmp = slide->connect_clone(this,resource_id,0,x,y,width,height,p_child_tree);
@@ -3497,7 +3455,7 @@ void c_spin_box::on_touch_up(int x, int y)
 		m_value = m_cur_value;
 		m_status = STATUS_FOCUSED;
 		on_paint();
-		notify_parent(GL_SPIN_CONFIRM, get_id(), m_value);
+		notify_parent(GL_SPIN_CONFIRM, m_value);
 	}
 }
 void c_spin_box::on_focus()
@@ -3577,7 +3535,7 @@ void c_spin_box::on_arrow_up_bt_click(unsigned int ctr_id)
 		return;
 	}
 	m_cur_value += m_step;
-	notify_parent(GL_SPIN_CHANGE, get_id(), m_cur_value);
+	notify_parent(GL_SPIN_CHANGE, m_cur_value);
 	on_paint();
 }
 void c_spin_box::on_arrow_down_bt_click(unsigned int ctr_id)
@@ -3587,7 +3545,7 @@ void c_spin_box::on_arrow_down_bt_click(unsigned int ctr_id)
 		return;
 	}
 	m_cur_value -= m_step;
-	notify_parent(GL_SPIN_CHANGE, get_id(), m_cur_value);
+	notify_parent(GL_SPIN_CHANGE, m_cur_value);
 	on_paint();
 }
 void c_table::set_item(int row, int col, char* str, unsigned int color)

@@ -176,17 +176,17 @@ private:
 //BITMAP
 typedef struct struct_bitmap_info
 {
-	unsigned short XSize;
-	unsigned short YSize;
-	unsigned short BitsPerPixel;
-	const unsigned char* pData; /* Pointer to picture data (indices) */
+	unsigned short width;
+	unsigned short height;
+	unsigned short color_bits;//support 16 bits only
+	const unsigned short* pixel_color_array;
 } BITMAP_INFO;
 //FONT
 typedef struct struct_lattice
 {
 	unsigned int			utf8_code;
 	unsigned char			width;
-	const unsigned char*	p_data;
+	const unsigned char*	pixel_gray_array;
 } LATTICE;
 typedef struct struct_font_info
 {
@@ -300,14 +300,13 @@ public:
 protected:
 	virtual void fill_rect_on_fb(int x0, int y0, int x1, int y1, unsigned int rgb);
 	virtual void draw_pixel_on_fb(int x, int y, unsigned int rgb);
-	void set_surface(void* wnd_root, Z_ORDER_LEVEL max_z_order);
+	void set_surface(Z_ORDER_LEVEL max_z_order);
 	c_surface(c_display* display, unsigned int width, unsigned int height, unsigned int color_bytes);
 	int						m_width;		//in pixels
 	int						m_height;		//in pixels
 	int						m_color_bytes;	//16 bits, 32 bits only
 	void* 					m_fb;			//Top frame buffer you could see
 	c_frame_layer 			m_frame_layers[Z_ORDER_LEVEL_MAX];//Top layber fb always be 0
-	void*					m_usr;
 	bool					m_is_active;
 	Z_ORDER_LEVEL			m_max_zorder;
 	Z_ORDER_LEVEL			m_top_zorder;
@@ -336,7 +335,7 @@ public:
 	c_display(void* phy_fb, unsigned int display_width, unsigned int display_height,
 					unsigned int surface_width, unsigned int surface_height,
 					unsigned int color_bytes, unsigned int surface_cnt, EXTERNAL_GFX_OP* gfx_op = 0);
-	c_surface* alloc_surface(void* usr, Z_ORDER_LEVEL max_zorder);
+	c_surface* alloc_surface(Z_ORDER_LEVEL max_zorder);
 	int merge_surface(c_surface* s1, c_surface* s2, int x0, int x1, int y0, int y2, int offset);
 	unsigned int get_width() { return m_width; }
 	unsigned int get_height() { return m_height; }
@@ -351,6 +350,7 @@ private:
 	int				m_phy_write_index;
 	c_surface* 		m_surface_group[SURFACE_CNT_MAX];
 	unsigned int	m_surface_cnt;
+	unsigned int	m_surface_index;
 };
 #endif
 #ifndef GUILITE_CORE_INCLUDE_WORD_H
@@ -463,7 +463,7 @@ public:
 	int	unlink_child(c_wnd *child);
 	c_wnd* get_prev_sibling() const { return m_prev_sibling; }
 	c_wnd* get_next_sibling() const { return m_next_sibling; }
-	void notify_parent(unsigned int msg_id, unsigned int ctrl_id, int param);
+	void notify_parent(unsigned int msg_id, int param);
 	virtual bool on_touch(int x, int y, TOUCH_ACTION action);// return true: handled; false: not be handled.
 	virtual bool on_key(KEY_TYPE key);// return false: skip handling by parent;
 	c_surface* get_surface() { return m_surface; }
@@ -473,8 +473,6 @@ protected:
 	void add_child_2_tail(c_wnd *child);
 	void wnd2screen(int &x, int &y) const;
 	void wnd2screen(c_rect &rect) const;
-	void screen2wnd(short &x, short &y) const;
-	void screen2wnd(c_rect &rect) const;
 	int load_child_wnd(WND_TREE *p_child_tree);
 	int load_clone_child_wnd(WND_TREE *p_child_tree);
 	void set_active_child(c_wnd* child) { m_focus_child = child; }

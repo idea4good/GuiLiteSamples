@@ -29,7 +29,7 @@ void draw_easter_egg()
 		c_bitmap::draw_bitmap(s_surface_top, Z_ORDER_LEVEL_0, c_theme::get_bmp(BITMAP_CUSTOM1), RYU_X, RYU_Y, GL_RGB(85, 136, 221));
 		thread_sleep(20);
 	}
-	s_surface_top->fill_rect(RYU_X, RYU_Y, RYU_X + frame_00_bmp.XSize - 1, RYU_Y + frame_00_bmp.YSize - 1, GL_RGB(131, 110, 83), Z_ORDER_LEVEL_0);
+	s_surface_top->fill_rect(RYU_X, RYU_Y, RYU_X + frame_00_bmp.width - 1, RYU_Y + frame_00_bmp.height - 1, GL_RGB(131, 110, 83), Z_ORDER_LEVEL_0);
 }
 
 class c_mario {
@@ -87,9 +87,9 @@ public:
 				mario_bmp = &step3_bmp;
 			}
 		}
-		c_rect mario_rect(m_x, m_y - mario_bmp->YSize, m_x + mario_bmp->XSize - 1, m_y);
+		c_rect mario_rect(m_x, m_y - mario_bmp->height, m_x + mario_bmp->width - 1, m_y);
 		s_surface_bottom->set_frame_layer_visible_rect(mario_rect, Z_ORDER_LEVEL_1);
-		c_bitmap::draw_bitmap(s_surface_bottom, Z_ORDER_LEVEL_1, mario_bmp, m_x, m_y - mario_bmp->YSize, GL_RGB(255, 255, 255));
+		c_bitmap::draw_bitmap(s_surface_bottom, Z_ORDER_LEVEL_1, mario_bmp, m_x, m_y - mario_bmp->height, GL_RGB(255, 255, 255));
 	}
 	int m_x, m_y, m_x_velocity, m_y_velocity;
 	unsigned int m_step;
@@ -100,13 +100,13 @@ public:
 c_mario the_mario;
 void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op_top, struct EXTERNAL_GFX_OP* gfx_op_bottom) {
 	c_display display_top = c_display(phy_fb, screen_width, screen_height, UI_WIDTH, (screen_height - UI_BOTTOM_HEIGHT), color_bytes, 1, gfx_op_top);
-	s_surface_top = display_top.alloc_surface((void*)1, Z_ORDER_LEVEL_0);
+	s_surface_top = display_top.alloc_surface(Z_ORDER_LEVEL_0);
 	s_surface_top->set_active(true);
 	s_surface_top->fill_rect(0, 0, UI_WIDTH - 1, screen_height - UI_BOTTOM_HEIGHT - 1, GL_RGB(131, 110, 83), Z_ORDER_LEVEL_0);
 	c_bitmap::draw_bitmap(s_surface_top, Z_ORDER_LEVEL_0, &title_bmp, 30, 20);
 
 	c_display display_bottom = c_display(phy_fb, screen_width, screen_height, UI_WIDTH, UI_BOTTOM_HEIGHT, color_bytes, 1, gfx_op_bottom);
-	s_surface_bottom = display_bottom.alloc_surface((void*)1, Z_ORDER_LEVEL_1);
+	s_surface_bottom = display_bottom.alloc_surface(Z_ORDER_LEVEL_1);
 	s_surface_bottom->set_active(true);
 	s_surface_bottom->fill_rect(0, 0, UI_WIDTH - 1, UI_BOTTOM_HEIGHT - 1, 0, Z_ORDER_LEVEL_0);
 	c_bitmap::draw_bitmap(s_surface_bottom, Z_ORDER_LEVEL_0, &background_bmp, 3, 0);

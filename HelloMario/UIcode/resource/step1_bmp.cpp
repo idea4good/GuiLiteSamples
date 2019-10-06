@@ -38,5 +38,5 @@ const BITMAP_INFO step1_bmp ={
     14,
     31,
     16,
-    (unsigned char*)raw_data
+    raw_data
 };

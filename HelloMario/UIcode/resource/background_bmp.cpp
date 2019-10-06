@@ -83,5 +83,5 @@ const BITMAP_INFO background_bmp ={
     234,
     76,
     16,
-    (unsigned char*)raw_data
+    raw_data
 };

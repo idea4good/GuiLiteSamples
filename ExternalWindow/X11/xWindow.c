@@ -4,6 +4,10 @@
 #include <sys/shm.h>
 #include <errno.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <pthread.h>
+#include <sys/select.h> 
+#include <string.h>
 
 int WINDOW_WIDTH = 256;
 int WINDOW_HEIGHT = 256;
@@ -48,7 +52,7 @@ void parseArgument(int argc, char **argv)
         {
             printf("ipcrm -M 1\nand restart.\n");
         }
-        printf("shmget failed");
+        printf("shmget failed shmid:%d",shmid);
     }
 
     GuiLiteFb = shmat(shmid, 0, 0);

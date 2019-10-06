@@ -64,5 +64,5 @@ const BITMAP_INFO title_bmp ={
     193,
     57,
     16,
-    (unsigned char*)raw_data
+    raw_data
 };

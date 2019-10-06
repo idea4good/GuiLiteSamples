@@ -74,8 +74,8 @@ void c_desktop::on_paint()
 	extern const BITMAP_INFO desktop_bmp;
 	int block_width = 80;
 	int block_height = 60;
-	int block_rows = desktop_bmp.YSize / block_height;
-	int block_cols = desktop_bmp.XSize / block_width;
+	int block_rows = desktop_bmp.height / block_height;
+	int block_cols = desktop_bmp.width / block_width;
 	int block_sum = block_rows * block_cols;
 	bool* block_map = (bool*)calloc(block_sum, sizeof(bool));
 	if (!block_map)	{ return; }
@@ -107,10 +107,10 @@ void c_start_menu::on_paint(void)
 	get_screen_rect(rect);
 	extern const BITMAP_INFO start_menu_bmp;
 	int step = 10;
-	for (int i = 0; i < start_menu_bmp.YSize; i += step)
+	for (int i = 0; i < start_menu_bmp.height; i += step)
 	{
 		thread_sleep(10);
-		c_bitmap::draw_bitmap(m_surface, m_z_order, &start_menu_bmp, rect.m_left, rect.m_top + i, 0, i, start_menu_bmp.XSize, step, GL_RGB(0, 0, 0));
+		c_bitmap::draw_bitmap(m_surface, m_z_order, &start_menu_bmp, rect.m_left, rect.m_top + i, 0, i, start_menu_bmp.width, step, GL_RGB(0, 0, 0));
 	}
 }
 
@@ -131,7 +131,7 @@ static c_display* s_display;
 void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes)
 {
 	s_display = new c_display(phy_fb, screen_width, screen_height, UI_WIDTH, UI_HEIGHT, color_bytes, 1);
-	c_surface* surface = s_display->alloc_surface(&s_desktop, Z_ORDER_LEVEL_1);
+	c_surface* surface = s_display->alloc_surface(Z_ORDER_LEVEL_1);
 	surface->set_active(true);
 
 	s_desktop.set_surface(surface);

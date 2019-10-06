@@ -176,5 +176,5 @@ const BITMAP_INFO frame_00_bmp ={
     238,
     169,
     16,
-    (unsigned char*)raw_data
+    raw_data
 };

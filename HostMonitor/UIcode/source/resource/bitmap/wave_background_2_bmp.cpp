@@ -163,5 +163,5 @@ const BITMAP_INFO wave_background_2_bmp ={
     669,
     156,
     16,
-    (unsigned char*)raw_data
+    raw_data
 };

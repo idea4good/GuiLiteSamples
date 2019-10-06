@@ -775,5 +775,5 @@ const BITMAP_INFO queen_bmp ={
     512,
     768,
     16,
-    (unsigned char*)raw_data
+    raw_data
 };

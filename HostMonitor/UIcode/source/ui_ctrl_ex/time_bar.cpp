@@ -179,5 +179,5 @@ void c_time_bar::on_btn_click(unsigned int ctrl_id)
 	m_end_seconds += increment;
 	m_start_seconds += increment;
 	draw_mark();
-	notify_parent(ND_SCALE_CLICKED, get_id(), 0);
+	notify_parent(ND_SCALE_CLICKED, 0);
 }

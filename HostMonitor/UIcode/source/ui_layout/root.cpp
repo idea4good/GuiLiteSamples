@@ -91,7 +91,7 @@ static WND_TREE s_root_children[] =
 void load_ui_single(void* phy_fb, int width, int height, int color_bytes)
 {
 	c_display* display = new c_display(phy_fb, width, height, UI_WIDTH, UI_HEIGHT, color_bytes, (4 + 1));//4 slides + 1 root
-	c_surface* surface = display->alloc_surface(&s_root, Z_ORDER_LEVEL_0);
+	c_surface* surface = display->alloc_surface(Z_ORDER_LEVEL_0);
 	surface->set_active(true);
 	s_root.set_surface(surface);
 	s_root.connect(0, ID_ROOT, 0, 0, 0, UI_WIDTH, UI_HEIGHT, s_root_children);
@@ -110,7 +110,7 @@ void load_ui_single(void* phy_fb, int width, int height, int color_bytes)
 void load_ui_multi(void* phy_fb, int width, int height, int color_bytes)
 {
 	c_display* display = new c_display(phy_fb, width, height, UI_WIDTH, UI_HEIGHT, color_bytes, (4 + 1));//4 slides + 1 root
-	c_surface* surface = display->alloc_surface(&s_root, Z_ORDER_LEVEL_0);
+	c_surface* surface = display->alloc_surface(Z_ORDER_LEVEL_0);
 	surface->set_active(true);
 	s_root.set_surface(surface);
 	c_wnd* root = s_root.connect_clone(0, ID_ROOT, 0, 0, 0, UI_WIDTH, UI_HEIGHT, s_root_children);
@@ -152,7 +152,7 @@ extern void create_clone_page_mini_wav(c_slide_group* group);
 void load_mini_ui_single(void* phy_fb, int width, int height, int color_bytes)
 {
 	c_display* display = new c_display(phy_fb, width, height, MINI_UI_WIDTH, MINI_UI_HEIGHT, color_bytes, (2 + 1));//2 slides + 1 root
-	c_surface* surface = display->alloc_surface(&s_mini_root, Z_ORDER_LEVEL_0);
+	c_surface* surface = display->alloc_surface(Z_ORDER_LEVEL_0);
 	surface->set_active(true);
 	s_mini_root.set_surface(surface);
 	s_mini_root.connect(0, ID_ROOT, 0, 0, 0, MINI_UI_WIDTH, MINI_UI_HEIGHT, s_mini_root_children);
@@ -169,7 +169,7 @@ void load_mini_ui_single(void* phy_fb, int width, int height, int color_bytes)
 void load_mini_ui_multi(void* phy_fb, int width, int height, int color_bytes)
 {
 	c_display* display = new c_display(phy_fb, width, height, MINI_UI_WIDTH, MINI_UI_HEIGHT, color_bytes, (2 + 1));//2 slides + 1 root
-	c_surface* surface = display->alloc_surface(&s_mini_root, Z_ORDER_LEVEL_0);
+	c_surface* surface = display->alloc_surface(Z_ORDER_LEVEL_0);
 	surface->set_active(true);
 	s_mini_root.set_surface(surface);
 	c_wnd* root = s_mini_root.connect_clone(0, ID_ROOT, 0, 0, 0, MINI_UI_WIDTH, MINI_UI_HEIGHT, s_mini_root_children);

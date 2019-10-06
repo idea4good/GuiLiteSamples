@@ -13,7 +13,7 @@
 extern "C" void startHello3D(void* phy_fb, int width, int height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op);
 extern void* getUiOfHello3D(int* width, int* height, bool force_update);
 
-#define UI_WIDTH 240
+#define UI_WIDTH 480
 #define UI_HEIGHT 320
 class GuiLiteThread: public QThread
 {

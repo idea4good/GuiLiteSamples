@@ -18,6 +18,7 @@
 #define PARTICAL_WITH	3
 #define PARTICAL_HEIGHT 3
 
+c_display* display;
 static c_surface* s_surface;
 
 class c_particle {
@@ -55,8 +56,8 @@ void load_resource() {
 c_particle particle_array[100];
 void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op) {
 	load_resource();
-	c_display display = c_display(phy_fb, screen_width, screen_height, UI_WIDTH, UI_HEIGHT, color_bytes, 1, gfx_op);
-	s_surface = display.alloc_surface(Z_ORDER_LEVEL_0);
+	display = new c_display(phy_fb, screen_width, screen_height, UI_WIDTH, UI_HEIGHT, color_bytes, 1, gfx_op);
+	s_surface = display->alloc_surface(Z_ORDER_LEVEL_0);
 	s_surface->set_active(true);
 
 	s_surface->fill_rect(0, 0, UI_WIDTH - 1, UI_HEIGHT - 1, 0, Z_ORDER_LEVEL_0);
@@ -75,4 +76,9 @@ void create_ui(void* phy_fb, int screen_width, int screen_height, int color_byte
 //////////////////////// interface for all platform ////////////////////////
 extern "C" void startHelloParticle(void* phy_fb, int width, int height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op) {
 	create_ui(phy_fb, width, height, color_bytes, gfx_op);
+}
+
+extern "C" void* getUiOfHelloParticle(int* width, int* height, bool force_update)
+{
+    return display->get_updated_fb(width, height, force_update);
 }

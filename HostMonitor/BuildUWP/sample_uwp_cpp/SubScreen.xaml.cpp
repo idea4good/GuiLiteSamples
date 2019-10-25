@@ -25,15 +25,8 @@ using namespace concurrency;
 using namespace Windows::UI::ViewManagement;
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
-typedef struct
-{
-	unsigned int dwMsgId;
-	unsigned int dwParam1;
-	unsigned int dwParam2;
-}OUTMSGINFO;
-
 extern void* getUiOfHostMonitor(int display_id, int* width, int* height, bool force_update);
-extern int sendTouch2HostMonitor(void* buf, int len, int display_id);
+extern void sendTouch2HostMonitor(int x, int y, bool is_down, int display_id);
 
 SubScreen::SubScreen()
 {
@@ -127,11 +120,7 @@ void SubScreen::OnPointerPressed(Platform::Object^ sender, Windows::UI::Xaml::In
 	int native_x = (pointer->Position.X * m_fb_width / ActualWidth);
 	int native_y = (pointer->Position.Y * m_fb_height / ActualHeight);
 
-	OUTMSGINFO msg;
-	msg.dwMsgId = 0x4700;
-	msg.dwParam1 = native_x;
-	msg.dwParam2 = native_y;
-	sendTouch2HostMonitor(&msg, sizeof(msg), m_index);
+	sendTouch2HostMonitor(native_x, native_y, true, m_index);
 
 	m_is_dragging = true;
 }
@@ -142,11 +131,7 @@ void SubScreen::OnPointerRelease(Platform::Object^ sender, Windows::UI::Xaml::In
 	int native_x = (pointer->Position.X * m_fb_width / ActualWidth);
 	int native_y = (pointer->Position.Y * m_fb_height / ActualHeight);
 
-	OUTMSGINFO msg;
-	msg.dwMsgId = 0x4600;
-	msg.dwParam1 = native_x;
-	msg.dwParam2 = native_y;
-	sendTouch2HostMonitor(&msg, sizeof(msg), m_index);
+	sendTouch2HostMonitor(native_x, native_y, false, m_index);
 
 	m_is_dragging = false;
 }

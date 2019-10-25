@@ -197,7 +197,7 @@ c_surface* c_display::alloc_surface(Z_ORDER_LEVEL max_zorder)
 	m_surface_group[i]->set_surface(max_zorder);
 	return m_surface_group[i];
 }
-int c_display::merge_surface(c_surface* s0, c_surface* s1, int x0, int x1, int y0, int y1, int offset)
+int c_display::swipe_surface(c_surface* s0, c_surface* s1, int x0, int x1, int y0, int y1, int offset)
 {
 	int surface_width = s0->get_width();
 	int surface_height = s0->get_height();
@@ -1950,6 +1950,66 @@ int build_bmp(const char *filename, unsigned int width, unsigned int height, uns
 	fclose(fp);
 	return 0;
 }
+c_fifo::c_fifo()
+{
+	m_head = m_tail = 0;
+	m_read_sem = CreateSemaphore(0,	// default security attributes
+		0,		// initial count
+		1,		// maximum count
+		0);	// unnamed semaphore
+	m_write_mutex = CreateMutex(0, false, 0);
+}
+int c_fifo::read(void* buf, int len)
+{
+	unsigned char* pbuf = (unsigned char*)buf;
+	int i = 0;
+	while (i < len)
+	{
+		if (m_tail == m_head)
+		{//empty
+			WaitForSingleObject(m_read_sem, INFINITE);
+			continue;
+		}
+		*pbuf++ = m_buf[m_head];
+		m_head = (m_head + 1) % FIFO_BUFFER_LEN;
+		i++;
+	}
+	if (i != len)
+	{
+		ASSERT(false);
+	}
+	return i;
+}
+int c_fifo::write(void* buf, int len)
+{
+	unsigned char* pbuf = (unsigned char*)buf;
+	int i = 0;
+	int tail = m_tail;
+	WaitForSingleObject(m_write_mutex, INFINITE);
+	while (i < len)
+	{
+		if ((m_tail + 1) % FIFO_BUFFER_LEN == m_head)
+		{//full, clear data has been written;
+			m_tail = tail;
+			log_out("Warning: fifo full\n");
+			ReleaseMutex(m_write_mutex);
+			return 0;
+		}
+		m_buf[m_tail] = *pbuf++;
+		m_tail = (m_tail + 1) % FIFO_BUFFER_LEN;
+		i++;
+	}
+	ReleaseMutex(m_write_mutex);
+	if (i != len)
+	{
+		ASSERT(false);
+	}
+	else
+	{
+		ReleaseSemaphore(m_read_sem, 1, 0);
+	}
+	return i;
+}
 #include <windows.h>
 #include <Audioclient.h>
 #include <mmdeviceapi.h>
@@ -2157,67 +2217,6 @@ int c_audio::play(AUDIO_TYPE type)
 	request.type = type;
 	s_request_fifo.write(&request, sizeof(request));
 	return 0;
-}
-#include <windows.h>
-c_fifo::c_fifo()
-{
-	m_head = m_tail = 0;
-	m_read_sem = CreateSemaphore(0,	// default security attributes
-								 0,		// initial count
-								 1,		// maximum count
-								 0);	// unnamed semaphore
-	m_write_mutex = CreateMutex(0, false, 0);
-}
-int c_fifo::read(void* buf, int len)
-{
-	unsigned char* pbuf = (unsigned char*)buf;
-	int i = 0;
-	while(i < len)
-	{
-		if (m_tail == m_head)
-		{//empty
-			WaitForSingleObject(m_read_sem, INFINITE);
-			continue;
-		}
-		*pbuf++ = m_buf[m_head];
-		m_head = (m_head + 1) % FIFO_BUFFER_LEN;
-		i++;
-	}
-	if(i != len)
-	{
-		ASSERT(false);
-	}
-	return i;
-}
-int c_fifo::write(void* buf, int len)
-{
-	unsigned char* pbuf = (unsigned char*)buf;
-	int i = 0;
-	int tail = m_tail;
-	WaitForSingleObject(m_write_mutex, INFINITE);
-	while(i < len)
-	{
-		if ((m_tail + 1) % FIFO_BUFFER_LEN == m_head)
-		{//full, clear data has been written;
-			m_tail = tail;
-			log_out("Warning: fifo full\n");
-			ReleaseMutex(m_write_mutex);
-			return 0;
-		}
-		m_buf[m_tail] = *pbuf++;
-		m_tail = (m_tail + 1) % FIFO_BUFFER_LEN;
-		i++;
-	}
-	ReleaseMutex(m_write_mutex);
-	if(i != len)
-	{
-		ASSERT(false);
-	}
-	else
-	{
-		ReleaseSemaphore(m_read_sem, 1, 0);
-	}
-	return i;
 }
 void c_button::pre_create_wnd()
 {
@@ -2561,41 +2560,22 @@ void c_edit::on_key_board_click(unsigned int ctrl_id, long param)
 	}
 }
 #include <stdlib.h>
-//#define FLIP_STEP			300//for arm
-#define FLIP_STEP			10//for PC & ANDROID
+//#define SWIPE_STEP			300//for arm
+#define SWIPE_STEP			10//for PC & ANDROID
 #define MOVE_THRESHOLD		10
-void* c_gesture::task_handle_msg(void* param)
+c_gesture::c_gesture(c_slide_group* group)
 {
-	c_gesture* This = (c_gesture*)param;
-	MSG_INFO msg;
-	while(1)
-	{
-		This->m_hid_fifo->read(&msg, sizeof(msg));
-		if(This->handle_flip(msg))
-		{
-			This->handle_hid_msg(msg);
-		}
-	}
-	return 0;
-}
-c_gesture::c_gesture(c_wnd* root, c_slide_group* group, c_fifo* hid_fifo)
-{
-	m_root = root;
 	m_slide_group = group;
-	m_hid_fifo = hid_fifo;
-	m_action = TOUCH_IDLE;
+	m_state = TOUCH_IDLE;
 	m_down_x = m_down_y = m_move_x = m_move_y = 0;
-	unsigned long pid;
-	create_thread(&pid, 0, task_handle_msg, this);
 }
-bool c_gesture::handle_flip(MSG_INFO &msg)
+bool c_gesture::handle_swipe(int x, int y, TOUCH_ACTION action)
 {
-	int x = msg.dwParam1;
-	if(msg.dwMsgId == 0x4700)//MOUSE_LBUTTONDOWN
+	if(action == TOUCH_DOWN)//MOUSE_LBUTTONDOWN
 	{
-		if(m_action == TOUCH_IDLE)
+		if(m_state == TOUCH_IDLE)
 		{
-			m_action = TOUCH_MOVE;
+			m_state = TOUCH_MOVE;
 			m_move_x = m_down_x = x;
 			return true;
 		}
@@ -2604,12 +2584,12 @@ bool c_gesture::handle_flip(MSG_INFO &msg)
 			return on_move(x);
 		}
 	}
-	else if(msg.dwMsgId == 0x4600)//MOUSE_LBUTTONUP
+	else if(action == TOUCH_UP)//MOUSE_LBUTTONUP
 	{
-		if(m_action == TOUCH_MOVE)
+		if(m_state == TOUCH_MOVE)
 		{
-			m_action = TOUCH_IDLE;
-			return on_flip(x);
+			m_state = TOUCH_IDLE;
+			return on_swipe(x);
 		}
 		else
 		{
@@ -2641,7 +2621,7 @@ bool c_gesture::on_move(int x)
 	}
 	return false;
 }
-bool c_gesture::on_flip(int x)
+bool c_gesture::on_swipe(int x)
 {
 	if (m_slide_group == 0)
 	{
@@ -2656,11 +2636,11 @@ bool c_gesture::on_flip(int x)
 	m_move_x = x;
 	if ((m_move_x - m_down_x) > 0)
 	{
-		page = flip_right();
+		page = swipe_right();
 	}
 	else
 	{
-		page = flip_left();
+		page = swipe_left();
 	}
 	if (page >= 0)
 	{
@@ -2672,7 +2652,7 @@ bool c_gesture::on_flip(int x)
 	}
 	return false;
 }
-int c_gesture::flip_left()
+int c_gesture::swipe_left()
 {
 	if (m_slide_group == 0)
 	{
@@ -2696,16 +2676,16 @@ int c_gesture::flip_left()
 	m_slide_group->get_screen_rect(rc);
 	while(step < rc.Width())
 	{
-		s1->get_display()->merge_surface(s2, s1, rc.m_left, rc.m_right, rc.m_top, rc.m_bottom, step);
-		step += FLIP_STEP;
+		s1->get_display()->swipe_surface(s2, s1, rc.m_left, rc.m_right, rc.m_top, rc.m_bottom, step);
+		step += SWIPE_STEP;
 	}
 	if (step != rc.Width())
 	{
-		s1->get_display()->merge_surface(s2, s1, rc.m_left, rc.m_right, rc.m_top, rc.m_bottom, rc.Width());
+		s1->get_display()->swipe_surface(s2, s1, rc.m_left, rc.m_right, rc.m_top, rc.m_bottom, rc.Width());
 	}
 	return (index + 1);
 }
-int c_gesture::flip_right()
+int c_gesture::swipe_right()
 {
 	if (m_slide_group == 0)
 	{
@@ -2729,12 +2709,12 @@ int c_gesture::flip_right()
 	int step = rc.Width() - (m_move_x - m_down_x);
 	while(step > 0)
 	{
-		s1->get_display()->merge_surface(s1, s2, rc.m_left, rc.m_right, rc.m_top, rc.m_bottom, step);
-		step -= FLIP_STEP;
+		s1->get_display()->swipe_surface(s1, s2, rc.m_left, rc.m_right, rc.m_top, rc.m_bottom, step);
+		step -= SWIPE_STEP;
 	}
 	if (step != 0)
 	{
-		s1->get_display()->merge_surface(s1, s2, rc.m_left, rc.m_right, rc.m_top, rc.m_bottom, 0);
+		s1->get_display()->swipe_surface(s1, s2, rc.m_left, rc.m_right, rc.m_top, rc.m_bottom, 0);
 	}
 	return (index - 1);
 }
@@ -2753,7 +2733,7 @@ void c_gesture::move_left()
 	m_slide_group->get_screen_rect(rc);
 	if(s1->get_display() == s2->get_display())
 	{
-		s1->get_display()->merge_surface(s2, s1, rc.m_left, rc.m_right, rc.m_top, rc.m_bottom, (m_down_x - m_move_x));
+		s1->get_display()->swipe_surface(s2, s1, rc.m_left, rc.m_right, rc.m_top, rc.m_bottom, (m_down_x - m_move_x));
 	}
 }
 void c_gesture::move_right()
@@ -2771,19 +2751,7 @@ void c_gesture::move_right()
 	m_slide_group->get_screen_rect(rc);
 	if(s1->get_display() == s2->get_display())
 	{
-		s1->get_display()->merge_surface(s1, s2, rc.m_left, rc.m_right, rc.m_top, rc.m_bottom, (rc.Width() - (m_move_x - m_down_x)));
-	}
-}
-void c_gesture::handle_hid_msg(MSG_INFO &msg)
-{
-	switch(msg.dwMsgId)
-	{
-	case 0x4700://MOUSE_LBUTTONDOWN
-		m_root->on_touch(msg.dwParam1, msg.dwParam2, TOUCH_DOWN);
-		break;
-	case 0x4600://MOUSE_LBUTTONUP
-		m_root->on_touch(msg.dwParam1, msg.dwParam2, TOUCH_UP);
-		break;
+		s1->get_display()->swipe_surface(s1, s2, rc.m_left, rc.m_right, rc.m_top, rc.m_bottom, (rc.Width() - (m_move_x - m_down_x)));
 	}
 }
 #include <string.h>
@@ -3248,6 +3216,7 @@ void c_list_box::select_item(short index)
 }
 c_slide_group::c_slide_group()
 {
+	m_gesture = new c_gesture(this);
 	for(int i = 0; i < MAX_PAGES; i++)
 	{
 		m_slides[i] = 0;
@@ -3381,9 +3350,12 @@ bool c_slide_group::on_touch(int x, int y, TOUCH_ACTION action)
 {
 	x -= m_wnd_rect.m_left;
 	y -= m_wnd_rect.m_top;
-	if (m_slides[m_active_slide_index])
+	if (m_gesture->handle_swipe(x, y, action))
 	{
-		m_slides[m_active_slide_index]->on_touch(x, y, action);
+		if (m_slides[m_active_slide_index])
+		{
+			m_slides[m_active_slide_index]->on_touch(x, y, action);
+		}
 	}
 	return true;
 }

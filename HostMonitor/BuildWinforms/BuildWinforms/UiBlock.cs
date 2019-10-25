@@ -15,7 +15,7 @@ namespace BuildWinforms
         public static extern IntPtr getHbitmapOfHostMonitorUiFromDll(int display_id, int witdth, int height, bool force_update);
 
         [DllImport("HostMonitor.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void sendTouch2HostMonitorFromDll(int display_id, uint msg_id, int x, int y);
+        public static extern void sendTouch2HostMonitorFromDll(int display_id, int x, int y, bool is_down);
 
         public void updateUI()
         {
@@ -41,7 +41,7 @@ namespace BuildWinforms
             }
             int ui_x = (e.Location.X * m_ui_width / this.Width);
             int ui_y = (e.Location.Y * m_ui_height / this.Height);
-            sendTouch2HostMonitorFromDll(m_index, 0x4600, ui_x, ui_y);
+            sendTouch2HostMonitorFromDll(m_index, ui_x, ui_y, false);
             m_is_mouse_down = false;
         }
 
@@ -54,7 +54,7 @@ namespace BuildWinforms
             }
             int ui_x = (e.Location.X * m_ui_width / this.Width);
             int ui_y = (e.Location.Y * m_ui_height / this.Height);
-            sendTouch2HostMonitorFromDll(m_index, 0x4700, ui_x, ui_y);
+            sendTouch2HostMonitorFromDll(m_index, ui_x, ui_y, true);
             m_is_mouse_down = true;
         }
 

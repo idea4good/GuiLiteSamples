@@ -60,7 +60,6 @@ static WND_TREE s_root_children[] =
 
 //////////////////////// start UI ////////////////////////
 extern const BITMAP_INFO ten_bmp, jack_bmp, queen_bmp, king_bmp, ace_bmp;
-static c_fifo s_hid_fifo;
 static c_display* s_display;
 void load_resource()
 {
@@ -89,7 +88,6 @@ void create_ui(void* phy_fb, int screen_width, int screen_height, int color_byte
 	s_root.set_active_slide(0);
 	s_root.show_window();
 
-	new c_gesture(&s_root, &s_root, &s_hid_fifo);
 	while(1)
 	{
 		thread_sleep(1000000);
@@ -102,10 +100,9 @@ void startHelloSlide(void* phy_fb, int width, int height, int color_bytes)
 	create_ui(phy_fb, width, height, color_bytes);
 }
 
-int sendTouch2HelloSlide(void* buf, int len)
+void sendTouch2HelloSlide(int x, int y, bool is_down)
 {
-	ASSERT(len == sizeof(MSG_INFO));
-	return s_hid_fifo.write(buf, len);
+	is_down ? s_root.on_touch(x, y, TOUCH_DOWN) : s_root.on_touch(x, y, TOUCH_UP);
 }
 
 void* getUiOfHelloSlide(int* width, int* height, bool force_update)

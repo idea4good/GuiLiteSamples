@@ -11,7 +11,7 @@ typedef struct
 
 extern void create_thread(unsigned long* thread_id, void* attr, void *(*start_routine) (void *), void* arg);
 extern void thread_sleep(unsigned int milli_seconds);
-extern int sendTouch2HelloSlide(void* buf, int len);
+extern void sendTouch2HelloSlide(int x, int y, bool is_down);
 extern int captureUiOfHelloSlide();
 
 static int get_std_input(char *buffer, int size)
@@ -34,20 +34,12 @@ static int get_std_input(char *buffer, int size)
 
 static void press_down(int x, int y)
 {
-	MSG_INFO msg;
-	msg.dwMsgId = 0x4700;
-	msg.dwParam1 = x;
-	msg.dwParam2 = y;
-	sendTouch2HelloSlide(&msg, sizeof(msg));
+	sendTouch2HelloSlide(x, y, true);
 }
 
 static void press_release(int x, int y)
 {
-	MSG_INFO msg;
-	msg.dwMsgId = 0x4600;
-	msg.dwParam1 = x;
-	msg.dwParam2 = y;
-	sendTouch2HelloSlide(&msg, sizeof(msg));
+	sendTouch2HelloSlide(x, y, false);
 }
 
 static void* stdin_thread(void* param)

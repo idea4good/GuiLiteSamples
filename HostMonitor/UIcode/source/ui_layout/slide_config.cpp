@@ -2,7 +2,6 @@
 #include "../core_include/cmd_target.h"
 #include "../core_include/api.h"
 #include "../core_include/wnd.h"
-#include "../core_include/msg.h"
 #include "../core_include/surface.h"
 #include "../core_include/display.h"
 #include "../widgets_include/button.h"

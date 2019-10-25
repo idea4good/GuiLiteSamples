@@ -1,7 +1,7 @@
 #include "../core_include/api.h"
 #include "../core_include/cmd_target.h"
-#include "../core_include/msg.h"
 #include "../core_include/rect.h"
+#include "../core_include/wnd.h"
 #include "../core_include/surface.h"
 #include "../core_include/display.h"
 #include <stdlib.h>
@@ -9,7 +9,7 @@
 #include <string.h>
 
 extern c_display* get_display(int display_id);
-extern c_fifo* get_hid_fifo(int display_id);
+extern c_wnd* get_wnd_root(int display_id);
 extern int run(int main_cnt, int main_width, int main_height, int sub_cnt, int sub_width, int sub_height, int color_bytes);
 extern int run(void** main_fbs, int main_cnt, int main_width, int main_height, void** sub_fbs, int sub_cnt, int sub_width, int sub_height, int color_bytes);
 
@@ -24,15 +24,13 @@ int startHostMonitor(void** main_fbs, int main_cnt, int main_width, int main_hei
 	return run(main_fbs, main_cnt, main_width, main_height, sub_fbs, sub_cnt, sub_width, sub_height, color_bytes);
 }
 
-int sendTouch2HostMonitor(void* buf, int len, int display_id)
+void sendTouch2HostMonitor(int x, int y, bool is_down, int display_id)
 {
-	ASSERT(len == sizeof(MSG_INFO));
-	c_fifo* fifo = get_hid_fifo(display_id);
-	if (fifo)
+	c_wnd* root = get_wnd_root(display_id);
+	if (root)
 	{
-		return fifo->write(buf, len);
+		is_down ? root->on_touch(x, y, TOUCH_DOWN) : root->on_touch(x, y, TOUCH_UP);
 	}
-	return 0;
 }
 
 void* getUiOfHostMonitor(int display_id, int* width, int* height, bool force_update)
@@ -42,7 +40,6 @@ void* getUiOfHostMonitor(int display_id, int* width, int* height, bool force_upd
 	{
 		return display->get_updated_fb(width, height, force_update);
 	}
-	return 0;
 }
 
 int captureUiOfHostMonitor(int display_id)

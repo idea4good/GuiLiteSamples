@@ -53,6 +53,21 @@ unsigned int get_cur_thread_id();
 void create_thread(unsigned long* thread_id, void* attr, void *(*start_routine) (void *), void* arg);
 void thread_sleep(unsigned int milli_seconds);
 int build_bmp(const char *filename, unsigned int width, unsigned int height, unsigned char *data);
+
+#define FIFO_BUFFER_LEN		1024
+class c_fifo
+{
+public:
+	c_fifo();
+	int read(void* buf, int len);
+	int write(void* buf, int len);
+private:
+	unsigned char 	m_buf[FIFO_BUFFER_LEN];
+	int		m_head;
+	int		m_tail;
+	void* m_read_sem;
+	void* m_write_mutex;
+};
 #endif
 #ifndef GUILITE_CORE_INCLUDE_CMD_TARGET_H
 #define GUILITE_CORE_INCLUDE_CMD_TARGET_H
@@ -145,30 +160,6 @@ public:
 	int     m_top;
 	int     m_right;
 	int     m_bottom;
-};
-#endif
-#ifndef GUILITE_CORE_INCLUDE_MSG_H
-#define GUILITE_CORE_INCLUDE_MSG_H
-typedef struct
-{
-	unsigned int dwMsgId;
-	unsigned int dwParam1;
-	unsigned int dwParam2;
-}MSG_INFO;
-#define FIFO_BUFFER_LEN		1024
-class c_fifo
-{
-public:
-	c_fifo();
-	int read(void* buf, int len);
-	int write(void* buf, int len);
-	
-private:
-	unsigned char 	m_buf[FIFO_BUFFER_LEN];
-	int		m_head;
-	int		m_tail;
-	void* 	m_read_sem;
-	void*	m_write_mutex;
 };
 #endif
 #ifndef  GUILITE_CORE_INCLUDE_RESOURCE_H
@@ -336,7 +327,7 @@ public:
 					unsigned int surface_width, unsigned int surface_height,
 					unsigned int color_bytes, unsigned int surface_cnt, EXTERNAL_GFX_OP* gfx_op = 0);
 	c_surface* alloc_surface(Z_ORDER_LEVEL max_zorder);
-	int merge_surface(c_surface* s1, c_surface* s2, int x0, int x1, int y0, int y2, int offset);
+	int swipe_surface(c_surface* s1, c_surface* s2, int x0, int x1, int y0, int y2, int offset);
 	unsigned int get_width() { return m_width; }
 	unsigned int get_height() { return m_height; }
 	void* get_updated_fb(int* width, int* height, bool force_update = false);
@@ -642,31 +633,25 @@ private:
 typedef enum{
 	TOUCH_MOVE,
 	TOUCH_IDLE
-}ACTION;
+}TOUCH_STATE;
 class c_slide_group;
 class c_gesture{
 public:
-	c_gesture(c_wnd* root, c_slide_group* group, c_fifo* hid_fifo);
-	void set_page_group(c_slide_group* group){m_slide_group = group;}
-protected:
-	bool handle_flip(MSG_INFO &msg);
-	bool on_move(int x);
-	bool on_flip(int x);
+	c_gesture(c_slide_group* group);
+	bool handle_swipe(int x, int y, TOUCH_ACTION action);
 private:
-	int flip_left();
-	int flip_right();
+	bool on_move(int x);
+	bool on_swipe(int x);
+	int swipe_left();
+	int swipe_right();
 	void move_left();
 	void move_right();
-	void handle_hid_msg(MSG_INFO &msg);
 	int m_down_x;
 	int m_down_y;
 	int m_move_x;
 	int m_move_y;
-	ACTION m_action;
+	TOUCH_STATE m_state;
 	c_slide_group* 	m_slide_group;
-	c_wnd*			m_root;
-	c_fifo*			m_hid_fifo;
-	static void* task_handle_msg(void* param);
 };
 #endif
 #ifndef GUILITE_WIDGETS_INCLUDE_LABEL_H
@@ -718,6 +703,7 @@ private:
 #ifndef GUILITE_WIDGETS_INCLUDE_SLIDE_GROUP_H
 #define GUILITE_WIDGETS_INCLUDE_SLIDE_GROUP_H
 #define MAX_PAGES	5
+class c_gesture;
 class c_slide_group : public c_wnd {
 public:
 	c_slide_group();
@@ -738,6 +724,7 @@ protected:
 	virtual c_wnd* clone(){return new c_slide_group();}
 	c_wnd* m_slides[MAX_PAGES];
 	int m_active_slide_index;
+	c_gesture* m_gesture;
 };
 #endif
 #ifndef GUILITE_WIDGETS_INCLUDE_SPINBOX_H

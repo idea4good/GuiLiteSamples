@@ -74,7 +74,6 @@ static WND_TREE s_myUI_children[] =
 //////////////////////// start UI ////////////////////////
 extern const BITMAP_INFO background_bmp;
 extern const FONT_INFO KaiTi_33B;
-static c_fifo s_hid_fifo;
 static c_display* s_display;
 void load_resource()
 {
@@ -99,7 +98,6 @@ void create_ui(void* phy_fb, int screen_width, int screen_height, int color_byte
 	s_myUI.connect(NULL, ID_DESKTOP, 0, 0, 0, UI_WIDTH, UI_HEIGHT, s_myUI_children);
 	s_myUI.show_window();
 
-	new c_gesture(&s_myUI, NULL, &s_hid_fifo);
 	while(1)
 	{
 		thread_sleep(1000000);
@@ -112,10 +110,9 @@ void startHelloFont(void* phy_fb, int width, int height, int color_bytes)
 	create_ui(phy_fb, width, height, color_bytes);
 }
 
-int sendTouch2HelloFont(void* buf, int len)
+void sendTouch2HelloFont(int x, int y, bool is_down)
 {
-	ASSERT(len == sizeof(MSG_INFO));
-	return s_hid_fifo.write(buf, len);
+	is_down ? s_myUI.on_touch(x, y, TOUCH_DOWN) : s_myUI.on_touch(x, y, TOUCH_UP);
 }
 
 void* getUiOfHelloFont(int* width, int* height, bool force_update)

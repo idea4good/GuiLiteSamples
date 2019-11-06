@@ -1,0 +1,664 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		131AC40C2371A419006BCD57 /* GuiLite-linux.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131AC40A2371A419006BCD57 /* GuiLite-linux.cpp */; };
+		131AC40D2371A419006BCD57 /* UIcode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131AC40B2371A419006BCD57 /* UIcode.cpp */; };
+		131AC40F2371A426006BCD57 /* Lucida_Console_27.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131AC40E2371A426006BCD57 /* Lucida_Console_27.cpp */; };
+		131AC4112371A43D006BCD57 /* GuiLiteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131AC4102371A43D006BCD57 /* GuiLiteImage.swift */; };
+		136C39B62371A33800FE467A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136C39B52371A33800FE467A /* AppDelegate.swift */; };
+		136C39B82371A33800FE467A /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136C39B72371A33800FE467A /* GameViewController.swift */; };
+		136C39BB2371A33900FE467A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 136C39B92371A33900FE467A /* Main.storyboard */; };
+		136C39BE2371A33900FE467A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 136C39BC2371A33900FE467A /* LaunchScreen.storyboard */; };
+		136C39C32371A33900FE467A /* HelloWave.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 136C39C22371A33900FE467A /* HelloWave.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		136C39C92371A33900FE467A /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 136C39C72371A33900FE467A /* Interface.storyboard */; };
+		136C39D02371A33900FE467A /* HelloWave Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 136C39CF2371A33900FE467A /* HelloWave Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		136C39D52371A33900FE467A /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136C39D42371A33900FE467A /* InterfaceController.swift */; };
+		136C39D72371A33900FE467A /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136C39D62371A33900FE467A /* ExtensionDelegate.swift */; };
+		136C39D92371A33900FE467A /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 136C39AA2371A33700FE467A /* Actions.sks */; };
+		136C39DA2371A33900FE467A /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 136C39AB2371A33700FE467A /* GameScene.sks */; };
+		136C39DB2371A33900FE467A /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 136C39AB2371A33700FE467A /* GameScene.sks */; };
+		136C39DC2371A33900FE467A /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136C39AC2371A33700FE467A /* GameScene.swift */; };
+		136C39DD2371A33900FE467A /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136C39AC2371A33700FE467A /* GameScene.swift */; };
+		136C39DE2371A33900FE467A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 136C39AD2371A33800FE467A /* Assets.xcassets */; };
+		136C39DF2371A33900FE467A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 136C39AD2371A33800FE467A /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		136C39C42371A33900FE467A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 136C39A52371A33700FE467A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 136C39C12371A33900FE467A;
+			remoteInfo = "HelloWave watchOS App";
+		};
+		136C39D12371A33900FE467A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 136C39A52371A33700FE467A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 136C39CE2371A33900FE467A;
+			remoteInfo = "HelloWave watchOS App Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		136C39E52371A33900FE467A /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				136C39D02371A33900FE467A /* HelloWave Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		136C39E92371A33900FE467A /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				136C39C32371A33900FE467A /* HelloWave.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		131AC4092371A419006BCD57 /* HelloWave watchOS App Extension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HelloWave watchOS App Extension-Bridging-Header.h"; sourceTree = "<group>"; };
+		131AC40A2371A419006BCD57 /* GuiLite-linux.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "GuiLite-linux.cpp"; path = "../../UIcode/GuiLite-linux.cpp"; sourceTree = "<group>"; };
+		131AC40B2371A419006BCD57 /* UIcode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UIcode.cpp; path = ../../UIcode/UIcode.cpp; sourceTree = "<group>"; };
+		131AC40E2371A426006BCD57 /* Lucida_Console_27.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Lucida_Console_27.cpp; path = ../../UIcode/resource/Lucida_Console_27.cpp; sourceTree = "<group>"; };
+		131AC4102371A43D006BCD57 /* GuiLiteImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuiLiteImage.swift; sourceTree = "<group>"; };
+		136C39AA2371A33700FE467A /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		136C39AB2371A33700FE467A /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		136C39AC2371A33700FE467A /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		136C39AD2371A33800FE467A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		136C39B22371A33800FE467A /* HelloWave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloWave.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		136C39B52371A33800FE467A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		136C39B72371A33800FE467A /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		136C39BA2371A33900FE467A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		136C39BD2371A33900FE467A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		136C39BF2371A33900FE467A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		136C39C22371A33900FE467A /* HelloWave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloWave.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		136C39C82371A33900FE467A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		136C39CA2371A33900FE467A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		136C39CF2371A33900FE467A /* HelloWave Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "HelloWave Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		136C39D42371A33900FE467A /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		136C39D62371A33900FE467A /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		136C39D82371A33900FE467A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		136C39AF2371A33800FE467A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		136C39CC2371A33900FE467A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		131AC4082371A3EE006BCD57 /* UIcode */ = {
+			isa = PBXGroup;
+			children = (
+				131AC40E2371A426006BCD57 /* Lucida_Console_27.cpp */,
+				131AC40A2371A419006BCD57 /* GuiLite-linux.cpp */,
+				131AC40B2371A419006BCD57 /* UIcode.cpp */,
+				131AC4092371A419006BCD57 /* HelloWave watchOS App Extension-Bridging-Header.h */,
+			);
+			name = UIcode;
+			sourceTree = "<group>";
+		};
+		136C39A42371A33700FE467A = {
+			isa = PBXGroup;
+			children = (
+				136C39A92371A33700FE467A /* HelloWave Shared */,
+				136C39B42371A33800FE467A /* HelloWave iOS */,
+				136C39C62371A33900FE467A /* HelloWave watchOS App */,
+				136C39D32371A33900FE467A /* HelloWave watchOS App Extension */,
+				136C39B32371A33800FE467A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		136C39A92371A33700FE467A /* HelloWave Shared */ = {
+			isa = PBXGroup;
+			children = (
+				136C39AA2371A33700FE467A /* Actions.sks */,
+				136C39AB2371A33700FE467A /* GameScene.sks */,
+				136C39AC2371A33700FE467A /* GameScene.swift */,
+				136C39AD2371A33800FE467A /* Assets.xcassets */,
+			);
+			path = "HelloWave Shared";
+			sourceTree = "<group>";
+		};
+		136C39B32371A33800FE467A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				136C39B22371A33800FE467A /* HelloWave.app */,
+				136C39C22371A33900FE467A /* HelloWave.app */,
+				136C39CF2371A33900FE467A /* HelloWave Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		136C39B42371A33800FE467A /* HelloWave iOS */ = {
+			isa = PBXGroup;
+			children = (
+				136C39B52371A33800FE467A /* AppDelegate.swift */,
+				136C39B72371A33800FE467A /* GameViewController.swift */,
+				136C39B92371A33900FE467A /* Main.storyboard */,
+				136C39BC2371A33900FE467A /* LaunchScreen.storyboard */,
+				136C39BF2371A33900FE467A /* Info.plist */,
+			);
+			path = "HelloWave iOS";
+			sourceTree = "<group>";
+		};
+		136C39C62371A33900FE467A /* HelloWave watchOS App */ = {
+			isa = PBXGroup;
+			children = (
+				136C39C72371A33900FE467A /* Interface.storyboard */,
+				136C39CA2371A33900FE467A /* Info.plist */,
+			);
+			path = "HelloWave watchOS App";
+			sourceTree = "<group>";
+		};
+		136C39D32371A33900FE467A /* HelloWave watchOS App Extension */ = {
+			isa = PBXGroup;
+			children = (
+				131AC4082371A3EE006BCD57 /* UIcode */,
+				136C39D42371A33900FE467A /* InterfaceController.swift */,
+				136C39D62371A33900FE467A /* ExtensionDelegate.swift */,
+				131AC4102371A43D006BCD57 /* GuiLiteImage.swift */,
+				136C39D82371A33900FE467A /* Info.plist */,
+			);
+			path = "HelloWave watchOS App Extension";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		136C39B12371A33800FE467A /* HelloWave iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 136C39EA2371A33900FE467A /* Build configuration list for PBXNativeTarget "HelloWave iOS" */;
+			buildPhases = (
+				136C39AE2371A33800FE467A /* Sources */,
+				136C39AF2371A33800FE467A /* Frameworks */,
+				136C39B02371A33800FE467A /* Resources */,
+				136C39E92371A33900FE467A /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				136C39C52371A33900FE467A /* PBXTargetDependency */,
+			);
+			name = "HelloWave iOS";
+			productName = "HelloWave iOS";
+			productReference = 136C39B22371A33800FE467A /* HelloWave.app */;
+			productType = "com.apple.product-type.application";
+		};
+		136C39C12371A33900FE467A /* HelloWave watchOS App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 136C39E62371A33900FE467A /* Build configuration list for PBXNativeTarget "HelloWave watchOS App" */;
+			buildPhases = (
+				136C39C02371A33900FE467A /* Resources */,
+				136C39E52371A33900FE467A /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				136C39D22371A33900FE467A /* PBXTargetDependency */,
+			);
+			name = "HelloWave watchOS App";
+			productName = "HelloWave watchOS App";
+			productReference = 136C39C22371A33900FE467A /* HelloWave.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		136C39CE2371A33900FE467A /* HelloWave watchOS App Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 136C39E22371A33900FE467A /* Build configuration list for PBXNativeTarget "HelloWave watchOS App Extension" */;
+			buildPhases = (
+				136C39CB2371A33900FE467A /* Sources */,
+				136C39CC2371A33900FE467A /* Frameworks */,
+				136C39CD2371A33900FE467A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "HelloWave watchOS App Extension";
+			productName = "HelloWave watchOS App Extension";
+			productReference = 136C39CF2371A33900FE467A /* HelloWave Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		136C39A52371A33700FE467A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = idea4good;
+				TargetAttributes = {
+					136C39B12371A33800FE467A = {
+						CreatedOnToolsVersion = 11.2;
+					};
+					136C39C12371A33900FE467A = {
+						CreatedOnToolsVersion = 11.2;
+					};
+					136C39CE2371A33900FE467A = {
+						CreatedOnToolsVersion = 11.2;
+						LastSwiftMigration = 1120;
+					};
+				};
+			};
+			buildConfigurationList = 136C39A82371A33700FE467A /* Build configuration list for PBXProject "HelloWave" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 136C39A42371A33700FE467A;
+			productRefGroup = 136C39B32371A33800FE467A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				136C39B12371A33800FE467A /* HelloWave iOS */,
+				136C39C12371A33900FE467A /* HelloWave watchOS App */,
+				136C39CE2371A33900FE467A /* HelloWave watchOS App Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		136C39B02371A33800FE467A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				136C39DA2371A33900FE467A /* GameScene.sks in Resources */,
+				136C39BB2371A33900FE467A /* Main.storyboard in Resources */,
+				136C39D92371A33900FE467A /* Actions.sks in Resources */,
+				136C39BE2371A33900FE467A /* LaunchScreen.storyboard in Resources */,
+				136C39DE2371A33900FE467A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		136C39C02371A33900FE467A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				136C39DF2371A33900FE467A /* Assets.xcassets in Resources */,
+				136C39C92371A33900FE467A /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		136C39CD2371A33900FE467A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				136C39DB2371A33900FE467A /* GameScene.sks in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		136C39AE2371A33800FE467A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				136C39DC2371A33900FE467A /* GameScene.swift in Sources */,
+				136C39B82371A33800FE467A /* GameViewController.swift in Sources */,
+				136C39B62371A33800FE467A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		136C39CB2371A33900FE467A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				136C39DD2371A33900FE467A /* GameScene.swift in Sources */,
+				131AC40D2371A419006BCD57 /* UIcode.cpp in Sources */,
+				136C39D72371A33900FE467A /* ExtensionDelegate.swift in Sources */,
+				131AC4112371A43D006BCD57 /* GuiLiteImage.swift in Sources */,
+				131AC40C2371A419006BCD57 /* GuiLite-linux.cpp in Sources */,
+				131AC40F2371A426006BCD57 /* Lucida_Console_27.cpp in Sources */,
+				136C39D52371A33900FE467A /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		136C39C52371A33900FE467A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 136C39C12371A33900FE467A /* HelloWave watchOS App */;
+			targetProxy = 136C39C42371A33900FE467A /* PBXContainerItemProxy */;
+		};
+		136C39D22371A33900FE467A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 136C39CE2371A33900FE467A /* HelloWave watchOS App Extension */;
+			targetProxy = 136C39D12371A33900FE467A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		136C39B92371A33900FE467A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				136C39BA2371A33900FE467A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		136C39BC2371A33900FE467A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				136C39BD2371A33900FE467A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		136C39C72371A33900FE467A /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				136C39C82371A33900FE467A /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		136C39E02371A33900FE467A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		136C39E12371A33900FE467A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		136C39E32371A33900FE467A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "HelloWave watchOS App Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = GuiLite.HelloWave.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "HelloWave Extension";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "HelloWave watchOS App Extension/HelloWave watchOS App Extension-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+			};
+			name = Debug;
+		};
+		136C39E42371A33900FE467A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "HelloWave watchOS App Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = GuiLite.HelloWave.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "HelloWave Extension";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "HelloWave watchOS App Extension/HelloWave watchOS App Extension-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+			};
+			name = Release;
+		};
+		136C39E72371A33900FE467A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				IBSC_MODULE = HelloWave_Extension;
+				INFOPLIST_FILE = "HelloWave watchOS App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = GuiLite.HelloWave.watchkitapp;
+				PRODUCT_NAME = HelloWave;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+			};
+			name = Debug;
+		};
+		136C39E82371A33900FE467A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				IBSC_MODULE = HelloWave_Extension;
+				INFOPLIST_FILE = "HelloWave watchOS App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = GuiLite.HelloWave.watchkitapp;
+				PRODUCT_NAME = HelloWave;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 6.1;
+			};
+			name = Release;
+		};
+		136C39EB2371A33900FE467A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "HelloWave iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = GuiLite.HelloWave;
+				PRODUCT_NAME = HelloWave;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		136C39EC2371A33900FE467A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "HelloWave iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = GuiLite.HelloWave;
+				PRODUCT_NAME = HelloWave;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		136C39A82371A33700FE467A /* Build configuration list for PBXProject "HelloWave" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				136C39E02371A33900FE467A /* Debug */,
+				136C39E12371A33900FE467A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		136C39E22371A33900FE467A /* Build configuration list for PBXNativeTarget "HelloWave watchOS App Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				136C39E32371A33900FE467A /* Debug */,
+				136C39E42371A33900FE467A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		136C39E62371A33900FE467A /* Build configuration list for PBXNativeTarget "HelloWave watchOS App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				136C39E72371A33900FE467A /* Debug */,
+				136C39E82371A33900FE467A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		136C39EA2371A33900FE467A /* Build configuration list for PBXNativeTarget "HelloWave iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				136C39EB2371A33900FE467A /* Debug */,
+				136C39EC2371A33900FE467A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 136C39A52371A33700FE467A /* Project object */;
+}

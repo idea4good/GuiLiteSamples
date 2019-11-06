@@ -6,7 +6,6 @@
 #include "../widgets_include/wave_ctrl.h"
 #include "../source/modules/demo_module.h"
 #include <string.h>
-#include <stdio.h>
 #include "wave_manager.h"
 
 static WAVE_CTRL_DISCPRITOR s_demo_wave_ctrl_discpritor[WAVE_TYPE_MAX] =

@@ -192,7 +192,7 @@ extern "C" void startHello3D(void* phy_fb, int width, int height, int color_byte
 	create_ui(phy_fb, width, height, color_bytes, gfx_op);
 }
 
-void* getUiOfHello3D(int* width, int* height, bool force_update)
+extern "C" void* getUiOfHello3D(int* width, int* height, bool force_update)
 {
     return s_display->get_updated_fb(width, height, force_update);
 }

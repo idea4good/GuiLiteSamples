@@ -7,21 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13865EDA235F540700AB1BE7 /* UIcode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13865ED9235F540700AB1BE7 /* UIcode.cpp */; };
-		13865EDC235F542600AB1BE7 /* GuiLite-linux.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13865EDB235F542600AB1BE7 /* GuiLite-linux.cpp */; };
-		13865EDE235F5D1500AB1BE7 /* Microsoft_YaHei_28.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13865EDD235F5D1400AB1BE7 /* Microsoft_YaHei_28.cpp */; };
+		13086D06236C89AF008721AD /* GuiLite-linux.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13086D05236C89AF008721AD /* GuiLite-linux.cpp */; };
+		13086D08236C89C0008721AD /* UIcode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13086D07236C89C0008721AD /* UIcode.cpp */; };
+		13086D0A236C89DE008721AD /* Microsoft_YaHei_28.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13086D09236C89DE008721AD /* Microsoft_YaHei_28.cpp */; };
+		13086D0C236C8A94008721AD /* GuiLiteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13086D0B236C8A94008721AD /* GuiLiteImage.swift */; };
 		F475482A1FFB6DC00061596E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47548291FFB6DC00061596E /* AppDelegate.swift */; };
 		F475482C1FFB6DC00061596E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F475482B1FFB6DC00061596E /* ViewController.swift */; };
 		F475482F1FFB6DC00061596E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F475482D1FFB6DC00061596E /* Main.storyboard */; };
 		F47548311FFB6DC00061596E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F47548301FFB6DC00061596E /* Assets.xcassets */; };
 		F47548341FFB6DC00061596E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F47548321FFB6DC00061596E /* LaunchScreen.storyboard */; };
-		F475483E1FFB6E6B0061596E /* native.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F475483C1FFB6E6B0061596E /* native.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		13865ED9235F540700AB1BE7 /* UIcode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UIcode.cpp; path = ../../UIcode/UIcode.cpp; sourceTree = "<group>"; };
-		13865EDB235F542600AB1BE7 /* GuiLite-linux.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "GuiLite-linux.cpp"; path = "../../UIcode/GuiLite-linux.cpp"; sourceTree = "<group>"; };
-		13865EDD235F5D1400AB1BE7 /* Microsoft_YaHei_28.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Microsoft_YaHei_28.cpp; path = ../../UIcode/resource/Microsoft_YaHei_28.cpp; sourceTree = "<group>"; };
+		13086D05236C89AF008721AD /* GuiLite-linux.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "GuiLite-linux.cpp"; path = "../UIcode/GuiLite-linux.cpp"; sourceTree = "<group>"; };
+		13086D07236C89C0008721AD /* UIcode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UIcode.cpp; path = ../UIcode/UIcode.cpp; sourceTree = "<group>"; };
+		13086D09236C89DE008721AD /* Microsoft_YaHei_28.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Microsoft_YaHei_28.cpp; path = ../UIcode/resource/Microsoft_YaHei_28.cpp; sourceTree = "<group>"; };
+		13086D0B236C8A94008721AD /* GuiLiteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuiLiteImage.swift; sourceTree = "<group>"; };
 		F47548261FFB6DC00061596E /* BuildIos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuildIos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47548291FFB6DC00061596E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F475482B1FFB6DC00061596E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,9 +30,7 @@
 		F47548301FFB6DC00061596E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F47548331FFB6DC00061596E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F47548351FFB6DC00061596E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F475483B1FFB6E6A0061596E /* BuildIos-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BuildIos-Bridging-Header.h"; sourceTree = "<group>"; };
-		F475483C1FFB6E6B0061596E /* native.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = native.cpp; sourceTree = "<group>"; };
-		F475483D1FFB6E6B0061596E /* native.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = native.hpp; sourceTree = "<group>"; };
+		F475483B1FFB6E6A0061596E /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,9 +44,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13086D03236C8904008721AD /* UIcode */ = {
+			isa = PBXGroup;
+			children = (
+				13086D09236C89DE008721AD /* Microsoft_YaHei_28.cpp */,
+				13086D07236C89C0008721AD /* UIcode.cpp */,
+				13086D05236C89AF008721AD /* GuiLite-linux.cpp */,
+			);
+			name = UIcode;
+			sourceTree = "<group>";
+		};
 		F475481D1FFB6DC00061596E = {
 			isa = PBXGroup;
 			children = (
+				13086D03236C8904008721AD /* UIcode */,
 				F47548281FFB6DC00061596E /* BuildIos */,
 				F47548271FFB6DC00061596E /* Products */,
 			);
@@ -64,18 +74,14 @@
 		F47548281FFB6DC00061596E /* BuildIos */ = {
 			isa = PBXGroup;
 			children = (
-				13865EDD235F5D1400AB1BE7 /* Microsoft_YaHei_28.cpp */,
-				13865EDB235F542600AB1BE7 /* GuiLite-linux.cpp */,
-				13865ED9235F540700AB1BE7 /* UIcode.cpp */,
 				F47548291FFB6DC00061596E /* AppDelegate.swift */,
 				F475482B1FFB6DC00061596E /* ViewController.swift */,
 				F475482D1FFB6DC00061596E /* Main.storyboard */,
 				F47548301FFB6DC00061596E /* Assets.xcassets */,
 				F47548321FFB6DC00061596E /* LaunchScreen.storyboard */,
 				F47548351FFB6DC00061596E /* Info.plist */,
-				F475483C1FFB6E6B0061596E /* native.cpp */,
-				F475483D1FFB6E6B0061596E /* native.hpp */,
-				F475483B1FFB6E6A0061596E /* BuildIos-Bridging-Header.h */,
+				F475483B1FFB6E6A0061596E /* Bridging-Header.h */,
+				13086D0B236C8A94008721AD /* GuiLiteImage.swift */,
 			);
 			path = BuildIos;
 			sourceTree = "<group>";
@@ -153,12 +159,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13865EDA235F540700AB1BE7 /* UIcode.cpp in Sources */,
+				13086D08236C89C0008721AD /* UIcode.cpp in Sources */,
 				F475482C1FFB6DC00061596E /* ViewController.swift in Sources */,
-				13865EDC235F542600AB1BE7 /* GuiLite-linux.cpp in Sources */,
-				13865EDE235F5D1500AB1BE7 /* Microsoft_YaHei_28.cpp in Sources */,
+				13086D0C236C8A94008721AD /* GuiLiteImage.swift in Sources */,
 				F475482A1FFB6DC00061596E /* AppDelegate.swift in Sources */,
-				F475483E1FFB6E6B0061596E /* native.cpp in Sources */,
+				13086D0A236C89DE008721AD /* Microsoft_YaHei_28.cpp in Sources */,
+				13086D06236C89AF008721AD /* GuiLite-linux.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +283,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -311,7 +317,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = idea4good.BuildIos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "BuildIos/BuildIos-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "BuildIos/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -332,7 +338,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = idea4good.BuildIos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "BuildIos/BuildIos-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "BuildIos/Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

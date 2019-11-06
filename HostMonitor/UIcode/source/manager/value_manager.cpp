@@ -1,5 +1,4 @@
 #include "../core_include/api.h"
-#include <string.h>
 #include "value_manager.h"
 
 VALUE_INFO c_value_manager::ms_value_info[VALUE_MAX] = 

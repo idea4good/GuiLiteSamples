@@ -171,6 +171,11 @@ extern "C" void startHelloWave(void* phy_fb, int width, int height, int color_by
 	create_ui(phy_fb, width, height, color_bytes, gfx_op);
 }
 
+extern "C" void* getUiOfHelloWave()
+{
+    return s_display->get_updated_fb(0, 0, false);
+}
+
 void sendTouch2HelloWave(int x, int y, bool is_down)
 {
 	is_down ? s_myUI.on_touch(x, y, TOUCH_DOWN) : s_myUI.on_touch(x, y, TOUCH_UP);

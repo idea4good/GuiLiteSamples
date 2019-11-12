@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13086D06236C89AF008721AD /* GuiLite-linux.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13086D05236C89AF008721AD /* GuiLite-linux.cpp */; };
 		13086D08236C89C0008721AD /* UIcode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13086D07236C89C0008721AD /* UIcode.cpp */; };
 		13086D0A236C89DE008721AD /* Microsoft_YaHei_28.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13086D09236C89DE008721AD /* Microsoft_YaHei_28.cpp */; };
 		13086D0C236C8A94008721AD /* GuiLiteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13086D0B236C8A94008721AD /* GuiLiteImage.swift */; };
@@ -19,7 +18,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		13086D05236C89AF008721AD /* GuiLite-linux.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "GuiLite-linux.cpp"; path = "../UIcode/GuiLite-linux.cpp"; sourceTree = "<group>"; };
 		13086D07236C89C0008721AD /* UIcode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UIcode.cpp; path = ../UIcode/UIcode.cpp; sourceTree = "<group>"; };
 		13086D09236C89DE008721AD /* Microsoft_YaHei_28.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Microsoft_YaHei_28.cpp; path = ../UIcode/resource/Microsoft_YaHei_28.cpp; sourceTree = "<group>"; };
 		13086D0B236C8A94008721AD /* GuiLiteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuiLiteImage.swift; sourceTree = "<group>"; };
@@ -49,7 +47,6 @@
 			children = (
 				13086D09236C89DE008721AD /* Microsoft_YaHei_28.cpp */,
 				13086D07236C89C0008721AD /* UIcode.cpp */,
-				13086D05236C89AF008721AD /* GuiLite-linux.cpp */,
 			);
 			name = UIcode;
 			sourceTree = "<group>";
@@ -164,7 +161,6 @@
 				13086D0C236C8A94008721AD /* GuiLiteImage.swift in Sources */,
 				F475482A1FFB6DC00061596E /* AppDelegate.swift in Sources */,
 				13086D0A236C89DE008721AD /* Microsoft_YaHei_28.cpp in Sources */,
-				13086D06236C89AF008721AD /* GuiLite-linux.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

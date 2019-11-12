@@ -11,6 +11,7 @@
 
 int WINDOW_WIDTH = 256;
 int WINDOW_HEIGHT = 256;
+Bool isMouseDown = False;
 void* GuiLiteFb;
 pthread_mutex_t mutex;
 
@@ -91,10 +92,18 @@ void* inputThread(void* display)
                 switch(event.type)
                 {
                     case ButtonPress:
+                        isMouseDown = True;
                         printf("press(%d,%d)\n", event.xbutton.x, event.xbutton.y);
                     break;
                     case ButtonRelease:
+                        isMouseDown = False;
                         printf("release(%d,%d)\n", event.xbutton.x, event.xbutton.y);
+                    break;
+                    case MotionNotify:
+                        if(isMouseDown)
+                        {
+                            printf("press(%d,%d)\n", event.xbutton.x, event.xbutton.y);    
+                        }
                     break;
                 }
                 fflush(stdout);
@@ -119,7 +128,7 @@ int main(int argc,char **argv)
 	
 	//Create/Show window
 	Window win = XCreateSimpleWindow(display, root, 50, 50, WINDOW_WIDTH, WINDOW_HEIGHT, 1, 0, 0);
-	XSelectInput(display, win, ExposureMask | ButtonPressMask| ButtonReleaseMask);
+	XSelectInput(display, win, ExposureMask | ButtonPressMask| ButtonReleaseMask | PointerMotionMask);
 	XMapWindow(display, win);
 
     //Start input thread

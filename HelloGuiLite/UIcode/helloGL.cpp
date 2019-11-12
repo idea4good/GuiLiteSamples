@@ -1,11 +1,5 @@
 #include "GuiLite.h"
-#ifdef __linux__
-    #include "GuiLite-linux.cpp"
-#elif defined(_WIN32) || defined(WIN32)
-    #include "GuiLite-win.cpp"
-#else
-    #include "GuiLite-unknow.cpp"
-#endif
+#include "GuiLite.cpp"
 #include <stdlib.h>
 
 const int UI_WIDTH = 1280;

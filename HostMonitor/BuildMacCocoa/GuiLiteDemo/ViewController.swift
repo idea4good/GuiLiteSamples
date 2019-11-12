@@ -1,18 +1,20 @@
 import Cocoa
 
 class ViewController: NSViewController {
+    
+    var guiLiteView: GuiLiteView? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         Thread.detachNewThreadSelector(#selector(ViewController.runNative), toTarget: self, with: nil)
+        sleep(2)
         Timer.scheduledTimer(withTimeInterval: 0.04, repeats: true, block: {_ in self.updateNativeView()})
         
-        let frame = CGRect(x: 0, y: 0, width: 1024, height: 768)
-        self.nativeView = NativeView(frame: frame)
-        self.nativeView?.setNativeUiSize(width: 1024, height: 768)
-        view.addSubview(self.nativeView!)
+        self.guiLiteView = GuiLiteView(frame: CGRect(x: 0, y: 0, width: 1024, height: 768))
+        self.guiLiteView?.setSize(width: 1024, height: 768)
+        view.addSubview(self.guiLiteView!)
     }
 
     override var representedObject: Any? {
@@ -23,15 +25,10 @@ class ViewController: NSViewController {
     
     @objc func runNative()
     {
-        run_host_monitor();
+        _startHostMonitor(1024, 768, 4)
     }
     
     func updateNativeView(){
-        if(self.nativeView == nil){
-            return
-        }
-        self.nativeView?.needsDisplay = true
+        self.guiLiteView?.needsDisplay = true
     }
-    
-    var nativeView: NativeView? = nil
 }

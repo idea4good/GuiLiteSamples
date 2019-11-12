@@ -1,8 +1,6 @@
 #include "GuiLite.h"
-#ifdef __linux__
-	#include "GuiLite-linux.cpp"
-#elif defined(_WIN32) || defined(WIN32)
-	#include "GuiLite-win.cpp"
+#if defined(__linux__) || defined(_WIN32) || defined(WIN32) || defined(__linux__) || defined(__APPLE__)
+	#include "GuiLite.cpp"
 #else
 	//#include "GuiLite-unknow.cpp"//In keil, new operator will crash the program; but could work well in library
 #endif

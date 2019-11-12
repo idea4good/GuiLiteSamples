@@ -12,7 +12,7 @@
 		F47C125F1FEBDD3F005D635A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47C125E1FEBDD3F005D635A /* ViewController.swift */; };
 		F47C12611FEBDD3F005D635A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F47C12601FEBDD3F005D635A /* Assets.xcassets */; };
 		F47C12641FEBDD3F005D635A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F47C12621FEBDD3F005D635A /* Main.storyboard */; };
-		F47C126D1FEBDD84005D635A /* NativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47C126C1FEBDD84005D635A /* NativeView.swift */; };
+		F47C126D1FEBDD84005D635A /* GuiLiteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47C126C1FEBDD84005D635A /* GuiLiteView.swift */; };
 		F47C126F1FEBDDFD005D635A /* NativeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F47C126E1FEBDDFD005D635A /* NativeView.xib */; };
 		F4E9B0081FF239CD006CD49F /* native.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F4E9B0061FF239CD006CD49F /* native.cpp */; };
 		F4E9B00F1FF23B07006CD49F /* libUIcode.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E9B00E1FF23B07006CD49F /* libUIcode.a */; };
@@ -27,11 +27,10 @@
 		F47C12631FEBDD3F005D635A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F47C12651FEBDD3F005D635A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F47C12661FEBDD3F005D635A /* GuiLiteDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GuiLiteDemo.entitlements; sourceTree = "<group>"; };
-		F47C126C1FEBDD84005D635A /* NativeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeView.swift; sourceTree = "<group>"; };
+		F47C126C1FEBDD84005D635A /* GuiLiteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuiLiteView.swift; sourceTree = "<group>"; };
 		F47C126E1FEBDDFD005D635A /* NativeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NativeView.xib; sourceTree = "<group>"; };
 		F4E9B0051FF239CD006CD49F /* GuiLiteDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GuiLiteDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		F4E9B0061FF239CD006CD49F /* native.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = native.cpp; sourceTree = "<group>"; };
-		F4E9B0071FF239CD006CD49F /* native.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = native.hpp; sourceTree = "<group>"; };
 		F4E9B00E1FF23B07006CD49F /* libUIcode.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libUIcode.a; path = GuiLiteDemo/libs/libUIcode.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,10 +73,9 @@
 				F47C12621FEBDD3F005D635A /* Main.storyboard */,
 				F47C12651FEBDD3F005D635A /* Info.plist */,
 				F47C12661FEBDD3F005D635A /* GuiLiteDemo.entitlements */,
-				F47C126C1FEBDD84005D635A /* NativeView.swift */,
+				F47C126C1FEBDD84005D635A /* GuiLiteView.swift */,
 				F47C126E1FEBDDFD005D635A /* NativeView.xib */,
 				F4E9B0061FF239CD006CD49F /* native.cpp */,
-				F4E9B0071FF239CD006CD49F /* native.hpp */,
 				F4E9B0051FF239CD006CD49F /* GuiLiteDemo-Bridging-Header.h */,
 			);
 			path = GuiLiteDemo;
@@ -167,7 +165,7 @@
 				F47C125F1FEBDD3F005D635A /* ViewController.swift in Sources */,
 				F47C125D1FEBDD3F005D635A /* AppDelegate.swift in Sources */,
 				F4E9B0081FF239CD006CD49F /* native.cpp in Sources */,
-				F47C126D1FEBDD84005D635A /* NativeView.swift in Sources */,
+				F47C126D1FEBDD84005D635A /* GuiLiteView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		131AC40C2371A419006BCD57 /* GuiLite-linux.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131AC40A2371A419006BCD57 /* GuiLite-linux.cpp */; };
+		131AC40C2371A419006BCD57 /* GuiLite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131AC40A2371A419006BCD57 /* GuiLite.cpp */; };
 		131AC40D2371A419006BCD57 /* UIcode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131AC40B2371A419006BCD57 /* UIcode.cpp */; };
 		131AC40F2371A426006BCD57 /* Lucida_Console_27.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 131AC40E2371A426006BCD57 /* Lucida_Console_27.cpp */; };
 		131AC4112371A43D006BCD57 /* GuiLiteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131AC4102371A43D006BCD57 /* GuiLiteImage.swift */; };
@@ -73,7 +73,7 @@
 
 /* Begin PBXFileReference section */
 		131AC4092371A419006BCD57 /* HelloWave watchOS App Extension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HelloWave watchOS App Extension-Bridging-Header.h"; sourceTree = "<group>"; };
-		131AC40A2371A419006BCD57 /* GuiLite-linux.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "GuiLite-linux.cpp"; path = "../../UIcode/GuiLite-linux.cpp"; sourceTree = "<group>"; };
+		131AC40A2371A419006BCD57 /* GuiLite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "GuiLite.cpp"; path = "../../UIcode/GuiLite.cpp"; sourceTree = "<group>"; };
 		131AC40B2371A419006BCD57 /* UIcode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UIcode.cpp; path = ../../UIcode/UIcode.cpp; sourceTree = "<group>"; };
 		131AC40E2371A426006BCD57 /* Lucida_Console_27.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Lucida_Console_27.cpp; path = ../../UIcode/resource/Lucida_Console_27.cpp; sourceTree = "<group>"; };
 		131AC4102371A43D006BCD57 /* GuiLiteImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuiLiteImage.swift; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				131AC40E2371A426006BCD57 /* Lucida_Console_27.cpp */,
-				131AC40A2371A419006BCD57 /* GuiLite-linux.cpp */,
+				131AC40A2371A419006BCD57 /* GuiLite.cpp */,
 				131AC40B2371A419006BCD57 /* UIcode.cpp */,
 				131AC4092371A419006BCD57 /* HelloWave watchOS App Extension-Bridging-Header.h */,
 			);
@@ -339,7 +339,7 @@
 				131AC40D2371A419006BCD57 /* UIcode.cpp in Sources */,
 				136C39D72371A33900FE467A /* ExtensionDelegate.swift in Sources */,
 				131AC4112371A43D006BCD57 /* GuiLiteImage.swift in Sources */,
-				131AC40C2371A419006BCD57 /* GuiLite-linux.cpp in Sources */,
+				131AC40C2371A419006BCD57 /* GuiLite.cpp in Sources */,
 				131AC40F2371A426006BCD57 /* Lucida_Console_27.cpp in Sources */,
 				136C39D52371A33900FE467A /* InterfaceController.swift in Sources */,
 			);

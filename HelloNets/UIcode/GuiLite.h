@@ -327,7 +327,7 @@ public:
 					unsigned int surface_width, unsigned int surface_height,
 					unsigned int color_bytes, unsigned int surface_cnt, EXTERNAL_GFX_OP* gfx_op = 0);
 	c_surface* alloc_surface(Z_ORDER_LEVEL max_zorder);
-	int swipe_surface(c_surface* s1, c_surface* s2, int x0, int x1, int y0, int y2, int offset);
+	int swipe_surface(c_surface* s0, c_surface* s1, int x0, int x1, int y0, int y2, int offset);
 	unsigned int get_width() { return m_width; }
 	unsigned int get_height() { return m_height; }
 	void* get_updated_fb(int* width, int* height, bool force_update = false);
@@ -796,7 +796,7 @@ public:
 	unsigned int get_col_num(){ return m_col_num;}
 	c_rect get_item_rect(int row, int col);
 protected:
-	void draw_item(int col, int row, const char* str, unsigned int color);
+	void draw_item(int row, int col, const char* str, unsigned int color);
 	unsigned int m_align_type;	
 	unsigned int m_row_num;
 	unsigned int m_col_num;

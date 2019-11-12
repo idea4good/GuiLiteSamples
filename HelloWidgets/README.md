@@ -18,6 +18,7 @@
     - Run inside X Window:
         1. `sudo su`
         2. `sudo ./xWindow 680 512 | ./HelloWidgets shared-fb`
+        3. `ipcrm -M 1` if no content in the window
 
 ## Cross compiler & Run on target:
 1. install compiler:

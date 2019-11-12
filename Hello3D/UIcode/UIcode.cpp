@@ -1,10 +1,7 @@
 #include "GuiLite.h"
-#ifdef __linux__
-	#include "GuiLite-linux.cpp"
+#if defined(_WIN32) || defined(WIN32) || defined(__linux__) || defined(__APPLE__)
 	#define SHAPE_CNT 2
-#elif defined(_WIN32) || defined(WIN32)
-	#include "GuiLite-win.cpp"
-	#define SHAPE_CNT 2
+	#include "GuiLite.cpp"
 #else
 	//#include "GuiLite-unknow.cpp"//In keil, new operator will crash the program; but could work well in library
 	#define SHAPE_CNT 1

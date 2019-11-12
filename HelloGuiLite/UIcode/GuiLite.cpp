@@ -1662,6 +1662,354 @@ void c_word::get_string_pos(const char *s, const FONT_INFO* font, c_rect rect, u
 		break;
 	}
 }
+#if (defined __linux__) || (defined __APPLE__)
+#include <unistd.h>
+#include <pthread.h>
+#include <string.h>
+#include <time.h>
+#include <sys/time.h>
+#include <signal.h>
+#include <sys/times.h>
+#include <fcntl.h>
+#include <termios.h>
+#include <sys/stat.h>
+#include <semaphore.h>
+#include <errno.h>
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX_TIMER_CNT 10
+#define TIMER_UNIT 50//ms
+static void(*do_assert)(const char* file, int line);
+static void(*do_log_out)(const char* log);
+void register_debug_function(void(*my_assert)(const char* file, int line), void(*my_log_out)(const char* log))
+{
+	do_assert = my_assert;
+	do_log_out = my_log_out;
+}
+void _assert(const char* file, int line)
+{
+	if(do_assert)
+	{
+		do_assert(file, line);
+	}
+	else
+	{
+		printf("assert@ file:%s, line:%d, error no: %d\n", file, line, errno);
+	} 
+}
+void log_out(const char* log)
+{
+	if (do_log_out)
+	{
+		do_log_out(log);
+	}
+	else
+	{
+		printf("%s", log);
+		fflush(stdout);
+	}
+}
+typedef struct _timer_manage
+{
+    struct  _timer_info
+    {
+        int state; /* on or off */
+        int interval;
+        int elapse; /* 0~interval */
+        void (* timer_proc) (void* ptmr, void* parg);
+    }timer_info[MAX_TIMER_CNT];
+    void (* old_sigfunc)(int);
+    void (* new_sigfunc)(int);
+}_timer_manage_t;
+static struct _timer_manage timer_manage;
+static void* timer_routine(void*)
+{
+    int i;
+    while(true)
+    {
+    	for(i = 0; i < MAX_TIMER_CNT; i++)
+		{
+			if(timer_manage.timer_info[i].state == 0)
+			{
+				continue;
+			}
+			timer_manage.timer_info[i].elapse++;
+			if(timer_manage.timer_info[i].elapse == timer_manage.timer_info[i].interval)
+			{
+				timer_manage.timer_info[i].elapse = 0;
+				timer_manage.timer_info[i].timer_proc(0, 0);
+			}
+		}
+    	usleep(1000 * TIMER_UNIT);
+    }
+    return NULL;
+}
+static int init_mul_timer()
+{
+	static bool s_is_init = false;
+	if(s_is_init == true)
+	{
+		return 0;
+	}
+    memset(&timer_manage, 0, sizeof(struct _timer_manage));
+    pthread_t pid;
+    pthread_create(&pid, NULL, timer_routine, NULL);
+    s_is_init = true;
+    return 1;
+}
+static int set_a_timer(int interval, void (* timer_proc) (void* ptmr, void* parg))
+{
+	init_mul_timer();
+	int i;
+    if(timer_proc == NULL || interval <= 0)
+    {
+        return (-1);
+    }
+    for(i = 0; i < MAX_TIMER_CNT; i++)
+    {
+        if(timer_manage.timer_info[i].state == 1)
+        {
+            continue;
+        }
+        memset(&timer_manage.timer_info[i], 0, sizeof(timer_manage.timer_info[i]));
+        timer_manage.timer_info[i].timer_proc = timer_proc;
+        timer_manage.timer_info[i].interval = interval;
+        timer_manage.timer_info[i].elapse = 0;
+        timer_manage.timer_info[i].state = 1;
+        break;
+    }
+    if(i >= MAX_TIMER_CNT)
+    {
+    	ASSERT(false);
+        return (-1);
+    }
+    return (i);
+}
+typedef void (*EXPIRE_ROUTINE)(void* arg);
+EXPIRE_ROUTINE s_expire_function;
+static c_fifo s_real_timer_fifo;
+static void* real_timer_routine(void*)
+{
+	char dummy;
+	while(1)
+	{
+		if(s_real_timer_fifo.read(&dummy, 1) > 0)
+		{
+			if(s_expire_function)s_expire_function(0);
+		}
+		else
+		{
+			ASSERT(false);
+		}
+	}
+	return 0;
+}
+static void expire_real_timer(int sigo)
+{
+	char dummy = 0x33;
+	if(s_real_timer_fifo.write(&dummy, 1) <= 0)
+	{
+		ASSERT(false);
+	}
+}
+void start_real_timer(void (*func)(void* arg))
+{
+	if(NULL == func)
+	{
+		return;
+	}
+	s_expire_function = func;
+	signal(SIGALRM, expire_real_timer);
+	struct itimerval value, ovalue;
+	value.it_value.tv_sec = 0;
+	value.it_value.tv_usec = REAL_TIME_TASK_CYCLE_MS * 1000;
+	value.it_interval.tv_sec = 0;
+	value.it_interval.tv_usec = REAL_TIME_TASK_CYCLE_MS * 1000;
+	setitimer(ITIMER_REAL, &value, &ovalue);
+	static pthread_t s_pid;
+	if(s_pid == 0)
+	{
+		pthread_create(&s_pid, NULL, real_timer_routine, NULL);
+	}
+}
+unsigned int get_cur_thread_id()
+{
+	return (unsigned long)pthread_self();
+}
+void register_timer(int milli_second,void func(void* ptmr, void* parg))
+{
+	set_a_timer(milli_second/TIMER_UNIT,func);
+}
+long get_time_in_second()
+{
+	return time(NULL);         /* + 8*60*60*/
+}
+T_TIME get_time()
+{
+	T_TIME ret = {0};
+	struct tm *fmt;
+	time_t timer;
+	timer = get_time_in_second();
+	fmt = localtime(&timer);
+	ret.year   = fmt->tm_year + 1900;
+	ret.month  = fmt->tm_mon + 1;
+	ret.day    = fmt->tm_mday;
+	ret.hour   = fmt->tm_hour;
+	ret.minute = fmt->tm_min;
+	ret.second = fmt->tm_sec;
+	return ret;
+}
+T_TIME second_to_day(long second)
+{
+	T_TIME ret = {0};
+	struct tm *fmt;
+	fmt = localtime(&second);
+	ret.year   = fmt->tm_year + 1900;
+	ret.month  = fmt->tm_mon + 1;
+	ret.day    = fmt->tm_mday;
+	ret.hour   = fmt->tm_hour;
+	ret.minute = fmt->tm_min;
+	ret.second = fmt->tm_sec;
+	return ret;
+}
+void create_thread(unsigned long* thread_id, void* attr, void *(*start_routine) (void *), void* arg)
+{
+    pthread_create((pthread_t*)thread_id, (pthread_attr_t const*)attr, start_routine, arg);
+}
+void thread_sleep(unsigned int milli_seconds)
+{
+	usleep(milli_seconds * 1000);
+}
+typedef struct {
+	unsigned short	bfType;
+	unsigned int   	bfSize;
+	unsigned short  bfReserved1;
+	unsigned short  bfReserved2;
+	unsigned int   	bfOffBits;
+}__attribute__((packed))FileHead;
+typedef struct{
+	unsigned int  	biSize;
+	int 			biWidth;
+	int       		biHeight;
+	unsigned short	biPlanes;
+	unsigned short  biBitCount;
+	unsigned int    biCompress;
+	unsigned int    biSizeImage;
+	int       		biXPelsPerMeter;
+	int       		biYPelsPerMeter;
+	unsigned int 	biClrUsed;
+	unsigned int    biClrImportant;
+	unsigned int 	biRedMask;
+	unsigned int 	biGreenMask;
+	unsigned int 	biBlueMask;
+}__attribute__((packed))Infohead;
+int build_bmp(const char *filename, unsigned int width, unsigned int height, unsigned char *data)
+{
+	FileHead bmp_head;
+	Infohead bmp_info;
+	int size = width * height * 2;
+	//initialize bmp head.
+	bmp_head.bfType = 0x4d42;
+	bmp_head.bfSize = size + sizeof(FileHead) + sizeof(Infohead);
+	bmp_head.bfReserved1 = bmp_head.bfReserved2 = 0;
+	bmp_head.bfOffBits = bmp_head.bfSize - size;
+	//initialize bmp info.
+	bmp_info.biSize = 40;
+	bmp_info.biWidth = width;
+	bmp_info.biHeight = height;
+	bmp_info.biPlanes = 1;
+	bmp_info.biBitCount = 16;
+	bmp_info.biCompress = 3;
+	bmp_info.biSizeImage = size;
+	bmp_info.biXPelsPerMeter = 0;
+	bmp_info.biYPelsPerMeter = 0;
+	bmp_info.biClrUsed = 0;
+	bmp_info.biClrImportant = 0;
+	//RGB565
+	bmp_info.biRedMask = 0xF800;
+	bmp_info.biGreenMask = 0x07E0;
+	bmp_info.biBlueMask = 0x001F;
+	//copy the data
+	FILE *fp;
+	if(!(fp=fopen(filename,"wb")))
+	{
+		return -1;
+	}
+	fwrite(&bmp_head, 1, sizeof(FileHead),fp);
+	fwrite(&bmp_info, 1, sizeof(Infohead),fp);
+	//fwrite(data, 1, size, fp);//top <-> bottom
+	for (int i = (height - 1); i >= 0; --i)
+	{
+		fwrite(&data[i * width * 2], 1, width * 2, fp);
+	}
+	
+	fclose(fp);
+	return 0;
+}
+c_fifo::c_fifo()
+{
+	m_head = m_tail = 0;
+	m_read_sem = malloc(sizeof(sem_t));
+	m_write_mutex = malloc(sizeof(pthread_mutex_t));
+	
+	sem_init((sem_t*)m_read_sem, 0, 0);
+	pthread_mutex_init((pthread_mutex_t*)m_write_mutex, 0);
+}
+int c_fifo::read(void* buf, int len)
+{
+	unsigned char* pbuf = (unsigned char*)buf;
+	int i = 0;
+	while(i < len)
+	{
+		if (m_tail == m_head)
+		{//empty
+			sem_wait((sem_t*)m_read_sem);
+			continue;
+		}
+		*pbuf++ = m_buf[m_head];
+		m_head = (m_head + 1) % FIFO_BUFFER_LEN;
+		i++;
+	}
+	if(i != len)
+	{
+		ASSERT(false);
+	}
+	return i;
+}
+int c_fifo::write(void* buf, int len)
+{
+	unsigned char* pbuf = (unsigned char*)buf;
+	int i = 0;
+	int tail = m_tail;
+	pthread_mutex_lock((pthread_mutex_t*)m_write_mutex);
+	while(i < len)
+	{
+		if ((m_tail + 1) % FIFO_BUFFER_LEN == m_head)
+		{//full, clear data has been written;
+			m_tail = tail;
+			log_out("Warning: fifo full\n");
+			pthread_mutex_unlock((pthread_mutex_t*)m_write_mutex);
+			return 0;
+		}
+		m_buf[m_tail] = *pbuf++;
+		m_tail = (m_tail + 1) % FIFO_BUFFER_LEN;
+		i++;
+	}
+	pthread_mutex_unlock((pthread_mutex_t*)m_write_mutex);
+	if(i != len)
+	{
+		ASSERT(false);
+	}
+	else
+	{
+		sem_post((sem_t*)m_read_sem);
+	}
+	return i;
+}
+#endif
+#if (!defined _WIN32) && (!defined WIN32) && (!defined _WIN64) && (!defined WIN64) && (!defined __linux__) && (!defined __APPLE__)
+
 #include <stdio.h>
 
 static void(*do_assert)(const char* file, int line);
@@ -1791,6 +2139,622 @@ int c_fifo::write(void* buf, int len)
 	}
 	return i;
 }
+
+#endif
+#if (defined _WIN32) || (defined WIN32) || (defined _WIN64) || (defined WIN64)
+#include <string.h>
+#include <stdio.h>
+#include <time.h>
+#include <conio.h>
+#include <windows.h>
+#include <assert.h>
+#define MAX_TIMER_CNT 10
+#define TIMER_UNIT 50//ms
+static void(*do_assert)(const char* file, int line);
+static void(*do_log_out)(const char* log);
+void register_debug_function(void(*my_assert)(const char* file, int line), void(*my_log_out)(const char* log))
+{
+	do_assert = my_assert;
+	do_log_out = my_log_out;
+}
+void _assert(const char* file, int line)
+{
+	static char s_buf[192];
+	if (do_assert) 
+	{
+		do_assert(file, line);
+	}
+	else
+	{
+		memset(s_buf, 0, sizeof(s_buf));
+		sprintf_s(s_buf, sizeof(s_buf), "vvvvvvvvvvvvvvvvvvvvvvvvvvvv\n\nAssert@ file = %s, line = %d\n\n^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n", file, line);
+		OutputDebugStringA(s_buf);
+		printf("%s", s_buf);
+		fflush(stdout);
+		assert(false);
+	}
+}
+void log_out(const char* log)
+{
+	if (do_log_out)
+	{
+		do_log_out(log);
+	}
+	else
+	{
+		printf("%s", log);
+		fflush(stdout);
+		OutputDebugStringA(log);
+	}
+}
+typedef struct _timer_manage
+{
+    struct  _timer_info
+    {
+        int state; /* on or off */
+        int interval;
+        int elapse; /* 0~interval */
+        void (* timer_proc) (void* ptmr, void* parg);
+    }timer_info[MAX_TIMER_CNT];
+    void (* old_sigfunc)(int);
+    void (* new_sigfunc)(int);
+}_timer_manage_t;
+static struct _timer_manage timer_manage;
+DWORD WINAPI timer_routine(LPVOID lpParam)
+{
+    int i;
+    while(true)
+    {
+    	for(i = 0; i < MAX_TIMER_CNT; i++)
+		{
+			if(timer_manage.timer_info[i].state == 0)
+			{
+				continue;
+			}
+			timer_manage.timer_info[i].elapse++;
+			if(timer_manage.timer_info[i].elapse == timer_manage.timer_info[i].interval)
+			{
+				timer_manage.timer_info[i].elapse = 0;
+				timer_manage.timer_info[i].timer_proc(0, 0);
+			}
+		}
+		Sleep(TIMER_UNIT);
+    }
+    return 0;
+}
+static int init_mul_timer()
+{
+	static bool s_is_init = false;
+	if(s_is_init == true)
+	{
+		return 0;
+	}
+    memset(&timer_manage, 0, sizeof(struct _timer_manage));
+    DWORD pid;
+	CreateThread(0, 0, timer_routine, 0, 0, &pid);
+    s_is_init = true;
+    return 1;
+}
+static int set_a_timer(int interval, void (* timer_proc) (void* ptmr, void* parg))
+{
+	init_mul_timer();
+	int i;
+    if(timer_proc == 0 || interval <= 0)
+    {
+        return (-1);
+    }
+    for(i = 0; i < MAX_TIMER_CNT; i++)
+    {
+        if(timer_manage.timer_info[i].state == 1)
+        {
+            continue;
+        }
+        memset(&timer_manage.timer_info[i], 0, sizeof(timer_manage.timer_info[i]));
+        timer_manage.timer_info[i].timer_proc = timer_proc;
+        timer_manage.timer_info[i].interval = interval;
+        timer_manage.timer_info[i].elapse = 0;
+        timer_manage.timer_info[i].state = 1;
+        break;
+    }
+    if(i >= MAX_TIMER_CNT)
+    {
+		ASSERT(false);
+        return (-1);
+    }
+    return (i);
+}
+typedef void (*EXPIRE_ROUTINE)(void* arg);
+EXPIRE_ROUTINE s_expire_function;
+static c_fifo s_real_timer_fifo;
+static DWORD WINAPI fire_real_timer(LPVOID lpParam)
+{
+	char dummy;
+	while(1)
+	{
+		if(s_real_timer_fifo.read(&dummy, 1) > 0)
+		{
+			if(s_expire_function)s_expire_function(0);
+		}
+		else
+		{
+			ASSERT(false);
+		}
+	}
+	return 0;
+}
+/*Win32 desktop only
+static void CALLBACK trigger_real_timer(UINT, UINT, DWORD_PTR, DWORD_PTR, DWORD_PTR)
+{
+	char dummy = 0x33;
+	s_real_timer_fifo.write(&dummy, 1);
+}
+*/
+static DWORD WINAPI trigger_real_timer(LPVOID lpParam)
+{
+	char dummy = 0x33;
+	while (1)
+	{
+		s_real_timer_fifo.write(&dummy, 1);
+		Sleep(REAL_TIME_TASK_CYCLE_MS);
+	}
+	return 0;
+}
+void start_real_timer(void (*func)(void* arg))
+{
+	if(0 == func)
+	{
+		return;
+	}
+	s_expire_function = func;
+	//timeSetEvent(REAL_TIME_TASK_CYCLE_MS, 0, trigger_real_timer, 0, TIME_PERIODIC);//Win32 desktop only
+	static DWORD s_pid;
+	if(s_pid == 0)
+	{
+		CreateThread(0, 0, trigger_real_timer, 0, 0, &s_pid);
+		CreateThread(0, 0, fire_real_timer, 0, 0, &s_pid);
+	}
+}
+unsigned int get_cur_thread_id()
+{
+	return GetCurrentThreadId();
+}
+void register_timer(int milli_second,void func(void* ptmr, void* parg))
+{
+	set_a_timer(milli_second/TIMER_UNIT,func);
+}
+long get_time_in_second()
+{
+	return time(0);
+}
+T_TIME get_time()
+{
+	T_TIME ret = {0};
+	
+	SYSTEMTIME time;
+	GetLocalTime(&time);
+	ret.year = time.wYear;
+	ret.month = time.wMonth;
+	ret.day = time.wDay;
+	ret.hour = time.wHour;
+	ret.minute = time.wMinute;
+	ret.second = time.wSecond;
+	return ret;
+}
+T_TIME second_to_day(long second)
+{
+	T_TIME ret;
+	ret.year = 1999;
+	ret.month = 10;
+	ret.date = 1;
+	ret.second = second % 60;
+	second /= 60;
+	ret.minute = second % 60;
+	second /= 60;
+	ret.hour = (second + 8) % 24;//China time zone.
+	return ret;
+}
+void create_thread(unsigned long* thread_id, void* attr, void *(*start_routine) (void *), void* arg)
+{
+	DWORD pid = 0;
+	CreateThread(0, 0, LPTHREAD_START_ROUTINE(start_routine), arg, 0, &pid);
+	*thread_id = pid;
+}
+void thread_sleep(unsigned int milli_seconds)
+{
+	Sleep(milli_seconds);
+}
+#pragma pack(push,1)
+typedef struct {
+	unsigned short	bfType;
+	unsigned int   	bfSize;
+	unsigned short  bfReserved1;
+	unsigned short  bfReserved2;
+	unsigned int   	bfOffBits;
+}FileHead;
+typedef struct {
+	unsigned int  	biSize;
+	int 			biWidth;
+	int       		biHeight;
+	unsigned short	biPlanes;
+	unsigned short  biBitCount;
+	unsigned int    biCompress;
+	unsigned int    biSizeImage;
+	int       		biXPelsPerMeter;
+	int       		biYPelsPerMeter;
+	unsigned int 	biClrUsed;
+	unsigned int    biClrImportant;
+	unsigned int 	biRedMask;
+	unsigned int 	biGreenMask;
+	unsigned int 	biBlueMask;
+}Infohead;
+#pragma pack(pop)
+int build_bmp(const char *filename, unsigned int width, unsigned int height, unsigned char *data)
+{
+	FileHead bmp_head;
+	Infohead bmp_info;
+	int size = width * height * 2;
+	//initialize bmp head.
+	bmp_head.bfType = 0x4d42;
+	bmp_head.bfSize = size + sizeof(FileHead) + sizeof(Infohead);
+	bmp_head.bfReserved1 = bmp_head.bfReserved2 = 0;
+	bmp_head.bfOffBits = bmp_head.bfSize - size;
+	//initialize bmp info.
+	bmp_info.biSize = 40;
+	bmp_info.biWidth = width;
+	bmp_info.biHeight = height;
+	bmp_info.biPlanes = 1;
+	bmp_info.biBitCount = 16;
+	bmp_info.biCompress = 3;
+	bmp_info.biSizeImage = size;
+	bmp_info.biXPelsPerMeter = 0;
+	bmp_info.biYPelsPerMeter = 0;
+	bmp_info.biClrUsed = 0;
+	bmp_info.biClrImportant = 0;
+	//RGB565
+	bmp_info.biRedMask = 0xF800;
+	bmp_info.biGreenMask = 0x07E0;
+	bmp_info.biBlueMask = 0x001F;
+	//copy the data
+	FILE *fp;
+	if (!(fp = fopen(filename, "wb")))
+	{
+		return -1;
+	}
+	fwrite(&bmp_head, 1, sizeof(FileHead), fp);
+	fwrite(&bmp_info, 1, sizeof(Infohead), fp);
+	//fwrite(data, 1, size, fp);//top <-> bottom
+	for (int i = (height - 1); i >= 0; --i)
+	{
+		fwrite(&data[i * width * 2], 1, width * 2, fp);
+	}
+	fclose(fp);
+	return 0;
+}
+c_fifo::c_fifo()
+{
+	m_head = m_tail = 0;
+	m_read_sem = CreateSemaphore(0,	// default security attributes
+		0,		// initial count
+		1,		// maximum count
+		0);	// unnamed semaphore
+	m_write_mutex = CreateMutex(0, false, 0);
+}
+int c_fifo::read(void* buf, int len)
+{
+	unsigned char* pbuf = (unsigned char*)buf;
+	int i = 0;
+	while (i < len)
+	{
+		if (m_tail == m_head)
+		{//empty
+			WaitForSingleObject(m_read_sem, INFINITE);
+			continue;
+		}
+		*pbuf++ = m_buf[m_head];
+		m_head = (m_head + 1) % FIFO_BUFFER_LEN;
+		i++;
+	}
+	if (i != len)
+	{
+		ASSERT(false);
+	}
+	return i;
+}
+int c_fifo::write(void* buf, int len)
+{
+	unsigned char* pbuf = (unsigned char*)buf;
+	int i = 0;
+	int tail = m_tail;
+	WaitForSingleObject(m_write_mutex, INFINITE);
+	while (i < len)
+	{
+		if ((m_tail + 1) % FIFO_BUFFER_LEN == m_head)
+		{//full, clear data has been written;
+			m_tail = tail;
+			log_out("Warning: fifo full\n");
+			ReleaseMutex(m_write_mutex);
+			return 0;
+		}
+		m_buf[m_tail] = *pbuf++;
+		m_tail = (m_tail + 1) % FIFO_BUFFER_LEN;
+		i++;
+	}
+	ReleaseMutex(m_write_mutex);
+	if (i != len)
+	{
+		ASSERT(false);
+	}
+	else
+	{
+		ReleaseSemaphore(m_read_sem, 1, 0);
+	}
+	return i;
+}
+#endif
+#if (defined __linux__) || (defined __APPLE__)
+#include <unistd.h>
+#include <sys/types.h>
+#include <stdlib.h>
+#include <pthread.h>
+#include <stdio.h>
+typedef void(*ANDROID_PLAY_WAV)(const char* fileName);
+ANDROID_PLAY_WAV gAndroidPlayWav;
+typedef struct
+{
+	AUDIO_TYPE type;
+}AUDIO_REQUEST;
+static c_fifo s_request_fifo;
+static void* render_thread(void* param)
+{
+	while (true)
+	{
+		AUDIO_REQUEST request;
+		s_request_fifo.read(&request, sizeof(request));
+		
+		if (AUDIO_MAX <= request.type)
+		{
+			continue;
+		}
+		if(gAndroidPlayWav)
+		{
+			gAndroidPlayWav("heart_beat.wav");
+		}
+	}
+}
+void c_audio::init()
+{
+	static bool s_flag = false;
+	if (s_flag)
+	{
+		return;
+	}
+	unsigned long pid;
+	create_thread(&pid, 0, render_thread, 0);
+	s_flag = true;
+}
+int c_audio::play(AUDIO_TYPE type)
+{
+	if (AUDIO_MAX <= type)
+	{
+		return -1;
+	}
+	init();
+	AUDIO_REQUEST request;
+	request.type = type;
+	s_request_fifo.write(&request, sizeof(request));
+	return 0;
+}
+#endif
+#if (defined _WIN32) || (defined WIN32) || (defined _WIN64) || (defined WIN64)
+#include <windows.h>
+#include <Audioclient.h>
+#include <mmdeviceapi.h>
+#ifndef AUDCLNT_STREAMFLAGS_AUTOCONVERTPCM
+	#define AUDCLNT_STREAMFLAGS_AUTOCONVERTPCM 0x80000000
+#endif
+#define AUDIO_CHANNELS_MONO     1
+#define AUDIO_SAMPLE_RATE       44000
+#define AUDIO_BITS              16
+#define AUDIO_BLOCK_ALIGN       (AUDIO_CHANNELS_MONO * (AUDIO_BITS >> 3))
+#define AUDIO_BYTE_RATE         (AUDIO_SAMPLE_RATE * AUDIO_BLOCK_ALIGN)
+#define AUDIO_OUTPUT_BUF_LEN	(10000000 * 5)	//5 seconds long.
+#define CHECK_ERROR(ret) if(ret != 0){ASSERT(false);}
+typedef struct
+{
+	AUDIO_TYPE type;
+}AUDIO_REQUEST;
+typedef struct
+{
+	BYTE* p_data;
+	int size;
+}WAV_RESOURCE;
+static WAV_RESOURCE s_wav_resource[AUDIO_MAX];
+static c_fifo s_request_fifo;
+static IAudioClient* s_audio_client;
+static IAudioRenderClient* s_audio_render_client;
+static HANDLE s_audio_event;
+//Should be call by UWP, and UWP create audio client.
+void set_audio_client(IAudioClient* audio_client)
+{
+	s_audio_client = audio_client;
+}
+static WAVEFORMATEX s_wav_format = {
+	WAVE_FORMAT_PCM,
+	AUDIO_CHANNELS_MONO,
+	AUDIO_SAMPLE_RATE,
+	AUDIO_BYTE_RATE,
+	AUDIO_BLOCK_ALIGN,
+	AUDIO_BITS,
+	0
+};
+static int register_wav_resouce(AUDIO_TYPE type, const wchar_t* wav_path)
+{
+	if (s_wav_resource[type].p_data)
+	{
+		return 0;
+	}
+  
+	void* hFile = CreateFile(wav_path, GENERIC_READ, FILE_SHARE_READ, 0, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
+	if (INVALID_HANDLE_VALUE == hFile)
+	{
+		log_out("Open wave file failed\n");
+		return -1;
+	}
+	LARGE_INTEGER ret;
+	GetFileSizeEx(hFile, &ret);
+	int size = ret.LowPart;
+	if (INVALID_SET_FILE_POINTER == SetFilePointer(hFile, 0x2C, 0, FILE_BEGIN))
+	{
+		ASSERT(false);
+		return -2;
+	}
+	size -= 0x2C;
+	BYTE* p_data = (BYTE*)malloc(size);
+	DWORD read_num;
+	ReadFile(hFile, p_data, size, &read_num, 0);
+	s_wav_resource[type].p_data = p_data;
+	s_wav_resource[type].size = size;
+	return 0;
+}
+static int load_wav_chunk(BYTE* p_des, int des_size, BYTE* p_src, int src_size)
+{
+	if (des_size <= 0 || src_size <= 0)
+	{
+		return -1;
+	}
+	int write_size = (src_size > des_size) ? des_size : src_size;
+	memcpy(p_des, p_src, write_size);
+	memset(p_des + write_size, 0, (des_size - write_size));
+	return write_size;
+}
+static int play_wav(BYTE* p_data, int size)
+{
+	if (0 == p_data || 0 >= size)
+	{
+		return -1;
+	}
+	UINT32 bufferFrameCount;
+	UINT32 numFramesAvailable;
+	UINT32 numFramesPadding;
+	BYTE* p_buffer = 0;
+	int ret = s_audio_client->GetBufferSize(&bufferFrameCount);
+	CHECK_ERROR(ret);
+	
+	int offset = 0;
+	while (WaitForSingleObject(s_audio_event, INFINITE) == WAIT_OBJECT_0)
+	{
+		ret = s_audio_client->GetCurrentPadding(&numFramesPadding);
+		CHECK_ERROR(ret);
+		numFramesAvailable = bufferFrameCount - numFramesPadding;
+		if (numFramesAvailable < 1600)
+		{
+			Sleep(10);
+			continue;
+		}
+		ret = s_audio_render_client->GetBuffer(numFramesAvailable, &p_buffer);
+		CHECK_ERROR(ret);
+		ret = load_wav_chunk(p_buffer, numFramesAvailable * s_wav_format.nBlockAlign, p_data + offset, (size - offset));
+		if (ret > 0)
+		{
+			s_audio_render_client->ReleaseBuffer((ret / s_wav_format.nBlockAlign), 0);
+			offset += ret;
+		}
+		else
+		{
+			s_audio_render_client->ReleaseBuffer(0, AUDCLNT_BUFFERFLAGS_SILENT);
+			break;
+		}
+	}	
+	return 0;
+}
+static void* render_thread(void* param)
+{
+	s_audio_client->Start();
+	while (true)
+	{
+		AUDIO_REQUEST request;
+		s_request_fifo.read(&request, sizeof(request));
+		
+		if (AUDIO_MAX <= request.type)
+		{
+			ASSERT(false);
+			continue;
+		}
+		play_wav(s_wav_resource[request.type].p_data, s_wav_resource[request.type].size);
+	}
+	s_audio_client->Stop();
+}
+static int init_audio_client()
+{
+	if (s_audio_client)
+	{
+		return 0;
+	}
+	//For desktop only, could not pass Windows Store certification.
+	/*
+	int ret = CoInitializeEx(0, COINIT_MULTITHREADED);
+	CHECK_ERROR(ret);
+	IMMDeviceEnumerator *pEnumerator = nullptr;
+	ret = CoCreateInstance(__uuidof(MMDeviceEnumerator), 0,
+	CLSCTX_ALL, __uuidof(IMMDeviceEnumerator),
+	(void**)&pEnumerator);
+	CHECK_ERROR(ret);
+	IMMDevice* audio_output_device;
+	pEnumerator->GetDefaultAudioEndpoint(eRender, eConsole, &audio_output_device);
+	if (0 == audio_output_device)
+	{
+	ASSERT(false);
+	}
+	ret = audio_output_device->Activate(__uuidof(IAudioClient), CLSCTX_ALL, 0, (void**)&s_audio_client);
+	CHECK_ERROR(ret);
+	return 0;
+	*/
+	return -1;
+}
+void c_audio::init()
+{
+	static bool s_flag = false;
+	if (s_flag)
+	{
+		return;
+	}
+	register_wav_resouce(AUDIO_HEART_BEAT, L"heart_beat.wav");
+	
+	if (0 > init_audio_client())
+	{
+		return;
+	}
+	int ret = s_audio_client->Initialize(AUDCLNT_SHAREMODE_SHARED,
+									AUDCLNT_STREAMFLAGS_AUTOCONVERTPCM | AUDCLNT_STREAMFLAGS_EVENTCALLBACK,
+									AUDIO_OUTPUT_BUF_LEN * 2, 0, &s_wav_format,	0);
+	CHECK_ERROR(ret);
+	//s_audio_event = CreateEventEx(0, 0, 0, EVENT_ALL_ACCESS);
+	s_audio_event = CreateEvent(0, 0, 0, 0);
+	ret = s_audio_client->SetEventHandle(s_audio_event);
+	CHECK_ERROR(ret);
+	ret = s_audio_client->GetService(__uuidof(IAudioRenderClient), (void**)&s_audio_render_client);
+	CHECK_ERROR(ret);
+	unsigned long pid;
+	create_thread(&pid, 0, render_thread, 0);
+	s_flag = true;
+}
+int c_audio::play(AUDIO_TYPE type)
+{
+	if (AUDIO_MAX <= type)
+	{
+		return -1;
+	}
+	init();
+	if (!s_audio_client || !s_audio_render_client)
+	{
+		return -2;
+	}
+	AUDIO_REQUEST request;
+	request.type = type;
+	s_request_fifo.write(&request, sizeof(request));
+	return 0;
+}
+#endif
 void c_button::pre_create_wnd()
 {
 	m_attr = (WND_ATTRIBUTION)(ATTR_VISIBLE | ATTR_FOCUS);

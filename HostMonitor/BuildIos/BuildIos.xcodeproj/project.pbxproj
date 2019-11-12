@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13577F0523702C1400AA2338 /* GuiLiteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13577F0423702C1400AA2338 /* GuiLiteImage.swift */; };
 		13D3D46C22B896DE001486AF /* libGuiLite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13D3D46B22B896DE001486AF /* libGuiLite.a */; };
 		F42931281FFC979900D08404 /* libUIcode.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F42931251FFC979900D08404 /* libUIcode.a */; };
 		F475482A1FFB6DC00061596E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47548291FFB6DC00061596E /* AppDelegate.swift */; };
@@ -14,10 +15,11 @@
 		F475482F1FFB6DC00061596E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F475482D1FFB6DC00061596E /* Main.storyboard */; };
 		F47548311FFB6DC00061596E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F47548301FFB6DC00061596E /* Assets.xcassets */; };
 		F47548341FFB6DC00061596E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F47548321FFB6DC00061596E /* LaunchScreen.storyboard */; };
-		F475483E1FFB6E6B0061596E /* native.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F475483C1FFB6E6B0061596E /* native.cpp */; };
+		F475483E1FFB6E6B0061596E /* BuildIos-Bridging-Cpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F475483C1FFB6E6B0061596E /* BuildIos-Bridging-Cpp.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13577F0423702C1400AA2338 /* GuiLiteImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuiLiteImage.swift; sourceTree = "<group>"; };
 		13D3D46B22B896DE001486AF /* libGuiLite.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGuiLite.a; path = BuildIos/libs/libGuiLite.a; sourceTree = "<group>"; };
 		F42931231FFC979800D08404 /* libgui.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgui.a; path = BuildIos/libs/libgui.a; sourceTree = "<group>"; };
 		F42931241FFC979900D08404 /* libcore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcore.a; path = BuildIos/libs/libcore.a; sourceTree = "<group>"; };
@@ -30,8 +32,7 @@
 		F47548331FFB6DC00061596E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F47548351FFB6DC00061596E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F475483B1FFB6E6A0061596E /* BuildIos-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BuildIos-Bridging-Header.h"; sourceTree = "<group>"; };
-		F475483C1FFB6E6B0061596E /* native.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = native.cpp; sourceTree = "<group>"; };
-		F475483D1FFB6E6B0061596E /* native.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = native.hpp; sourceTree = "<group>"; };
+		F475483C1FFB6E6B0061596E /* BuildIos-Bridging-Cpp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "BuildIos-Bridging-Cpp.cpp"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,14 +79,14 @@
 		F47548281FFB6DC00061596E /* BuildIos */ = {
 			isa = PBXGroup;
 			children = (
+				13577F0423702C1400AA2338 /* GuiLiteImage.swift */,
 				F47548291FFB6DC00061596E /* AppDelegate.swift */,
 				F475482B1FFB6DC00061596E /* ViewController.swift */,
 				F475482D1FFB6DC00061596E /* Main.storyboard */,
 				F47548301FFB6DC00061596E /* Assets.xcassets */,
 				F47548321FFB6DC00061596E /* LaunchScreen.storyboard */,
 				F47548351FFB6DC00061596E /* Info.plist */,
-				F475483C1FFB6E6B0061596E /* native.cpp */,
-				F475483D1FFB6E6B0061596E /* native.hpp */,
+				F475483C1FFB6E6B0061596E /* BuildIos-Bridging-Cpp.cpp */,
 				F475483B1FFB6E6A0061596E /* BuildIos-Bridging-Header.h */,
 			);
 			path = BuildIos;
@@ -166,7 +167,8 @@
 			files = (
 				F475482C1FFB6DC00061596E /* ViewController.swift in Sources */,
 				F475482A1FFB6DC00061596E /* AppDelegate.swift in Sources */,
-				F475483E1FFB6E6B0061596E /* native.cpp in Sources */,
+				F475483E1FFB6E6B0061596E /* BuildIos-Bridging-Cpp.cpp in Sources */,
+				13577F0523702C1400AA2338 /* GuiLiteImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

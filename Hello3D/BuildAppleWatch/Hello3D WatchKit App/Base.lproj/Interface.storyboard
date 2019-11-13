@@ -9,7 +9,7 @@
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="HelloWave_WatchKit_App" customModuleProvider="target">
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Hello3D_WatchKit_App" customModuleProvider="target">
                     <items>
                         <imageView height="271" alignment="left" id="m3k-JK-uCR"/>
                     </items>

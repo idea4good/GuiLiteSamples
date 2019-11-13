@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:HelloWave.xcodeproj">
+      location = "self:Hello3D.xcodeproj">
    </FileRef>
 </Workspace>

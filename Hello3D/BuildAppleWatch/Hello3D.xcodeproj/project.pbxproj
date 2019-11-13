@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		137E1A922372AF26008621C8 /* HelloWave WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 137E1A912372AF26008621C8 /* HelloWave WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		137E1A922372AF26008621C8 /* Hello3D WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 137E1A912372AF26008621C8 /* Hello3D WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		137E1A982372AF26008621C8 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 137E1A962372AF26008621C8 /* Interface.storyboard */; };
 		137E1A9A2372AF27008621C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 137E1A992372AF27008621C8 /* Assets.xcassets */; };
-		137E1AA12372AF27008621C8 /* HelloWave WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 137E1AA02372AF27008621C8 /* HelloWave WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		137E1AA12372AF27008621C8 /* Hello3D WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 137E1AA02372AF27008621C8 /* Hello3D WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		137E1AA62372AF27008621C8 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137E1AA52372AF27008621C8 /* InterfaceController.swift */; };
 		137E1AA82372AF27008621C8 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137E1AA72372AF27008621C8 /* ExtensionDelegate.swift */; };
 		137E1AAA2372AF28008621C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 137E1AA92372AF28008621C8 /* Assets.xcassets */; };
@@ -24,14 +24,14 @@
 			containerPortal = 137E1A872372AF26008621C8 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 137E1A902372AF26008621C8;
-			remoteInfo = "HelloWave WatchKit App";
+			remoteInfo = "Hello3D WatchKit App";
 		};
 		137E1AA22372AF27008621C8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 137E1A872372AF26008621C8 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 137E1A9F2372AF27008621C8;
-			remoteInfo = "HelloWave WatchKit Extension";
+			remoteInfo = "Hello3D WatchKit Extension";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -42,7 +42,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				137E1AA12372AF27008621C8 /* HelloWave WatchKit Extension.appex in Embed App Extensions */,
+				137E1AA12372AF27008621C8 /* Hello3D WatchKit Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,7 +53,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				137E1A922372AF26008621C8 /* HelloWave WatchKit App.app in Embed Watch Content */,
+				137E1A922372AF26008621C8 /* Hello3D WatchKit App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,17 +61,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		137E1A8D2372AF26008621C8 /* HelloWave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloWave.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		137E1A912372AF26008621C8 /* HelloWave WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HelloWave WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		137E1A8D2372AF26008621C8 /* Hello3D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hello3D.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		137E1A912372AF26008621C8 /* Hello3D WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hello3D WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		137E1A972372AF26008621C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		137E1A992372AF27008621C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		137E1A9B2372AF27008621C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		137E1AA02372AF27008621C8 /* HelloWave WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "HelloWave WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		137E1AA02372AF27008621C8 /* Hello3D WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Hello3D WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		137E1AA52372AF27008621C8 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
 		137E1AA72372AF27008621C8 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		137E1AA92372AF28008621C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		137E1AAB2372AF28008621C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		13BD41B62372AFA600C37CCA /* HelloWave WatchKit Extension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HelloWave WatchKit Extension-Bridging-Header.h"; sourceTree = "<group>"; };
+		13BD41B62372AFA600C37CCA /* Hello3D WatchKit Extension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hello3D WatchKit Extension-Bridging-Header.h"; sourceTree = "<group>"; };
 		13BD41B82372AFA700C37CCA /* UIcode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UIcode.cpp; path = ../../UIcode/UIcode.cpp; sourceTree = "<group>"; };
 		13BD41BB2372B1AC00C37CCA /* GuiLiteImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuiLiteImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,8 +90,8 @@
 		137E1A862372AF26008621C8 = {
 			isa = PBXGroup;
 			children = (
-				137E1A952372AF26008621C8 /* HelloWave WatchKit App */,
-				137E1AA42372AF27008621C8 /* HelloWave WatchKit Extension */,
+				137E1A952372AF26008621C8 /* Hello3D WatchKit App */,
+				137E1AA42372AF27008621C8 /* Hello3D WatchKit Extension */,
 				137E1A8E2372AF26008621C8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,24 +99,24 @@
 		137E1A8E2372AF26008621C8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				137E1A8D2372AF26008621C8 /* HelloWave.app */,
-				137E1A912372AF26008621C8 /* HelloWave WatchKit App.app */,
-				137E1AA02372AF27008621C8 /* HelloWave WatchKit Extension.appex */,
+				137E1A8D2372AF26008621C8 /* Hello3D.app */,
+				137E1A912372AF26008621C8 /* Hello3D WatchKit App.app */,
+				137E1AA02372AF27008621C8 /* Hello3D WatchKit Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		137E1A952372AF26008621C8 /* HelloWave WatchKit App */ = {
+		137E1A952372AF26008621C8 /* Hello3D WatchKit App */ = {
 			isa = PBXGroup;
 			children = (
 				137E1A962372AF26008621C8 /* Interface.storyboard */,
 				137E1A992372AF27008621C8 /* Assets.xcassets */,
 				137E1A9B2372AF27008621C8 /* Info.plist */,
 			);
-			path = "HelloWave WatchKit App";
+			path = "Hello3D WatchKit App";
 			sourceTree = "<group>";
 		};
-		137E1AA42372AF27008621C8 /* HelloWave WatchKit Extension */ = {
+		137E1AA42372AF27008621C8 /* Hello3D WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
 				13BD41B52372AF8600C37CCA /* UIcode */,
@@ -126,14 +126,14 @@
 				137E1AA92372AF28008621C8 /* Assets.xcassets */,
 				137E1AAB2372AF28008621C8 /* Info.plist */,
 			);
-			path = "HelloWave WatchKit Extension";
+			path = "Hello3D WatchKit Extension";
 			sourceTree = "<group>";
 		};
 		13BD41B52372AF8600C37CCA /* UIcode */ = {
 			isa = PBXGroup;
 			children = (
 				13BD41B82372AFA700C37CCA /* UIcode.cpp */,
-				13BD41B62372AFA600C37CCA /* HelloWave WatchKit Extension-Bridging-Header.h */,
+				13BD41B62372AFA600C37CCA /* Hello3D WatchKit Extension-Bridging-Header.h */,
 			);
 			name = UIcode;
 			sourceTree = "<group>";
@@ -141,9 +141,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		137E1A8C2372AF26008621C8 /* HelloWave */ = {
+		137E1A8C2372AF26008621C8 /* Hello3D */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 137E1AB62372AF28008621C8 /* Build configuration list for PBXNativeTarget "HelloWave" */;
+			buildConfigurationList = 137E1AB62372AF28008621C8 /* Build configuration list for PBXNativeTarget "Hello3D" */;
 			buildPhases = (
 				137E1A8B2372AF26008621C8 /* Resources */,
 				137E1AB52372AF28008621C8 /* Embed Watch Content */,
@@ -153,14 +153,14 @@
 			dependencies = (
 				137E1A942372AF26008621C8 /* PBXTargetDependency */,
 			);
-			name = HelloWave;
-			productName = HelloWave;
-			productReference = 137E1A8D2372AF26008621C8 /* HelloWave.app */;
+			name = Hello3D;
+			productName = Hello3D;
+			productReference = 137E1A8D2372AF26008621C8 /* Hello3D.app */;
 			productType = "com.apple.product-type.application.watchapp2-container";
 		};
-		137E1A902372AF26008621C8 /* HelloWave WatchKit App */ = {
+		137E1A902372AF26008621C8 /* Hello3D WatchKit App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 137E1AB22372AF28008621C8 /* Build configuration list for PBXNativeTarget "HelloWave WatchKit App" */;
+			buildConfigurationList = 137E1AB22372AF28008621C8 /* Build configuration list for PBXNativeTarget "Hello3D WatchKit App" */;
 			buildPhases = (
 				137E1A8F2372AF26008621C8 /* Resources */,
 				137E1AB12372AF28008621C8 /* Embed App Extensions */,
@@ -170,14 +170,14 @@
 			dependencies = (
 				137E1AA32372AF27008621C8 /* PBXTargetDependency */,
 			);
-			name = "HelloWave WatchKit App";
-			productName = "HelloWave WatchKit App";
-			productReference = 137E1A912372AF26008621C8 /* HelloWave WatchKit App.app */;
+			name = "Hello3D WatchKit App";
+			productName = "Hello3D WatchKit App";
+			productReference = 137E1A912372AF26008621C8 /* Hello3D WatchKit App.app */;
 			productType = "com.apple.product-type.application.watchapp2";
 		};
-		137E1A9F2372AF27008621C8 /* HelloWave WatchKit Extension */ = {
+		137E1A9F2372AF27008621C8 /* Hello3D WatchKit Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 137E1AAE2372AF28008621C8 /* Build configuration list for PBXNativeTarget "HelloWave WatchKit Extension" */;
+			buildConfigurationList = 137E1AAE2372AF28008621C8 /* Build configuration list for PBXNativeTarget "Hello3D WatchKit Extension" */;
 			buildPhases = (
 				137E1A9C2372AF27008621C8 /* Sources */,
 				137E1A9D2372AF27008621C8 /* Frameworks */,
@@ -187,9 +187,9 @@
 			);
 			dependencies = (
 			);
-			name = "HelloWave WatchKit Extension";
-			productName = "HelloWave WatchKit Extension";
-			productReference = 137E1AA02372AF27008621C8 /* HelloWave WatchKit Extension.appex */;
+			name = "Hello3D WatchKit Extension";
+			productName = "Hello3D WatchKit Extension";
+			productReference = 137E1AA02372AF27008621C8 /* Hello3D WatchKit Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
@@ -214,7 +214,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 137E1A8A2372AF26008621C8 /* Build configuration list for PBXProject "HelloWave" */;
+			buildConfigurationList = 137E1A8A2372AF26008621C8 /* Build configuration list for PBXProject "Hello3D" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -227,9 +227,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				137E1A8C2372AF26008621C8 /* HelloWave */,
-				137E1A902372AF26008621C8 /* HelloWave WatchKit App */,
-				137E1A9F2372AF27008621C8 /* HelloWave WatchKit Extension */,
+				137E1A8C2372AF26008621C8 /* Hello3D */,
+				137E1A902372AF26008621C8 /* Hello3D WatchKit App */,
+				137E1A9F2372AF27008621C8 /* Hello3D WatchKit Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -278,12 +278,12 @@
 /* Begin PBXTargetDependency section */
 		137E1A942372AF26008621C8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 137E1A902372AF26008621C8 /* HelloWave WatchKit App */;
+			target = 137E1A902372AF26008621C8 /* Hello3D WatchKit App */;
 			targetProxy = 137E1A932372AF26008621C8 /* PBXContainerItemProxy */;
 		};
 		137E1AA32372AF27008621C8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 137E1A9F2372AF27008621C8 /* HelloWave WatchKit Extension */;
+			target = 137E1A9F2372AF27008621C8 /* Hello3D WatchKit Extension */;
 			targetProxy = 137E1AA22372AF27008621C8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -418,17 +418,17 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "HelloWave WatchKit Extension/Info.plist";
+				INFOPLIST_FILE = "Hello3D WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = GuiLite.HelloWave.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = GuiLite.Hello3D.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "HelloWave WatchKit Extension/HelloWave WatchKit Extension-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Hello3D WatchKit Extension/Hello3D WatchKit Extension-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -442,17 +442,17 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "HelloWave WatchKit Extension/Info.plist";
+				INFOPLIST_FILE = "Hello3D WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = GuiLite.HelloWave.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = GuiLite.Hello3D.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "HelloWave WatchKit Extension/HelloWave WatchKit Extension-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Hello3D WatchKit Extension/Hello3D WatchKit Extension-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 6.1;
@@ -465,9 +465,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				IBSC_MODULE = HelloWave_WatchKit_Extension;
-				INFOPLIST_FILE = "HelloWave WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = GuiLite.HelloWave.watchkitapp;
+				IBSC_MODULE = Hello3D_WatchKit_Extension;
+				INFOPLIST_FILE = "Hello3D WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = GuiLite.Hello3D.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -483,9 +483,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				IBSC_MODULE = HelloWave_WatchKit_Extension;
-				INFOPLIST_FILE = "HelloWave WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = GuiLite.HelloWave.watchkitapp;
+				IBSC_MODULE = Hello3D_WatchKit_Extension;
+				INFOPLIST_FILE = "Hello3D WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = GuiLite.Hello3D.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -501,7 +501,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = GuiLite.HelloWave;
+				PRODUCT_BUNDLE_IDENTIFIER = GuiLite.Hello3D;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -513,7 +513,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = GuiLite.HelloWave;
+				PRODUCT_BUNDLE_IDENTIFIER = GuiLite.Hello3D;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -522,7 +522,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		137E1A8A2372AF26008621C8 /* Build configuration list for PBXProject "HelloWave" */ = {
+		137E1A8A2372AF26008621C8 /* Build configuration list for PBXProject "Hello3D" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				137E1AAC2372AF28008621C8 /* Debug */,
@@ -531,7 +531,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		137E1AAE2372AF28008621C8 /* Build configuration list for PBXNativeTarget "HelloWave WatchKit Extension" */ = {
+		137E1AAE2372AF28008621C8 /* Build configuration list for PBXNativeTarget "Hello3D WatchKit Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				137E1AAF2372AF28008621C8 /* Debug */,
@@ -540,7 +540,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		137E1AB22372AF28008621C8 /* Build configuration list for PBXNativeTarget "HelloWave WatchKit App" */ = {
+		137E1AB22372AF28008621C8 /* Build configuration list for PBXNativeTarget "Hello3D WatchKit App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				137E1AB32372AF28008621C8 /* Debug */,
@@ -549,7 +549,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		137E1AB62372AF28008621C8 /* Build configuration list for PBXNativeTarget "HelloWave" */ = {
+		137E1AB62372AF28008621C8 /* Build configuration list for PBXNativeTarget "Hello3D" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				137E1AB72372AF28008621C8 /* Debug */,

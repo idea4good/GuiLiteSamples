@@ -9,8 +9,8 @@ public:
 	virtual void on_paint(void);
 	virtual c_wnd* clone(){return new c_trend_view();}
 private:
-	void on_time_bar_change(unsigned int ctrl_id);
-	void on_update_trend_view(unsigned int wParam, unsigned int lParam);
+	void on_time_bar_change(int ctrl_id, int param);
+	void on_update_trend_view(int id, int param);
 	virtual void refresh_trend_table(long start_time, long end_time);//time unit: second
 	virtual void refresh_trend_graphic(long time);//time unit: second
 	int read_trend_data(long start_time, long end_time, int hr[], int spo2[], int rr[], int pr[],

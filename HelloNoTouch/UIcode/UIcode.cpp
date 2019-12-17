@@ -26,7 +26,7 @@ class c_myUI : public c_wnd
 		get_screen_rect(rect);
 		m_surface->fill_rect(rect, GL_RGB(0, 0, 0), m_z_order);
 	}
-	void on_clicked(unsigned int ctrl_id) {
+	void on_clicked(int ctrl_id, int param) {
 		static int sum1, sum2, sum3;
 		static char str1[8], str2[8], str3[8];
 		c_button* button = (c_button*)get_wnd_ptr(ctrl_id);
@@ -52,9 +52,7 @@ class c_myUI : public c_wnd
 
 //map message
 GL_BEGIN_MESSAGE_MAP(c_myUI)
-ON_GL_BN_CLICKED(ID_BUTTON1, c_myUI::on_clicked)
-ON_GL_BN_CLICKED(ID_BUTTON2, c_myUI::on_clicked)
-ON_GL_BN_CLICKED(ID_BUTTON3, c_myUI::on_clicked)
+ON_GL_BN_CLICKED(c_myUI::on_clicked)
 GL_END_MESSAGE_MAP()
 
 //////////////////////// layout UI ////////////////////////

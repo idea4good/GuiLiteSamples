@@ -5,8 +5,8 @@
 
 #define ND_SCALE_CLICKED							0x2013
 
-#define ON_ND_SACLE_CLICKED(ctrlId, func)           \
-{MSG_TYPE_WND, ND_SCALE_CLICKED, (c_cmd_target*)ctrlId, MSG_CALLBACK_VWV, (MsgFuncVV)(static_cast<void (c_cmd_target::*)(unsigned int)>(&func))},
+#define ON_ND_SACLE_CLICKED(func)           \
+{MSG_TYPE_WND, ND_SCALE_CLICKED, 0, msgCallback(&func)},
 
 class c_time_bar : public c_wnd
 {
@@ -22,7 +22,7 @@ private:
 	void draw_scale();
 	void draw_mark();
 	unsigned int time_2_pos_x(int time_minute);
-	void on_btn_click(unsigned int ctrl_id);
+	void on_btn_click(int ctrl_id, int param);
 private:
 	unsigned int m_scale_color;
 	const FONT_INFO* m_mark_font;

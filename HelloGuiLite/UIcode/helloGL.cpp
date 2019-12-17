@@ -1,5 +1,4 @@
 #include "GuiLite.h"
-#include "GuiLite.cpp"
 #include <stdlib.h>
 
 const int UI_WIDTH = 1280;
@@ -45,16 +44,16 @@ class c_desktop : public c_wnd
 {
 	virtual c_wnd* clone() { return new c_desktop(); }
 	virtual void on_paint(void);
-	void on_clicked(unsigned int ctrl_id);
+	void on_clicked(int ctrl_id, int param);
 	GL_DECLARE_MESSAGE_MAP()//delcare message
 };
 
 //map message
 GL_BEGIN_MESSAGE_MAP(c_desktop)
-ON_GL_BN_CLICKED(ID_START_BUTTON, c_desktop::on_clicked)
+ON_GL_BN_CLICKED(c_desktop::on_clicked)
 GL_END_MESSAGE_MAP()
 
-void c_desktop::on_clicked(unsigned int ctrl_id)
+void c_desktop::on_clicked(int ctrl_id, int param)
 {
 	static bool is_open = false;
 	(is_open) ? c_dialog::close_dialog(m_surface): c_dialog::open_dialog((c_dialog*)get_wnd_ptr(ID_START_MENU), false);

@@ -32,7 +32,7 @@ void c_trend_view_mini::on_init_children(void)
 	p_trend_graph->set_v_axis_height(V_AXIS_HEIGHT);
 }
 
-void c_trend_view_mini::on_update_trend_view(unsigned int wParam, unsigned int lParam)
+void c_trend_view_mini::on_update_trend_view(int id, int param)
 {
 	long time = get_time_in_second();
 

@@ -27,7 +27,7 @@ void c_page::on_paint()
 	c_rect rect;
 	get_screen_rect(rect);
 	const BITMAP_INFO* bmp = NULL;
-	switch (m_resource_id)
+	switch (m_id)
 	{
 	case ID_PAGE1:
 		bmp = c_theme::get_bmp(BITMAP_CUSTOM1);

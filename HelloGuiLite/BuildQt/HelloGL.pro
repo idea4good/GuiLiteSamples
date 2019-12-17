@@ -13,6 +13,7 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp\
         ../UIcode/helloGL.cpp\
+        ../UIcode/GuiLite.cpp\
         ../UIcode/resource/desktop_bmp.cpp\
         ../UIcode/resource/start_icon_bmp.cpp\
         ../UIcode/resource/start_icon_click_bmp.cpp\

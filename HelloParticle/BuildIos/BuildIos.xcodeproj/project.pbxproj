@@ -10,6 +10,7 @@
 		13086D08236C89C0008721AD /* UIcode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13086D07236C89C0008721AD /* UIcode.cpp */; };
 		13086D0A236C89DE008721AD /* Microsoft_YaHei_28.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13086D09236C89DE008721AD /* Microsoft_YaHei_28.cpp */; };
 		13086D0C236C8A94008721AD /* GuiLiteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13086D0B236C8A94008721AD /* GuiLiteImage.swift */; };
+		13B5AF5623A5435C005486B4 /* GuiLite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13B5AF5523A5435C005486B4 /* GuiLite.cpp */; };
 		F475482A1FFB6DC00061596E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47548291FFB6DC00061596E /* AppDelegate.swift */; };
 		F475482C1FFB6DC00061596E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F475482B1FFB6DC00061596E /* ViewController.swift */; };
 		F475482F1FFB6DC00061596E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F475482D1FFB6DC00061596E /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 		13086D07236C89C0008721AD /* UIcode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UIcode.cpp; path = ../UIcode/UIcode.cpp; sourceTree = "<group>"; };
 		13086D09236C89DE008721AD /* Microsoft_YaHei_28.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Microsoft_YaHei_28.cpp; path = ../UIcode/resource/Microsoft_YaHei_28.cpp; sourceTree = "<group>"; };
 		13086D0B236C8A94008721AD /* GuiLiteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuiLiteImage.swift; sourceTree = "<group>"; };
+		13B5AF5523A5435C005486B4 /* GuiLite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GuiLite.cpp; path = ../UIcode/GuiLite.cpp; sourceTree = "<group>"; };
 		F47548261FFB6DC00061596E /* BuildIos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuildIos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47548291FFB6DC00061596E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F475482B1FFB6DC00061596E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +47,7 @@
 		13086D03236C8904008721AD /* UIcode */ = {
 			isa = PBXGroup;
 			children = (
+				13B5AF5523A5435C005486B4 /* GuiLite.cpp */,
 				13086D09236C89DE008721AD /* Microsoft_YaHei_28.cpp */,
 				13086D07236C89C0008721AD /* UIcode.cpp */,
 			);
@@ -159,6 +162,7 @@
 				13086D08236C89C0008721AD /* UIcode.cpp in Sources */,
 				F475482C1FFB6DC00061596E /* ViewController.swift in Sources */,
 				13086D0C236C8A94008721AD /* GuiLiteImage.swift in Sources */,
+				13B5AF5623A5435C005486B4 /* GuiLite.cpp in Sources */,
 				F475482A1FFB6DC00061596E /* AppDelegate.swift in Sources */,
 				13086D0A236C89DE008721AD /* Microsoft_YaHei_28.cpp in Sources */,
 			);

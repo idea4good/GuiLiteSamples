@@ -18,16 +18,15 @@
 
 class c_config_root : public c_wnd {
 	virtual c_wnd* clone(){return new c_config_root();}
-	void on_clicked(unsigned int ctrl_id);
+	void on_clicked(int ctrl_id, int param);
 	GL_DECLARE_MESSAGE_MAP()
 };
 
 GL_BEGIN_MESSAGE_MAP(c_config_root)
-ON_GL_BN_CLICKED(5, c_config_root::on_clicked)
-ON_GL_BN_CLICKED(7, c_config_root::on_clicked)
+ON_GL_BN_CLICKED(c_config_root::on_clicked)
 GL_END_MESSAGE_MAP()
 
-void c_config_root::on_clicked(unsigned int ctrl_id)
+void c_config_root::on_clicked(int ctrl_id, int param)
 {
 	switch(ctrl_id)
 	{

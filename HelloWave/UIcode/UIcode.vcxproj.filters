@@ -5,6 +5,7 @@
     <ClCompile Include="resource\Lucida_Console_27.cpp">
       <Filter>resource</Filter>
     </ClCompile>
+    <ClCompile Include="GuiLite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="resource">

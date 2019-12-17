@@ -9,7 +9,7 @@ protected:
 	c_wnd* clone(){return new c_top_bar();}
 	virtual void on_init_children(void);
 	virtual void on_paint(void);
-	void on_refurbish_time(unsigned int wParam, unsigned int lParam);
+	void on_refurbish_time(int id, int param);
 	GL_DECLARE_MESSAGE_MAP()
 };
 

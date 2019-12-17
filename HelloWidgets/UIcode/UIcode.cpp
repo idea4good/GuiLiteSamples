@@ -1,6 +1,5 @@
 ﻿#include <stdio.h>
 #include "GuiLite.h"
-#include "GuiLite.cpp"
 
 #define UI_WIDTH 680
 #define UI_HEIGHT 512
@@ -50,7 +49,7 @@ class c_my_ui : public c_wnd
 		m_surface->draw_rect(0, 0, UI_WIDTH - 1, UI_HEIGHT - 1, GL_RGB(0, 255, 0), Z_ORDER_LEVEL_0);
 		m_surface->draw_rect(2, 2, UI_WIDTH - 3, UI_HEIGHT - 3, GL_RGB(0, 255, 0), Z_ORDER_LEVEL_0);
     }
-	void on_button_clicked(unsigned int ctrl_id)
+	void on_button_clicked(int ctrl_id, int param)
 	{
 		static int s_cnt;
 		sprintf(str, "%d click", ++s_cnt);
@@ -60,20 +59,20 @@ class c_my_ui : public c_wnd
 
 		c_dialog::open_dialog((c_dialog*)get_wnd_ptr(ID_DIALOG));
 	}
-	void on_spinbox_confirm(unsigned int ctrl_id, int value)
+	void on_spinbox_confirm(int ctrl_id, int value)
 	{
 		sprintf(str, "choose %d", value);
 		c_label* label = (c_label*)get_wnd_ptr(ID_LABEL_2);
 		label->set_str(str);
 		label->show_window();
 	}
-	void on_spinbox_change(unsigned int ctrl_id, int value)
+	void on_spinbox_change(int ctrl_id, int value)
 	{
 		c_label* label = (c_label*)get_wnd_ptr(ID_LABEL_2);
 		label->set_str("change");
 		label->show_window();
 	}
-	void on_listbox_confirm(unsigned int ctrl_id, int value)
+	void on_listbox_confirm(int ctrl_id, int value)
 	{
 		sprintf(str, "choose %d", value);
 		c_label* label = (c_label*)get_wnd_ptr(ID_LABEL_3);
@@ -84,16 +83,16 @@ class c_my_ui : public c_wnd
 };
 
 GL_BEGIN_MESSAGE_MAP(c_my_ui)
-ON_GL_BN_CLICKED(ID_BUTTON, c_my_ui::on_button_clicked)
-ON_SPIN_CONFIRM(ID_SPIN_BOX, c_my_ui::on_spinbox_confirm)
-ON_SPIN_CHANGE(ID_SPIN_BOX, c_my_ui::on_spinbox_change)
-ON_LIST_CONFIRM(ID_LIST_BOX, c_my_ui::on_listbox_confirm)
+ON_GL_BN_CLICKED(c_my_ui::on_button_clicked)
+ON_SPIN_CONFIRM(c_my_ui::on_spinbox_confirm)
+ON_SPIN_CHANGE(c_my_ui::on_spinbox_change)
+ON_LIST_CONFIRM(c_my_ui::on_listbox_confirm)
 GL_END_MESSAGE_MAP()
 
 class c_my_dialog : public c_dialog
 {
 	virtual c_wnd* clone() { return new c_my_dialog(); }
-	void on_button_clicked(unsigned int ctrl_id)
+	void on_button_clicked(int ctrl_id, int param)
 	{
 		c_dialog::close_dialog(m_surface);
 	}
@@ -101,7 +100,7 @@ class c_my_dialog : public c_dialog
 };
 
 GL_BEGIN_MESSAGE_MAP(c_my_dialog)
-ON_GL_BN_CLICKED(ID_EXIT_BUTTON, c_my_dialog::on_button_clicked)
+ON_GL_BN_CLICKED(c_my_dialog::on_button_clicked)
 GL_END_MESSAGE_MAP()
 
 // Layout Widgets

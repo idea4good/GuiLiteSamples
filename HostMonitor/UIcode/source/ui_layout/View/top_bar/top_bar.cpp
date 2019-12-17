@@ -28,7 +28,7 @@ void c_top_bar::on_paint(void)
 	m_surface->draw_hline(rect.m_left,rect.m_right,rect.m_bottom,GL_RGB(74,74,74), m_z_order);
 }
 
-void c_top_bar::on_refurbish_time(unsigned int wParam, unsigned int lParam)
+void c_top_bar::on_refurbish_time(int id, int param)
 {
 	c_wnd *p_ctl = get_wnd_ptr(ID_TOP_BAR_TIME_ID);
     if(p_ctl == 0)

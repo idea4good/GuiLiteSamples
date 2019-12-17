@@ -1,4 +1,4 @@
-﻿#include "GuiLite.h"
+#include "GuiLite.h"
 #include <stdlib.h>
 #include <string.h>
 
@@ -73,7 +73,7 @@ class c_myUI : public c_wnd
 		get_screen_rect(rect);
 		m_surface->fill_rect(rect, GL_RGB(33, 33, 33), m_z_order);
 	}
-	void on_clicked(unsigned int ctrl_id) {
+	void on_clicked(int ctrl_id, int param) {
 		static int index;
 		c_rect rect;
 		get_screen_rect(rect);
@@ -101,7 +101,7 @@ public:
 
 //map message
 GL_BEGIN_MESSAGE_MAP(c_myUI)
-ON_GL_BN_CLICKED(ID_BUTTON, c_myUI::on_clicked)
+ON_GL_BN_CLICKED(c_myUI::on_clicked)
 GL_END_MESSAGE_MAP()
 
 //////////////////////// layout UI ////////////////////////
@@ -148,12 +148,12 @@ void create_ui(void* phy_fb, int screen_width, int screen_height, int color_byte
 	unsigned int wave_index = 0;
 	while(1)
 	{
-		s_myUI.m_wave_buffer1.write_wave_data(s_wave_data1[data_index1++%sizeof(s_wave_data1)]);
+		s_myUI.m_wave_buffer1.write_wave_data(s_wave_data1[data_index1++ % sizeof(s_wave_data1)]);
 		s_myUI.m_wave_buffer1.write_wave_data(s_wave_data1[data_index1++ % sizeof(s_wave_data1)]);
 		s_myUI.m_wave_buffer1.write_wave_data(s_wave_data1[data_index1++ % sizeof(s_wave_data1)]);
 		s_myUI.m_wave_buffer1.write_wave_data(s_wave_data1[data_index1++ % sizeof(s_wave_data1)]);
 
-		s_myUI.m_wave_buffer2.write_wave_data(s_wave_data2[data_index2++%sizeof(s_wave_data2)]);
+		s_myUI.m_wave_buffer2.write_wave_data(s_wave_data2[data_index2++ % sizeof(s_wave_data2)]);
 		
 		s_myUI.m_wave_buffer3.write_wave_data(s_wave_data3[data_index3++ % sizeof(s_wave_data3)]);
 		s_myUI.m_wave_buffer3.write_wave_data(s_wave_data3[data_index3++ % sizeof(s_wave_data3)]);

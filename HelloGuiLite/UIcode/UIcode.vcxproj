@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GuiLite.cpp" />
     <ClCompile Include="helloGL.cpp" />
     <ClCompile Include="resource\desktop_bmp.cpp" />
     <ClCompile Include="resource\start_icon_bmp.cpp" />

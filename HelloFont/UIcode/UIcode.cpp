@@ -12,18 +12,9 @@ enum WND_ID
 	ID_BUTTON
 };
 
-class c_myUI : public c_wnd
-{
-	virtual c_wnd* clone() { return new c_myUI(); }
-	virtual void on_paint(void);
-	void on_clicked(unsigned int ctrl_id);
-	GL_DECLARE_MESSAGE_MAP()//delcare message
-};
-
-//map message
-GL_BEGIN_MESSAGE_MAP(c_myUI)
-ON_GL_BN_CLICKED(ID_BUTTON, c_myUI::on_clicked)
-GL_END_MESSAGE_MAP()
+#define FONT_SIZE	57
+#define START_X		300
+#define START_Y		20
 
 #ifdef WIN32
 //For Visual studio, one chinese character need 3 UTF-8 bytes
@@ -32,34 +23,41 @@ static const char* s_text = "\xe6\x9c\x9d\xe8\xbe\x9e\xe7\x99\xbd\xe5\xb8\x9d\xe
 //For Unix, all chinese charaters would be encoded in UTF-8 perfectly.
 static const char* s_text = "朝辞白帝彩云间千里江陵一日还两岸猿声啼不住轻舟已过万重山";
 #endif
-#define FONT_SIZE	57
-#define START_X		300
-#define START_Y		20
-void c_myUI::on_clicked(unsigned int ctrl_id)
-{
-	c_rect rect;
-	get_screen_rect(rect);
-	c_bitmap::draw_bitmap(m_surface, m_z_order, c_theme::get_bmp(BITMAP_CUSTOM1), rect.m_left, rect.m_top);
 
-	char one_word[4];
-	const char* tmp = s_text;
-	for (int x = 0; x < 4; x++)
-		for (int y = 0; y < 7; y++)
-		{
-			memset(one_word, 0, sizeof(one_word));
-			memcpy(one_word, tmp, 3);
-			c_word::draw_string(m_surface, m_z_order, one_word, (START_X - x * FONT_SIZE), (START_Y + y * FONT_SIZE), c_theme::get_font(FONT_DEFAULT), GL_RGB(0, 0, 0), GL_ARGB(0, 0, 0, 0));
-			thread_sleep(500);
-			tmp += 3;
-		}
-}
-
-void c_myUI::on_paint()
+class c_myUI : public c_wnd
 {
-	c_rect rect;
-	get_screen_rect(rect);
-	c_bitmap::draw_bitmap(m_surface, m_z_order, c_theme::get_bmp(BITMAP_CUSTOM1), rect.m_left, rect.m_top);
-}
+	virtual c_wnd* clone() { return new c_myUI(); }
+	virtual void on_paint(void)
+	{
+		c_rect rect;
+		get_screen_rect(rect);
+		c_bitmap::draw_bitmap(m_surface, m_z_order, c_theme::get_bmp(BITMAP_CUSTOM1), rect.m_left, rect.m_top);
+	}
+	void on_clicked(int ctrl_id, int param)
+	{
+		c_rect rect;
+		get_screen_rect(rect);
+		c_bitmap::draw_bitmap(m_surface, m_z_order, c_theme::get_bmp(BITMAP_CUSTOM1), rect.m_left, rect.m_top);
+
+		char one_word[4];
+		const char* tmp = s_text;
+		for (int x = 0; x < 4; x++)
+			for (int y = 0; y < 7; y++)
+			{
+				memset(one_word, 0, sizeof(one_word));
+				memcpy(one_word, tmp, 3);
+				c_word::draw_string(m_surface, m_z_order, one_word, (START_X - x * FONT_SIZE), (START_Y + y * FONT_SIZE), c_theme::get_font(FONT_DEFAULT), GL_RGB(0, 0, 0), GL_ARGB(0, 0, 0, 0));
+				thread_sleep(500);
+				tmp += 3;
+			}
+	}
+	GL_DECLARE_MESSAGE_MAP()//delcare message
+};
+
+//map message
+GL_BEGIN_MESSAGE_MAP(c_myUI)
+ON_GL_BN_CLICKED(c_myUI::on_clicked)
+GL_END_MESSAGE_MAP()
 
 //////////////////////// layout UI ////////////////////////
 static c_myUI s_myUI;

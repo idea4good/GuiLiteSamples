@@ -24,10 +24,7 @@
 #define	ID_FAST_FORWARD_BTN		4
 
 GL_BEGIN_MESSAGE_MAP(c_time_bar)
-ON_GL_BN_CLICKED(ID_BACKWARD_BTN, c_time_bar::on_btn_click)
-ON_GL_BN_CLICKED(ID_FAST_BACKWARD_BTN, c_time_bar::on_btn_click)
-ON_GL_BN_CLICKED(ID_FORWARD_BTN, c_time_bar::on_btn_click)
-ON_GL_BN_CLICKED(ID_FAST_FORWARD_BTN, c_time_bar::on_btn_click)
+ON_GL_BN_CLICKED(c_time_bar::on_btn_click)
 GL_END_MESSAGE_MAP()
 
 void c_time_bar::on_init_children()
@@ -155,7 +152,7 @@ void c_time_bar::draw_mark()
 	}
 }
 
-void c_time_bar::on_btn_click(unsigned int ctrl_id)
+void c_time_bar::on_btn_click(int ctrl_id, int param)
 {
 	int increment;
 	switch ( ctrl_id )

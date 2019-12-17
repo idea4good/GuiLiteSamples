@@ -15,6 +15,7 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp\
         ../UIcode/UIcode.cpp\
+        ../UIcode/GuiLite.cpp\
         ../UIcode/resource/Consolas_24B.cpp
 
 HEADERS  += mainwindow.h

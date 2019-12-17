@@ -23,7 +23,7 @@
 #define H_AXIS_MARK_INTERVAL	(60 * 10)	//10 minutes between 2 marks
 
 GL_BEGIN_MESSAGE_MAP(c_trend_view)
-ON_ND_SACLE_CLICKED(ID_TREND_SCREEN_TIME_SCALE_BAR_CTRL, c_trend_view::on_time_bar_change)
+ON_ND_SACLE_CLICKED(c_trend_view::on_time_bar_change)
 ON_GL_USER_MSG(USR_MSG_UPDATE_TREND_VIEW, c_trend_view::on_update_trend_view)
 GL_END_MESSAGE_MAP()
 
@@ -46,19 +46,19 @@ void c_trend_view::on_paint(void)
 	m_surface->draw_rect(rect.m_left+2, rect.m_top+2, rect.m_right-4,	rect.m_bottom-9, GL_RGB(99,101,99), m_z_order);
 }
 
-void c_trend_view::on_time_bar_change(unsigned int ctrl_id)
+void c_trend_view::on_time_bar_change(int ctrl_id, int param)
 {
 	c_time_bar*  p_time_bar = (c_time_bar*)get_wnd_ptr(ID_TREND_SCREEN_TIME_SCALE_BAR_CTRL);
 	refresh_trend_table(p_time_bar->get_start_time(), p_time_bar->get_end_time());
 	refresh_trend_graphic(p_time_bar->get_end_time());
 }
 
-void c_trend_view::on_update_trend_view(unsigned int wParam, unsigned int lParam)
+void c_trend_view::on_update_trend_view(int id, int param)
 {
 	//update time bar
 	c_time_bar*  p_time_bar = (c_time_bar*)get_wnd_ptr(ID_TREND_SCREEN_TIME_SCALE_BAR_CTRL);
 	p_time_bar->set_time(get_time_in_second());
-	on_time_bar_change(0);
+	on_time_bar_change(0, 0);
 }
 
 void c_trend_view::refresh_trend_table(long start_time, long end_time)

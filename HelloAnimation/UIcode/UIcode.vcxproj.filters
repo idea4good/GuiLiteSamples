@@ -77,6 +77,7 @@
     <ClCompile Include="resource\KaiTi_19.cpp">
       <Filter>resource</Filter>
     </ClCompile>
+    <ClCompile Include="GuiLite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="resource">

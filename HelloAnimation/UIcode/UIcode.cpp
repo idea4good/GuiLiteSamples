@@ -11,47 +11,45 @@ enum WND_ID
 	ID_BUTTON
 };
 
-class c_myUI : public c_wnd
-{
-	virtual c_wnd* clone() { return new c_myUI(); }
-	virtual void on_paint(void);
-	void on_clicked(unsigned int ctrl_id);
-	GL_DECLARE_MESSAGE_MAP()//delcare message
-};
-
-//map message
-GL_BEGIN_MESSAGE_MAP(c_myUI)
-ON_GL_BN_CLICKED(ID_BUTTON, c_myUI::on_clicked)
-GL_END_MESSAGE_MAP()
-
 extern const BITMAP_INFO frame_00_bmp, frame_01_bmp, frame_02_bmp, frame_03_bmp, frame_04_bmp, frame_05_bmp, frame_06_bmp,
 frame_07_bmp, frame_08_bmp, frame_09_bmp, frame_10_bmp, frame_11_bmp, frame_12_bmp, frame_13_bmp, frame_14_bmp,
 frame_15_bmp, frame_16_bmp, frame_17_bmp, frame_18_bmp, frame_19_bmp, frame_20_bmp, frame_21_bmp, frame_22_bmp, frame_23_bmp;
 
 BITMAP_INFO s_frames[] = { frame_00_bmp, frame_01_bmp, frame_02_bmp,  frame_03_bmp,  frame_04_bmp,  frame_05_bmp,
-							frame_06_bmp,  frame_07_bmp,  frame_08_bmp,  frame_09_bmp,  frame_10_bmp,  frame_11_bmp, 
+							frame_06_bmp,  frame_07_bmp,  frame_08_bmp,  frame_09_bmp,  frame_10_bmp,  frame_11_bmp,
 							frame_12_bmp, frame_13_bmp, frame_14_bmp, frame_15_bmp, frame_16_bmp, frame_17_bmp,
 							frame_18_bmp, frame_19_bmp, frame_20_bmp, frame_21_bmp, frame_22_bmp, frame_23_bmp };
-void c_myUI::on_clicked(unsigned int ctrl_id)
-{
-	c_rect rect;
-	get_screen_rect(rect);
 
-	for (int i = 0; i < sizeof(s_frames)/sizeof(BITMAP_INFO); i++)
+
+class c_myUI : public c_wnd
+{
+	virtual c_wnd* clone() { return new c_myUI(); }
+	virtual void on_paint(void)
 	{
-		c_theme::add_bitmap(BITMAP_CUSTOM1, &s_frames[i]);
+		c_rect rect;
+		get_screen_rect(rect);
+		c_theme::add_bitmap(BITMAP_CUSTOM1, &frame_00_bmp);
 		c_bitmap::draw_bitmap(m_surface, m_z_order, c_theme::get_bmp(BITMAP_CUSTOM1), rect.m_left, rect.m_top);
-		thread_sleep(60);
 	}
-}
+	void on_clicked(int ctrl_id, int param)
+	{
+		c_rect rect;
+		get_screen_rect(rect);
 
-void c_myUI::on_paint()
-{
-	c_rect rect;
-	get_screen_rect(rect);
-	c_theme::add_bitmap(BITMAP_CUSTOM1, &frame_00_bmp);
-	c_bitmap::draw_bitmap(m_surface, m_z_order, c_theme::get_bmp(BITMAP_CUSTOM1), rect.m_left, rect.m_top);
-}
+		for (int i = 0; i < sizeof(s_frames) / sizeof(BITMAP_INFO); i++)
+		{
+			c_theme::add_bitmap(BITMAP_CUSTOM1, &s_frames[i]);
+			c_bitmap::draw_bitmap(m_surface, m_z_order, c_theme::get_bmp(BITMAP_CUSTOM1), rect.m_left, rect.m_top);
+			thread_sleep(60);
+		}
+	}
+	GL_DECLARE_MESSAGE_MAP()//delcare message
+};
+
+//map message
+GL_BEGIN_MESSAGE_MAP(c_myUI)
+ON_GL_BN_CLICKED(c_myUI::on_clicked)
+GL_END_MESSAGE_MAP()
 
 //////////////////////// layout UI ////////////////////////
 static c_myUI s_myUI;

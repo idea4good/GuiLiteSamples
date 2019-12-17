@@ -14,6 +14,7 @@
 		137E1AA62372AF27008621C8 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137E1AA52372AF27008621C8 /* InterfaceController.swift */; };
 		137E1AA82372AF27008621C8 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137E1AA72372AF27008621C8 /* ExtensionDelegate.swift */; };
 		137E1AAA2372AF28008621C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 137E1AA92372AF28008621C8 /* Assets.xcassets */; };
+		13B5AF5423A542FA005486B4 /* GuiLite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13B5AF5323A542FA005486B4 /* GuiLite.cpp */; };
 		13BD41BA2372AFA700C37CCA /* UIcode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13BD41B82372AFA700C37CCA /* UIcode.cpp */; };
 		13BD41BC2372B1AC00C37CCA /* GuiLiteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BD41BB2372B1AC00C37CCA /* GuiLiteImage.swift */; };
 /* End PBXBuildFile section */
@@ -71,6 +72,7 @@
 		137E1AA72372AF27008621C8 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		137E1AA92372AF28008621C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		137E1AAB2372AF28008621C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13B5AF5323A542FA005486B4 /* GuiLite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GuiLite.cpp; path = ../../UIcode/GuiLite.cpp; sourceTree = "<group>"; };
 		13BD41B62372AFA600C37CCA /* Hello3D WatchKit Extension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Hello3D WatchKit Extension-Bridging-Header.h"; sourceTree = "<group>"; };
 		13BD41B82372AFA700C37CCA /* UIcode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UIcode.cpp; path = ../../UIcode/UIcode.cpp; sourceTree = "<group>"; };
 		13BD41BB2372B1AC00C37CCA /* GuiLiteImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuiLiteImage.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 		13BD41B52372AF8600C37CCA /* UIcode */ = {
 			isa = PBXGroup;
 			children = (
+				13B5AF5323A542FA005486B4 /* GuiLite.cpp */,
 				13BD41B82372AFA700C37CCA /* UIcode.cpp */,
 				13BD41B62372AFA600C37CCA /* Hello3D WatchKit Extension-Bridging-Header.h */,
 			);
@@ -266,6 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13B5AF5423A542FA005486B4 /* GuiLite.cpp in Sources */,
 				13BD41BA2372AFA700C37CCA /* UIcode.cpp in Sources */,
 				13BD41BC2372B1AC00C37CCA /* GuiLiteImage.swift in Sources */,
 				137E1AA82372AF27008621C8 /* ExtensionDelegate.swift in Sources */,

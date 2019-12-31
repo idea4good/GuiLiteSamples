@@ -19,7 +19,6 @@ enum WND_ID
 
 class c_myUI : public c_wnd
 {
-	virtual c_wnd* clone() { return new c_myUI(); }
 	virtual void on_paint(void)
 	{
 		c_rect rect;

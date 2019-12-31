@@ -16,14 +16,14 @@ enum WND_ID
 	ID_EDIT_1,
 	ID_EDIT_2,
 	ID_DIALOG,
-	ID_EXIT_BUTTON
+	ID_DIALOG_BUTTON,
+	ID_DIALOG_EXIT_BUTTON
 };
 
 static c_display* s_display;
 static char str[16];
 class c_my_ui : public c_wnd
 {
-	virtual c_wnd* clone() { return new c_my_ui(); }
 	virtual void on_init_children() 
 	{
 		c_edit* edit = (c_edit*)get_wnd_ptr(ID_EDIT_1);
@@ -57,14 +57,12 @@ class c_my_ui : public c_wnd
 		label->set_str(str);
 		label->show_window();
 
-		c_dialog::open_dialog((c_dialog*)get_wnd_ptr(ID_DIALOG));
-	}
-	void on_spinbox_confirm(int ctrl_id, int value)
-	{
-		sprintf(str, "choose %d", value);
-		c_label* label = (c_label*)get_wnd_ptr(ID_LABEL_2);
-		label->set_str(str);
-		label->show_window();
+		switch (ctrl_id)
+		{
+		case ID_BUTTON:
+			c_dialog::open_dialog((c_dialog*)get_wnd_ptr(ID_DIALOG), get_wnd_ptr(ctrl_id));
+			break;
+		}
 	}
 	void on_spinbox_change(int ctrl_id, int value)
 	{
@@ -84,17 +82,22 @@ class c_my_ui : public c_wnd
 
 GL_BEGIN_MESSAGE_MAP(c_my_ui)
 ON_GL_BN_CLICKED(c_my_ui::on_button_clicked)
-ON_SPIN_CONFIRM(c_my_ui::on_spinbox_confirm)
 ON_SPIN_CHANGE(c_my_ui::on_spinbox_change)
 ON_LIST_CONFIRM(c_my_ui::on_listbox_confirm)
 GL_END_MESSAGE_MAP()
 
 class c_my_dialog : public c_dialog
 {
-	virtual c_wnd* clone() { return new c_my_dialog(); }
 	void on_button_clicked(int ctrl_id, int param)
 	{
-		c_dialog::close_dialog(m_surface);
+		switch (ctrl_id)
+		{
+		case ID_DIALOG_EXIT_BUTTON:
+			c_dialog::close_dialog(m_surface);
+			break;
+		default:
+			break;
+		}
 	}
 	GL_DECLARE_MESSAGE_MAP()//delcare message
 };
@@ -110,12 +113,14 @@ static c_button s_button;
 static c_spin_box s_spin_box;
 static c_list_box s_list_box;
 static c_edit s_edit1, s_edit2;
-static c_my_dialog s_my_dialog;
 
-static c_button s_exit_button;
+static c_my_dialog s_my_dialog;
+static c_button s_dialog_button;
+static c_button s_dialog_exit_button;
 WND_TREE s_dialog_widgets[] =
 {
-	{ &s_exit_button,	ID_EXIT_BUTTON,	"Exit",	100, 100, 100, 50},
+	{ &s_dialog_button,	ID_DIALOG_BUTTON,	"Button",	100, 100, 100, 50},
+	{ &s_dialog_exit_button,	ID_DIALOG_EXIT_BUTTON,	"Exit",	100, 200, 100, 50},
 	{NULL, 0 , 0, 0, 0, 0, 0}
 };
 

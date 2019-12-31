@@ -2,20 +2,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-typedef struct
-{
-	unsigned int dwMsgId;
-	unsigned int dwParam1;
-	unsigned int dwParam2;
-}MSG_INFO;
-
 #define LOOP_SNAPSHOT_INTERVAL	50	//milli seconds.
 
 extern void create_thread(unsigned long* thread_id, void* attr, void *(*start_routine) (void *), void* arg);
 extern void thread_sleep(unsigned int milli_seconds);
 
 extern int captureUiOfHostMonitor(int display);
-extern int sendTouch2HostMonitor(void* buf, int len, int display_id);
+extern void sendTouch2HostMonitor(int x, int y, bool is_down, int display_id);
 
 static int get_std_input(char *buffer, int size);
 static const char* s_tip_help =
@@ -51,20 +44,12 @@ static void* loop_snapshot(void* param)
 
 static void press_down(int x, int y, int display_id)
 {
-	MSG_INFO msg;
-	msg.dwMsgId = 0x4700;
-	msg.dwParam1 = x;
-	msg.dwParam2 = y;
-	sendTouch2HostMonitor(&msg, sizeof(msg), display_id);
+	sendTouch2HostMonitor(x, y, true, display_id);
 }
 
 static void press_release(int x, int y, int display_id)
 {
-	MSG_INFO msg;
-	msg.dwMsgId = 0x4600;
-	msg.dwParam1 = x;
-	msg.dwParam2 = y;
-	sendTouch2HostMonitor(&msg, sizeof(msg), display_id);
+	sendTouch2HostMonitor(x, y, false, display_id);
 }
 
 static void left_flip(int display_id)
@@ -165,8 +150,10 @@ void init_std_io(int display_cnt)
 	unsigned long pid;
 	static int s_display_cnt = display_cnt;
 	create_thread(&pid, NULL, stdin_thread, &s_display_cnt);
+#ifdef _WIN32
 	s_is_loop_snapshot = true;
 	create_thread(&pid, NULL, loop_snapshot , &s_display_cnt);
+#endif
 }
 
 int get_std_input(char *buffer, int size)

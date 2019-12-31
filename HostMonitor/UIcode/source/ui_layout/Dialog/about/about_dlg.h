@@ -3,7 +3,6 @@
 
 class c_about_dlg: public c_dialog
 {
-	virtual c_wnd* clone(){return new c_about_dlg();}
 };
 
 #endif

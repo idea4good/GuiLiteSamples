@@ -161,17 +161,19 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 int sync_data(int hr, int spo2, int rr, int nibp_sys, int nibp_dia, int nibp_mean);
 typedef int(*SYNC_DATA)(int hr, int spo2, int rr, int nibp_sys, int nibp_dia, int nibp_mean);
 extern SYNC_DATA gSyncData;
-extern int startHostMonitor(int main_cnt, int main_width, int main_height, int sub_cnt, int sub_width, int sub_height, int color_bytes);
+extern void startHostMonitor(void* phy_fb, int screen_width, int screen_height, int color_bytes);
 DWORD WINAPI ThreadHostMonitor(LPVOID pParam)
 {
 	ShellExecute(0, L"open", L"https://github.com/idea4good/GuiLite", L"", L"", SW_SHOWNORMAL);
 	gSyncData = sync_data;
 	sync_data(60, 98, 30, 120, 80, 100);//Ping cloud
-	return startHostMonitor(1, 1024, 768, 0, 0, 0, COLOR_BYTES);
+	startHostMonitor(calloc(1024 * 768, COLOR_BYTES), 1024, 768, COLOR_BYTES);
+	return 0;
 }
 
 DWORD WINAPI ThreadUpdateUI(LPVOID pParam)
 {
+	Sleep(2000);//wait for host monitor initialized
 	HDC hdc = GetDC((HWND)pParam);
 	RECT rect;
 	while (true)

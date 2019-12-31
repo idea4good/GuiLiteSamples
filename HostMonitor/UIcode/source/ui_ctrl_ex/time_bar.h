@@ -1,7 +1,7 @@
 #ifndef _SCALE_BAR_H_
 #define _SCALE_BAR_H_
 
-#include "button.h"
+#include "GuiLite.h"
 
 #define ND_SCALE_CLICKED							0x2013
 
@@ -11,7 +11,6 @@
 class c_time_bar : public c_wnd
 {
 public:
-	virtual c_wnd* clone(){return new c_time_bar();}
 	virtual void on_init_children();
 	virtual void on_paint(void);
 	void set_time(long time);//time unit: second

@@ -1,15 +1,12 @@
 # How to build for WinForms - C#?
-## GuiLite.lib should be in BuildWinforms\HostMonitorDll, rebuild them if meet link error.
 - Open "HostMonitor\BuildWinforms\BuildWinforms.sln" by Visual studio 2017
 - Build `sample`, `HostMonitor`, `BuildWinforms` in turn, then run BuildWinforms.
 
 # How to build for Win MFC?
-## GuiLite.lib should be in BuildMFC\BuildMFC\libs\x86(x64), rebuild them if meet link error.
 - Open "HostMonitor\BuildMFC\HostMonitor.sln" by Visual studio 2017
 - Click `F5` to build/run `HostMonitor`
 
 # How to build for Win32?
-## GuiLite.lib should be in BuildWin32\libs, rebuild them if meet link error.
 - Open "HostMonitor\BuildWin32\HostMonitor.sln" by Visual studio 2017
 - Click `F5` to build/run `HostMonitor`, you will see UI in internet browser.
 
@@ -24,8 +21,8 @@
     - Run with framebuffer: `sudo ./HostMonitor /dev/fb0`&nbsp;&nbsp;&nbsp;&nbsp;/dev/fb0: The path of framebuffer device file.
     - Run inside X Window:
         1. `sudo su`
-        2. `sudo ./xWindow 1024 768 | ./HostMonitor shared-fb`
-        3. `ipcrm -M 1` if no content in the window
+        2. `sudo ipcrm -M 1`
+        3. `sudo ./xWindow 1024 768 | ./HostMonitor shared-fb`
 
 ## Cross compiler & Run on target:
 1. install compiler:
@@ -33,18 +30,12 @@
     - For ARM64: `sudo apt-get install g++-aarch64-linux-gnu gcc-aarch64-linux-gnu`
 2. Cross compile:
     - `cd HostMonitor`
-    - For ARM32: `cmake -D CMAKE_C_COMPILER="/usr/bin/arm-linux-gnueabi-gcc" -D CMAKE_CXX_COMPILER="/usr/bin/arm-linux-gnueabi-g++" -D TARGET_ARCH="ARM" . && make`
-    - For ARM64: `cmake -D CMAKE_C_COMPILER="/usr/bin/aarch64-linux-gnu-gcc" -D CMAKE_CXX_COMPILER="/usr/bin/aarch64-linux-gnu-g++" -D TARGET_ARCH="ARM" . && make`
+    - For ARM32: `cmake -D CMAKE_C_COMPILER="/usr/bin/arm-linux-gnueabi-gcc" -D CMAKE_CXX_COMPILER="/usr/bin/arm-linux-gnueabi-g++" . && make`
+    - For ARM64: `cmake -D CMAKE_C_COMPILER="/usr/bin/aarch64-linux-gnu-gcc" -D CMAKE_CXX_COMPILER="/usr/bin/aarch64-linux-gnu-g++" . && make`
 3. Run on target Linux device:
     - Copy BuildLinux/HostMonitor to target Linux device
     - `chmod 777 HostMonitor`
     - `sudo ./HostMonitor /dev/fb0`&nbsp;&nbsp;&nbsp;&nbsp;/dev/fb0: The path of framebuffer
-
-## Q&A:
-1. Could not display UI on Ubuntu with framebuffer
-    - Enter pure command line mode(Ctrl + Alt + F1), and run again
-    - Update Ubuntu to 18.10, and run again
-2. Linking error: rebuild libGuiLite.a, and replace them in BuildLinux/libs
 
 # How to build with GoLang?
 1. Build UIcode:
@@ -66,13 +57,12 @@
 - `sudo ./xWindow 1024 768 | ./HostMonitor shared-fb`
 
 # How to build for iOS?
-### libGuiLite.a libUIcode.a should be in \BuildIos\BuildIos\libs, rebuild them if meet link error.
+### libUIcode.a should be in \BuildIos\BuildIos\libs, rebuild them if meet link error.
 - `cd HostMonitor\BuildIos`
 - Open `BuildIos.xcodeproj` with Xcode
 - Build & Run
 
 # How to build for Mac?
-### libGuiLite.a should be in BuildMacCmd\libs, rebuild them if meet link error.
 - `cd HostMonitor`
 - `cmake -D TARGET_OS="MAC" .`
 - `make`
@@ -82,7 +72,7 @@
 - `./HostMonitor 1 8`, you will see UI in internet browser(Safari).
 
 ## Run in UI mode
-### libGuiLite.a libUIcode.a should be in BuildMacCocoa\GuiLiteDemo\libs, rebuild them if meet link error.
+### libUIcode.a should be in BuildMacCocoa\GuiLiteDemo\libs, rebuild them if meet link error.
 - Open `BuildMacCocoa\GuiLiteDemo.xcodeproj` with Xcode
 - Build and Run
 

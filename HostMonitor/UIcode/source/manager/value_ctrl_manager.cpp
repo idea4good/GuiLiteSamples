@@ -1,7 +1,4 @@
-#include "../core_include/api.h"
-#include "../core_include/rect.h"
-#include "../core_include/cmd_target.h"
-#include "../core_include/wnd.h"
+#include "../include/GuiLite.h"
 #include "../source/manager/value_manager.h"
 #include "../ui_ctrl_ex/value_ctrl.h"
 #include "../include/ctrl_id.h"

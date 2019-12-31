@@ -39,8 +39,8 @@
     - Run with framebuffer: `sudo ./HelloNets /dev/fb0`&nbsp;&nbsp;&nbsp;&nbsp;/dev/fb0: The path of framebuffer device file.
     - Run inside X Window:
         1. `sudo su`
-        2. `sudo ./xWindow 500 500 | ./HelloNets shared-fb`
-        3. `ipcrm -M 1` if no content in the window
+        2. `sudo ipcrm -M 1`
+        3. `sudo ./xWindow 500 500 | ./HelloNets shared-fb`
 
 ## Cross compiler & Run on target:
 1. install compiler:

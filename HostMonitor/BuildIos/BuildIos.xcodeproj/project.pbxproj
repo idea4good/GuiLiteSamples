@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		13577F0523702C1400AA2338 /* GuiLiteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13577F0423702C1400AA2338 /* GuiLiteImage.swift */; };
-		13D3D46C22B896DE001486AF /* libGuiLite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13D3D46B22B896DE001486AF /* libGuiLite.a */; };
 		F42931281FFC979900D08404 /* libUIcode.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F42931251FFC979900D08404 /* libUIcode.a */; };
 		F475482A1FFB6DC00061596E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47548291FFB6DC00061596E /* AppDelegate.swift */; };
 		F475482C1FFB6DC00061596E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F475482B1FFB6DC00061596E /* ViewController.swift */; };
@@ -40,7 +39,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13D3D46C22B896DE001486AF /* libGuiLite.a in Frameworks */,
 				F42931281FFC979900D08404 /* libUIcode.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

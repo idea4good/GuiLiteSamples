@@ -44,7 +44,6 @@ enum WND_ID
 
 class c_myUI : public c_wnd
 {
-	virtual c_wnd* clone() { return new c_myUI(); }
 	virtual void on_init_children(void) {
 		c_wave_ctrl *p_wave = (c_wave_ctrl*)get_wnd_ptr(ID_WAVE1);
 		p_wave->set_wave_speed(1);

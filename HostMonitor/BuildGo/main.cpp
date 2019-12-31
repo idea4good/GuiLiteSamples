@@ -10,7 +10,7 @@
 #include <errno.h>
 #include <sys/stat.h>
 
-extern int startHostMonitor(void** main_fbs, int main_cnt, int main_width, int main_height, void** sub_fbs, int sub_cnt, int sub_width, int sub_height, int color_bytes);
+void startHostMonitor(void* phy_fb, int screen_width, int screen_height, int color_bytes);
 extern void init_std_io(int display_cnt);
 
 static void* get_embeded_fb_in_display_app(int shared_id);
@@ -45,14 +45,10 @@ static const char* s_tip_welcome =
 extern "C" int Cmain(int argc, char* args)
 {
 	printf(s_tip_welcome);
-
-	int main_cnt = 1;
-	int sub_cnt = 0;
+	
 	int color_bytes = 2;
 	int main_screen_width = 1024;
 	int main_screen_height = 768;
-	int sub_screen_width = 1024;
-	int sub_screen_height = 370;
     gSyncData = sync_data;
     system("chmod 777 .sync_data.sh");
     sync_data(60, 98, 30, 120, 80, 100);//ping cloud
@@ -61,7 +57,6 @@ extern "C" int Cmain(int argc, char* args)
 	char *fb_dev_path = NULL;
 
 	int share_id = 1;//should be same with display app.
-
 	if(argc == 2)
 	{
 		char* argument = args;
@@ -82,30 +77,22 @@ extern "C" int Cmain(int argc, char* args)
 		}
 	}
 
-	void** main_fbs = (void**)malloc(sizeof(void*) * main_cnt);
-	void** sub_fbs = (void**)malloc(sizeof(void*) * sub_cnt);
-	for (int i = 0; i < main_cnt; i++)
+	void* phy_fb;
+	switch(fb_mode)
 	{
-		switch(fb_mode)
-		{
-			case FB_APP_MODE:
-				main_fbs[i] = get_embeded_fb_in_display_app(share_id);
-			break;
-			case FB_DEV_MODE:
-				main_fbs[i] = get_dev_fb(fb_dev_path, main_screen_width, main_screen_height, color_bytes);
-			break;
-			default:
-				main_fbs[i] = calloc(main_screen_width * main_screen_height, color_bytes);
-			break;
-		}
+		case FB_APP_MODE:
+			phy_fb = get_embeded_fb_in_display_app(share_id);
+		break;
+		case FB_DEV_MODE:
+			phy_fb = get_dev_fb(fb_dev_path, main_screen_width, main_screen_height, color_bytes);
+		break;
+		default:
+			phy_fb = calloc(main_screen_width * main_screen_height, color_bytes);
+		break;
 	}
-	for (int i = 0; i < sub_cnt; i++)
-	{
-		sub_fbs[i] = calloc(sub_screen_width * sub_screen_height, color_bytes);
-	}
-
-	init_std_io((main_cnt + sub_cnt));
-	return startHostMonitor(main_fbs, main_cnt, main_screen_width, main_screen_height, sub_fbs, sub_cnt, sub_screen_width, sub_screen_height, color_bytes);	//never return;
+	init_std_io(1);
+	startHostMonitor(phy_fb, main_screen_width, main_screen_height, color_bytes);//never return;
+	return 0;
 }
 
 static void* get_embeded_fb_in_display_app(int shared_id)

@@ -14,7 +14,6 @@ enum WND_ID
 
 class c_start_button : public c_button
 {
-	virtual c_wnd* clone() { return new c_start_button(); }
 	virtual void on_paint()
 	{
 		c_rect rect;
@@ -42,7 +41,6 @@ class c_start_button : public c_button
 
 class c_desktop : public c_wnd
 {
-	virtual c_wnd* clone() { return new c_desktop(); }
 	virtual void on_paint(void);
 	void on_clicked(int ctrl_id, int param);
 	GL_DECLARE_MESSAGE_MAP()//delcare message
@@ -90,7 +88,6 @@ void c_desktop::on_paint()
 
 class c_start_menu : public c_dialog
 {
-	virtual c_wnd* clone() { return new c_start_menu(); }
 	virtual void on_paint(void);
 };
 

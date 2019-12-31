@@ -1,13 +1,4 @@
-﻿#include "../core_include/rect.h"
-#include "../core_include/cmd_target.h"
-#include "../core_include/api.h"
-#include "../core_include/wnd.h"
-#include "../core_include/surface.h"
-#include "../core_include/display.h"
-#include "../widgets_include/button.h"
-#include "../widgets_include/dialog.h"
-#include "../widgets_include/slide_group.h"
-
+﻿#include "../include/GuiLite.h"
 #include "../include/define.h"
 #include "../include/ctrl_id.h"
 
@@ -17,7 +8,6 @@
 #include "Dialog/about/about_dlg_xml.h"
 
 class c_config_root : public c_wnd {
-	virtual c_wnd* clone(){return new c_config_root();}
 	void on_clicked(int ctrl_id, int param);
 	GL_DECLARE_MESSAGE_MAP()
 };
@@ -70,9 +60,4 @@ static WND_TREE s_config_children[]=
 void create_page_config(c_slide_group* group)
 {
 	group->add_slide(&s_root, ID_PAGE_CONFIG, 0, 0, PAGE_WIDTH, PAGE_HEIGHT, s_config_children,Z_ORDER_LEVEL_2);
-}
-
-void create_clone_page_config(c_slide_group* group)
-{
-	group->add_clone_silde(&s_root, ID_PAGE_CONFIG, 0, 0, PAGE_WIDTH, PAGE_HEIGHT, s_config_children, Z_ORDER_LEVEL_2);
 }

@@ -1,12 +1,4 @@
-#include "../core_include/api.h"
-#include "../core_include/rect.h"
-#include "../core_include/cmd_target.h"
-#include "../core_include/wnd.h"
-#include "../core_include/resource.h"
-#include "../core_include/word.h"
-#include "../core_include/surface.h"
-#include "../core_include/display.h"
-
+#include "../include/GuiLite.h"
 #include "../include/msg_id.h"
 
 #include "../manager/value_manager.h"
@@ -17,11 +9,7 @@
 #include <stdlib.h>
 
 extern void load_ui_single(void* phy_fb, int width, int height, int color_bytes);
-extern void load_ui_multi(void* phy_fb, int width, int height, int color_bytes);
-extern void load_mini_ui_single(void* phy_fb, int width, int height, int color_bytes);
-extern void load_mini_ui_multi(void* phy_fb, int width, int height, int color_bytes);
-
-static void init(int display_cnt);
+static void init();
 static void real_timer_routine(void* arg);
 static void database_timer_callback(void* ptmr, void* parg);
 
@@ -37,30 +25,13 @@ int write_usr_msg(MSG_INFO* msg)
 	return s_usr_fifo.write(msg, sizeof(MSG_INFO));
 }
 
-int run(void** main_fbs, int main_cnt, int main_width, int main_height, void** sub_fbs, int sub_cnt, int sub_width, int sub_height, int color_bytes)
+void startHostMonitor(void* phy_fb, int screen_width, int screen_height, int color_bytes)
 {
-	init(main_cnt + sub_cnt);
+	init();
 
 	//Load UI.
-	for (int i = 0; i < main_cnt; i++)
-	{
-		if (0 == i)
-		{
-			load_ui_single(main_fbs[i], main_width, main_height, color_bytes);
-			continue;
-		}
-		load_ui_multi(main_fbs[i], main_width, main_height, color_bytes);
-	}
-	for (int i = 0; i < sub_cnt; i++)
-	{
-		if (0 == i)
-		{
-			load_mini_ui_single(sub_fbs[i], sub_width, sub_height, color_bytes);
-			continue;
-		}
-		load_mini_ui_multi(sub_fbs[i], sub_width, sub_height, color_bytes);
-	}
-
+	load_ui_single(phy_fb, screen_width, screen_height, color_bytes);
+	
 	//Start system.
 	start_real_timer(real_timer_routine);
 	register_timer((60 * 1000), database_timer_callback);//update data per minute.
@@ -77,26 +48,10 @@ int run(void** main_fbs, int main_cnt, int main_width, int main_height, void** s
 			c_cmd_target::handle_usr_msg(msg.dwMsgId, msg.dwParam1, msg.dwParam2);
 		}
 	}
-	return 0;
-}
-
-int run(int main_cnt, int main_width, int main_height, int sub_cnt, int sub_width, int sub_height, int color_bytes)
-{
-	void** main_fbs = (void**)malloc(sizeof(void*) * main_cnt);
-	void** sub_fbs = (void**)malloc(sizeof(void*) * sub_cnt);
-	for (int i = 0; i < main_cnt; i++)
-	{
-		main_fbs[i] = calloc(main_width * main_height, color_bytes);
-	}
-	for (int i = 0; i < sub_cnt; i++)
-	{
-		sub_fbs[i] = calloc(sub_width * sub_height, color_bytes);
-	}
-	return run(main_fbs, main_cnt, main_width, main_height, sub_fbs, sub_cnt, sub_width, sub_height, color_bytes);
 }
 
 extern void load_theme(int index);
-static void init(int display_cnt)
+static void init()
 {
 	c_database::get_instance()->init();
 	load_theme(0);

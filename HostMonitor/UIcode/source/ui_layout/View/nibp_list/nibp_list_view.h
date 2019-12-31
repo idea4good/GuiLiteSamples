@@ -4,7 +4,6 @@
 class c_nibplist_view : public c_value_view
 {
 public:
-	virtual c_wnd* clone(){return new c_nibplist_view();}
 	virtual void on_init_children(void);
 protected:
 	virtual void on_paint();

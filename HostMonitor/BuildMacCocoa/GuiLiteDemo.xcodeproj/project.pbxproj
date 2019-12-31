@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13D3D46A22B891E6001486AF /* libGuiLite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13D3D46922B891E5001486AF /* libGuiLite.a */; };
 		F47C125D1FEBDD3F005D635A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47C125C1FEBDD3F005D635A /* AppDelegate.swift */; };
 		F47C125F1FEBDD3F005D635A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47C125E1FEBDD3F005D635A /* ViewController.swift */; };
 		F47C12611FEBDD3F005D635A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F47C12601FEBDD3F005D635A /* Assets.xcassets */; };
@@ -40,7 +39,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4E9B00F1FF23B07006CD49F /* libUIcode.a in Frameworks */,
-				13D3D46A22B891E6001486AF /* libGuiLite.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

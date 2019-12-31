@@ -26,13 +26,10 @@ FILE(GLOB UI_TREE ui_layout/*.cpp
 	ui_layout/View/top_bar/*.cpp
 	ui_layout/View/top_bar/patient/*.cpp
 	ui_layout/View/trend/*.cpp
-
-	ui_layout/ViewMini/trend/*.cpp
-	ui_layout/ViewMini/wav/*.cpp
-	ui_layout/ViewMini/value/*.cpp
 )
 
 ADD_LIBRARY(UIcode
+				GuiLite.cpp
 				${MANAGER}
 				${MODULES}
 				${RESOURCE}

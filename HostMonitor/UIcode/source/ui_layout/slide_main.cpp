@@ -1,10 +1,4 @@
-#include "../core_include/rect.h"
-#include "../core_include/cmd_target.h"
-#include "../core_include/api.h"
-#include "../core_include/wnd.h"
-#include "../core_include/surface.h"
-#include "../widgets_include/slide_group.h"
-
+#include "../include/GuiLite.h"
 #include "../include/define.h"
 #include "../include/ctrl_id.h"
 
@@ -29,11 +23,6 @@
 #define WAVE_WIDTH 		PAGE_WIDTH
 #define WAVE_HEIGHT 	(PAGE_HEIGHT / 4)
 
-class c_slide_root : public c_wnd
-{
-	virtual c_wnd* clone() { return new c_slide_root(); }
-};
-
 //wave
 static c_ecg_wave_view   s_wave_ecg_view;
 static c_spo2_wave_view  s_wave_spo2_view;
@@ -42,7 +31,7 @@ static c_resp_wave_view  s_wave_resp_view;
 static c_temp_value_view s_param_temp_view;
 static c_nibplist_view 	 s_nibp_list_view;
 
-static c_slide_root s_root;
+static c_wnd s_root;
 static WND_TREE s_root_normal_children[] =
 {
 	//wave
@@ -58,9 +47,4 @@ static WND_TREE s_root_normal_children[] =
 void create_page_main(c_slide_group* group)
 {
 	group->add_slide(&s_root, ID_PAGE_MAIN, 0, 0, PAGE_WIDTH, PAGE_HEIGHT, s_root_normal_children);
-}
-
-void create_clone_page_main(c_slide_group* group)
-{
-	group->add_clone_silde(&s_root, ID_PAGE_MAIN, 0, 0, PAGE_WIDTH, PAGE_HEIGHT, s_root_normal_children);
 }

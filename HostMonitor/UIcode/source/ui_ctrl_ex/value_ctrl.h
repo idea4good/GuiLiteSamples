@@ -1,8 +1,7 @@
 #ifndef _VALUE_CTRL_H_
 #define _VALUE_CTRL_H_
 
-#include "../core_include/resource.h"
-#include "../core_include/theme.h"
+#include "../include/GuiLite.h"
 
 #define ATTR_VALUE	0x00000001L
 
@@ -26,7 +25,6 @@ class c_value_ctrl : public c_wnd
 {
 public:
 	c_value_ctrl();
-	virtual c_wnd* clone(){return new c_value_ctrl();}
 	virtual void pre_create_wnd();
 	void set_name(char* str){m_name_str = str;}
 	void set_unit_str(char* str){m_unit_str = str;}

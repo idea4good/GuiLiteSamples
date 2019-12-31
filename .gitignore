@@ -115,3 +115,7 @@ Makefile*
 /HelloNets/BuildLinux/HelloNets
 /HelloNets/BuildMFC/HelloNets.aps
 /HelloNets/UIcode/libUIcode.a
+
+/HelloCircle/BuildLinux/HelloCircle
+/HelloCircle/BuildMFC/HelloCircle.aps
+/HelloCircle/UIcode/libUIcode.a

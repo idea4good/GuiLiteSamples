@@ -1,12 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="core_include">
-      <UniqueIdentifier>{d52ad2ab-8ffa-422f-83bb-1671d937e080}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="widgets_include">
-      <UniqueIdentifier>{2fbd6acc-33c0-490c-a282-f015cb1db56b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="source">
       <UniqueIdentifier>{d36c1d0f-4bac-4202-8aeb-d5621b53b10d}</UniqueIdentifier>
     </Filter>
@@ -43,83 +37,11 @@
     <Filter Include="source\ui_layout\View">
       <UniqueIdentifier>{e35a5a27-745c-4754-bcb9-03c5d294ce11}</UniqueIdentifier>
     </Filter>
-    <Filter Include="source\ui_layout\ViewMini">
-      <UniqueIdentifier>{83d49cda-5778-426b-83f3-7bb1c96429d9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="source\data">
       <UniqueIdentifier>{c922db45-01ad-43b2-b2e4-22f7ab8fafe7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="core_include\display.h">
-      <Filter>core_include</Filter>
-    </ClInclude>
-    <ClInclude Include="core_include\msg.h">
-      <Filter>core_include</Filter>
-    </ClInclude>
-    <ClInclude Include="core_include\rect.h">
-      <Filter>core_include</Filter>
-    </ClInclude>
-    <ClInclude Include="core_include\resource.h">
-      <Filter>core_include</Filter>
-    </ClInclude>
-    <ClInclude Include="core_include\surface.h">
-      <Filter>core_include</Filter>
-    </ClInclude>
-    <ClInclude Include="widgets_include\wave_buffer.h">
-      <Filter>core_include</Filter>
-    </ClInclude>
-    <ClInclude Include="widgets_include\wave_ctrl.h">
-      <Filter>core_include</Filter>
-    </ClInclude>
-    <ClInclude Include="core_include\wnd.h">
-      <Filter>core_include</Filter>
-    </ClInclude>
-    <ClInclude Include="core_include\word.h">
-      <Filter>core_include</Filter>
-    </ClInclude>
-    <ClInclude Include="core_include\api.h">
-      <Filter>core_include</Filter>
-    </ClInclude>
-    <ClInclude Include="core_include\audio.h">
-      <Filter>core_include</Filter>
-    </ClInclude>
-    <ClInclude Include="core_include\bitmap.h">
-      <Filter>core_include</Filter>
-    </ClInclude>
-    <ClInclude Include="core_include\cmd_target.h">
-      <Filter>core_include</Filter>
-    </ClInclude>
-    <ClInclude Include="widgets_include\list_box.h">
-      <Filter>widgets_include</Filter>
-    </ClInclude>
-    <ClInclude Include="widgets_include\spinbox.h">
-      <Filter>widgets_include</Filter>
-    </ClInclude>
-    <ClInclude Include="widgets_include\table.h">
-      <Filter>widgets_include</Filter>
-    </ClInclude>
-    <ClInclude Include="widgets_include\button.h">
-      <Filter>widgets_include</Filter>
-    </ClInclude>
-    <ClInclude Include="widgets_include\dialog.h">
-      <Filter>widgets_include</Filter>
-    </ClInclude>
-    <ClInclude Include="widgets_include\edit.h">
-      <Filter>widgets_include</Filter>
-    </ClInclude>
-    <ClInclude Include="widgets_include\my_resource.h">
-      <Filter>widgets_include</Filter>
-    </ClInclude>
-    <ClInclude Include="widgets_include\gesture.h">
-      <Filter>widgets_include</Filter>
-    </ClInclude>
-    <ClInclude Include="widgets_include\keyboard.h">
-      <Filter>widgets_include</Filter>
-    </ClInclude>
-    <ClInclude Include="widgets_include\label.h">
-      <Filter>widgets_include</Filter>
-    </ClInclude>
     <ClInclude Include="include\msg_id.h">
       <Filter>include</Filter>
     </ClInclude>
@@ -228,24 +150,6 @@
     <ClInclude Include="source\ui_layout\View\spo2_value\spo2_value_xml.h">
       <Filter>source\ui_layout\View</Filter>
     </ClInclude>
-    <ClInclude Include="source\ui_layout\ViewMini\wav\mini_wave_view.h">
-      <Filter>source\ui_layout\ViewMini</Filter>
-    </ClInclude>
-    <ClInclude Include="source\ui_layout\ViewMini\wav\mini_wave_xml.h">
-      <Filter>source\ui_layout\ViewMini</Filter>
-    </ClInclude>
-    <ClInclude Include="source\ui_layout\ViewMini\trend\mini_trend_view.h">
-      <Filter>source\ui_layout\ViewMini</Filter>
-    </ClInclude>
-    <ClInclude Include="source\ui_layout\ViewMini\trend\mini_trend_xml.h">
-      <Filter>source\ui_layout\ViewMini</Filter>
-    </ClInclude>
-    <ClInclude Include="source\ui_layout\ViewMini\value\mini_value_view.h">
-      <Filter>source\ui_layout\ViewMini</Filter>
-    </ClInclude>
-    <ClInclude Include="source\ui_layout\ViewMini\value\mini_value_xml.h">
-      <Filter>source\ui_layout\ViewMini</Filter>
-    </ClInclude>
     <ClInclude Include="source\ui_layout\Dialog\about\about_dlg_xml.h">
       <Filter>source\ui_layout\Dialog</Filter>
     </ClInclude>
@@ -261,9 +165,6 @@
     <ClInclude Include="source\manager\value_manager.h">
       <Filter>source\manager</Filter>
     </ClInclude>
-    <ClInclude Include="widgets_include\slide_group.h">
-      <Filter>widgets_include</Filter>
-    </ClInclude>
     <ClInclude Include="source\data\sqlite3.h">
       <Filter>source\data</Filter>
     </ClInclude>
@@ -275,6 +176,9 @@
     </ClInclude>
     <ClInclude Include="source\ui_ctrl_ex\wave_ctrl_ex.h">
       <Filter>source\ui_ctrl_ex</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GuiLite.h">
+      <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -377,24 +281,6 @@
     <ClCompile Include="source\ui_layout\View\spo2_value\spo2_value_xml.cpp">
       <Filter>source\ui_layout\View</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_layout\ViewMini\wav\mini_wave_view.cpp">
-      <Filter>source\ui_layout\ViewMini</Filter>
-    </ClCompile>
-    <ClCompile Include="source\ui_layout\ViewMini\wav\mini_wave_xml.cpp">
-      <Filter>source\ui_layout\ViewMini</Filter>
-    </ClCompile>
-    <ClCompile Include="source\ui_layout\ViewMini\trend\mini_trend_view.cpp">
-      <Filter>source\ui_layout\ViewMini</Filter>
-    </ClCompile>
-    <ClCompile Include="source\ui_layout\ViewMini\trend\mini_trend_xml.cpp">
-      <Filter>source\ui_layout\ViewMini</Filter>
-    </ClCompile>
-    <ClCompile Include="source\ui_layout\ViewMini\value\mini_value_view.cpp">
-      <Filter>source\ui_layout\ViewMini</Filter>
-    </ClCompile>
-    <ClCompile Include="source\ui_layout\ViewMini\value\mini_value_xml.cpp">
-      <Filter>source\ui_layout\ViewMini</Filter>
-    </ClCompile>
     <ClCompile Include="source\ui_layout\Dialog\about\about_dlg_xml.cpp">
       <Filter>source\ui_layout\Dialog</Filter>
     </ClCompile>
@@ -419,12 +305,6 @@
     <ClCompile Include="source\ui_layout\slide_main.cpp">
       <Filter>source\ui_layout</Filter>
     </ClCompile>
-    <ClCompile Include="source\ui_layout\slide_mini_trend.cpp">
-      <Filter>source\ui_layout</Filter>
-    </ClCompile>
-    <ClCompile Include="source\ui_layout\slide_mini_wav.cpp">
-      <Filter>source\ui_layout</Filter>
-    </ClCompile>
     <ClCompile Include="source\ui_layout\slide_trend.cpp">
       <Filter>source\ui_layout</Filter>
     </ClCompile>
@@ -435,9 +315,6 @@
       <Filter>source\data</Filter>
     </ClCompile>
     <ClCompile Include="source\start\host_monitor.cpp">
-      <Filter>source\start</Filter>
-    </ClCompile>
-    <ClCompile Include="source\start\app_interface.cpp">
       <Filter>source\start</Filter>
     </ClCompile>
     <ClCompile Include="source\modules\module_group.cpp">
@@ -466,6 +343,9 @@
     </ClCompile>
     <ClCompile Include="source\ui_ctrl_ex\wave_ctrl_ex.cpp">
       <Filter>source\ui_ctrl_ex</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GuiLite.cpp">
+      <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

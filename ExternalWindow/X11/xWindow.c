@@ -105,6 +105,9 @@ void* inputThread(void* display)
                             printf("press(%d,%d)\n", event.xbutton.x, event.xbutton.y);    
                         }
                     break;
+	            case KeyPress:
+					printf("%s\n", XKeysymToString(XLookupKeysym(&(event.xkey), 0)));
+				    break;
                 }
                 fflush(stdout);
             }
@@ -128,7 +131,7 @@ int main(int argc,char **argv)
 	
 	//Create/Show window
 	Window win = XCreateSimpleWindow(display, root, 50, 50, WINDOW_WIDTH, WINDOW_HEIGHT, 1, 0, 0);
-	XSelectInput(display, win, ExposureMask | ButtonPressMask| ButtonReleaseMask | PointerMotionMask);
+	XSelectInput(display, win, ExposureMask | ButtonPressMask| ButtonReleaseMask | PointerMotionMask | KeyPressMask);
 	XMapWindow(display, win);
 
     //Start input thread

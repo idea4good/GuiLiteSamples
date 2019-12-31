@@ -17,7 +17,6 @@ enum TREND_TYPE
 class c_trend_graph : public c_wnd
 {
 public:
-	virtual c_wnd* clone(){return new c_trend_graph();}
 	virtual void on_init_children(void);
 	virtual void on_paint(void);
 

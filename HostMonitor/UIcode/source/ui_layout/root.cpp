@@ -1,14 +1,9 @@
 /*
  * root.cpp
  */
-#include "../core_include/api.h"
-#include "../core_include/rect.h"
-#include "../core_include/cmd_target.h"
-#include "../core_include/wnd.h"
-#include "../core_include/surface.h"
-#include "../core_include/display.h"
-#include "../widgets_include/slide_group.h"
-
+#include <stdio.h>
+#include <string.h>
+#include "../include/GuiLite.h"
 #include "../include/define.h"
 #include "../include/ctrl_id.h"
 
@@ -20,11 +15,6 @@ extern void create_page_trend(c_slide_group* group);
 extern void create_page_main(c_slide_group* group);
 extern void create_page_ecg_7wave(c_slide_group* group);
 extern void create_page_config(c_slide_group* group);
-
-extern void create_clone_page_config(c_slide_group* group);
-extern void create_clone_page_ecg_7wave(c_slide_group* group);
-extern void create_clone_page_main(c_slide_group* group);
-extern void create_clone_page_trend(c_slide_group* group);
 
 /////////////////////// Standard UI ///////////////////////////////////////
 #include "../source/ui_ctrl_ex/value_view.h"
@@ -38,29 +28,8 @@ extern void create_clone_page_trend(c_slide_group* group);
 #include "View/nibp_value/nibp_value_view.h"
 #include "View/nibp_value/nibp_value_xml.h"
 
-#define MAX_DISPLAY	9
-static c_wnd*		s_roots[MAX_DISPLAY];
-static c_display*	s_display[MAX_DISPLAY];
-static int			s_display_index;
-
-c_display* get_display(int display_id)
-{
-	ASSERT(display_id < MAX_DISPLAY);
-	return s_display[display_id];
-}
-
-c_wnd* get_wnd_root(int display_id)
-{
-	ASSERT(display_id < MAX_DISPLAY);
-	return s_roots[display_id];
-}
-
-class c_root_wnd : public c_wnd
-{
-	virtual c_wnd* clone() { return new c_root_wnd(); }
-};
-
-static c_root_wnd		s_root;
+static c_display*		s_display;
+static c_wnd			s_root;
 static c_top_bar 		s_top_info_view;
 static c_slide_group 	s_slide_group;
 //right values region
@@ -88,8 +57,8 @@ static WND_TREE s_root_children[] =
 
 void load_ui_single(void* phy_fb, int width, int height, int color_bytes)
 {
-	c_display* display = new c_display(phy_fb, width, height, UI_WIDTH, UI_HEIGHT, color_bytes, (4 + 1));//4 slides + 1 root
-	c_surface* surface = display->alloc_surface(Z_ORDER_LEVEL_0);
+	s_display = new c_display(phy_fb, width, height, UI_WIDTH, UI_HEIGHT, color_bytes, (4 + 1));//4 slides + 1 root
+	c_surface* surface = s_display->alloc_surface(Z_ORDER_LEVEL_0);
 	surface->set_active(true);
 	s_root.set_surface(surface);
 	s_root.connect(0, ID_ROOT, 0, 0, 0, UI_WIDTH, UI_HEIGHT, s_root_children);
@@ -100,85 +69,26 @@ void load_ui_single(void* phy_fb, int width, int height, int color_bytes)
 	create_page_config(&s_slide_group);
 	s_slide_group.set_active_slide(1);
 	s_root.show_window();
-
-	s_roots[s_display_index] = &s_root;
-	s_display[s_display_index++] = display;
 }
 
-void load_ui_multi(void* phy_fb, int width, int height, int color_bytes)
+void sendTouch2HostMonitor(int x, int y, bool is_down, int display_id)
 {
-	c_display* display = new c_display(phy_fb, width, height, UI_WIDTH, UI_HEIGHT, color_bytes, (4 + 1));//4 slides + 1 root
-	c_surface* surface = display->alloc_surface(Z_ORDER_LEVEL_0);
-	surface->set_active(true);
-	s_root.set_surface(surface);
-	c_wnd* root = s_root.connect_clone(0, ID_ROOT, 0, 0, 0, UI_WIDTH, UI_HEIGHT, s_root_children);
-
-	c_slide_group* page_group = (c_slide_group*)(root->get_wnd_ptr(ID_PAGE_GROUP));
-
-	create_clone_page_ecg_7wave(page_group);
-	create_clone_page_main(page_group);
-	create_clone_page_trend(page_group);
-	create_clone_page_config(page_group);
-	page_group->set_active_slide(1);
-	root->show_window();
-
-	s_roots[s_display_index] = root;
-	s_display[s_display_index++] = display;
+	is_down ? s_root.on_touch(x, y, TOUCH_DOWN) : s_root.on_touch(x, y, TOUCH_UP);
 }
 
-/////////////////////// Mini UI ///////////////////////////////////////
-#include "ViewMini/value/mini_value_view.h"
-#include "ViewMini/value/mini_value_xml.h"
-
-static c_root_wnd			s_mini_root;
-static c_slide_group 		s_mini_slide_group;
-static c_mini_value_view	s_value_view;
-
-static WND_TREE s_mini_root_children[] =
+void* getUiOfHostMonitor(int display_id, int* width, int* height, bool force_update)
 {
-	{ (c_wnd*)&s_mini_slide_group, ID_PAGE_GROUP, 0, 0, 0, (MINI_UI_WIDTH * 2 / 3), MINI_UI_HEIGHT },
-	{ (c_wnd*)&s_value_view,  ID_MINI_VALUE_VIEW_ID, 0, (MINI_UI_WIDTH * 2 / 3), 0, (MINI_UI_WIDTH * 1 / 3), MINI_UI_HEIGHT, g_mini_wav_value_view_children },
-	{ 0,0,0,0,0,0,0 }
-};
-
-extern void create_page_mini_wav(c_slide_group* group);
-extern void create_page_mini_trend(c_slide_group* group);
-
-extern void create_clone_page_mini_trend(c_slide_group* group);
-extern void create_clone_page_mini_wav(c_slide_group* group);
-
-void load_mini_ui_single(void* phy_fb, int width, int height, int color_bytes)
-{
-	c_display* display = new c_display(phy_fb, width, height, MINI_UI_WIDTH, MINI_UI_HEIGHT, color_bytes, (2 + 1));//2 slides + 1 root
-	c_surface* surface = display->alloc_surface(Z_ORDER_LEVEL_0);
-	surface->set_active(true);
-	s_mini_root.set_surface(surface);
-	s_mini_root.connect(0, ID_ROOT, 0, 0, 0, MINI_UI_WIDTH, MINI_UI_HEIGHT, s_mini_root_children);
-
-	create_page_mini_wav(&s_mini_slide_group);
-	create_page_mini_trend(&s_mini_slide_group);
-	s_mini_slide_group.set_active_slide(0);
-	s_mini_root.show_window();
-
-	s_roots[s_display_index] = &s_mini_root;
-	s_display[s_display_index++] = display;
+	return s_display->get_updated_fb(width, height, force_update);
 }
 
-void load_mini_ui_multi(void* phy_fb, int width, int height, int color_bytes)
+int captureUiOfHostMonitor(int display_id)
 {
-	c_display* display = new c_display(phy_fb, width, height, MINI_UI_WIDTH, MINI_UI_HEIGHT, color_bytes, (2 + 1));//2 slides + 1 root
-	c_surface* surface = display->alloc_surface(Z_ORDER_LEVEL_0);
-	surface->set_active(true);
-	s_mini_root.set_surface(surface);
-	c_wnd* root = s_mini_root.connect_clone(0, ID_ROOT, 0, 0, 0, MINI_UI_WIDTH, MINI_UI_HEIGHT, s_mini_root_children);
-
-	c_slide_group* page_group = (c_slide_group*)(root->get_wnd_ptr(ID_PAGE_GROUP));
-
-	create_clone_page_mini_wav(page_group);
-	create_clone_page_mini_trend(page_group);
-	page_group->set_active_slide(0);
-	root->show_window();
-
-	s_roots[s_display_index] = root;
-	s_display[s_display_index++] = display;
+	char file_name[32];
+	memset(file_name, 0, sizeof(file_name));
+	sprintf(file_name, "snapshot_%d.bmp", display_id);
+	return s_display->snap_shot(file_name);
 }
+
+//Cloud API
+typedef int(*SYNC_DATA)(int hr, int spo2, int rr, int nibp_sys, int nibp_dia, int nibp_mean);
+SYNC_DATA gSyncData;

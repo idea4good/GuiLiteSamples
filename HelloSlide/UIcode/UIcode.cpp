@@ -18,7 +18,6 @@ enum WND_ID
 
 class c_page : public c_wnd
 {
-	virtual c_wnd* clone() { return new c_page(); }
 	virtual void on_paint();
 };
 

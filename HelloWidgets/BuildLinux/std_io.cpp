@@ -6,6 +6,7 @@ extern void create_thread(unsigned long* thread_id, void* attr, void *(*start_ro
 extern void thread_sleep(unsigned int milli_seconds);
 extern int captureUiOfHelloWidgets();
 extern void sendTouch2HelloWidgets(int x, int y, bool is_down);
+extern void sendKey2HelloWidgets(unsigned int key);
 
 static int get_std_input(char *buffer, int size)
 {
@@ -39,16 +40,7 @@ static void* stdin_thread(void* param)
 			continue;
 		}
 
-		if (strcmp(buffer, "exit") == 0)
-		{
-			exit(-1);
-		}
-		else if (strcmp(buffer, "ss") == 0)
-		{
-			captureUiOfHelloWidgets();
-			printf("snapshot done.");
-		}
-		else if (strstr(buffer, "press") == buffer)
+		if (strstr(buffer, "press") == buffer)
 		{
 			int x, y;
 			sscanf(buffer, "%*[a-z|(]%d,%d", &x, &y);
@@ -61,6 +53,21 @@ static void* stdin_thread(void* param)
 			sscanf(buffer, "%*[a-z|(]%d,%d", &x, &y);
 			printf(buffer);
 			sendTouch2HelloWidgets(x, y, false);
+		}
+		else if (strcmp(buffer, "d") == 0)
+		{
+			sendKey2HelloWidgets(0);
+			printf("forward pressed.");
+		}
+		else if (strcmp(buffer, "a") == 0)
+		{
+			sendKey2HelloWidgets(1);
+			printf("backward pressed.");
+		}
+		else if (strcmp(buffer, "s") == 0)
+		{
+			sendKey2HelloWidgets(2);
+			printf("click pressed.");
 		}
 		else
 		{

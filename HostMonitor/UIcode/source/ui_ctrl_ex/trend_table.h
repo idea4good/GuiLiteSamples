@@ -8,7 +8,6 @@
 
 class c_trend_table : public c_table
 {
-	virtual c_wnd* clone() { return new c_trend_table(); }
 	virtual void on_init_children(void);
 	virtual void on_paint(void);
 };

@@ -1,4 +1,4 @@
-#include "../core_include/api.h"
+#include "../include/GuiLite.h"
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>

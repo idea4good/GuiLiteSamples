@@ -26,7 +26,6 @@ static const char* s_text = "朝辞白帝彩云间千里江陵一日还两岸猿
 
 class c_myUI : public c_wnd
 {
-	virtual c_wnd* clone() { return new c_myUI(); }
 	virtual void on_paint(void)
 	{
 		c_rect rect;

@@ -23,7 +23,6 @@ BITMAP_INFO s_frames[] = { frame_00_bmp, frame_01_bmp, frame_02_bmp,  frame_03_b
 
 class c_myUI : public c_wnd
 {
-	virtual c_wnd* clone() { return new c_myUI(); }
 	virtual void on_paint(void)
 	{
 		c_rect rect;

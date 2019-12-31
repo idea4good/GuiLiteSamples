@@ -7,4 +7,4 @@ LINK_DIRECTORIES(${PROJECT_SOURCE_DIR}/libs)
 ADD_EXECUTABLE(HostMonitor
 			main.cpp
 			std_io.cpp)
-TARGET_LINK_LIBRARIES(HostMonitor UIcode GuiLite pthread dl)
+TARGET_LINK_LIBRARIES(HostMonitor UIcode pthread dl)

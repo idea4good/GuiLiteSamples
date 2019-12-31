@@ -7,7 +7,6 @@ class c_trend_view : public c_wnd
 public:
 	virtual void on_init_children(void);
 	virtual void on_paint(void);
-	virtual c_wnd* clone(){return new c_trend_view();}
 private:
 	void on_time_bar_change(int ctrl_id, int param);
 	void on_update_trend_view(int id, int param);

@@ -1,9 +1,4 @@
-#include "../core_include/api.h"
-#include "../core_include/rect.h"
-#include "../core_include/cmd_target.h"
-#include "../core_include/wnd.h"
-#include "../widgets_include/wave_ctrl.h"
-
+#include "../include/GuiLite.h"
 #include "../include/ctrl_id.h"
 #include "../source/ui_ctrl_ex/wave_ctrl_ex.h"
 #include "../source/manager/wave_manager.h"

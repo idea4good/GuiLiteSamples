@@ -14,8 +14,7 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp\
-        ../UIcode/UIcode.cpp\
-        ../UIcode/GuiLite.cpp
+        ../UIcode/UIcode.cpp
 
 HEADERS  += mainwindow.h
 

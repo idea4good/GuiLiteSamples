@@ -32,9 +32,3 @@
     - Copy BuildLinux/HelloWidgets to target Linux device
     - `chmod 777 HelloWidgets`
     - `sudo ./HelloWidgets /dev/fb0`&nbsp;&nbsp;&nbsp;&nbsp;/dev/fb0: The path of framebuffer
-
-## Q&A:
-1. Could not display UI on Ubuntu with framebuffer
-    - Enter pure command line mode(Ctrl + Alt + F1), and run again
-    - Update Ubuntu to 18.10, and run again
-2. Linking error: rebuild libGuiLite.a, and replace them in BuildLinux/libs

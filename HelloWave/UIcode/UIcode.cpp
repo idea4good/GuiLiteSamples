@@ -1,3 +1,4 @@
+#define GUILITE_ON  //Do not define this macro once more!!!
 #include "GuiLite.h"
 #include <stdlib.h>
 #include <string.h>
@@ -135,7 +136,8 @@ static c_display* s_display;
 void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op)
 {
 	load_resource();
-	s_display = new c_display(phy_fb, screen_width, screen_height, UI_WIDTH, UI_HEIGHT, color_bytes, 1, gfx_op);
+	static c_display display(phy_fb, screen_width, screen_height, UI_WIDTH, UI_HEIGHT, color_bytes, 1, gfx_op);
+	s_display = &display;
 	c_surface* surface = s_display->alloc_surface(Z_ORDER_LEVEL_0);
 	surface->set_active(true);
 	s_myUI.set_surface(surface);

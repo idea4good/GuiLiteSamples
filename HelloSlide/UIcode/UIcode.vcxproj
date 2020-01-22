@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GuiLite.cpp" />
     <ClCompile Include="resource\ace_bmp.cpp" />
     <ClCompile Include="resource\jack_bmp.cpp" />
     <ClCompile Include="resource\king_bmp.cpp" />

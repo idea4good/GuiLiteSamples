@@ -81,7 +81,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <TargetName>GuiLiteSample</TargetName>
+    <TargetName>HostMonitor</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -157,7 +157,7 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>GuiLite.lib</AdditionalDependencies>
+      <AdditionalDependencies></AdditionalDependencies>
       <AdditionalLibraryDirectories>libs\x86;</AdditionalLibraryDirectories>
     </Link>
     <Midl>
@@ -186,7 +186,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>libs\x64;</AdditionalLibraryDirectories>
-      <AdditionalDependencies>GuiLite.lib</AdditionalDependencies>
+      <AdditionalDependencies></AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>

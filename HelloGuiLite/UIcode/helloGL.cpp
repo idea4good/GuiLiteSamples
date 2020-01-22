@@ -1,3 +1,4 @@
+#define GUILITE_ON  //Do not define this macro once more!!!
 #include "GuiLite.h"
 #include <stdlib.h>
 

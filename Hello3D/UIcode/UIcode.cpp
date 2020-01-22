@@ -1,3 +1,4 @@
+#define GUILITE_ON	//Do not define this macro once more!!!
 #include "GuiLite.h"
 #if defined(_WIN32) || defined(WIN32) || defined(__linux__) || defined(__APPLE__)
 	#define SHAPE_CNT 2
@@ -161,7 +162,8 @@ double Pyramid::points[5][3] = {
 
 // Demo
 void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op) {
-    s_display = new c_display(phy_fb, screen_width, screen_height, UI_WIDTH, UI_HEIGHT, color_bytes, 1, gfx_op);
+	c_display display(phy_fb, screen_width, screen_height, UI_WIDTH, UI_HEIGHT, color_bytes, 1, gfx_op);
+    s_display = &display;
     s_surface = s_display->alloc_surface(Z_ORDER_LEVEL_0);
 	s_surface->set_active(true);
 	s_surface->fill_rect(0, 0, UI_WIDTH - 1, UI_HEIGHT - 1, 0, Z_ORDER_LEVEL_0);

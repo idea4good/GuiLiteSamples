@@ -69,7 +69,6 @@
   <ItemGroup>
     <ClCompile Include="source\data\database.cpp" />
     <ClCompile Include="source\data\sqlite3.c" />
-    <ClCompile Include="source\GuiLite.cpp" />
     <ClCompile Include="source\manager\value_manager.cpp" />
     <ClCompile Include="source\manager\value_ctrl_manager.cpp" />
     <ClCompile Include="source\manager\wave_manager.cpp" />

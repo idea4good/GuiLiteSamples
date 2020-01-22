@@ -344,8 +344,5 @@
     <ClCompile Include="source\ui_ctrl_ex\wave_ctrl_ex.cpp">
       <Filter>source\ui_ctrl_ex</Filter>
     </ClCompile>
-    <ClCompile Include="source\GuiLite.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>

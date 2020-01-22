@@ -1,4 +1,5 @@
-﻿#include "GuiLite.h"
+﻿#define GUILITE_ON  //Do not define this macro once more!!!
+#include "GuiLite.h"
 #include <stdlib.h>
 
 #define UI_WIDTH 240

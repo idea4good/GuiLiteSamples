@@ -5,7 +5,6 @@
     <ClCompile Include="resource\Consolas_24B.cpp">
       <Filter>resource</Filter>
     </ClCompile>
-    <ClCompile Include="GuiLite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="resource">

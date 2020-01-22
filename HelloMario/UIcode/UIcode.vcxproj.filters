@@ -62,7 +62,6 @@
     <ClCompile Include="resource\title_bmp.cpp">
       <Filter>resource</Filter>
     </ClCompile>
-    <ClCompile Include="GuiLite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="resource">

@@ -1,7 +1,6 @@
 ## How to build for Win MFC?
-### GuiLite.lib should be in BuildMFC\BuildMFC\libs\x86(x64), rebuild them if meet link error.
-- Open "HelloFont\BuildMFC\HelloFont.sln" by Visual studio 2017
-- Click `F5` to build/run `HelloFont`
+1. Open "HelloFont\BuildMFC\HelloFont.sln" by Visual studio 2017
+2. Click `F5` to build/run `HelloFont`
 
 # How to build for Linux?
 ## Compile & Run locally:
@@ -29,9 +28,3 @@
     - Copy BuildLinux/HelloFont to target Linux device
     - `chmod 777 HelloFont`
     - `sudo ./HelloFont /dev/fb0`&nbsp;&nbsp;&nbsp;&nbsp;/dev/fb0: The path of framebuffer
-
-## Q&A:
-1. Could not display UI on Ubuntu with framebuffer
-    - Enter pure command line mode(Ctrl + Alt + F1), and run again
-    - Update Ubuntu to 18.10, and run again
-2. Linking error: rebuild libGuiLite.a, and replace them in BuildLinux/libs

@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GuiLite.cpp" />
     <ClCompile Include="resource\Consolas_28.cpp" />
     <ClCompile Include="UIcode.cpp" />
   </ItemGroup>

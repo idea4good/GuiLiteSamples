@@ -29,7 +29,6 @@ FILE(GLOB UI_TREE ui_layout/*.cpp
 )
 
 ADD_LIBRARY(UIcode
-				GuiLite.cpp
 				${MANAGER}
 				${MODULES}
 				${RESOURCE}

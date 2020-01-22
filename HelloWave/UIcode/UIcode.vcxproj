@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GuiLite.cpp" />
     <ClCompile Include="resource\Lucida_Console_27.cpp" />
     <ClCompile Include="UIcode.cpp" />
   </ItemGroup>

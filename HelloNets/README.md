@@ -1,14 +1,10 @@
 # How to build for Win MFC?
-## Prerequisite:
-- GuiLite.lib should be in BuildMFC\BuildMFC\libs\x86(x64), ⚠️rebuild them if meet link error.
-### Build
 1. Open "HelloNets\BuildMFC\HelloNets.sln" by Visual studio 2017
 2. Click `F5` to build/run `HelloNets`
 
 # How to build for STM32F103 + ILI934x?
 ## Prerequisite:
 - Install Keil uvsion 5.6 or above.
-- GuiLite.lib should be in BuildSTM32F103-Keil\USER, ⚠️rebuild it if meet Linking error.
 - Your hardware should be compatible with: Discovery kit/[正点原子开发板](https://item.taobao.com/item.htm?spm=a230r.1.14.20.17b441b9u49Ujg&id=582084489839&ns=1&abbucket=7#detail)/野火霸道开发板.
 ### Build
 1. Open "HelloNets\BuildSTM32F103-Keil\USER\HelloNets.uvprojx" with Keil uvsion.
@@ -20,13 +16,14 @@
 ## Prerequisite:
 - You have Keil/IAR project which can enable LCD
 - Your project should implement function `void delay_ms(unsigned short nms)`, which would be used by core/src/adapter/api_none.cpp::thread_sleep
+
 ## Porting
 ![HowToPorting](../doc/HowToPorting.png)
-1. Open your MCU project(Keil/IAR), import GuiLite library - `GuiLite.lib`
-2. Import all cpp files from `UIcode` in your project.
+1. Open your Keil/IAR project
+2. Import all cpp files from `UIcode` in your project
 3. Encapsulate draw piexel driver in `main.c`
 4. Link your LCD driver with GuiLite, and call UI entry function(e.g, startHelloNets)
-5. Build & Run ⚠️[rebuild `GuiLite.lib`](https://github.com/idea4good/GuiLite/blob/master/doc/HowToBuild.md) if meet Linking error, or your MCU do not compatible with STM32F103
+5. Build & Run
 
 # How to build for Linux?
 ## Compile & Run locally:
@@ -54,9 +51,3 @@
     - Copy BuildLinux/HelloNets to target Linux device
     - `chmod 777 HelloNets`
     - `sudo ./HelloNets /dev/fb0`&nbsp;&nbsp;&nbsp;&nbsp;/dev/fb0: The path of framebuffer
-
-## Q&A:
-1. Could not display UI on Ubuntu with framebuffer
-    - Enter pure command line mode(Ctrl + Alt + F1), and run again
-    - Update Ubuntu to 18.10, and run again
-2. Linking error: rebuild libGuiLite.a, and replace them in BuildLinux/libs

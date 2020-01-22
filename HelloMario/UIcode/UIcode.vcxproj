@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GuiLite.cpp" />
     <ClCompile Include="resource\background_bmp.cpp" />
     <ClCompile Include="resource\frame_00_bmp.cpp" />
     <ClCompile Include="resource\frame_01_bmp.cpp" />

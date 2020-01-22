@@ -5,7 +5,6 @@
     <ClCompile Include="resource\Microsoft_YaHei_28.cpp">
       <Filter>resource</Filter>
     </ClCompile>
-    <ClCompile Include="GuiLite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="resource">

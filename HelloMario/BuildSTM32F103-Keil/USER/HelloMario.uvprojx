@@ -397,11 +397,6 @@
               <FileType>1</FileType>
               <FilePath>.\system_stm32f10x.c</FilePath>
             </File>
-            <File>
-              <FileName>GuiLite.lib</FileName>
-              <FileType>4</FileType>
-              <FilePath>.\GuiLite.lib</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>

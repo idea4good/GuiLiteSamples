@@ -1,3 +1,4 @@
+#define GUILITE_ON  //Do not define this macro once more!!!
 #include "GuiLite.h"
 #include <stdlib.h>
 #include <string.h>
@@ -49,7 +50,8 @@ void load_resource() {
 c_particle particle_array[100];
 void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op) {
 	load_resource();
-	display = new c_display(phy_fb, screen_width, screen_height, UI_WIDTH, UI_HEIGHT, color_bytes, 1, gfx_op);
+	static c_display s_display(phy_fb, screen_width, screen_height, UI_WIDTH, UI_HEIGHT, color_bytes, 1, gfx_op);
+	display = &s_display;
 	s_surface = display->alloc_surface(Z_ORDER_LEVEL_0);
 	s_surface->set_active(true);
 

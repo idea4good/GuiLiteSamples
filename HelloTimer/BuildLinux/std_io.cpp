@@ -4,7 +4,6 @@
 
 extern void create_thread(unsigned long* thread_id, void* attr, void *(*start_routine) (void *), void* arg);
 extern void thread_sleep(unsigned int milli_seconds);
-extern "C" void sendTouch2HelloTimer(int x, int y, bool is_down);
 
 static int get_std_input(char *buffer, int size)
 {
@@ -53,8 +52,6 @@ static void* stdin_thread(void* param)
 			int x, y;
 			sscanf(buffer, "%*[a-z|(]%d,%d", &x, &y);
 			printf(buffer);
-			sendTouch2HelloTimer(x, y, false);
-
 		}
 		else
 		{

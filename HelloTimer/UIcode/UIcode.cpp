@@ -136,11 +136,11 @@ private:
 class c_weather
 {
 public:
-	c_weather() : m_weather_x(16), m_weather_y(96), m_temperature_x(129), m_temperature_y(73), m_humidity_x(126), m_humidity_y(144), m_temp_value_x(174), m_temp_value_y(88), m_humidity_value_x(174), m_humidity_value_y(159), m_day_x(0), m_day_y(25), m_frame_count(20) {}
+	c_weather() : m_weather_x(16), m_weather_y(96), m_temperature_x(129), m_temperature_y(73), m_humidity_x(126), m_humidity_y(144), m_temp_value_x(174), m_temp_value_y(88), m_humidity_value_x(174), m_humidity_value_y(159), m_day_x(0), m_day_y(25), m_distance(60), m_frame_count(6) {}
 	void show()
 	{
-		int step = 4;
-		int distance = step * m_frame_count;
+		int step = m_distance / m_frame_count;
+		int distance = m_distance;
 		while (distance > 0)
 		{
 			//erase footprint
@@ -175,19 +175,19 @@ public:
 
 	void disappear()
 	{
-		int step = 4;
+		int step = m_distance / m_frame_count;
 		int distance = 0;
-		while (distance < step * m_frame_count)
+		while (distance < m_distance)
 		{
 			//erase footprint
 			c_word::draw_string_in_rect(s_surface, Z_ORDER_LEVEL_0, "Today", c_rect(m_day_x, m_day_y - distance, 240, 48), c_theme::get_font(FONT_DEFAULT), 0, 0, ALIGN_HCENTER);
 
-			s_surface->fill_rect(m_weather_x - distance, m_weather_y, m_weather_x - distance + weather_bmp.width + step, m_weather_y + weather_bmp.height, 0, Z_ORDER_LEVEL_0);
+			s_surface->fill_rect(m_weather_x - distance + weather_bmp.width, m_weather_y, m_weather_x - distance + weather_bmp.width + step, m_weather_y + weather_bmp.height, 0, Z_ORDER_LEVEL_0);
 
-			s_surface->fill_rect(m_temperature_x + distance - step, m_temperature_y, m_temperature_x + distance + temperature_bmp.width, m_temperature_y + temperature_bmp.height, 0, Z_ORDER_LEVEL_0);
+			s_surface->fill_rect(m_temperature_x + distance - step, m_temperature_y, m_temperature_x + distance, m_temperature_y + temperature_bmp.height, 0, Z_ORDER_LEVEL_0);
 			c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, "25C", m_temp_value_x + distance, m_temp_value_y, c_theme::get_font(FONT_DEFAULT), 0, 0);
 
-			s_surface->fill_rect(m_humidity_x + distance - step, m_humidity_y, m_humidity_x + distance + humidity_bmp.width, m_humidity_y + humidity_bmp.height, 0, Z_ORDER_LEVEL_0);
+			s_surface->fill_rect(m_humidity_x + distance - step, m_humidity_y, m_humidity_x + distance, m_humidity_y + humidity_bmp.height, 0, Z_ORDER_LEVEL_0);
 			c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, "75%", m_humidity_value_x + distance, m_humidity_value_y, c_theme::get_font(FONT_DEFAULT), 0, 0);
 			
 			distance += step;
@@ -215,7 +215,7 @@ private:
 	int m_temp_value_x, m_temp_value_y;
 	int m_humidity_value_x, m_humidity_value_y;
 	int m_day_x, m_day_y;
-	int m_frame_count;
+	int m_distance, m_frame_count;
 };
 
 void load_resource()
@@ -223,33 +223,7 @@ void load_resource()
 	c_theme::add_font(FONT_DEFAULT, &_DengXian_36B);
 }
 
-extern "C" void sendTouch2HelloTimer(int x, int y, bool is_down);
-void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op)
-{
-	load_resource();
-
-	static c_display display(phy_fb, screen_width, screen_height, UI_WIDTH, UI_HEIGHT, color_bytes, 1, gfx_op);
-	s_surface = display.alloc_surface(Z_ORDER_LEVEL_0);
-	s_surface->set_active(true);
-
-	//background
-	s_surface->fill_rect(0, 0, UI_WIDTH, UI_HEIGHT, 0, Z_ORDER_LEVEL_0);
-	c_bitmap::draw_bitmap(s_surface, Z_ORDER_LEVEL_0, &grass_bmp, 0, 271);
-
-	while(1)
-	{
-		sendTouch2HelloTimer(0, 0, false);
-		thread_sleep(1000);
-	}
-}
-
-//////////////////////// interface for all platform ////////////////////////
-extern "C" void startHelloTimer(void* phy_fb, int width, int height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op)
-{
-	create_ui(phy_fb, width, height, color_bytes, gfx_op);
-}
-
-extern "C" void sendTouch2HelloTimer(int x, int y, bool is_down)
+void switchUI()
 {
 	static int index = 0;
 	c_weather weather;
@@ -277,4 +251,29 @@ extern "C" void sendTouch2HelloTimer(int x, int y, bool is_down)
 	default:
 		return;
 	}
+}
+
+void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op)
+{
+	load_resource();
+
+	static c_display display(phy_fb, screen_width, screen_height, UI_WIDTH, UI_HEIGHT, color_bytes, 1, gfx_op);
+	s_surface = display.alloc_surface(Z_ORDER_LEVEL_0);
+	s_surface->set_active(true);
+
+	//background
+	s_surface->fill_rect(0, 0, UI_WIDTH, UI_HEIGHT, 0, Z_ORDER_LEVEL_0);
+	c_bitmap::draw_bitmap(s_surface, Z_ORDER_LEVEL_0, &grass_bmp, 0, 271);
+
+	while(1)
+	{
+		switchUI();
+		thread_sleep(1000);
+	}
+}
+
+//////////////////////// interface for all platform ////////////////////////
+extern "C" void startHelloTimer(void* phy_fb, int width, int height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op)
+{
+	create_ui(phy_fb, width, height, color_bytes, gfx_op);
 }

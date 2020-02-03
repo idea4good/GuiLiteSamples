@@ -18,7 +18,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		13D3D46922B891E5001486AF /* libGuiLite.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGuiLite.a; path = GuiLiteDemo/libs/libGuiLite.a; sourceTree = "<group>"; };
 		F47C12591FEBDD3F005D635A /* GuiLiteDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuiLiteDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47C125C1FEBDD3F005D635A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F47C125E1FEBDD3F005D635A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,7 +81,6 @@
 		F4E9B0091FF23AF1006CD49F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				13D3D46922B891E5001486AF /* libGuiLite.a */,
 				F4E9B00E1FF23B07006CD49F /* libUIcode.a */,
 			);
 			name = Frameworks;

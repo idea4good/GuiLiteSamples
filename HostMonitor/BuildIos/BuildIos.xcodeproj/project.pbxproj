@@ -19,9 +19,6 @@
 
 /* Begin PBXFileReference section */
 		13577F0423702C1400AA2338 /* GuiLiteImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuiLiteImage.swift; sourceTree = "<group>"; };
-		13D3D46B22B896DE001486AF /* libGuiLite.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGuiLite.a; path = BuildIos/libs/libGuiLite.a; sourceTree = "<group>"; };
-		F42931231FFC979800D08404 /* libgui.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgui.a; path = BuildIos/libs/libgui.a; sourceTree = "<group>"; };
-		F42931241FFC979900D08404 /* libcore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcore.a; path = BuildIos/libs/libcore.a; sourceTree = "<group>"; };
 		F42931251FFC979900D08404 /* libUIcode.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libUIcode.a; path = BuildIos/libs/libUIcode.a; sourceTree = "<group>"; };
 		F47548261FFB6DC00061596E /* BuildIos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuildIos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47548291FFB6DC00061596E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,9 +46,6 @@
 		F42931221FFC979800D08404 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				13D3D46B22B896DE001486AF /* libGuiLite.a */,
-				F42931241FFC979900D08404 /* libcore.a */,
-				F42931231FFC979800D08404 /* libgui.a */,
 				F42931251FFC979900D08404 /* libUIcode.a */,
 			);
 			name = Frameworks;

@@ -6,6 +6,7 @@ const int UI_WIDTH = 240;
 const int UI_HEIGHT = 320;
 const int FRAME_COUNT = 32;
 
+extern const FONT_INFO Consolas_19;
 extern const FONT_INFO _DengXian_36B;
 extern const BITMAP_INFO humidity_bmp;
 extern const BITMAP_INFO temperature_bmp;
@@ -13,6 +14,7 @@ extern const BITMAP_INFO weather_bmp;
 extern const BITMAP_INFO grass_bmp;
 
 static c_surface* s_surface;
+static c_display* s_display;
 
 class c_hand
 {
@@ -218,18 +220,61 @@ private:
 	int m_distance, m_frame_count;
 };
 
+class c_time
+{
+public:
+	c_time() : m_x(0), m_y(100), m_width(240), m_height(100), m_time_rect(c_rect(30, 130, 200, 190)) {}
+	void show()
+	{
+		static int count;
+		char time[32];
+
+		for (int i = 0; i < 10; i++)
+		{
+			for (int y = m_y; y < m_height + m_y; y += 19)
+			{
+				for (int x = m_x; x < m_width + m_x; x += 9)
+				{
+					if (m_time_rect.PtInRect(x, y) && m_time_rect.PtInRect(x + 9, y + 19))
+					{
+						continue;
+					}
+					if (rand() % 2)
+					{
+						c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, "0", x, y, c_theme::get_font(FONT_CUSTOM1), GL_RGB(141, 219, 153), GL_ARGB(255, 0, 0, 0));
+					}
+					else
+					{
+						c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, "1", x, y, c_theme::get_font(FONT_CUSTOM1), GL_RGB(141, 219, 153), GL_ARGB(255, 0, 0, 0));
+					}
+				}
+			}
+
+			memset(time, 0, sizeof(time));
+			sprintf(time, "16:47:%02d", count++%60);
+			c_word::draw_string_in_rect(s_surface, Z_ORDER_LEVEL_0, time, m_time_rect, c_theme::get_font(FONT_DEFAULT), GL_RGB(255, 255, 255), GL_ARGB(255, 0, 0, 0), ALIGN_HCENTER);
+			thread_sleep(1000);
+		}
+	}
+private:
+	int m_x, m_y, m_width, m_height;
+	c_rect m_time_rect;
+};
+
 void load_resource()
 {
 	c_theme::add_font(FONT_DEFAULT, &_DengXian_36B);
+	c_theme::add_font(FONT_CUSTOM1, &Consolas_19);
 }
 
 void switchUI()
 {
 	static int index = 0;
 	c_weather weather;
-	c_clock timer;
+	c_clock clock;
+	c_time time;
 
-	switch (index++ % 4)
+	switch (index++ % 5)
 	{
 	case 0:
 		weather.show();
@@ -240,13 +285,17 @@ void switchUI()
 		return;
 	case 2:
 		s_surface->fill_rect(0, 0, UI_WIDTH, 240, 0, Z_ORDER_LEVEL_0);
-		timer.set_hands(140.0, 100.0, 0.0, 40.0, 0.0, 2.0, GL_RGB(255, 255, 255), 0.0, 70.0, 0.0, 4.0, GL_RGB(255, 255, 255), 0.0, 90.0, 0.0, 6.0, GL_RGB(237, 125, 124));
-		timer.show();
+		clock.set_hands(140.0, 100.0, 0.0, 40.0, 0.0, 2.0, GL_RGB(255, 255, 255), 0.0, 70.0, 0.0, 4.0, GL_RGB(255, 255, 255), 0.0, 90.0, 0.0, 6.0, GL_RGB(237, 125, 124));
+		clock.show();
 		return;
 	case 3:
-		timer.set_hands(100.0, 140.0, 40.0, 0.0, 2.0, 0.0, GL_RGB(255, 255, 255), 70.0, 0.0, 4.0, 0.0, GL_RGB(255, 255, 255), 90.0, 0.0, 6.0, 0.0, GL_RGB(237, 125, 124));
-		timer.show();
+		clock.set_hands(100.0, 140.0, 40.0, 0.0, 2.0, 0.0, GL_RGB(255, 255, 255), 70.0, 0.0, 4.0, 0.0, GL_RGB(255, 255, 255), 90.0, 0.0, 6.0, 0.0, GL_RGB(237, 125, 124));
+		clock.show();
 		s_surface->fill_rect(0, 0, UI_WIDTH, 270, 0, Z_ORDER_LEVEL_0);
+		break;
+	case 4:
+		time.show();
+		s_surface->fill_rect(0, 0, UI_WIDTH, 240, 0, Z_ORDER_LEVEL_0);
 		break;
 	default:
 		return;
@@ -257,7 +306,8 @@ void create_ui(void* phy_fb, int screen_width, int screen_height, int color_byte
 {
 	load_resource();
 
-	static c_display display(phy_fb, screen_width, screen_height, UI_WIDTH, UI_HEIGHT, color_bytes, 1, gfx_op);
+	c_display display(phy_fb, screen_width, screen_height, UI_WIDTH, UI_HEIGHT, color_bytes, 1, gfx_op);
+	s_display = &display;
 	s_surface = display.alloc_surface(Z_ORDER_LEVEL_0);
 	s_surface->set_active(true);
 
@@ -276,4 +326,13 @@ void create_ui(void* phy_fb, int screen_width, int screen_height, int color_byte
 extern "C" void startHelloTimer(void* phy_fb, int width, int height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op)
 {
 	create_ui(phy_fb, width, height, color_bytes, gfx_op);
+}
+
+extern void* getUiOfHelloTimer(int* width, int* height, bool force_update = false)
+{
+	if (s_display)
+	{
+		return s_display->get_updated_fb(width, height, force_update);
+	}
+	return NULL;
 }

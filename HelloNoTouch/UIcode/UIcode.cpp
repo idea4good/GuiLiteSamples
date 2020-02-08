@@ -113,6 +113,15 @@ extern "C" void sendKey2HelloNoTouch(unsigned int key)
 	s_myUI.on_key(KEY_TYPE(key));
 }
 
+extern void* getUiOfHelloNoTouch(int* width, int* height, bool force_update = false)
+{
+	if (s_display)
+	{
+		return s_display->get_updated_fb(width, height, force_update);
+	}
+	return NULL;
+}
+
 int captureUiOfHelloNoTouch()
 {
 	return s_display->snap_shot("snap_short.bmp");

@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="resource\Consolas_19.cpp" />
     <ClCompile Include="resource\grass_bmp.cpp" />
     <ClCompile Include="resource\humidity_bmp.cpp" />
     <ClCompile Include="resource\temperature_bmp.cpp" />

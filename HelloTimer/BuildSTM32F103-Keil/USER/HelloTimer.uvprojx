@@ -522,6 +522,11 @@
               <FileType>8</FileType>
               <FilePath>..\..\UIcode\resource\_DengXian_36B.cpp</FilePath>
             </File>
+            <File>
+              <FileName>Consolas_19.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\..\UIcode\resource\Consolas_19.cpp</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

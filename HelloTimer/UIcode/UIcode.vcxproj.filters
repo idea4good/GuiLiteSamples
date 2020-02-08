@@ -17,6 +17,9 @@
     <ClCompile Include="resource\grass_bmp.cpp">
       <Filter>resource</Filter>
     </ClCompile>
+    <ClCompile Include="resource\Consolas_19.cpp">
+      <Filter>resource</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="resource">

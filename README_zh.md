@@ -4,7 +4,7 @@
 
 # GuiLite Samples - 小Demo，说清GUI原理
 ![badge_build](https://img.shields.io/badge/build-passing-brightgreen.svg) ![badge_docker](https://img.shields.io/badge/docker%20build-passing-brightgreen.svg) ![badge_platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS%20%7C%20iOS%20%7C%20Android%20%7C%20MCU-brightgreen.svg) ![badge_lincense](https://img.shields.io/badge/license-Apache%202-blue.svg) ![badge_lincense](https://img.shields.io/badge/architecture-amd64%20%7C%20arm%20%7C%20arm64-blue.svg) 
-- GuiLite samples包括15个跨平台项目，他们都是基于[GuiLite](https://github.com/idea4good/GuiLite)编写的小应用，用来说明GuiLite的设计及使用方法，这些小应用可以运行在：iOS，Android，Linux，Windows，Mac，及**有（无）操作系统的MCU**平台上。
+- GuiLite samples包括16个跨平台项目，他们都是基于[GuiLite](https://github.com/idea4good/GuiLite)编写的小应用，用来说明GuiLite的设计及使用方法，这些小应用可以运行在：iOS，Android，Linux，Windows，Mac，及**有（无）操作系统的MCU**平台上。
 - GuiLite samples编译成功率100%，可以运行在市面所有的：PC，手机，单片机及各种嵌入式（IoT）设备上。
 - 支持多种IDE开发调试: Visual Studio, Qt Creator, Keil
 - GuiLite Samples可以运行在网页上，并形成3D效果，详情请访问[GuiLiteWeb](https://github.com/idea4good/GuiLiteWeb)
@@ -26,6 +26,11 @@
 - Hello Timer 仅有[200多行代码](HelloTimer/UIcode/UIcode.cpp),它是基于GuiLite制作的智能时钟效果。
 - [移植方法 -- 适用于任意单片机平台？](HelloWave/README.md#how-to-port-on-any-type-of-mcu)
 - 该实例亦可支持Windows和Linux平台
+
+## Hello Scroll
+![HelloScroll](doc/HelloScroll.gif)
+
+Hello Scroll 仅有[300多行代码](HelloScroll/UIcode/UIcode.cpp)，实现了“滚动控件”，并演示了应用方法。该实例可支持Windows，Linux和Qt平台。
 
 ## Hello Nets
 ![HelloNets-pc](doc/HelloNets-pc.gif)

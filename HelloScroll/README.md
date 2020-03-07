@@ -18,7 +18,7 @@
     - Run inside X Window:
         1. `sudo su`
         2. `sudo ipcrm -M 1`
-        3. `sudo ./xWindow 680 512 | ./HelloScroll shared-fb`
+        3. `sudo ./xWindow 600 400 | ./HelloScroll shared-fb`
 
 ## Cross compiler & Run on target:
 1. install compiler:

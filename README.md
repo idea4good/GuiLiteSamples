@@ -6,15 +6,15 @@
 ![badge_build](https://img.shields.io/badge/build-passing-brightgreen.svg) ![badge_docker](https://img.shields.io/badge/docker%20build-passing-brightgreen.svg) ![badge_platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS%20%7C%20iOS%20%7C%20Android%20%7C%20MCU-brightgreen.svg) ![badge_lincense](https://img.shields.io/badge/license-Apache%202-blue.svg) ![badge_lincense](https://img.shields.io/badge/architecture-amd64%20%7C%20arm%20%7C%20arm64-blue.svg) 
 
 [中文](README_zh.md)
-- GuiLite samples contain 16 cross-platform projects. They all based on [GuiLite](https://github.com/idea4good/GuiLite). They could show you how to use GuiLite's interface, and how GuiLite works on iOS, Android, GNU/Linux, Windows and macOS platform.
+- GuiLite samples contain 17 cross-platform projects. They all based on [GuiLite](https://github.com/idea4good/GuiLite). They could show you how to use GuiLite's interface, and how GuiLite works on iOS, Android, GNU/Linux, Windows and macOS platform.
 - GuiLite samples could pass compiling in 100%, could run on all kinds of PC, phones, MCU and embedded(IoT) devices.
 - Suppoort IDE: Visual Studio, Qt Creator, Keil 
 - GuiLite Samples could run on web page, and make 3D feature with WebGL, visit [GuiLiteWeb](https://github.com/idea4good/GuiLiteWeb) to get more details
 - GuiLite samples could run in **Docker container** with single command below:
   - `sudo docker run -it --privileged -v /dev:/dev-share idea4good/gui-lite:latest bash /run.sh`
 
-## MCU demos: Hello Star + Hello Particle + Hello Wave + Hello NoTouch + Hello Mario + Hello Nets + Hello 3D + Hello Circle + Hello Timer
-![HelloStar](doc/HelloStar.gif)&nbsp;&nbsp;![HelloParticle](doc/HelloParticle.gif)&nbsp;&nbsp;![HelloWave](doc/HelloWave.gif)&nbsp;&nbsp;![HelloNoTouch](doc/HelloNoTouch.gif)&nbsp;&nbsp;![HelloMario](doc/HelloMario.gif)&nbsp;&nbsp;![HelloNets-mcu](doc/HelloNets-mcu.gif)&nbsp;&nbsp;![Hello3D](doc/Hello3D.gif)&nbsp;&nbsp;![HelloCircle](doc/HelloCircle.gif)&nbsp;&nbsp;![HelloTimer](doc/HelloTimer.gif)
+## MCU demos: Hello Star + Hello Particle + Hello Wave + Hello NoTouch + Hello Mario + Hello Nets + Hello 3D + Hello Circle + Hello Timer + Hello Molecule
+![HelloStar](doc/HelloStar.gif)&nbsp;&nbsp;![HelloParticle](doc/HelloParticle.gif)&nbsp;&nbsp;![HelloWave](doc/HelloWave.gif)&nbsp;&nbsp;![HelloNoTouch](doc/HelloNoTouch.gif)&nbsp;&nbsp;![HelloMario](doc/HelloMario.gif)&nbsp;&nbsp;![HelloNets-mcu](doc/HelloNets-mcu.gif)&nbsp;&nbsp;![Hello3D](doc/Hello3D.gif)&nbsp;&nbsp;![HelloCircle](doc/HelloCircle.gif)&nbsp;&nbsp;![HelloTimer](doc/HelloTimer.gif)&nbsp;&nbsp;![HelloMolecule](doc/HelloMolecule.gif)
 - MCU Hardware: STM32F103ZET6(512K ROM, 64K RAM) + 240*320 16bits color TFT LCD
 - MCU Software: No OS, Only GuiLite
 - Hello Star has [100+ lines code](HelloStar/UIcode/UIcode.cpp), showing you how to develop a star field effect.
@@ -26,6 +26,7 @@
 - Hello 3D has only [100+ lines code](Hello3D/UIcode/UIcode.cpp), it's a lightweight 3D engine base on GuiLite.
 - Hello Circle has only [100+ lines code](HelloCircle/UIcode/UIcode.cpp), it's a 3D Circle base on GuiLite.
 - Hello Timer has only [200+ lines code](HelloTimer/UIcode/UIcode.cpp), it's a smart timer base on GuiLite.
+- Hello Molecule has only [100+ lines code](HelloMolecule/UIcode/UIcode.cpp), showing you how to build molecule movement effect.
 - [How to porting for any MCU?](HelloWave/README.md#how-to-port-on-any-type-of-mcu)
 - Also support: Windows / Linux / Qt
 

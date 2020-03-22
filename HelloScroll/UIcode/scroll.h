@@ -1,6 +1,6 @@
 class c_surface_offset : public c_surface {
 public:
-	c_surface_offset(c_display* display, unsigned int width, unsigned int height, unsigned int color_bytes, int offset_x, int offset_y) :	c_surface(display, width, height, color_bytes), m_offset_x(offset_x), m_offset_y(offset_y) {}
+	c_surface_offset(unsigned int width, unsigned int height, unsigned int color_bytes, int offset_x, int offset_y) :	c_surface(width, height, color_bytes), m_offset_x(offset_x), m_offset_y(offset_y) {}
 	virtual void draw_pixel(int x, int y, unsigned int rgb, unsigned int z_order)
 	{
 		x -= m_offset_x;
@@ -56,10 +56,9 @@ class c_scroll_view : c_wnd
 		{
 			height = rect.Height();
 		}
-		m_mem_display = new c_display(calloc(width * height, 2), width, height, width, height, 2, 0);
-		m_mem_surface = new c_surface_offset(m_mem_display, width, height, 2, rect.m_left, rect.m_top);
-		m_mem_surface->set_surface(Z_ORDER_LEVEL_0);
-		m_mem_surface->set_active(true);
+		
+		m_mem_surface = new c_surface_offset(width, height, 2, rect.m_left, rect.m_top);
+		m_mem_display = new c_display(calloc(width * height, 2), width, height, m_mem_surface);
 
 		//change surface
 		set_surface(m_mem_surface);

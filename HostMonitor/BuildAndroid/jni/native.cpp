@@ -13,13 +13,6 @@ extern void OnAndroidPlayWav(const char* fileName);
 typedef void(*ANDROID_PLAY_WAV)(const char* fileName);
 extern ANDROID_PLAY_WAV gAndroidPlayWav;
 
-typedef struct
-{
-	unsigned int dwMsgId;
-	unsigned int dwParam1;
-	unsigned int dwParam2;
-}OUTMSGINFO;
-
 extern "C" JNIEXPORT jint JNICALL  Java_gui_1lite_1sample_ThreadNative_start_1native(JNIEnv * ev, jobject obj, jint main_cnt, jint sub_cnt)
 {
 	InitJavaEnv(ev, obj);

@@ -2,11 +2,11 @@
     <img src="doc/GuiLiteCube.gif" alt="Image" width="600" height="300"/>
 </p>
 
-# GuiLite Samples - Crack GuiLite with live demo
+# Build wonderful GUI with a few lines of code
 ![badge_build](https://img.shields.io/badge/build-passing-brightgreen.svg) ![badge_docker](https://img.shields.io/badge/docker%20build-passing-brightgreen.svg) ![badge_platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS%20%7C%20iOS%20%7C%20Android%20%7C%20MCU-brightgreen.svg) ![badge_lincense](https://img.shields.io/badge/license-Apache%202-blue.svg) ![badge_lincense](https://img.shields.io/badge/architecture-amd64%20%7C%20arm%20%7C%20arm64-blue.svg) 
 
 [中文](README_zh.md)
-- GuiLite samples contain 17 cross-platform projects. They all based on [GuiLite](https://github.com/idea4good/GuiLite). They could show you how to use GuiLite's interface, and how GuiLite works on iOS, Android, GNU/Linux, Windows and macOS platform.
+- GuiLite samples contain 18 cross-platform projects. They all based on [GuiLite](https://github.com/idea4good/GuiLite). They could show you how to use GuiLite's interface, and how GuiLite works on iOS, Android, GNU/Linux, Windows and macOS platform.
 - GuiLite samples could pass compiling in 100%, could run on all kinds of PC, phones, MCU and embedded(IoT) devices.
 - Suppoort IDE: Visual Studio, Qt Creator, Keil 
 - GuiLite Samples could run on web page, and make 3D feature with WebGL, visit [GuiLiteWeb](https://github.com/idea4good/GuiLiteWeb) to get more details
@@ -29,6 +29,11 @@
 - Hello Molecule has only [100+ lines code](HelloMolecule/UIcode/UIcode.cpp), showing you how to build molecule movement effect.
 - [How to porting for any MCU?](HelloWave/README.md#how-to-port-on-any-type-of-mcu)
 - Also support: Windows / Linux / Qt
+
+## Hello Transparent
+![HelloTransparent](doc/HelloTransparent.gif)
+
+Hello Transparent has only [300+ lines code](HelloTransparent/UIcode/UIcode.cpp) for transparent widgets. You can run it on Windows, Linux and Qt.
 
 ## Hello Scroll
 ![HelloScroll](doc/HelloScroll.gif)

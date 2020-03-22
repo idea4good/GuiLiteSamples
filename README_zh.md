@@ -2,9 +2,9 @@
     <img src="doc/GuiLiteCube.gif" alt="Image" width="600" height="300"/>
 </p>
 
-# GuiLite Samples - 小Demo，说清GUI原理
+# 用最少的代码，演绎GUI的精彩
 ![badge_build](https://img.shields.io/badge/build-passing-brightgreen.svg) ![badge_docker](https://img.shields.io/badge/docker%20build-passing-brightgreen.svg) ![badge_platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS%20%7C%20iOS%20%7C%20Android%20%7C%20MCU-brightgreen.svg) ![badge_lincense](https://img.shields.io/badge/license-Apache%202-blue.svg) ![badge_lincense](https://img.shields.io/badge/architecture-amd64%20%7C%20arm%20%7C%20arm64-blue.svg) 
-- GuiLite samples包括17个跨平台项目，他们都是基于[GuiLite](https://github.com/idea4good/GuiLite)编写的小应用，用来说明GuiLite的设计及使用方法，这些小应用可以运行在：iOS，Android，Linux，Windows，Mac，及**有（无）操作系统的MCU**平台上。
+- GuiLite samples包括18个跨平台项目，他们都是基于[GuiLite](https://github.com/idea4good/GuiLite)编写的小应用，用来说明GuiLite的设计及使用方法，这些小应用可以运行在：iOS，Android，Linux，Windows，Mac，及**有（无）操作系统的MCU**平台上。
 - GuiLite samples编译成功率100%，可以运行在市面所有的：PC，手机，单片机及各种嵌入式（IoT）设备上。
 - 支持多种IDE开发调试: Visual Studio, Qt Creator, Keil
 - GuiLite Samples可以运行在网页上，并形成3D效果，详情请访问[GuiLiteWeb](https://github.com/idea4good/GuiLiteWeb)
@@ -27,6 +27,11 @@
 - Hello Molecule 仅有[100多行代码](HelloMolecule/UIcode/UIcode.cpp),它是基于GuiLite制作的分子运动效果。
 - [移植方法 -- 适用于任意单片机平台？](HelloWave/README.md#how-to-port-on-any-type-of-mcu)
 - 该实例亦可支持Windows和Linux平台
+
+## Hello Transparent
+![HelloTransparent](doc/HelloTransparent.gif)
+
+Hello Transparent 仅有[300多行代码](HelloTransparent/UIcode/UIcode.cpp) 用来实现“透明”窗口， 该实例可支持Windows，Linux和Qt平台。
 
 ## Hello Scroll
 ![HelloScroll](doc/HelloScroll.gif)

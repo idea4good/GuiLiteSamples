@@ -14,8 +14,8 @@ extern void startHelloTransparent(void* phy_fb, int width, int height, int color
 extern void sendTouch2HelloTransparent(int x, int y, bool is_down);
 extern void* getUiOfHelloTransparent(int* width, int* height, bool force_update);
 
-#define UI_WIDTH    600
-#define UI_HEIGHT   400
+#define UI_WIDTH    522
+#define UI_HEIGHT   957
 class GuiLiteThread: public QThread
 {
     void run()

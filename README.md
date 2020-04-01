@@ -114,4 +114,4 @@ Looks complex? Trust me that you can do everything we did because we are the sam
 [Gitee in China](https://gitee.com/idea4good/GuiLiteSamples)
 
 ## Thanks
-Thanks the help from QQ group, you guys make GuiLite better! And welcome to join us.<br>[<img src="doc/qq.group.jpg">](https://jq.qq.com/?_wv=1027&k=5EO8D9i)
+Thanks the help from QQ group, you guys make GuiLite better! And welcome to join us.<br>[<img src="doc/qq.group.jpg">](https://jq.qq.com/?_wv=1027&k=5hc3qwj)

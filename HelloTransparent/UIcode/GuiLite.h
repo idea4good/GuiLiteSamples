@@ -469,8 +469,7 @@ public:
 	int get_height() { return m_height; }
 	unsigned int get_pixel(int x, int y, unsigned int z_order)
 	{
-		if (x >= m_width || y >= m_height || x < 0 || y < 0 ||
-			z_order >= Z_ORDER_LEVEL_MAX)
+		if (x >= m_width || y >= m_height || x < 0 || y < 0 || z_order >= Z_ORDER_LEVEL_MAX)
 		{
 			ASSERT(false);
 			return 0;
@@ -602,95 +601,32 @@ public:
 	}
 	void draw_line(int x1, int y1, int x2, int y2, unsigned int rgb, unsigned int z_order)
 	{
-		int dx, dy, e;
-		dx = x2 - x1;
-		dy = y2 - y1;
-		if ((dx >= 0) && (dy >= 0))
+		int dx, dy, x, y, e;
+		(x1 > x2) ? (dx = x1 - x2) : (dx = x2 - x1);
+		(y1 > y2) ? (dy = y1 - y2) : (dy = y2 - y1);
+		if (((dx > dy) && (x1 > x2)) || ((dx <= dy) && (y1 > y2)))
 		{
-			if (dx >= dy)
+			x = x2; y = y2;
+			x2 = x1; y2 = y1;
+			x1 = x; y1 = y;
+		}
+		x = x1; y = y1;
+		if (dx > dy)
+		{
+			e = dy - dx / 2;
+			for (; x1 <= x2; ++x1, e += dy)
 			{
-				e = dy - dx / 2;
-				for (; x1 <= x2; x1++, e += dy)
-				{
-					draw_pixel(x1, y1, rgb, z_order);
-					if (e > 0) { y1++; e -= dx; }
-				}
-			}
-			else
-			{
-				e = dx - dy / 2;
-				for (; y1 <= y2; y1++, e += dx)
-				{
-					draw_pixel(x1, y1, rgb, z_order);
-					if (e > 0) { x1++; e -= dy; }
-				}
+				draw_pixel(x1, y1, rgb, z_order);
+				if (e > 0) { e -= dx; (y > y2) ? --y1 : ++y1; }
 			}
 		}
-		else if ((dx >= 0) && (dy < 0))
+		else
 		{
-			dy = -dy;
-			if (dx >= dy)
+			e = dx - dy / 2;
+			for (; y1 <= y2; ++y1, e += dx)
 			{
-				e = dy - dx / 2;
-				for (; x1 <= x2; x1++, e += dy)
-				{
-					draw_pixel(x1, y1, rgb, z_order);
-					if (e > 0) { y1--; e -= dx; }
-				}
-			}
-			else
-			{
-				e = dx - dy / 2;
-				for (; y1 >= y2; y1--, e += dx)
-				{
-					draw_pixel(x1, y1, rgb, z_order);
-					if (e > 0) { x1++; e -= dy; }
-				}
-			}
-		}
-		else if ((dx < 0) && (dy >= 0))
-		{
-			dx = -dx;
-			if (dx >= dy)
-			{
-				e = dy - dx / 2;
-				for (; x1 >= x2; x1--, e += dy)
-				{
-					draw_pixel(x1, y1, rgb, z_order);
-					if (e > 0) { y1++; e -= dx; }
-				}
-			}
-			else
-			{
-				e = dx - dy / 2;
-				for (; y1 <= y2; y1++, e += dx)
-				{
-					draw_pixel(x1, y1, rgb, z_order);
-					if (e > 0) { x1--; e -= dy; }
-				}
-			}
-		}
-		else if ((dx < 0) && (dy < 0))
-		{
-			dx = -dx;
-			dy = -dy;
-			if (dx >= dy)
-			{
-				e = dy - dx / 2;
-				for (; x1 >= x2; x1--, e += dy)
-				{
-					draw_pixel(x1, y1, rgb, z_order);
-					if (e > 0) { y1--; e -= dx; }
-				}
-			}
-			else
-			{
-				e = dx - dy / 2;
-				for (; y1 >= y2; y1--, e += dx)
-				{
-					draw_pixel(x1, y1, rgb, z_order);
-					if (e > 0) { x1--; e -= dy; }
-				}
+				draw_pixel(x1, y1, rgb, z_order);
+				if (e > 0) { e -= dy; (x > x2) ? --x1 : ++x1; }
 			}
 		}
 	}
@@ -876,7 +812,7 @@ protected:
 		for (int i = Z_ORDER_LEVEL_0; i < m_max_zorder; i++)
 		{//Top layber fb always be 0
 			ASSERT(!m_frame_layers[i].fb);
-			m_frame_layers[i].fb = (unsigned short*)calloc(m_width * m_height, m_color_bytes);
+			m_frame_layers[i].fb = calloc(m_width * m_height, m_color_bytes);
 			ASSERT(m_frame_layers[i].fb);
 		}
 	}

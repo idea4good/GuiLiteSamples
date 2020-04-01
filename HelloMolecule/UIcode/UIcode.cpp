@@ -2,8 +2,8 @@
 #include "GuiLite.h"
 #include <math.h>
 
-#define MOLECULE_TOTAL 8
-#define BOND_TOTAL 28 //BOND_TOTAL = 1 + 2 + ... + (MOLECULE_TOTAL - 1)
+#define MOLECULE_TOTAL 10
+#define BOND_TOTAL 45 //BOND_TOTAL = 1 + 2 + ... + (MOLECULE_TOTAL - 1)
 
 const int UI_WIDTH = 240;
 const int UI_HEIGHT = 320;

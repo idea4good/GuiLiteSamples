@@ -82,6 +82,10 @@ protected:
 class Cube : public Shape
 {
 public:
+	Cube()
+	{
+		memset(points2d, 0, sizeof(points2d));
+	}
 	virtual void draw(int x, int y, bool isErase)
 	{
 		for (int i = 0; i < 4; i++)
@@ -122,6 +126,10 @@ double Cube::points[8][3] = {
 class Pyramid : public Shape
 {
 public:
+	Pyramid()
+	{
+		memset(points2d, 0, sizeof(points2d));
+	}
 	virtual void draw(int x, int y, bool isErase)
 	{
 		s_surface->draw_line(points2d[0][0] + x, points2d[0][1] + y, points2d[1][0] + x, points2d[1][1] + y, (isErase) ? 0 : 0xff007acc, Z_ORDER_LEVEL_0);

@@ -172,9 +172,9 @@ extern "C" void startHelloWave(void* phy_fb, int width, int height, int color_by
 	create_ui(phy_fb, width, height, color_bytes, gfx_op);
 }
 
-extern "C" void* getUiOfHelloWave()
+extern "C" void* getUiOfHelloWave(int* width, int* height, bool force_update)
 {
-    return s_display->get_updated_fb(0, 0, false);
+    return s_display->get_updated_fb(width, height, false);
 }
 
 void sendTouch2HelloWave(int x, int y, bool is_down)

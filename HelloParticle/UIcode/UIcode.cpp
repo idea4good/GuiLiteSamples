@@ -73,7 +73,11 @@ extern "C" void startHelloParticle(void* phy_fb, int width, int height, int colo
 	create_ui(phy_fb, width, height, color_bytes, gfx_op);
 }
 
-extern "C" void* getUiOfHelloParticle()
+extern "C" void* getUiOfHelloParticle(int* width, int* height, bool force_update = false)
 {
-    return display->get_updated_fb(0, 0, false);
+	if (display)
+	{
+		return display->get_updated_fb(width, height, force_update);
+	}
+	return NULL;
 }

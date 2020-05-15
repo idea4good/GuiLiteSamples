@@ -6,6 +6,7 @@
 #define UI_HEIGHT 320
 
 static c_surface* s_surface;
+static c_display* s_display;
 
 class c_star {
 public:
@@ -67,6 +68,7 @@ public:
 c_star stars[100];
 void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op) {
 	c_display display = c_display(phy_fb, screen_width, screen_height, UI_WIDTH, UI_HEIGHT, color_bytes, 1, gfx_op);
+	s_display = &display;
 	s_surface = display.alloc_surface(Z_ORDER_LEVEL_0);
 	s_surface->set_active(true);
 
@@ -83,4 +85,13 @@ void create_ui(void* phy_fb, int screen_width, int screen_height, int color_byte
 //////////////////////// interface for all platform ////////////////////////
 extern "C" void startHelloStar(void* phy_fb, int width, int height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op) {
 	create_ui(phy_fb, width, height, color_bytes, gfx_op);
+}
+
+void* getUiOfHelloStar(int* width, int* height, bool force_update)
+{
+	if (s_display)
+	{
+		return s_display->get_updated_fb(width, height, force_update);
+	}
+	return NULL;
 }

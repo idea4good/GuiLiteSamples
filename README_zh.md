@@ -112,4 +112,4 @@ HostMonitor有2千行UI代码, 用来布局UI和自定义控件
 [国内码云链接](https://gitee.com/idea4good/GuiLiteSamples)
 
 ## 致谢
-感谢开发者群的所有同学，是你们塑造了今天的GuiLite！也欢迎新的大神/小白加入我们。<br>[<img src="doc/qq.group.jpg">](https://jq.qq.com/?_wv=1027&k=5hc3qwj)
+感谢开发者群的所有同学，是你们塑造了今天的GuiLite！也欢迎新的大神/小白加入我们。<br>[<img src="doc/qq.group-1.jpg">](https://jq.qq.com/?_wv=1027&k=qfvGGAa7) [<img src="doc/qq.group-2.jpg">](https://jq.qq.com/?_wv=1027&k=yKnUJj1B) [<img src="doc/qq.group-3.jpg">](https://jq.qq.com/?_wv=1027&k=5hc3qwj)

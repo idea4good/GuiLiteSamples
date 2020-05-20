@@ -170,10 +170,8 @@ double Pyramid::points[5][3] = {
 
 // Demo
 void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op) {
-	c_display display(phy_fb, screen_width, screen_height, UI_WIDTH, UI_HEIGHT, color_bytes, 1, gfx_op);
-    s_display = &display;
-    s_surface = s_display->alloc_surface(Z_ORDER_LEVEL_0);
-	s_surface->set_active(true);
+	s_surface = (phy_fb) ? &c_surface(UI_WIDTH, UI_HEIGHT, color_bytes, Z_ORDER_LEVEL_0) : &c_surface_no_fb(UI_WIDTH, UI_HEIGHT, color_bytes, gfx_op, Z_ORDER_LEVEL_0);
+	s_display = &c_display(phy_fb, screen_width, screen_height, s_surface);
 	s_surface->fill_rect(0, 0, UI_WIDTH - 1, UI_HEIGHT - 1, 0, Z_ORDER_LEVEL_0);
 	
 	Cube theCube[SHAPE_CNT]; Pyramid thePyramid[SHAPE_CNT];

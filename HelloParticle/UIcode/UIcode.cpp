@@ -12,7 +12,7 @@
 #define PARTICAL_WITH	3
 #define PARTICAL_HEIGHT 3
 
-c_display* display;
+c_display* s_display;
 static c_surface* s_surface;
 
 class c_particle {
@@ -50,10 +50,20 @@ void load_resource() {
 c_particle particle_array[100];
 void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op) {
 	load_resource();
-	static c_display s_display(phy_fb, screen_width, screen_height, UI_WIDTH, UI_HEIGHT, color_bytes, 1, gfx_op);
-	display = &s_display;
-	s_surface = display->alloc_surface(Z_ORDER_LEVEL_0);
-	s_surface->set_active(true);
+	if (phy_fb)
+	{
+		static c_surface surface(UI_WIDTH, UI_HEIGHT, color_bytes, Z_ORDER_LEVEL_0);
+		static c_display display(phy_fb, screen_width, screen_height, &surface);
+		s_surface = &surface;
+		s_display = &display;
+	}
+	else
+	{//for MCU without framebuffer
+		static c_surface_no_fb surface_no_fb(UI_WIDTH, UI_HEIGHT, color_bytes, gfx_op, Z_ORDER_LEVEL_0);
+		static c_display display(phy_fb, screen_width, screen_height, &surface_no_fb);
+		s_surface = &surface_no_fb;
+		s_display = &display;
+	}
 
 	s_surface->fill_rect(0, 0, UI_WIDTH - 1, UI_HEIGHT - 1, 0, Z_ORDER_LEVEL_0);
 	c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, "\xe7\xa5\x9d\x47\x75\x69\x4c\x69\x74\x65\xe5\xbc\x80\xe5\x8f\x91\xe8\x80\x85\xef\xbc\x9a", 10, 10, c_theme::get_font(FONT_DEFAULT), GL_RGB(255, 0, 0), GL_ARGB(0, 0, 0, 0));
@@ -75,9 +85,9 @@ extern "C" void startHelloParticle(void* phy_fb, int width, int height, int colo
 
 extern "C" void* getUiOfHelloParticle(int* width, int* height, bool force_update = false)
 {
-	if (display)
+	if (s_display)
 	{
-		return display->get_updated_fb(width, height, force_update);
+		return s_display->get_updated_fb(width, height, force_update);
 	}
 	return NULL;
 }

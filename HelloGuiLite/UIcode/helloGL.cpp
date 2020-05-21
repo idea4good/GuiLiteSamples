@@ -121,11 +121,10 @@ static WND_TREE s_desktop_children[] =
 static c_display* s_display;
 void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes)
 {
-	s_display = new c_display(phy_fb, screen_width, screen_height, UI_WIDTH, UI_HEIGHT, color_bytes, 1);
-	c_surface* surface = s_display->alloc_surface(Z_ORDER_LEVEL_1);
-	surface->set_active(true);
+	c_surface surface = c_surface(UI_WIDTH, UI_HEIGHT, color_bytes, Z_ORDER_LEVEL_1);
+	s_display = new c_display(phy_fb, screen_width, screen_height, &surface);
 
-	s_desktop.set_surface(surface);
+	s_desktop.set_surface(&surface);
 	s_desktop.connect(NULL, ID_DESKTOP, 0, 0, 0, UI_WIDTH, UI_HEIGHT, s_desktop_children);
 	s_desktop.show_window();
 

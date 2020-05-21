@@ -12,13 +12,9 @@
 #define RYU_Y				90
 #define ACC_X				0
 #define ACC_Y				1
-extern const BITMAP_INFO title_bmp, background_bmp, step1_bmp, step2_bmp, step3_bmp, jump_bmp,
-frame_00_bmp, frame_01_bmp, frame_02_bmp, frame_03_bmp, frame_04_bmp, frame_05_bmp, frame_06_bmp,
-frame_07_bmp, frame_08_bmp, frame_09_bmp, frame_10_bmp, frame_11_bmp, frame_12_bmp, frame_13_bmp;
+extern const BITMAP_INFO title_bmp, background_bmp, step1_bmp, step2_bmp, step3_bmp, jump_bmp, frame_00_bmp, frame_01_bmp, frame_02_bmp, frame_03_bmp, frame_04_bmp, frame_05_bmp, frame_06_bmp, frame_07_bmp, frame_08_bmp, frame_09_bmp, frame_10_bmp, frame_11_bmp, frame_12_bmp, frame_13_bmp;
 
-static BITMAP_INFO s_frames[] = { frame_00_bmp, frame_01_bmp, frame_02_bmp,  frame_03_bmp,  frame_04_bmp,  frame_05_bmp,
-							frame_06_bmp,  frame_07_bmp,  frame_08_bmp,  frame_09_bmp,  frame_10_bmp,  frame_11_bmp,
-							frame_12_bmp, frame_13_bmp };
+static BITMAP_INFO s_frames[] = { frame_00_bmp, frame_01_bmp, frame_02_bmp,  frame_03_bmp,  frame_04_bmp,  frame_05_bmp, frame_06_bmp,  frame_07_bmp,  frame_08_bmp,  frame_09_bmp,  frame_10_bmp,  frame_11_bmp, frame_12_bmp, frame_13_bmp };
 static c_surface* s_surface_top;
 static c_surface* s_surface_bottom;
 
@@ -100,15 +96,17 @@ public:
 //////////////////////// start UI ////////////////////////
 c_mario the_mario;
 void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op_top, struct EXTERNAL_GFX_OP* gfx_op_bottom) {
-	c_display display_top = c_display(phy_fb, screen_width, screen_height, UI_WIDTH, (screen_height - UI_BOTTOM_HEIGHT), color_bytes, 1, gfx_op_top);
-	s_surface_top = display_top.alloc_surface(Z_ORDER_LEVEL_0);
-	s_surface_top->set_active(true);
+	ASSERT(!phy_fb);
+
+	static c_surface_no_fb surface_no_fb_top(UI_WIDTH, (screen_height - UI_BOTTOM_HEIGHT), color_bytes, gfx_op_top, Z_ORDER_LEVEL_0);
+	static c_display display_top(phy_fb, screen_width, screen_height, &surface_no_fb_top);
+	s_surface_top = &surface_no_fb_top;
+	static c_surface_no_fb surface_no_fb_bottom(UI_WIDTH, UI_BOTTOM_HEIGHT, color_bytes, gfx_op_bottom, Z_ORDER_LEVEL_1);
+	static c_display display_bottom(phy_fb, screen_width, screen_height, &surface_no_fb_bottom);
+	s_surface_bottom = &surface_no_fb_bottom;
+
 	s_surface_top->fill_rect(0, 0, UI_WIDTH - 1, screen_height - UI_BOTTOM_HEIGHT - 1, GL_RGB(131, 110, 83), Z_ORDER_LEVEL_0);
 	c_bitmap::draw_bitmap(s_surface_top, Z_ORDER_LEVEL_0, &title_bmp, 30, 20);
-
-	c_display display_bottom = c_display(phy_fb, screen_width, screen_height, UI_WIDTH, UI_BOTTOM_HEIGHT, color_bytes, 1, gfx_op_bottom);
-	s_surface_bottom = display_bottom.alloc_surface(Z_ORDER_LEVEL_1);
-	s_surface_bottom->set_active(true);
 	s_surface_bottom->fill_rect(0, 0, UI_WIDTH - 1, UI_BOTTOM_HEIGHT - 1, 0, Z_ORDER_LEVEL_0);
 	c_bitmap::draw_bitmap(s_surface_bottom, Z_ORDER_LEVEL_0, &background_bmp, 3, 0);
 

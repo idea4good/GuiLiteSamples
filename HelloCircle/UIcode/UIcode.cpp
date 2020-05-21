@@ -202,12 +202,22 @@ Circle theSmallCircle(CIRCLE_X, CIRCLE_Y, SMALL_RADIUS, GL_RGB(25, 68, 97), 8);
 Circle theBigCircle(CIRCLE_X, CIRCLE_Y, BIG_RADIUS, GL_RGB(59, 152, 215), 8, false);
 
 void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op) {
-    c_display display(phy_fb, screen_width, screen_height, UI_WIDTH, UI_HEIGHT, color_bytes, 1, gfx_op);
-	s_display = &display;
-    s_surface = s_display->alloc_surface(Z_ORDER_LEVEL_0);
-	s_surface->set_active(true);
-	s_surface->fill_rect(0, 0, UI_WIDTH - 1, UI_HEIGHT - 1, 0, Z_ORDER_LEVEL_0);
+	if (phy_fb)
+	{
+		static c_surface surface(UI_WIDTH, UI_HEIGHT, color_bytes, Z_ORDER_LEVEL_0);
+		static c_display display(phy_fb, screen_width, screen_height, &surface);
+		s_surface = &surface;
+		s_display = &display;
+	}
+	else
+	{//for MCU without framebuffer
+		static c_surface_no_fb surface_no_fb(UI_WIDTH, UI_HEIGHT, color_bytes, gfx_op, Z_ORDER_LEVEL_0);
+		static c_display display(phy_fb, screen_width, screen_height, &surface_no_fb);
+		s_surface = &surface_no_fb;
+		s_display = &display;
+	}
 	
+	s_surface->fill_rect(0, 0, UI_WIDTH - 1, UI_HEIGHT - 1, 0, Z_ORDER_LEVEL_0);
 	double time = 0.0;
 	while (time < PI * 2)
 	{

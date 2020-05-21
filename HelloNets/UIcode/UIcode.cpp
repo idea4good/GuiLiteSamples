@@ -114,10 +114,21 @@ void trigger(int x, int y, bool is_down)
 
 void run(void* phy_fb, int screen_width, int screen_height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op)
 {
-	c_display display(phy_fb, screen_width, screen_height, screen_width, screen_height, color_bytes, 1, gfx_op);
-	s_display = &display;
-	s_surface = s_display->alloc_surface(Z_ORDER_LEVEL_0);
-	s_surface->set_active(true);
+	if (phy_fb)
+	{
+		static c_surface surface(screen_width, screen_height, color_bytes, Z_ORDER_LEVEL_0);
+		static c_display display(phy_fb, screen_width, screen_height, &surface);
+		s_surface = &surface;
+		s_display = &display;
+	}
+	else
+	{//for MCU without framebuffer
+		static c_surface_no_fb surface_no_fb(screen_width, screen_height, color_bytes, gfx_op, Z_ORDER_LEVEL_0);
+		static c_display display(phy_fb, screen_width, screen_height, &surface_no_fb);
+		s_surface = &surface_no_fb;
+		s_display = &display;
+	}
+
 	s_surface->fill_rect(0, 0, screen_width - 1, screen_height - 1, GL_RGB(0, 0, 0), Z_ORDER_LEVEL_0);
 
 	//init points

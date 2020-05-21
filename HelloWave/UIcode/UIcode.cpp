@@ -133,14 +133,27 @@ void load_resource()
 }
 
 static c_display* s_display;
+static c_surface* s_surface;
 void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op)
 {
 	load_resource();
-	static c_display display(phy_fb, screen_width, screen_height, UI_WIDTH, UI_HEIGHT, color_bytes, 1, gfx_op);
-	s_display = &display;
-	c_surface* surface = s_display->alloc_surface(Z_ORDER_LEVEL_0);
-	surface->set_active(true);
-	s_myUI.set_surface(surface);
+	
+	if (phy_fb)
+	{
+		static c_surface surface(UI_WIDTH, UI_HEIGHT, color_bytes, Z_ORDER_LEVEL_0);
+		static c_display display(phy_fb, screen_width, screen_height, &surface);
+		s_surface = &surface;
+		s_display = &display;
+	}
+	else
+	{//for MCU without framebuffer
+		static c_surface_no_fb surface_no_fb(UI_WIDTH, UI_HEIGHT, color_bytes, gfx_op, Z_ORDER_LEVEL_0);
+		static c_display display(phy_fb, screen_width, screen_height, &surface_no_fb);
+		s_surface = &surface_no_fb;
+		s_display = &display;
+	}
+
+	s_myUI.set_surface(s_surface);
 	s_myUI.connect(NULL, ID_ROOT, 0, 0, 0, UI_WIDTH, UI_HEIGHT, s_myUI_children);
 	s_myUI.show_window();
 

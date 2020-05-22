@@ -21,19 +21,13 @@ static int screen_width = 240;
 static int screen_height = 320;
 static void* phy_fb = NULL;
 static const char* s_welcome =
-"-------------------------------------------------------------------\n"
-"*  GuiLite Sample code [Version 1.6]                              *\n"
-"*  Any feedback will be appreciated. Email: idea4good@outlook.com *\n"
-"-------------------------------------------------------------------\n"
-"How to run inside QT APP?\n"
-"If x64: ./display-x64 | ./HelloMario shared-fb\n"
-"If ARM: ./display-arm | ./HelloMario shared-fb\n\n"
+"--------------------------- Help ---------------------------\n"
+"Run on Linux Desktop:\n"
+"./xWindow 240 320 | ./HelloMario shared-fb\n\n"
 
-"How to run on Linux?\n"
-"Type command: ./HelloMario /dev/fb-path\n\n"
-"-------------------- Help ------------------------\n"
-"exit: 	Exit the App.\n"
-"--------------------------------------------------\n";
+"Run on ARM Linux:\n"
+"./HelloMario /dev/fb-path\n"
+"------------------------------------------------------------\n";
 
 struct EXTERNAL_GFX_OP
 {

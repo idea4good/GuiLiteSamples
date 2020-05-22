@@ -25,20 +25,17 @@ enum FRAMEBUFFER_MODE
 	FB_DEV_MODE
 };
 static const char* s_tip_welcome =
-"-------------------------------------------------------------------\n"
-"*  GuiLite Sample code [Version 1.6]                              *\n"
-"*  Any feedback will be appreciated. Email: idea4good@outlook.com *\n"
-"-------------------------------------------------------------------\n"
-"How to run with Internet browser?\n"
-"1. Run Display.html with your internet browser:\n"
-"2. Type command: sslp\n\n"
+"--------------------------- Help ---------------------------\n"
+"Run on Linux Desktop:\n"
+"./xWindow 1024 768 | ./HostMonitor shared-fb\n\n"
 
-"How to run inside QT APP?\n"
-"If x64: ./display-x64 | ./HostMonitor shared-fb\n"
-"If ARM: ./display-arm | ./HostMonitor shared-fb\n\n"
+"Run on ARM Linux:\n"
+"./HostMonitor /dev/fb-path\n\n"
 
-"How to run on Linux?\n"
-"Type command: ./HostMonitor /dev/fb-path\n\n";
+"ss: 	Save UI in snapshot.bmp.\n"
+"aa: 	Left slide.\n"
+"dd:    Right slide.\n"
+"------------------------------------------------------------\n";
 
 int main(int argc, char** argv)
 {

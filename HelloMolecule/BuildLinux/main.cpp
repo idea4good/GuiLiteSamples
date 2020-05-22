@@ -17,21 +17,13 @@ static void* get_embeded_fb_in_display_app(int shared_id);
 static void* get_dev_fb(char* path, int &width, int &height, int &color_bytes);
 
 static const char* s_welcome =
-"-------------------------------------------------------------------\n"
-"*  GuiLite Sample code [Version 1.6]                              *\n"
-"*  Any feedback will be appreciated. Email: idea4good@outlook.com *\n"
-"-------------------------------------------------------------------\n"
-"How to run inside QT APP?\n"
-"If x64: ./display-x64 | ./HelloMolecule shared-fb\n"
-"If ARM: ./display-arm | ./HelloMolecule shared-fb\n\n"
+"--------------------------- Help ---------------------------\n"
+"Run on Linux Desktop:\n"
+"./xWindow 240 320 | ./HelloMolecule shared-fb\n\n"
 
-"How to run on Linux?\n"
-"Type command: ./HelloMolecule /dev/fb-path\n\n"
-"-------------------- Help ------------------------\n"
-"ss: 	Save UI in snapshot.bmp.\n"
-"bb: 	Press play button.\n"
-"exit: 	Exit the App.\n"
-"--------------------------------------------------\n";
+"Run on ARM Linux:\n"
+"./HelloMolecule /dev/fb-path\n"
+"------------------------------------------------------------\n";
 
 enum FRAMEBUFFER_MODE
 {

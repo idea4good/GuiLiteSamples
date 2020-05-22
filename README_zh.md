@@ -115,8 +115,8 @@ HostMonitor有2千行UI代码, 用来布局UI和自定义控件
 感谢开发者群的所有同学，是你们塑造了今天的GuiLite！也欢迎新的大神/小白加入我们。
 <table>
   <tr>
-    <td align="center"><a href="https://jq.qq.com/?_wv=1027&k=qfvGGAa7"><img src="doc/qq.group-1.jpg" width="240px;"/><br /><sub><b>大群：资源丰富</b></sub></a>
-    <td align="center"><a href="https://jq.qq.com/?_wv=1027&k=yKnUJj1B"><img src="doc/qq.group-2.jpg" width="240px;"/><br /><sub><b>中群：经验交流</b></sub></a>
-    <td align="center"><a href="https://jq.qq.com/?_wv=1027&k=5hc3qwj"><img src="doc/qq.group-3.jpg" width="240px;"/><br /><sub><b>小群：入门学习</b></sub></a>
+    <td align="center"><a href="https://jq.qq.com/?_wv=1027&k=qfvGGAa7"><img src="doc/qq.group-1.jpg" width="240px;"/><br /><sub><b>大群：527251257</b></sub></a>
+    <td align="center"><a href="https://jq.qq.com/?_wv=1027&k=yKnUJj1B"><img src="doc/qq.group-2.jpg" width="240px;"/><br /><sub><b>中群：841031761</b></sub></a>
+    <td align="center"><a href="https://jq.qq.com/?_wv=1027&k=5hc3qwj"><img src="doc/qq.group-3.jpg" width="240px;"/><br /><sub><b>小群：717471210</b></sub></a>
   </tr>
 </table>

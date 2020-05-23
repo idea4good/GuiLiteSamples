@@ -73,7 +73,7 @@ int main(int argc, char** argv)
 {
 	printf(s_welcome);
 	system("chmod 777 .sync_build.sh");
-	system("./.sync_build.sh HelloMario");
+	system("./.sync_build.sh HelloMario &");
 
 	
 

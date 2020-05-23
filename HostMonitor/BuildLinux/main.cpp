@@ -157,7 +157,7 @@ int sync_data(int hr, int spo2, int rr, int nibp_sys, int nibp_dia, int nibp_mea
 {
     char cmd_line[128];
     memset(cmd_line, 0, sizeof(cmd_line));
-    sprintf(cmd_line, "%s %d %d %d %d %d %d",
+    sprintf(cmd_line, "%s %d %d %d %d %d %d &",
             "./.sync_data.sh ",
             hr, spo2, rr, nibp_sys, nibp_dia, nibp_mean);
     return system(cmd_line);

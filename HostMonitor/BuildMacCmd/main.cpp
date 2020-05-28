@@ -12,7 +12,6 @@ void startHostMonitor(void* phy_fb, int screen_width, int screen_height, int col
 extern void init_std_io(int display_cnt);
 
 static void* get_embeded_fb_in_display_app(int shared_id);
-static void* get_dev_fb(char* path, int &width, int &height, int &color_bytes);
 
 typedef int(*SYNC_DATA)(int hr, int spo2, int rr, int nibp_sys, int nibp_dia, int nibp_mean);
 extern SYNC_DATA gSyncData;
@@ -99,11 +98,11 @@ static void* get_embeded_fb_in_display_app(int shared_id)
 			{
 				break;
 			}
-			printf("shmat failed! run display app first.\n");
+			perror("shmat failed! run display app first.\n");
 		}
 		else
 		{
-			printf("shmget failed! run display app first\n");
+			perror("shmget failed! run display app first\n");
 		}
 		sleep(1);
 	}

@@ -161,7 +161,7 @@ int get_std_input(char *buffer, int size)
 	if (!fgets(buffer, (int)size - 1, stdin))
 	{
 		thread_sleep(10000);
-		printf("Warning: fgets() failed!\n");
+		perror("fgets() failed!\n");
 		fflush(stdout);
 		return -1;
 	}

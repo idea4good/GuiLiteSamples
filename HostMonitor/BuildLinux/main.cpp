@@ -104,11 +104,11 @@ static void* get_embeded_fb_in_display_app(int shared_id)
 			{
 				break;
 			}
-			printf("shmat failed! run display app first.\n");
+			perror("shmat failed! run display app first.\n");
 		}
 		else
 		{
-			printf("shmget failed! run display app first\n");
+			perror("shmget failed! run display app first\n");
 		}
 		sleep(1);
 	}
@@ -120,14 +120,14 @@ static void* get_dev_fb(char* path, int &width, int &height, int &color_bytes)
 	int fd = open (path, O_RDWR);
 	if(0 > fd)
 	{
-		printf("%s, open fb failed!\n", path);
+		perror("open fb failed!\n");
 		_exit(-1);
 	}
 
 	struct fb_var_screeninfo vinfo;
 	if (0 > ioctl(fd, FBIOGET_VSCREENINFO, &vinfo))
 	{
-		printf("get fb info failed!\n");
+		perror("get fb info failed!\n");
 		_exit(-1);
     }
 
@@ -146,7 +146,7 @@ static void* get_dev_fb(char* path, int &width, int &height, int &color_bytes)
 	void* fbp = mmap(0, (vinfo.xres * vinfo.yres * color_bytes), PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
 	if(0 > fbp)
 	{
-		printf("mmap fb failed!\n");  
+		perror("mmap fb failed!\n");  
 		_exit(-1);
 	}
 	memset(fbp, 0, (vinfo.xres * vinfo.yres * color_bytes));

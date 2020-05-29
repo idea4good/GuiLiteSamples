@@ -1,15 +1,10 @@
 #define GUILITE_ON	//Do not define this macro once more!!!
 #include "GuiLite.h"
-#if defined(_WIN32) || defined(WIN32) || defined(__linux__) || defined(__APPLE__)
-	#define SHAPE_CNT 2
-#else
-	#define SHAPE_CNT 1
-#endif
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
 
-#define UI_WIDTH	480
+#define UI_WIDTH	240
 #define UI_HEIGHT	320
 #define SHAPE_SIZE	50
 static c_surface* s_surface;
@@ -186,18 +181,15 @@ void create_ui(void* phy_fb, int screen_width, int screen_height, int color_byte
 	}
 	s_surface->fill_rect(0, 0, UI_WIDTH - 1, UI_HEIGHT - 1, 0, Z_ORDER_LEVEL_0);
 	
-	Cube theCube[SHAPE_CNT]; Pyramid thePyramid[SHAPE_CNT];
+	Cube theCube; Pyramid thePyramid;
 	while(1) {
-		for (int i = 0; i < SHAPE_CNT; i++)
-		{
-			theCube[i].draw(120 + i * 240, 100, true);//erase footprint
-			theCube[i].rotate();
-			theCube[i].draw(120 + i * 240, 100, false);//refresh cube
+		theCube.draw(120, 100, true);//erase footprint
+		theCube.rotate();
+		theCube.draw(120, 100, false);//refresh cube
 
-			thePyramid[i].draw(120 + i * 240, 250, true);//erase footprint
-			thePyramid[i].rotate();
-			thePyramid[i].draw(120 + i * 240, 250, false);//refresh pyramid
-		}
+		thePyramid.draw(120, 250, true);//erase footprint
+		thePyramid.rotate();
+		thePyramid.draw(120, 250, false);//refresh pyramid
 		thread_sleep(50);
 	}
 }

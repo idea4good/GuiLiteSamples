@@ -39,7 +39,7 @@ int main(int argc, char** argv)
 	system("./.sync_build.sh Hello3D &");
 
 	int color_bytes = 2;
-	int screen_width = 480;
+	int screen_width = 240;
 	int screen_height = 320;
 
 	FRAMEBUFFER_MODE fb_mode = FB_NULL_MODE;

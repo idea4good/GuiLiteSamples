@@ -165,7 +165,7 @@ extern "C" void startHello3D(void* phy_fb, int width, int height, int color_byte
 
 DWORD WINAPI ThreadHello3D(LPVOID pParam)
 {
-	startHello3D(calloc(480 * 320, COLOR_BYTES), 480, 320, COLOR_BYTES, 0);
+	startHello3D(calloc(240 * 320, COLOR_BYTES), 240, 320, COLOR_BYTES, 0);
 	return 0;
 }
 

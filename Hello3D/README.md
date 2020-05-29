@@ -37,7 +37,7 @@
     - Run inside X Window:
         1. `sudo su`
         2. `sudo ipcrm -M 1`
-        3. `sudo ./xWindow 480 320 | ./Hello3D shared-fb`
+        3. `sudo ./xWindow 240 320 | ./Hello3D shared-fb`
 
 ## Cross compiler & Run on target:
 1. install compiler:

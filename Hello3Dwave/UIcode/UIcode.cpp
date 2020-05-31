@@ -94,15 +94,30 @@ public:
 			s_surface->fill_rect(points2d[i][0] + x - 1, points2d[i][1] + y - 1, points2d[i][0] + x + 1, points2d[i][1] + y + 1, (isErase) ? 0 : color, Z_ORDER_LEVEL_0);
 		}
 	}
-	virtual void swing()
+	virtual void swing(float rotate_angle_diff)
 	{
-		angle += 0.1;
-		for (int y = 0; y < ROW; y++)
+		if (rotate_angle_diff == 0.0)
 		{
-			for (int x = 0; x < COL; x++)
+			angle += 0.1;
+			for (int y = 0; y < ROW; y++)
 			{
-				float offset = sqrt((x - COL / 2) * (x - COL / 2) + (y - ROW / 2) * (y - ROW / 2)) / 2;
-				points[y * COL + x][2] = sin(angle + offset) * AMPLITUDE;
+				for (int x = 0; x < COL; x++)
+				{
+					float offset = sqrt((x - COL / 2) * (x - COL / 2) + (y - ROW / 2) * (y - ROW / 2)) / 2;
+					points[y * COL + x][2] = sin(angle + offset) * AMPLITUDE;
+				}
+			}
+		}
+		else
+		{
+			rotate_angle += rotate_angle_diff;
+			if (rotate_angle > 1.0)
+			{
+				rotate_angle = 1.0;
+			}
+			if (rotate_angle < 0.0)
+			{
+				rotate_angle = 0.0;
 			}
 		}
 
@@ -112,10 +127,6 @@ public:
 			rotateX(rotate_angle, points[i], (float*)rotateOut1);
 			float zFactor = UI_WIDTH / (UI_WIDTH - rotateOut1[2][0]);
 			projectOnXY((float*)rotateOut1, (float*)points2d[i], zFactor);
-		}
-		if (rotate_angle < 1.0)
-		{
-			rotate_angle += 0.01;
 		}
 	}
 private:
@@ -145,12 +156,34 @@ void create_ui(void* phy_fb, int screen_width, int screen_height, int color_byte
 	s_surface->fill_rect(0, 0, UI_WIDTH - 1, UI_HEIGHT - 1, 0, Z_ORDER_LEVEL_0);
 	
 	Cwave theCwave;
+	unsigned int step = 0;
 	while(1) {
 		theCwave.draw(30 + (UI_WIDTH / 2), UI_HEIGHT / 2, true);//erase footprint
-		theCwave.swing();
-		theCwave.draw(30 + (UI_WIDTH / 2), UI_HEIGHT / 2, false);//refresh Cwave
 
+		if (step > 400)
+		{
+			step = 0;
+		}
+		else if (step > 300)
+		{
+			theCwave.swing(-0.01);
+		}
+		else if (step > 200)
+		{
+			theCwave.swing(0.0);
+		}
+		else if (step > 100)
+		{
+			theCwave.swing(0.01);
+		}
+		else
+		{
+			theCwave.swing(0.0);
+		}
+		
+		theCwave.draw(30 + (UI_WIDTH / 2), UI_HEIGHT / 2, false);//refresh Cwave
 		thread_sleep(50);
+		step++;
 	}
 }
 

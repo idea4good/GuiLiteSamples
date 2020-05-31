@@ -73,14 +73,14 @@ class Cwave
 public:
 	Cwave()
 	{
-		rotate_angle = 1.0;//1.57;
+		rotate_angle = 0;//1.57;
 		angle = 0;
 		memset(points2d, 0, sizeof(points2d));
 		for (int y = 0; y < ROW; y++)
 		{
 			for (int x = 0; x < COL; x++)
 			{
-				points[y * COL + x][0] = x * SPACE;
+				points[y * COL + x][0] = x * SPACE - (UI_WIDTH / 2);
 				points[y * COL + x][1] = y * SPACE - (UI_WIDTH / 2);
 			}
 		}
@@ -113,7 +113,10 @@ public:
 			float zFactor = UI_WIDTH / (UI_WIDTH - rotateOut1[2][0]);
 			projectOnXY((float*)rotateOut1, (float*)points2d[i], zFactor);
 		}
-		//rotate_angle += 0.001;
+		if (rotate_angle < 1.0)
+		{
+			rotate_angle += 0.01;
+		}
 	}
 private:
 	static float points[POINT_CNT][3];
@@ -143,9 +146,9 @@ void create_ui(void* phy_fb, int screen_width, int screen_height, int color_byte
 	
 	Cwave theCwave;
 	while(1) {
-		theCwave.draw(30, UI_HEIGHT / 2, true);//erase footprint
+		theCwave.draw(30 + (UI_WIDTH / 2), UI_HEIGHT / 2, true);//erase footprint
 		theCwave.swing();
-		theCwave.draw(30, UI_HEIGHT / 2, false);//refresh Cwave
+		theCwave.draw(30 + (UI_WIDTH / 2), UI_HEIGHT / 2, false);//refresh Cwave
 
 		thread_sleep(50);
 	}

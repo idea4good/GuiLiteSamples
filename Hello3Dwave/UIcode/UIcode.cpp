@@ -60,9 +60,9 @@ void projectOnXY(float* point, float* output, float zFactor = 1)
 
 #define UI_WIDTH	240
 #define UI_HEIGHT	320
-#define SPACE		20
-#define ROW			10
-#define COL			10
+#define SPACE		13
+#define ROW			15
+#define COL			15
 #define POINT_CNT	ROW * COL
 #define AMPLITUDE	50
 static c_surface* s_surface;
@@ -73,7 +73,7 @@ class Cwave
 public:
 	Cwave()
 	{
-		rotate_angle = 1.0;
+		rotate_angle = 1.0;//1.57;
 		angle = 0;
 		memset(points2d, 0, sizeof(points2d));
 		for (int y = 0; y < ROW; y++)
@@ -89,7 +89,8 @@ public:
 	{
 		for (int i = 0; i < POINT_CNT; i++)
 		{
-			unsigned int color = (points[i][2] > 0) ? GL_RGB(231, 11, 117) : GL_RGB(92, 45, 145);
+			float factor = (1 + points[i][2] / AMPLITUDE) / 2;
+			unsigned int color = GL_RGB(147 * factor, 72 * factor, 232 *  factor);
 			s_surface->fill_rect(points2d[i][0] + x - 1, points2d[i][1] + y - 1, points2d[i][0] + x + 1, points2d[i][1] + y + 1, (isErase) ? 0 : color, Z_ORDER_LEVEL_0);
 		}
 	}
@@ -100,7 +101,7 @@ public:
 		{
 			for (int x = 0; x < COL; x++)
 			{
-				float offset = sqrt((x - 5) * (x - 5) + (y - 5) * (y - 5)) / 2;
+				float offset = sqrt((x - COL / 2) * (x - COL / 2) + (y - ROW / 2) * (y - ROW / 2)) / 2;
 				points[y * COL + x][2] = sin(angle + offset) * AMPLITUDE;
 			}
 		}
@@ -109,9 +110,10 @@ public:
 		for (int i = 0; i < POINT_CNT; i++)
 		{
 			rotateX(rotate_angle, points[i], (float*)rotateOut1);
-			projectOnXY((float*)rotateOut1, (float*)points2d[i]);
+			float zFactor = UI_WIDTH / (UI_WIDTH - rotateOut1[2][0]);
+			projectOnXY((float*)rotateOut1, (float*)points2d[i], zFactor);
 		}
-		//rotate_angle += 0.1;
+		//rotate_angle += 0.001;
 	}
 private:
 	static float points[POINT_CNT][3];

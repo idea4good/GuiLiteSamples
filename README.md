@@ -13,8 +13,8 @@
 - GuiLite samples could run in **Docker container** with single command below:
   - `sudo docker run -it --privileged -v /dev:/dev-share idea4good/gui-lite:latest bash /run.sh`
 
-## MCU demos: Hello Star + Hello Particle + Hello Wave + Hello NoTouch + Hello Mario + Hello Nets + Hello 3D + Hello Circle + Hello Timer + Hello Molecule
-![HelloStar](doc/HelloStar.gif)&nbsp;&nbsp;![HelloParticle](doc/HelloParticle.gif)&nbsp;&nbsp;![HelloWave](doc/HelloWave.gif)&nbsp;&nbsp;![HelloNoTouch](doc/HelloNoTouch.gif)&nbsp;&nbsp;![HelloMario](doc/HelloMario.gif)&nbsp;&nbsp;![HelloNets-mcu](doc/HelloNets-mcu.gif)&nbsp;&nbsp;![Hello3D](doc/Hello3D.gif)&nbsp;&nbsp;![HelloCircle](doc/HelloCircle.gif)&nbsp;&nbsp;![HelloTimer](doc/HelloTimer.gif)&nbsp;&nbsp;![HelloMolecule](doc/HelloMolecule.gif)
+## MCU demos:
+![HelloStar](doc/HelloStar.gif)&nbsp;&nbsp;![HelloParticle](doc/HelloParticle.gif)&nbsp;&nbsp;![HelloWave](doc/HelloWave.gif)&nbsp;&nbsp;![HelloNoTouch](doc/HelloNoTouch.gif)&nbsp;&nbsp;![HelloMario](doc/HelloMario.gif)&nbsp;&nbsp;![HelloNets-mcu](doc/HelloNets-mcu.gif)&nbsp;&nbsp;![Hello3D](doc/Hello3D.gif)&nbsp;&nbsp;![HelloCircle](doc/HelloCircle.gif)&nbsp;&nbsp;![HelloTimer](doc/HelloTimer.gif)&nbsp;&nbsp;![HelloMolecule](doc/HelloMolecule.gif)&nbsp;&nbsp;![Hello3Dwave](doc/Hello3Dwave.gif)
 - MCU Hardware: STM32F103ZET6(512K ROM, 64K RAM) + 240*320 16bits color TFT LCD
 - MCU Software: No OS, Only GuiLite
 - Hello Star has [100+ lines code](HelloStar/UIcode/UIcode.cpp), showing you how to develop a star field effect.
@@ -27,6 +27,7 @@
 - Hello Circle has only [100+ lines code](HelloCircle/UIcode/UIcode.cpp), it's a 3D Circle base on GuiLite.
 - Hello Timer has only [200+ lines code](HelloTimer/UIcode/UIcode.cpp), it's a smart timer base on GuiLite.
 - Hello Molecule has only [100+ lines code](HelloMolecule/UIcode/UIcode.cpp), showing you how to build molecule movement effect.
+- Hello 3D Wave has only [100+ lines code](Hello3Dwave/UIcode/UIcode.cpp), showing you how to build 3D wave effect.
 - [How to porting for any MCU?](HelloWave/README.md#how-to-port-on-any-type-of-mcu)
 - Also support: Windows / Linux / Qt
 

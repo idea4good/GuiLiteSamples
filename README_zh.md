@@ -11,8 +11,8 @@
 - GuiLite samples可运行在**Docker容器**里面，具体命令如下:
   - `sudo docker run -it --privileged -v /dev:/dev-share idea4good/gui-lite:latest bash /run.sh`
 
-## 单片机系列: Hello Star + Hello Particle + Hello Wave + Hello NoTouch + Hello Mario + Hello 3D + Hello Timer + Hello Molecule
-![HelloStar](doc/HelloStar.gif)&nbsp;&nbsp;![HelloParticle](doc/HelloParticle.gif)&nbsp;&nbsp;![HelloWave](doc/HelloWave.gif)&nbsp;&nbsp;![HelloNoTouch](doc/HelloNoTouch.gif)&nbsp;&nbsp;![HelloMario](doc/HelloMario.gif)&nbsp;&nbsp;![HelloNets-mcu](doc/HelloNets-mcu.gif)&nbsp;&nbsp;![Hello3D](doc/Hello3D.gif)&nbsp;&nbsp;![HelloCircle](doc/HelloCircle.gif)&nbsp;&nbsp;![HelloTimer](doc/HelloTimer.gif)&nbsp;&nbsp;![HelloMolecule](doc/HelloMolecule.gif)
+## 单片机系列:
+![HelloStar](doc/HelloStar.gif)&nbsp;&nbsp;![HelloParticle](doc/HelloParticle.gif)&nbsp;&nbsp;![HelloWave](doc/HelloWave.gif)&nbsp;&nbsp;![HelloNoTouch](doc/HelloNoTouch.gif)&nbsp;&nbsp;![HelloMario](doc/HelloMario.gif)&nbsp;&nbsp;![HelloNets-mcu](doc/HelloNets-mcu.gif)&nbsp;&nbsp;![Hello3D](doc/Hello3D.gif)&nbsp;&nbsp;![HelloCircle](doc/HelloCircle.gif)&nbsp;&nbsp;![HelloTimer](doc/HelloTimer.gif)&nbsp;&nbsp;![HelloMolecule](doc/HelloMolecule.gif)&nbsp;&nbsp;![Hello3Dwave](doc/Hello3Dwave.gif)
 - 单片机硬件配置：STM32F103ZET6(512K ROM，64K RAM) + 240*320 16位TFT屏
 - 单片机软件配置：无操作系统 + GuiLite
 - Hello Star 仅有[100+行代码](HelloStar/UIcode/UIcode.cpp)，用于向开发者展示：如何使用GuiLite进行“星空”效果的开发。
@@ -25,6 +25,7 @@
 - Hello Circle 仅有[100多行代码](HelloCircle/UIcode/UIcode.cpp),它是基于GuiLite制作的3D圆环效果。
 - Hello Timer 仅有[200多行代码](HelloTimer/UIcode/UIcode.cpp),它是基于GuiLite制作的智能时钟效果。
 - Hello Molecule 仅有[100多行代码](HelloMolecule/UIcode/UIcode.cpp),它是基于GuiLite制作的分子运动效果。
+- Hello 3D wave 仅有[100多行代码](Hello3Dwave/UIcode/UIcode.cpp),它是基于GuiLite制作的3D波动效果。
 - [移植方法 -- 适用于任意单片机平台？](HelloWave/README.md#how-to-port-on-any-type-of-mcu)
 - 该实例亦可支持Windows和Linux平台
 

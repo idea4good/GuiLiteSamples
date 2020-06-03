@@ -8,7 +8,7 @@
 #include <shellapi.h>
 
 #define MAX_LOADSTRING 100
-#define COLOR_BYTES		2
+#define COLOR_BYTES		4
 // Global Variables:
 HINSTANCE hInst;                                // current instance
 WCHAR szTitle[MAX_LOADSTRING];                  // The title bar text

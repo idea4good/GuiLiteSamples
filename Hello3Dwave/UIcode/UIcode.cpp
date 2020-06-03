@@ -90,7 +90,7 @@ public:
 		for (int i = 0; i < POINT_CNT; i++)
 		{
 			float factor = (1 + points[i][2] / AMPLITUDE) / 2;
-			unsigned int color = GL_RGB(147 * factor, 72 * factor, 232 *  factor);
+			unsigned int color = GL_RGB(210 * factor, 130 * factor, 255 *  factor);
 			s_surface->fill_rect(points2d[i][0] + x - 1, points2d[i][1] + y - 1, points2d[i][0] + x + 1, points2d[i][1] + y + 1, (isErase) ? 0 : color, Z_ORDER_LEVEL_0);
 		}
 	}

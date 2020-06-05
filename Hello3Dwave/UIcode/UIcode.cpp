@@ -182,7 +182,7 @@ void create_ui(void* phy_fb, int screen_width, int screen_height, int color_byte
 		}
 		
 		theCwave.draw(30 + (UI_WIDTH / 2), UI_HEIGHT / 2, false);//refresh Cwave
-		thread_sleep(50);
+		thread_sleep(25);
 		step++;
 	}
 }

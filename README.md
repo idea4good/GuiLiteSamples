@@ -14,20 +14,30 @@
   - `sudo docker run -it --privileged -v /dev:/dev-share idea4good/gui-lite:latest bash /run.sh`
 
 ## MCU demos:
-![HelloStar](doc/HelloStar.gif)&nbsp;&nbsp;![HelloParticle](doc/HelloParticle.gif)&nbsp;&nbsp;![HelloWave](doc/HelloWave.gif)&nbsp;&nbsp;![HelloNoTouch](doc/HelloNoTouch.gif)&nbsp;&nbsp;![HelloMario](doc/HelloMario.gif)&nbsp;&nbsp;![HelloNets-mcu](doc/HelloNets-mcu.gif)&nbsp;&nbsp;![Hello3D](doc/Hello3D.gif)&nbsp;&nbsp;![HelloCircle](doc/HelloCircle.gif)&nbsp;&nbsp;![HelloTimer](doc/HelloTimer.gif)&nbsp;&nbsp;![HelloMolecule](doc/HelloMolecule.gif)&nbsp;&nbsp;![Hello3Dwave](doc/Hello3Dwave.gif)
-- MCU Hardware: STM32F103ZET6(512K ROM, 64K RAM) + 240*320 16bits color TFT LCD
+<table>
+  <tr>
+    <td align="center"><a href="HelloStar/UIcode/UIcode.cpp"><img src="doc/HelloStar.gif" width="200px;"/><br /><sub><b>star field effect</b></sub></a>
+    <td align="center"><a href="HelloParticle/UIcode/UIcode.cpp"><img src="doc/HelloParticle.gif" width="200px;"/><br /><sub><b>particle effect</b></sub></a>
+    <td align="center"><a href="HelloWave/UIcode/UIcode.cpp"><img src="doc/HelloWave.gif" width="200px;"/><br /><sub><b>wave widget</b></sub></a>
+    <td align="center"><a href="HelloNoTouch/UIcode/UIcode.cpp"><img src="doc/HelloNoTouch.gif" width="200px;"/><br /><sub><b>navigate/click widgets</b></sub></a>
+  </tr>
+
+  <tr>
+    <td align="center"><a href="HelloMario/UIcode/UIcode.cpp"><img src="doc/HelloMario.gif" width="200px;"/><br /><sub><b>multi-layer GUI</b></sub></a>
+    <td align="center"><a href="HelloNets/UIcode/UIcode.cpp"><img src="doc/HelloNets-mcu.gif" width="200px;"/><br /><sub><b>3D effect</b></sub></a>
+    <td align="center"><a href="Hello3D/UIcode/UIcode.cpp"><img src="doc/Hello3D.gif" width="200px;"/><br /><sub><b>3D effect</b></sub></a>
+    <td align="center"><a href="HelloCircle/UIcode/UIcode.cpp"><img src="doc/HelloCircle.gif" width="200px;"/><br /><sub><b>3D effect</b></sub></a>
+  </tr>
+
+  <tr>
+    <td align="center"><a href="HelloTimer/UIcode/UIcode.cpp"><img src="doc/HelloTimer.gif" width="200px;"/><br /><sub><b>smart timer</b></sub></a>
+    <td align="center"><a href="HelloMolecule/UIcode/UIcode.cpp"><img src="doc/HelloMolecule.gif" width="200px;"/><br /><sub><b>molecule movement effect</b></sub></a>
+    <td align="center"><a href="Hello3Dwave/UIcode/UIcode.cpp"><img src="doc/Hello3Dwave.gif" width="200px;"/><br /><sub><b>3D wave effect</b></sub></a>
+  </tr>
+</table>
+
+- MCU Hardware: STM32F103ZET6(512K ROM, 64K RAM) + 240 * 320 16bits color TFT LCD
 - MCU Software: No OS, Only GuiLite
-- Hello Star has [100+ lines code](HelloStar/UIcode/UIcode.cpp), showing you how to develop a star field effect.
-- Hello Particle has [100- lines code](HelloParticle/UIcode/UIcode.cpp), showing you how to develop a particle effect.
-- Hello Wave has [100+ lines code](HelloWave/UIcode/UIcode.cpp), showing you how to use wave widget.
-- Hello NoTouch has only [100+ lines code](HelloNoTouch/UIcode/UIcode.cpp), showing you how to navigate/click widgets by hard button in non-touch GUI scenario.
-- Hello Mario has [100+ lines code](HelloMario/UIcode/UIcode.cpp), showing you how to develop a multi-layer UI system.
-- Hello Nets has only [100+ lines code](HelloNets/UIcode/UIcode.cpp), showing you how to build 3D effect.
-- Hello 3D has only [100+ lines code](Hello3D/UIcode/UIcode.cpp), it's a lightweight 3D engine base on GuiLite.
-- Hello Circle has only [100+ lines code](HelloCircle/UIcode/UIcode.cpp), it's a 3D Circle base on GuiLite.
-- Hello Timer has only [200+ lines code](HelloTimer/UIcode/UIcode.cpp), it's a smart timer base on GuiLite.
-- Hello Molecule has only [100+ lines code](HelloMolecule/UIcode/UIcode.cpp), showing you how to build molecule movement effect.
-- Hello 3D Wave has only [100+ lines code](Hello3Dwave/UIcode/UIcode.cpp), showing you how to build 3D wave effect.
 - [How to porting for any MCU?](HelloWave/README.md#how-to-port-on-any-type-of-mcu)
 - Also support: Windows / Linux / Qt
 

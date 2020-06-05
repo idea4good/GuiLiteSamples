@@ -12,20 +12,30 @@
   - `sudo docker run -it --privileged -v /dev:/dev-share idea4good/gui-lite:latest bash /run.sh`
 
 ## 单片机系列:
-![HelloStar](doc/HelloStar.gif)&nbsp;&nbsp;![HelloParticle](doc/HelloParticle.gif)&nbsp;&nbsp;![HelloWave](doc/HelloWave.gif)&nbsp;&nbsp;![HelloNoTouch](doc/HelloNoTouch.gif)&nbsp;&nbsp;![HelloMario](doc/HelloMario.gif)&nbsp;&nbsp;![HelloNets-mcu](doc/HelloNets-mcu.gif)&nbsp;&nbsp;![Hello3D](doc/Hello3D.gif)&nbsp;&nbsp;![HelloCircle](doc/HelloCircle.gif)&nbsp;&nbsp;![HelloTimer](doc/HelloTimer.gif)&nbsp;&nbsp;![HelloMolecule](doc/HelloMolecule.gif)&nbsp;&nbsp;![Hello3Dwave](doc/Hello3Dwave.gif)
-- 单片机硬件配置：STM32F103ZET6(512K ROM，64K RAM) + 240*320 16位TFT屏
+<table>
+  <tr>
+    <td align="center"><a href="HelloStar/UIcode/UIcode.cpp"><img src="doc/HelloStar.gif" width="200px;"/><br /><sub><b>星空效果</b></sub></a>
+    <td align="center"><a href="HelloParticle/UIcode/UIcode.cpp"><img src="doc/HelloParticle.gif" width="200px;"/><br /><sub><b>粒子效果</b></sub></a>
+    <td align="center"><a href="HelloWave/UIcode/UIcode.cpp"><img src="doc/HelloWave.gif" width="200px;"/><br /><sub><b>波形控件</b></sub></a>
+    <td align="center"><a href="HelloNoTouch/UIcode/UIcode.cpp"><img src="doc/HelloNoTouch.gif" width="200px;"/><br /><sub><b>按键导航、点击窗体</b></sub></a>
+  </tr>
+
+  <tr>
+    <td align="center"><a href="HelloMario/UIcode/UIcode.cpp"><img src="doc/HelloMario.gif" width="200px;"/><br /><sub><b>多图层GUI</b></sub></a>
+    <td align="center"><a href="HelloNets/UIcode/UIcode.cpp"><img src="doc/HelloNets-mcu.gif" width="200px;"/><br /><sub><b>3D效果</b></sub></a>
+    <td align="center"><a href="Hello3D/UIcode/UIcode.cpp"><img src="doc/Hello3D.gif" width="200px;"/><br /><sub><b>3D效果</b></sub></a>
+    <td align="center"><a href="HelloCircle/UIcode/UIcode.cpp"><img src="doc/HelloCircle.gif" width="200px;"/><br /><sub><b>3D效果</b></sub></a>
+  </tr>
+
+  <tr>
+    <td align="center"><a href="HelloTimer/UIcode/UIcode.cpp"><img src="doc/HelloTimer.gif" width="200px;"/><br /><sub><b>智能时钟</b></sub></a>
+    <td align="center"><a href="HelloMolecule/UIcode/UIcode.cpp"><img src="doc/HelloMolecule.gif" width="200px;"/><br /><sub><b>分子运动效果</b></sub></a>
+    <td align="center"><a href="Hello3Dwave/UIcode/UIcode.cpp"><img src="doc/Hello3Dwave.gif" width="200px;"/><br /><sub><b>3D波形效果</b></sub></a>
+  </tr>
+</table>
+
+- 单片机硬件配置：STM32F103ZET6(512K ROM，64K RAM) + 240 * 320 16位TFT屏
 - 单片机软件配置：无操作系统 + GuiLite
-- Hello Star 仅有[100+行代码](HelloStar/UIcode/UIcode.cpp)，用于向开发者展示：如何使用GuiLite进行“星空”效果的开发。
-- Hello Particle 仅有[100-行代码](HelloParticle/UIcode/UIcode.cpp)，用于向开发者展示：如何使用GuiLite进行粒子效果的开发。
-- Hello Wave 仅有[100+行代码](HelloWave/UIcode/UIcode.cpp)，用于向开发者展示：如何使用GuiLite进行波形开发。
-- Hello NoTouch 仅有[100+行代码](HelloNoTouch/UIcode/UIcode.cpp)，用于向开发者展示：如何在非触摸屏场景下，使用硬按键进行：“移动焦点”和“点击”操作。
-- Hello Mario 仅有[100+行代码](HelloMario/UIcode/UIcode.cpp)，重现了“超级玛丽”的游戏片段，用于向开发者展示：如何使用GuiLite进行多图层的开发。
-- Hello Nets 仅有[100多行代码](HelloNets/UIcode/UIcode.cpp)，用于向开发者展示：如何使用GuiLite制作3D效果。
-- Hello 3D 仅有[100多行代码](Hello3D/UIcode/UIcode.cpp)，它是基于GuiLite制作的最小3D引擎。
-- Hello Circle 仅有[100多行代码](HelloCircle/UIcode/UIcode.cpp),它是基于GuiLite制作的3D圆环效果。
-- Hello Timer 仅有[200多行代码](HelloTimer/UIcode/UIcode.cpp),它是基于GuiLite制作的智能时钟效果。
-- Hello Molecule 仅有[100多行代码](HelloMolecule/UIcode/UIcode.cpp),它是基于GuiLite制作的分子运动效果。
-- Hello 3D wave 仅有[100多行代码](Hello3Dwave/UIcode/UIcode.cpp),它是基于GuiLite制作的3D波动效果。
 - [移植方法 -- 适用于任意单片机平台？](HelloWave/README.md#how-to-port-on-any-type-of-mcu)
 - 该实例亦可支持Windows和Linux平台
 

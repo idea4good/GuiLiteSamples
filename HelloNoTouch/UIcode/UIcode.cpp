@@ -121,7 +121,7 @@ extern "C" void sendTouch2HelloNoTouch(int x, int y, bool is_down)
 
 extern "C" void sendKey2HelloNoTouch(unsigned int key)
 {
-	s_myUI.on_key(KEY_TYPE(key));
+	s_myUI.on_navigate(NAVIGATION_KEY(key));
 }
 
 extern void* getUiOfHelloNoTouch(int* width, int* height, bool force_update = false)

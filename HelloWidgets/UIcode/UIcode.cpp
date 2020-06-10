@@ -183,7 +183,7 @@ void sendTouch2HelloWidgets(int x, int y, bool is_down)
 
 void sendKey2HelloWidgets(unsigned int key)
 {
-	s_my_ui.on_key(KEY_TYPE(key));
+	s_my_ui.on_navigate(NAVIGATION_KEY(key));
 }
 
 void* getUiOfHelloWidgets(int* width, int* height, bool force_update)

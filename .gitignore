@@ -66,6 +66,7 @@ Makefile*
 libUIcode.a
 
 /Hello3D/BuildLinux/Hello3D
+/Hello3Dwave/BuildLinux/Hello3Dwave
 /HelloAnimation/BuildLinux/HelloAnimation
 /HelloCircle/BuildLinux/HelloCircle
 /HelloFont/BuildLinux/HelloFont

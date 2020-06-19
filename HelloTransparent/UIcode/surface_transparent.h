@@ -6,11 +6,11 @@ public:
 		m_display_color_bytes = color_bytes;
 		for (int i = Z_ORDER_LEVEL_0; i <= m_max_zorder; i++)
 		{
-			ASSERT(!m_frame_layers[i].fb);
-			m_frame_layers[i].fb = calloc(m_width * m_height, 4);
-			ASSERT(m_frame_layers[i].fb);
+			ASSERT(!m_overlap_zones[i].fb);
+			m_overlap_zones[i].fb = calloc(m_width * m_height, 4);
+			ASSERT(m_overlap_zones[i].fb);
 		}
-		m_frame_layers[Z_ORDER_LEVEL_0].visible_rect = c_rect(0, 0, m_width, m_height);
+		m_overlap_zones[Z_ORDER_LEVEL_0].rect = c_rect(0, 0, m_width, m_height);
 	}
 
 	virtual void draw_pixel(int x, int y, unsigned int rgb, unsigned int z_order)
@@ -24,24 +24,19 @@ public:
 			ASSERT(false);
 			return;
 		}
-		if (!m_frame_layers[z_order].visible_rect.PtInRect(x, y))
-		{
-			ASSERT(false);
-			return;
-		}
 		if (z_order > (unsigned int)m_top_zorder)
 		{
 			m_top_zorder = (Z_ORDER_LEVEL)z_order;
 		}
 
-		((unsigned int*)(m_frame_layers[z_order].fb))[x + y * m_width] = rgb;
+		((unsigned int*)(m_overlap_zones[z_order].fb))[x + y * m_width] = rgb;
 		*m_phy_write_index = *m_phy_write_index + 1;
 
 		unsigned int a = GL_ARGB_A(rgb);
 		unsigned int r = GL_RGB_R(rgb);
 		unsigned int g = GL_RGB_G(rgb);
 		unsigned int b = GL_RGB_B(rgb);
-		if (z_order + 1 <= m_top_zorder && m_frame_layers[z_order + 1].visible_rect.PtInRect(x, y))
+		if (z_order + 1 <= m_top_zorder && m_overlap_zones[z_order + 1].rect.PtInRect(x, y))
 		{//meet up layer
 			unsigned int rgb_ = get_pixel(x, y, (z_order + 1));
 			unsigned int a_ = GL_ARGB_A(rgb_);
@@ -54,7 +49,7 @@ public:
 			unsigned int alpha_b = (b_ * a_ + b * (255 - a_)) / 255;
 			rgb = GL_RGB(alpha_r, alpha_g, alpha_b);
 		}
-		else if (z_order >= Z_ORDER_LEVEL_1 && m_frame_layers[z_order - 1].visible_rect.PtInRect(x, y))
+		else if (z_order >= Z_ORDER_LEVEL_1 && m_overlap_zones[z_order - 1].rect.PtInRect(x, y))
 		{//meet low layer
 			unsigned int rgb_ = get_pixel(x, y, (z_order - 1));
 			unsigned int r_ = GL_RGB_R(rgb_);
@@ -86,13 +81,13 @@ public:
 
 		x0 = (x0 < 0) ? 0 : x0;
 		y0 = (y0 < 0) ? 0 : y0;
-		x1 = (x1 > m_frame_layers[z_order].visible_rect.m_right) ? m_frame_layers[z_order].visible_rect.m_right : x1;
-		y1 = (y1 > m_frame_layers[z_order].visible_rect.m_bottom) ? m_frame_layers[z_order].visible_rect.m_bottom : y1;
+		x1 = (x1 > m_overlap_zones[z_order].rect.m_right) ? m_overlap_zones[z_order].rect.m_right : x1;
+		y1 = (y1 > m_overlap_zones[z_order].rect.m_bottom) ? m_overlap_zones[z_order].rect.m_bottom : y1;
 
 		unsigned int* mem_fb;
 		for (int y = y0; y <= y1; y++)
 		{
-			mem_fb = &((unsigned int*)m_frame_layers[z_order].fb)[y * m_width + x0];
+			mem_fb = &((unsigned int*)m_overlap_zones[z_order].fb)[y * m_width + x0];
 			for (int x = x0; x <= x1; x++)
 			{
 				*mem_fb++ = rgb;
@@ -106,14 +101,14 @@ public:
 		int display_width = m_display->get_width();
 		int display_height = m_display->get_height();
 
-		c_rect upper_visible_rect, lower_visible_rect;
+		c_rect upper_rect, lower_rect;
 		if (z_order + 1 <= m_top_zorder)
 		{
-			upper_visible_rect = m_frame_layers[z_order + 1].visible_rect;
+			upper_rect = m_overlap_zones[z_order + 1].rect;
 		}
 		if (z_order >= Z_ORDER_LEVEL_1)
 		{
-			lower_visible_rect = m_frame_layers[z_order - 1].visible_rect;
+			lower_rect = m_overlap_zones[z_order - 1].rect;
 		}
 
 		for (int y = y0; y <= y1; y++)
@@ -125,7 +120,7 @@ public:
 			{
 				if (m_is_active && (x < display_width) && (y < display_height))
 				{
-					if (upper_visible_rect.PtInRect(x, y))
+					if (upper_rect.PtInRect(x, y))
 					{
 						unsigned int rgb_ = get_pixel(x, y, (z_order + 1));
 						unsigned int a_ = GL_ARGB_A(rgb_);
@@ -137,7 +132,7 @@ public:
 						unsigned int alpha_b = (b_ * a_ + b * (255 - a_)) / 255;
 						rgb = GL_RGB(alpha_r, alpha_g, alpha_b);
 					}
-					else if (lower_visible_rect.PtInRect(x, y))
+					else if (lower_rect.PtInRect(x, y))
 					{
 						unsigned int rgb_ = get_pixel(x, y, (z_order - 1));
 						unsigned int r_ = GL_RGB_R(rgb_);

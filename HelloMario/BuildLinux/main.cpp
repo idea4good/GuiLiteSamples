@@ -10,7 +10,7 @@
 #include <errno.h>
 #include <sys/stat.h>
 
-extern "C" void startHelloMario(void* phy_fb, int width, int height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op_top, struct EXTERNAL_GFX_OP* gfx_op_bottom);
+extern "C" void startHelloMario(void* phy_fb, int width, int height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op);
 extern void init_std_io();
 
 static void* get_embeded_fb_in_display_app(int shared_id);
@@ -29,39 +29,6 @@ static const char* s_welcome =
 "./HelloMario /dev/fb-path\n"
 "------------------------------------------------------------\n";
 
-struct EXTERNAL_GFX_OP
-{
-    void (*draw_pixel)(int x, int y, unsigned int rgb);
-    void (*fill_rect)(int x0, int y0, int x1, int y1, unsigned int rgb);
-} my_gfx_op_top, my_gfx_op_bottom;
-
-#define GL_RGB_32_to_16(rgb) (((((unsigned int)(rgb)) & 0xFF) >> 3) | ((((unsigned int)(rgb)) & 0xFC00) >> 5) | ((((unsigned int)(rgb)) & 0xF80000) >> 8))
-//Encapsulate your LCD driver:
-void gfx_draw_pixel_top(int x, int y, unsigned int rgb)
-{
-    if(color_bytes == 4)
-    {
-        ((unsigned int*)phy_fb)[y * screen_width + x] = rgb;
-    }
-    else
-    {
-        ((unsigned short*)phy_fb)[y * screen_width + x] = GL_RGB_32_to_16(rgb);
-    }
-}
-
-void gfx_draw_pixel_bottom(int x, int y, unsigned int rgb)
-{
-    y += 244;
-    if(color_bytes == 4)
-    {
-        ((unsigned int*)phy_fb)[y * screen_width + x] = rgb;
-    }
-    else
-    {
-        ((unsigned short*)phy_fb)[y * screen_width + x] = GL_RGB_32_to_16(rgb);
-    }
-}
-
 enum FRAMEBUFFER_MODE
 {
 	FB_NULL_MODE,
@@ -74,8 +41,6 @@ int main(int argc, char** argv)
 	printf(s_welcome);
 	system("chmod 777 .sync_build.sh");
 	system("./.sync_build.sh HelloMario &");
-
-	
 
 	FRAMEBUFFER_MODE fb_mode = FB_NULL_MODE;
 	char *fb_dev_path = NULL;
@@ -114,11 +79,7 @@ int main(int argc, char** argv)
 	}
 
 	init_std_io();
-    my_gfx_op_top.draw_pixel = gfx_draw_pixel_top;
-    my_gfx_op_top.fill_rect = NULL;//gfx_fill_rect;
-    my_gfx_op_bottom.draw_pixel = gfx_draw_pixel_bottom;
-    my_gfx_op_bottom.fill_rect = NULL;//gfx_fill_rect;
-	startHelloMario(NULL, screen_width, screen_height, color_bytes, &my_gfx_op_top, &my_gfx_op_bottom);//never return;
+	startHelloMario(phy_fb, screen_width, screen_height, color_bytes, 0);//never return;
     return 0;
 }
 

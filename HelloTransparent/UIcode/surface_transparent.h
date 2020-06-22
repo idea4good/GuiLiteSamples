@@ -4,13 +4,18 @@ public:
 	{
 		m_max_zorder = max_zorder;
 		m_display_color_bytes = color_bytes;
+		
+		c_rect overlap_rect(0, 0, width - 1, height - 1);
 		for (int i = Z_ORDER_LEVEL_0; i <= m_max_zorder; i++)
 		{
-			ASSERT(!m_overlap_zones[i].fb);
-			m_overlap_zones[i].fb = calloc(m_width * m_height, 4);
-			ASSERT(m_overlap_zones[i].fb);
+			ASSERT(m_overlap_zones[i].fb = calloc(overlap_rect.Width() * overlap_rect.Height(), m_color_bytes));
+			m_overlap_zones[i].rect = overlap_rect;
 		}
-		m_overlap_zones[Z_ORDER_LEVEL_0].rect = c_rect(0, 0, m_width, m_height);
+	}
+
+	void clear_overlapped_fb(unsigned int z_order)
+	{
+		memset(m_overlap_zones[z_order].fb, 0, m_overlap_zones[z_order].rect.Width() * m_overlap_zones[z_order].rect.Height() * m_color_bytes);
 	}
 
 	virtual void draw_pixel(int x, int y, unsigned int rgb, unsigned int z_order)
@@ -36,7 +41,7 @@ public:
 		unsigned int r = GL_RGB_R(rgb);
 		unsigned int g = GL_RGB_G(rgb);
 		unsigned int b = GL_RGB_B(rgb);
-		if (z_order + 1 <= m_top_zorder && m_overlap_zones[z_order + 1].rect.PtInRect(x, y))
+		if (z_order + 1 <= m_top_zorder)
 		{//meet up layer
 			unsigned int rgb_ = get_pixel(x, y, (z_order + 1));
 			unsigned int a_ = GL_ARGB_A(rgb_);
@@ -47,18 +52,6 @@ public:
 			unsigned int alpha_r = (r_ * a_ + r * (255 - a_)) / 255;
 			unsigned int alpha_g = (g_ * a_ + g * (255 - a_)) / 255;
 			unsigned int alpha_b = (b_ * a_ + b * (255 - a_)) / 255;
-			rgb = GL_RGB(alpha_r, alpha_g, alpha_b);
-		}
-		else if (z_order >= Z_ORDER_LEVEL_1 && m_overlap_zones[z_order - 1].rect.PtInRect(x, y))
-		{//meet low layer
-			unsigned int rgb_ = get_pixel(x, y, (z_order - 1));
-			unsigned int r_ = GL_RGB_R(rgb_);
-			unsigned int g_ = GL_RGB_G(rgb_);
-			unsigned int b_ = GL_RGB_B(rgb_);
-
-			unsigned int alpha_r = (r * a + r_ * (255 - a)) / 255;
-			unsigned int alpha_g = (g * a + g_ * (255 - a)) / 255;
-			unsigned int alpha_b = (b * a + b_ * (255 - a)) / 255;
 			rgb = GL_RGB(alpha_r, alpha_g, alpha_b);
 		}
 		if (m_display_color_bytes == 4)

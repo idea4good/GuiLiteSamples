@@ -59,6 +59,7 @@ class c_my_dialog : public c_dialog
 	void on_clicked(int ctrl_id, int param)
 	{
 		c_dialog::close_dialog(m_surface);
+		((c_surface_transparent*)m_surface)->clear_overlapped_fb(m_z_order);
 	}
 
 	GL_DECLARE_MESSAGE_MAP()//delcare message

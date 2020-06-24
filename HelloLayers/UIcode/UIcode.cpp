@@ -6,8 +6,11 @@
 
 #define LAYER_1_X 70
 #define LAYER_1_Y 110
-#define LAYER_1_WIDTH  100
-#define LAYER_1_HEIGHT 80
+
+#define SHADES_CNT 10
+#define SHADE_HEIGHT 10
+#define LAYER_1_WIDTH  80
+#define LAYER_1_HEIGHT SHADES_CNT * SHADE_HEIGHT
 
 static c_surface* s_surface;
 static c_display* s_display;
@@ -22,9 +25,9 @@ void draw_on_layer_0()
 
 void draw_on_layer_1()
 {
-	s_surface->fill_rect(LAYER_1_X, LAYER_1_Y, LAYER_1_X + LAYER_1_WIDTH - 1, LAYER_1_Y + LAYER_1_HEIGHT - 1, GL_RGB(69, 75, 91), Z_ORDER_LEVEL_1);
-	c_word::draw_string(s_surface, Z_ORDER_LEVEL_1, "layer 1:", LAYER_1_X + 10, LAYER_1_Y + 19, c_theme::get_font(FONT_DEFAULT), GL_RGB(255, 255, 255), GL_RGB(69, 75, 91));
-	c_word::draw_string(s_surface, Z_ORDER_LEVEL_1, "the top", LAYER_1_X + 10, LAYER_1_Y + 38, c_theme::get_font(FONT_DEFAULT), GL_RGB(255, 255, 255), GL_RGB(69, 75, 91));
+	s_surface->fill_rect(LAYER_1_X, LAYER_1_Y, LAYER_1_X + LAYER_1_WIDTH - 1, LAYER_1_Y + LAYER_1_HEIGHT - 1, GL_RGB(0, 122, 204), Z_ORDER_LEVEL_1);
+	c_word::draw_string(s_surface, Z_ORDER_LEVEL_1, "layer 1:", LAYER_1_X + 5, LAYER_1_Y + 19, c_theme::get_font(FONT_DEFAULT), GL_RGB(255, 255, 255), GL_RGB(0, 122, 204));
+	c_word::draw_string(s_surface, Z_ORDER_LEVEL_1, "the top", LAYER_1_X + 5, LAYER_1_Y + 38, c_theme::get_font(FONT_DEFAULT), GL_RGB(255, 255, 255), GL_RGB(0, 122, 204));
 }
 
 void clear_layer_1()
@@ -35,14 +38,13 @@ void clear_layer_1()
 	s_surface->show_overlapped_rect(overlapped_rect, Z_ORDER_LEVEL_0);
 #else
 	//animation
-	for (int offset = 0; offset < LAYER_1_HEIGHT / 2; offset++)
+	for (int offset = 0; offset < SHADE_HEIGHT; offset++)
 	{
-		c_rect overlapped_rect_top(LAYER_1_X, LAYER_1_Y + offset, LAYER_1_X + LAYER_1_WIDTH - 1, LAYER_1_Y + offset + 1);
-		s_surface->show_overlapped_rect(overlapped_rect_top, Z_ORDER_LEVEL_0);
-
-		c_rect overlapped_rect_bottom(LAYER_1_X, LAYER_1_Y + LAYER_1_HEIGHT - offset - 2, LAYER_1_X + LAYER_1_WIDTH - 1, LAYER_1_Y + LAYER_1_HEIGHT - offset - 1);
-		s_surface->show_overlapped_rect(overlapped_rect_bottom, Z_ORDER_LEVEL_0);
-
+		for (int i = 0; i < SHADES_CNT; i++)
+		{
+			c_rect overlapped_rect_top(LAYER_1_X, LAYER_1_Y + (SHADE_HEIGHT * i) + offset, LAYER_1_X + LAYER_1_WIDTH - 1, LAYER_1_Y + (SHADE_HEIGHT * i) + offset);
+			s_surface->show_overlapped_rect(overlapped_rect_top, Z_ORDER_LEVEL_0);
+		}
 		thread_sleep(5);
 	}
 #endif

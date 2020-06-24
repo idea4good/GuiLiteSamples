@@ -497,6 +497,11 @@
               <FileType>8</FileType>
               <FilePath>..\..\UIcode\UIcode.cpp</FilePath>
             </File>
+            <File>
+              <FileName>Consolas_19.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\..\UIcode\resource\Consolas_19.cpp</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

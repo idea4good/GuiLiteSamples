@@ -1,6 +1,5 @@
 ﻿#define GUILITE_ON  //Do not define this macro once more!!!
 #include "GuiLite.h"
-#include <stdlib.h>
 
 #define UI_WIDTH 240
 #define UI_HEIGHT 320
@@ -8,29 +7,35 @@
 #define LAYER_1_X 70
 #define LAYER_1_Y 110
 #define LAYER_1_WIDTH  100
-#define LAYER_1_HEIGHT 100
+#define LAYER_1_HEIGHT 80
 
 static c_surface* s_surface;
 static c_display* s_display;
+
 //////////////////////// start UI ////////////////////////
 
 void draw_on_layer_0()
 {
 	s_surface->fill_rect(0, 0, UI_WIDTH - 1, UI_HEIGHT - 1, 0, Z_ORDER_LEVEL_0);
+	c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, "layer 0: the bottom", 30, LAYER_1_Y + 30, c_theme::get_font(FONT_DEFAULT), GL_RGB(255, 255, 255), GL_ARGB(0, 0, 0, 0));
 }
 
 void draw_on_layer_1()
 {
-	s_surface->fill_rect(LAYER_1_X, LAYER_1_Y, LAYER_1_X + LAYER_1_WIDTH - 1, LAYER_1_Y + LAYER_1_HEIGHT - 1, GL_RGB(255, 0, 0), Z_ORDER_LEVEL_1);
+	s_surface->fill_rect(LAYER_1_X, LAYER_1_Y, LAYER_1_X + LAYER_1_WIDTH - 1, LAYER_1_Y + LAYER_1_HEIGHT - 1, GL_RGB(69, 75, 91), Z_ORDER_LEVEL_1);
+	c_word::draw_string(s_surface, Z_ORDER_LEVEL_1, "layer 1:", LAYER_1_X + 10, LAYER_1_Y + 19, c_theme::get_font(FONT_DEFAULT), GL_RGB(255, 255, 255), GL_RGB(69, 75, 91));
+	c_word::draw_string(s_surface, Z_ORDER_LEVEL_1, "the top", LAYER_1_X + 10, LAYER_1_Y + 38, c_theme::get_font(FONT_DEFAULT), GL_RGB(255, 255, 255), GL_RGB(69, 75, 91));
 }
 
 void clear_layer_1()
 {
-	//c_rect overlapped_rect(LAYER_1_X, LAYER_1_Y, LAYER_1_X + LAYER_1_WIDTH - 1, LAYER_1_Y + LAYER_1_HEIGHT - 1);
-	//s_surface->show_overlapped_rect(overlapped_rect, Z_ORDER_LEVEL_0);
-
+#if 0
+	//no animation
+	c_rect overlapped_rect(LAYER_1_X, LAYER_1_Y, LAYER_1_X + LAYER_1_WIDTH - 1, LAYER_1_Y + LAYER_1_HEIGHT - 1);
+	s_surface->show_overlapped_rect(overlapped_rect, Z_ORDER_LEVEL_0);
+#else
 	//animation
-	for (int offset = 0; offset < LAYER_1_WIDTH / 2; offset++)
+	for (int offset = 0; offset < LAYER_1_HEIGHT / 2; offset++)
 	{
 		c_rect overlapped_rect_top(LAYER_1_X, LAYER_1_Y + offset, LAYER_1_X + LAYER_1_WIDTH - 1, LAYER_1_Y + offset + 1);
 		s_surface->show_overlapped_rect(overlapped_rect_top, Z_ORDER_LEVEL_0);
@@ -40,6 +45,13 @@ void clear_layer_1()
 
 		thread_sleep(5);
 	}
+#endif
+}
+
+extern const FONT_INFO Consolas_19;
+void load_resource()
+{
+	c_theme::add_font(FONT_DEFAULT, &Consolas_19);
 }
 
 void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op) {
@@ -58,12 +70,13 @@ void create_ui(void* phy_fb, int screen_width, int screen_height, int color_byte
 		s_display = &display;
 	}
 
+	load_resource();
 	draw_on_layer_0();
 	while(1) {
 		draw_on_layer_1();
-		thread_sleep(2000);
+		thread_sleep(3000);
 		clear_layer_1();
-		thread_sleep(2000);
+		thread_sleep(3000);
 	}
 }
 

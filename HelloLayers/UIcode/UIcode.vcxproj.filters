@@ -2,5 +2,13 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="UIcode.cpp" />
+    <ClCompile Include="resource\Consolas_19.cpp">
+      <Filter>resource</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="resource">
+      <UniqueIdentifier>{6d5429d6-93ee-4f9d-a229-ee1ab8c25d18}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

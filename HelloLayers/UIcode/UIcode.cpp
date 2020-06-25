@@ -5,7 +5,7 @@
 #define UI_HEIGHT 320
 
 #define LAYER_1_X 70
-#define LAYER_1_Y 110
+#define LAYER_1_Y 100
 
 #define SHADES_CNT 10
 #define SHADE_HEIGHT 10
@@ -19,15 +19,21 @@ static c_display* s_display;
 
 void draw_on_layer_0()
 {
+	int const start_y = 70;
 	s_surface->fill_rect(0, 0, UI_WIDTH - 1, UI_HEIGHT - 1, 0, Z_ORDER_LEVEL_0);
-	c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, "layer 0: the bottom", 30, LAYER_1_Y + 30, c_theme::get_font(FONT_DEFAULT), GL_RGB(255, 255, 255), GL_ARGB(0, 0, 0, 0));
+	c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, "We could not to do", 30, start_y + 30, c_theme::get_font(FONT_DEFAULT), GL_RGB(255, 255, 255), GL_ARGB(0, 0, 0, 0));
+	c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, "everything for you.", 30, start_y + 50, c_theme::get_font(FONT_DEFAULT), GL_RGB(255, 255, 255), GL_ARGB(0, 0, 0, 0));
+	c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, "", 30, start_y + 50, c_theme::get_font(FONT_DEFAULT), GL_RGB(255, 255, 255), GL_ARGB(0, 0, 0, 0));
+
+	c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, "Just keep GUI:", 30, start_y + 90, c_theme::get_font(FONT_DEFAULT), GL_RGB(255, 255, 255), GL_ARGB(0, 0, 0, 0));
+	c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, "stupid simple.", 30, start_y + 110, c_theme::get_font(FONT_DEFAULT), GL_RGB(255, 255, 255), GL_ARGB(0, 0, 0, 0));
 }
 
 void draw_on_layer_1()
 {
 	s_surface->fill_rect(LAYER_1_X, LAYER_1_Y, LAYER_1_X + LAYER_1_WIDTH - 1, LAYER_1_Y + LAYER_1_HEIGHT - 1, GL_RGB(0, 122, 204), Z_ORDER_LEVEL_1);
-	c_word::draw_string(s_surface, Z_ORDER_LEVEL_1, "layer 1:", LAYER_1_X + 5, LAYER_1_Y + 19, c_theme::get_font(FONT_DEFAULT), GL_RGB(255, 255, 255), GL_RGB(0, 122, 204));
-	c_word::draw_string(s_surface, Z_ORDER_LEVEL_1, "the top", LAYER_1_X + 5, LAYER_1_Y + 38, c_theme::get_font(FONT_DEFAULT), GL_RGB(255, 255, 255), GL_RGB(0, 122, 204));
+	c_word::draw_string(s_surface, Z_ORDER_LEVEL_1, "GuiLite", LAYER_1_X + 5, LAYER_1_Y + 20, c_theme::get_font(FONT_DEFAULT), GL_RGB(255, 255, 255), GL_RGB(0, 122, 204));
+	c_word::draw_string(s_surface, Z_ORDER_LEVEL_1, " 5KLOC", LAYER_1_X + 5, LAYER_1_Y + 60, c_theme::get_font(FONT_DEFAULT), GL_RGB(255, 255, 255), GL_RGB(0, 122, 204));
 }
 
 void clear_layer_1()

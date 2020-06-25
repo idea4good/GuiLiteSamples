@@ -41,7 +41,7 @@ void clear_layer_1()
 #if 0
 	//no animation
 	c_rect overlapped_rect(LAYER_1_X, LAYER_1_Y, LAYER_1_X + LAYER_1_WIDTH - 1, LAYER_1_Y + LAYER_1_HEIGHT - 1);
-	s_surface->show_overlapped_rect(overlapped_rect, Z_ORDER_LEVEL_0);
+	s_surface->show_layer(overlapped_rect, Z_ORDER_LEVEL_0);
 #else
 	//animation
 	for (int offset = 0; offset < SHADE_HEIGHT; offset++)
@@ -49,7 +49,7 @@ void clear_layer_1()
 		for (int i = 0; i < SHADES_CNT; i++)
 		{
 			c_rect overlapped_rect_top(LAYER_1_X, LAYER_1_Y + (SHADE_HEIGHT * i) + offset, LAYER_1_X + LAYER_1_WIDTH - 1, LAYER_1_Y + (SHADE_HEIGHT * i) + offset);
-			s_surface->show_overlapped_rect(overlapped_rect_top, Z_ORDER_LEVEL_0);
+			s_surface->show_layer(overlapped_rect_top, Z_ORDER_LEVEL_0);
 		}
 		thread_sleep(5);
 	}

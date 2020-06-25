@@ -89,7 +89,7 @@ public:
 		if (erase_footprint)
 		{
 			c_rect mario_rect(m_x, m_y - mario_bmp->height, m_x + mario_bmp->width - 1, m_y);
-			s_surface->show_overlapped_rect(mario_rect, Z_ORDER_LEVEL_0);
+			s_surface->show_layer(mario_rect, Z_ORDER_LEVEL_0);
 		}
 		else
 		{

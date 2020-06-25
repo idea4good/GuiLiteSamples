@@ -5,17 +5,17 @@ public:
 		m_max_zorder = max_zorder;
 		m_display_color_bytes = color_bytes;
 		
-		c_rect overlap_rect(0, 0, width - 1, height - 1);
+		c_rect layer_rect(0, 0, width - 1, height - 1);
 		for (int i = Z_ORDER_LEVEL_0; i <= m_max_zorder; i++)
 		{
-			ASSERT(m_overlap_zones[i].fb = calloc(overlap_rect.Width() * overlap_rect.Height(), m_color_bytes));
-			m_overlap_zones[i].rect = overlap_rect;
+			ASSERT(m_layers[i].fb = calloc(layer_rect.Width() * layer_rect.Height(), m_color_bytes));
+			m_layers[i].rect = layer_rect;
 		}
 	}
 
-	void clear_overlapped_fb(unsigned int z_order)
+	void clear_layer(unsigned int z_order)
 	{
-		memset(m_overlap_zones[z_order].fb, 0, m_overlap_zones[z_order].rect.Width() * m_overlap_zones[z_order].rect.Height() * m_color_bytes);
+		memset(m_layers[z_order].fb, 0, m_layers[z_order].rect.Width() * m_layers[z_order].rect.Height() * m_color_bytes);
 	}
 
 	virtual void draw_pixel(int x, int y, unsigned int rgb, unsigned int z_order)
@@ -34,7 +34,7 @@ public:
 			m_top_zorder = (Z_ORDER_LEVEL)z_order;
 		}
 
-		((unsigned int*)(m_overlap_zones[z_order].fb))[x + y * m_width] = rgb;
+		((unsigned int*)(m_layers[z_order].fb))[x + y * m_width] = rgb;
 		*m_phy_write_index = *m_phy_write_index + 1;
 
 		unsigned int a = GL_ARGB_A(rgb);
@@ -74,13 +74,13 @@ public:
 
 		x0 = (x0 < 0) ? 0 : x0;
 		y0 = (y0 < 0) ? 0 : y0;
-		x1 = (x1 > m_overlap_zones[z_order].rect.m_right) ? m_overlap_zones[z_order].rect.m_right : x1;
-		y1 = (y1 > m_overlap_zones[z_order].rect.m_bottom) ? m_overlap_zones[z_order].rect.m_bottom : y1;
+		x1 = (x1 > m_layers[z_order].rect.m_right) ? m_layers[z_order].rect.m_right : x1;
+		y1 = (y1 > m_layers[z_order].rect.m_bottom) ? m_layers[z_order].rect.m_bottom : y1;
 
 		unsigned int* mem_fb;
 		for (int y = y0; y <= y1; y++)
 		{
-			mem_fb = &((unsigned int*)m_overlap_zones[z_order].fb)[y * m_width + x0];
+			mem_fb = &((unsigned int*)m_layers[z_order].fb)[y * m_width + x0];
 			for (int x = x0; x <= x1; x++)
 			{
 				*mem_fb++ = rgb;
@@ -97,11 +97,11 @@ public:
 		c_rect upper_rect, lower_rect;
 		if (z_order + 1 <= m_top_zorder)
 		{
-			upper_rect = m_overlap_zones[z_order + 1].rect;
+			upper_rect = m_layers[z_order + 1].rect;
 		}
 		if (z_order >= Z_ORDER_LEVEL_1)
 		{
-			lower_rect = m_overlap_zones[z_order - 1].rect;
+			lower_rect = m_layers[z_order - 1].rect;
 		}
 
 		for (int y = y0; y <= y1; y++)

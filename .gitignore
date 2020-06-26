@@ -71,6 +71,7 @@ libUIcode.a
 /HelloCircle/BuildLinux/HelloCircle
 /HelloFont/BuildLinux/HelloFont
 /HelloGuiLite/BuildLinux/HelloGuiLite
+/HelloLayers/BuildLinux/HelloLayers
 /HelloMario/BuildLinux/HelloMario
 /HelloMolecule/BuildLinux/HelloMolecule
 /HelloNets/BuildLinux/HelloNets

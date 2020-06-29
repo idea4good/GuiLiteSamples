@@ -5,17 +5,17 @@ public:
 		m_max_zorder = max_zorder;
 		m_display_color_bytes = color_bytes;
 		
-		c_rect layer_rect(0, 0, width - 1, height - 1);
+		c_rect layer_rect(0, 0, width, height);
 		for (int i = Z_ORDER_LEVEL_0; i <= m_max_zorder; i++)
 		{
-			ASSERT(m_layers[i].fb = calloc(layer_rect.Width() * layer_rect.Height(), m_color_bytes));
+			ASSERT(m_layers[i].fb = calloc(layer_rect.width() * layer_rect.height(), m_color_bytes));
 			m_layers[i].rect = layer_rect;
 		}
 	}
 
 	void clear_layer(unsigned int z_order)
 	{
-		memset(m_layers[z_order].fb, 0, m_layers[z_order].rect.Width() * m_layers[z_order].rect.Height() * m_color_bytes);
+		memset(m_layers[z_order].fb, 0, m_layers[z_order].rect.width() * m_layers[z_order].rect.height() * m_color_bytes);
 	}
 
 	virtual void draw_pixel(int x, int y, unsigned int rgb, unsigned int z_order)
@@ -113,7 +113,7 @@ public:
 			{
 				if (m_is_active && (x < display_width) && (y < display_height))
 				{
-					if (upper_rect.PtInRect(x, y))
+					if (upper_rect.pt_in_rect(x, y))
 					{
 						unsigned int rgb_ = get_pixel(x, y, (z_order + 1));
 						unsigned int a_ = GL_ARGB_A(rgb_);
@@ -125,7 +125,7 @@ public:
 						unsigned int alpha_b = (b_ * a_ + b * (255 - a_)) / 255;
 						rgb = GL_RGB(alpha_r, alpha_g, alpha_b);
 					}
-					else if (lower_rect.PtInRect(x, y))
+					else if (lower_rect.pt_in_rect(x, y))
 					{
 						unsigned int rgb_ = get_pixel(x, y, (z_order - 1));
 						unsigned int r_ = GL_RGB_R(rgb_);

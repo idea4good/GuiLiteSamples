@@ -20,7 +20,7 @@ static c_display* s_display;
 void draw_on_layer_0()
 {
 	int const start_y = 70;
-	s_surface->fill_rect(0, 0, UI_WIDTH - 1, UI_HEIGHT - 1, 0, Z_ORDER_LEVEL_0);
+	s_surface->fill_rect(c_rect(0, 0, UI_WIDTH, UI_HEIGHT), 0, Z_ORDER_LEVEL_0);
 	c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, "We could not to do", 30, start_y + 30, c_theme::get_font(FONT_DEFAULT), GL_RGB(255, 255, 255), GL_ARGB(0, 0, 0, 0));
 	c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, "everything for you.", 30, start_y + 50, c_theme::get_font(FONT_DEFAULT), GL_RGB(255, 255, 255), GL_ARGB(0, 0, 0, 0));
 	c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, "", 30, start_y + 50, c_theme::get_font(FONT_DEFAULT), GL_RGB(255, 255, 255), GL_ARGB(0, 0, 0, 0));
@@ -31,7 +31,7 @@ void draw_on_layer_0()
 
 void draw_on_layer_1()
 {
-	s_surface->fill_rect(LAYER_1_X, LAYER_1_Y, LAYER_1_X + LAYER_1_WIDTH - 1, LAYER_1_Y + LAYER_1_HEIGHT - 1, GL_RGB(0, 122, 204), Z_ORDER_LEVEL_1);
+	s_surface->fill_rect(c_rect(LAYER_1_X, LAYER_1_Y, LAYER_1_WIDTH, LAYER_1_HEIGHT), GL_RGB(0, 122, 204), Z_ORDER_LEVEL_1);
 	c_word::draw_string(s_surface, Z_ORDER_LEVEL_1, "GuiLite", LAYER_1_X + 5, LAYER_1_Y + 20, c_theme::get_font(FONT_DEFAULT), GL_RGB(255, 255, 255), GL_RGB(0, 122, 204));
 	c_word::draw_string(s_surface, Z_ORDER_LEVEL_1, " 5KLOC", LAYER_1_X + 5, LAYER_1_Y + 60, c_theme::get_font(FONT_DEFAULT), GL_RGB(255, 255, 255), GL_RGB(0, 122, 204));
 }
@@ -40,7 +40,7 @@ void clear_layer_1()
 {
 #if 0
 	//no animation
-	c_rect overlapped_rect(LAYER_1_X, LAYER_1_Y, LAYER_1_X + LAYER_1_WIDTH - 1, LAYER_1_Y + LAYER_1_HEIGHT - 1);
+	c_rect overlapped_rect(LAYER_1_X, LAYER_1_Y, LAYER_1_WIDTH, LAYER_1_HEIGHT);
 	s_surface->show_layer(overlapped_rect, Z_ORDER_LEVEL_0);
 #else
 	//animation
@@ -48,7 +48,7 @@ void clear_layer_1()
 	{
 		for (int i = 0; i < SHADES_CNT; i++)
 		{
-			c_rect overlapped_rect_top(LAYER_1_X, LAYER_1_Y + (SHADE_HEIGHT * i) + offset, LAYER_1_X + LAYER_1_WIDTH - 1, LAYER_1_Y + (SHADE_HEIGHT * i) + offset);
+			c_rect overlapped_rect_top(LAYER_1_X, LAYER_1_Y + (SHADE_HEIGHT * i) + offset, LAYER_1_WIDTH, 1);
 			s_surface->show_layer(overlapped_rect_top, Z_ORDER_LEVEL_0);
 		}
 		thread_sleep(5);

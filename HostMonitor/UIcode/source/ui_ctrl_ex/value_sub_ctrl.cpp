@@ -15,7 +15,7 @@ void c_value_sub_ctrl::on_paint(void)
 	
 	//show value	
 	m_value_rect.m_left = rect.m_left + 32;
-	m_value_rect.m_top = rect.m_top + (rect.Height() - (m_value_font_type->height)) / 2;
+	m_value_rect.m_top = rect.m_top + (rect.height() - (m_value_font_type->height)) / 2;
 	if (m_value_rect.m_top < rect.m_top)
 	{
 		m_value_rect.m_top = rect.m_top + 2;

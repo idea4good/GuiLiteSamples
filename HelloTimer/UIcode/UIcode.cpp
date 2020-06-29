@@ -223,7 +223,7 @@ private:
 class c_time
 {
 public:
-	c_time() : m_x(0), m_y(100), m_width(240), m_height(100), m_time_rect(c_rect(30, 130, 200, 190)) {}
+	c_time() : m_x(0), m_y(100), m_width(240), m_height(100), m_time_rect(c_rect(30, 130, 170, 60)) {}
 	void show()
 	{
 		static int count;
@@ -235,7 +235,7 @@ public:
 			{
 				for (int x = m_x; x < m_width + m_x; x += 9)
 				{
-					if (m_time_rect.PtInRect(x, y) && m_time_rect.PtInRect(x + 9, y + 19))
+					if (m_time_rect.pt_in_rect(x, y) && m_time_rect.pt_in_rect(x + 9, y + 19))
 					{
 						continue;
 					}

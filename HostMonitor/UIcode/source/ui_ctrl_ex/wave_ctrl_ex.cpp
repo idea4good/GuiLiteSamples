@@ -44,8 +44,8 @@ void c_ecg_wave_ctrl::draw_grid()
 	c_rect rect;
 	get_screen_rect(rect);
 	
-	int row_cnt = rect.Height() / GRID_UNIT;
-	int col_cnt = rect.Width() / GRID_UNIT;
+	int row_cnt = rect.height() / GRID_UNIT;
+	int col_cnt = rect.width() / GRID_UNIT;
 
 	int left = rect.m_left + 2 * GRID_UNIT;
 	int right = (rect.m_left + (col_cnt - 1) * GRID_UNIT);

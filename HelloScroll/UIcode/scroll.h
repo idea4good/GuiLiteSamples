@@ -48,13 +48,13 @@ class c_scroll_view : c_wnd
 		}
 
 		get_screen_rect(rect);
-		if (width < rect.Width())
+		if (width < rect.width())
 		{
-			width = rect.Width();
+			width = rect.width();
 		}
-		if (height < rect.Height())
+		if (height < rect.height())
 		{
-			height = rect.Height();
+			height = rect.height();
 		}
 		
 		m_mem_surface = new c_surface_offset(width, height, 2, rect.m_left, rect.m_top);
@@ -102,9 +102,9 @@ class c_scroll_view : c_wnd
 		{
 			int offset_y = m_offset_y;
 			offset_y += (m_down_y - y);
-			if (offset_y > (m_mem_surface->get_height() - rect.Height()))
+			if (offset_y > (m_mem_surface->get_height() - rect.height()))
 			{
-				offset_y = (m_mem_surface->get_height() - rect.Height());
+				offset_y = (m_mem_surface->get_height() - rect.height());
 			}
 			offset_y = (offset_y < 0) ? 0 : offset_y;
 			if (offset_y != m_offset_y)
@@ -117,9 +117,9 @@ class c_scroll_view : c_wnd
 		{
 			int offset_x = m_offset_x;
 			offset_x += (m_down_x - x);
-			if (offset_x > (m_mem_surface->get_width() - rect.Width()))
+			if (offset_x > (m_mem_surface->get_width() - rect.width()))
 			{
-				offset_x = (m_mem_surface->get_width() - rect.Width());
+				offset_x = (m_mem_surface->get_width() - rect.width());
 			}
 			offset_x = (offset_x < 0) ? 0 : offset_x;
 			if (offset_x != m_offset_x)
@@ -136,8 +136,8 @@ class c_scroll_view : c_wnd
 	{
 		c_rect rect;
 		get_screen_rect(rect);
-		ASSERT(m_offset_y + rect.Height() <= m_mem_surface->get_height());
-		ASSERT(m_offset_x + rect.Width() <= m_mem_surface->get_width());
+		ASSERT(m_offset_y + rect.height() <= m_mem_surface->get_height());
+		ASSERT(m_offset_x + rect.width() <= m_mem_surface->get_width());
 		unsigned short* fb = (unsigned short*)m_mem_display->get_updated_fb(0, 0, force_update);
 		if (!fb)
 		{

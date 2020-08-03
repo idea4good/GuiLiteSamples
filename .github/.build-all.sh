@@ -17,6 +17,7 @@ do
 done
 
 #build HostMonitor
+echo -e "\e[44m ./HostMonitor building...\e[49m"
 cd HostMonitor
 cmake .
 make -j4

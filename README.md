@@ -6,7 +6,7 @@
 ![badge_build](https://img.shields.io/badge/build-passing-brightgreen.svg) ![badge_docker](https://img.shields.io/badge/docker%20build-passing-brightgreen.svg) ![badge_platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS%20%7C%20iOS%20%7C%20Android%20%7C%20MCU-brightgreen.svg) ![badge_lincense](https://img.shields.io/badge/license-Apache%202-blue.svg) ![badge_lincense](https://img.shields.io/badge/architecture-amd64%20%7C%20arm%20%7C%20arm64-blue.svg) 
 
 [中文](README_zh.md)
-- GuiLite samples contain 19 cross-platform projects. They all based on [GuiLite](https://github.com/idea4good/GuiLite). They could show you how to use GuiLite's interface, and how GuiLite works on iOS, Android, GNU/Linux, Windows and macOS platform.
+- GuiLite samples contain 21 cross-platform projects. They all based on [GuiLite](https://github.com/idea4good/GuiLite). They could show you how to use GuiLite's interface, and how GuiLite works on iOS, Android, GNU/Linux, Windows and macOS platform.
 - GuiLite samples could pass compiling in 100%, could run on all kinds of PC, phones, MCU and embedded(IoT) devices.
 - Suppoort IDE: Visual Studio, Qt Creator, Keil 
 - GuiLite Samples could run on web page, and make 3D feature with WebGL, visit [GuiLiteWeb](https://github.com/idea4good/GuiLiteWeb) to get more details
@@ -33,6 +33,7 @@
     <td align="center"><a href="HelloTimer/UIcode/UIcode.cpp"><img src="doc/HelloTimer.gif" width="200px;"/><br /><sub><b>smart timer</b></sub></a>
     <td align="center"><a href="HelloMolecule/UIcode/UIcode.cpp"><img src="doc/HelloMolecule.gif" width="200px;"/><br /><sub><b>molecule movement effect</b></sub></a>
     <td align="center"><a href="Hello3Dwave/UIcode/UIcode.cpp"><img src="doc/Hello3Dwave.gif" width="200px;"/><br /><sub><b>3D wave effect</b></sub></a>
+    <td align="center"><a href="HelloPendulum/UIcode/UIcode.cpp"><img src="doc/HelloPendulum.gif" width="200px;"/><br /><sub><b>HelloPendulum effect</b></sub></a>
   </tr>
 </table>
 

@@ -69,8 +69,8 @@ namespace pendulum
 		x2 = r2 * sin(a2) + x1;
 		y2 = r2 * cos(a2) + y1;
 
-		s_surface->draw_line(x, y, x1 + x, y1 + y, GL_RGB(0, 122, 204), Z_ORDER_LEVEL_0);
-		s_surface->draw_line(x1 + x, y1 + y, x2 + x, y2 + y, GL_RGB(0, 122, 204), Z_ORDER_LEVEL_0);
+		s_surface->draw_line(x, y, x1 + x, y1 + y, GL_RGB(0, 162, 232), Z_ORDER_LEVEL_0);
+		s_surface->draw_line(x1 + x, y1 + y, x2 + x, y2 + y, GL_RGB(0, 162, 232), Z_ORDER_LEVEL_0);
 
 		if (text1 && text2)
 		{

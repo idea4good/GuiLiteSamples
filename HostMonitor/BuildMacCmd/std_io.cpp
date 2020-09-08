@@ -8,7 +8,7 @@ extern void create_thread(unsigned long* thread_id, void* attr, void *(*start_ro
 extern void thread_sleep(unsigned int milli_seconds);
 
 extern int captureUiOfHostMonitor(int display);
-extern void sendTouch2HostMonitor(int x, int y, bool is_down, int display_id);
+extern void sendTouch2HostMonitor(int x, int y, bool is_down);
 
 static int get_std_input(char *buffer, int size);
 static const char* s_tip_help =
@@ -44,12 +44,12 @@ static void* loop_snapshot(void* param)
 
 static void press_down(int x, int y, int display_id)
 {
-	sendTouch2HostMonitor(x, y, true, display_id);
+	sendTouch2HostMonitor(x, y, true);
 }
 
 static void press_release(int x, int y, int display_id)
 {
-	sendTouch2HostMonitor(x, y, false, display_id);
+	sendTouch2HostMonitor(x, y, false);
 }
 
 static void left_flip(int display_id)

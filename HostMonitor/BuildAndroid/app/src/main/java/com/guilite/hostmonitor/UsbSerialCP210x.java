@@ -1,4 +1,4 @@
-package gui_lite_sample;
+package com.guilite.hostmonitor;
 
 import android.app.PendingIntent;
 import android.hardware.usb.UsbConstants;

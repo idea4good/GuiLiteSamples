@@ -1,4 +1,4 @@
-package gui_lite_sample;
+package com.guilite.hostmonitor;
 import android.graphics.Bitmap;
 import android.media.MediaPlayer;
 import android.os.Build;
@@ -18,15 +18,15 @@ public class ThreadNative extends Thread {
 
     public void run() {
         OnSyncData(60, 98, 30, 120, 80, 100);//ping cloud
-        start_native(MAX_MAIN_DISPLAY, MAX_SUB_DISPLAY);
+        startNative(UI_WIDHT, UI_HEIGHT, UI_COLOR_BYTES);
     }
 
-    static public int on_action_dwon(int x, int y, int display_id) {
-        return WriteHidFifo(OUTMSG_LBUTTONDOWN, x, y, display_id);
+    static public int on_action_down(int x, int y) {
+        return sendTouch(true, x, y);
     }
 
-    static public int on_action_up(int x, int y, int display_id) {
-        return WriteHidFifo(OUTMSG_LBUTTONUP, x, y, display_id);
+    static public int on_action_up(int x, int y) {
+        return sendTouch(false, x, y);
     }
 
     public static void OnPlayWav(String fileName) {
@@ -90,17 +90,14 @@ public class ThreadNative extends Thread {
 
     static private MediaPlayer ms_player = new MediaPlayer();
 
-    native static public int OnReceiveData(byte[] data, int length);
-    native static public int GetBitmapWidth(int display_id);
-    native static public int GetBitmapHeight(int display_id);
-    native static public int UpdateBitmap(Bitmap bitmap, int display_id, int width, int height);
-    native static private  int WriteHidFifo(int type, int x, int y, int display_id);
-    native private int start_native(int main_cnt, int sub_cnt);
+    native static public int onReceiveData(byte[] data, int length);
+    native static public int updateBitmap(Bitmap bitmap, int width, int height);
+    native static private int sendTouch(boolean is_down, int x, int y);
+    native static private int startNative(int width, int height , int color_bytes);
 
-    static private final int OUTMSG_LBUTTONUP = 0x4600;
-    static private final int OUTMSG_LBUTTONDOWN = 0x4700;
-    static private final int MAX_MAIN_DISPLAY = 1;
-    static private final int MAX_SUB_DISPLAY = 8;
+    static public final int UI_WIDHT = 1024;
+    static public final int UI_HEIGHT = 768;
+    static public final int UI_COLOR_BYTES = 2;
 
     static {
         System.loadLibrary("native");

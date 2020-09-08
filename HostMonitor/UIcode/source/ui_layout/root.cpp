@@ -71,13 +71,17 @@ void load_ui_single(void* phy_fb, int width, int height, int color_bytes)
 	s_root.show_window();
 }
 
-void sendTouch2HostMonitor(int x, int y, bool is_down, int display_id)
+void sendTouch2HostMonitor(int x, int y, bool is_down)
 {
 	is_down ? s_root.on_touch(x, y, TOUCH_DOWN) : s_root.on_touch(x, y, TOUCH_UP);
 }
 
-void* getUiOfHostMonitor(int display_id, int* width, int* height, bool force_update)
+void* getUiOfHostMonitor(int* width, int* height, bool force_update)
 {
+	if(!s_display)
+	{
+		return 0;
+	}
 	return s_display->get_updated_fb(width, height, force_update);
 }
 

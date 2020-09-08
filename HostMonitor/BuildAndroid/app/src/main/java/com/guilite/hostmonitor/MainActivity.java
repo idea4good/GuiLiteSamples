@@ -1,4 +1,7 @@
-package gui_lite_sample;
+package com.guilite.hostmonitor;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
 
 import android.app.Dialog;
 import android.app.PendingIntent;
@@ -8,8 +11,6 @@ import android.content.res.AssetManager;
 import android.hardware.usb.UsbManager;
 import android.net.Uri;
 import android.os.Environment;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (null == ms_permissionIntent){
-            ms_permissionIntent = PendingIntent.getBroadcast(this, 0, new Intent("com.example.blyan.usbserial.USB_PERMISSION"), 0);
+            ms_permissionIntent = PendingIntent.getBroadcast(this, 0, new Intent("com.guilite.hostmonitor.usbserial.USB_PERMISSION"), 0);
         }
 
         if (null == ms_cp210x){
@@ -60,8 +61,6 @@ public class MainActivity extends AppCompatActivity {
         }else{
             view_0.setVisibility(View.GONE);
         }
-
-        ConnectUsbSerial();
     }
 
     private void CopyAssetsToWorkFolder(String work_folder) {
@@ -133,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void ConnectUsbSerial(){
+    public void ConnectUsbSerial(){
         if(ms_cp210x.connection != null){
             return;
         }
@@ -141,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
         String ret = ms_cp210x.connect(ms_manager, ms_permissionIntent, new UsbReadCallback() {
             @Override
             public void onReceive(byte[] data, int length) {
-                ThreadNative.OnReceiveData(data, length);
+                ThreadNative.onReceiveData(data, length);
             }
         }) + "\n";
         ret += ms_cp210x.setUsbCom(9600);
@@ -159,8 +158,7 @@ public class MainActivity extends AppCompatActivity {
         webView.setScrollbarFadingEnabled(false);
         webView.setHorizontalScrollBarEnabled(false);
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl("https://github.com/idea4good/GuiLiteSamples/blob/master/doc/README-cn.md");
-
+        webView.loadUrl("https://github.com/idea4good/GuiLite");
 
         buttonVideo = sourceDialog.findViewById(R.id.bt_watchVideo);
         buttonVideo.setOnClickListener(new View.OnClickListener() {

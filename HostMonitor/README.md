@@ -74,28 +74,11 @@
 ## Run in UI mode
 ### libUIcode.a should be in BuildMacCocoa\GuiLiteDemo\libs, rebuild them if meet link error.
 - Open `BuildMacCocoa\GuiLiteDemo.xcodeproj` with Xcode
-- Build and Run
+- Build & Run
 
 # How to build/run for Android?
-## Install software:
-- `sudo apt-get install gcc-arm-linux-androideabi`
-- Install Android NDK.
-
-- `cd HostMonitor`
-- `cmake -D CMAKE_C_COMPILER="/usr/bin/arm-linux-androideabi-gcc" -D CMAKE_CXX_COMPILER="/usr/bin/arm-linux-androideabi-g++" .`
-- `make`⚠️You will meet: `fatal error: sys/shm.h: No such file` -- Don't worry, ignore it.
-- `cp UIcode/libUIcode.a  BuildAndroid/jni/libs`
-- `cd BuildAndroid/jni/libs`
-- `./merge-libs.sh`
-- `cd BuildAndroid\jni`
-- `ndk-build clean`
-- `ndk-build`
-- `copy ..\libs\armeabi-v7a\libnative.so ..\app\libs\armeabi-v7a\`
 - Open "BuildAndroid" with Android studio
-- Click `build/debug/run`
-
-Note:
-Run `./merge_libs.sh` meet error, maybe you need run `dos2unix merge_libs.sh`
+- Build & Run
 
 # How to build for Windows UWP?
 depdency: Windows 10, visul stdio 2015/2017

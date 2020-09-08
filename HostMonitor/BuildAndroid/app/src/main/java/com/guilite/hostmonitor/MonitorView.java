@@ -1,14 +1,17 @@
-package gui_lite_sample;
+package com.guilite.hostmonitor;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import java.io.IOException;
+
+import static android.content.ContentValues.TAG;
 
 public class MonitorView extends SurfaceView implements SurfaceHolder.Callback{
     public MonitorView(Context context, AttributeSet attrs) {
@@ -35,39 +38,6 @@ public class MonitorView extends SurfaceView implements SurfaceHolder.Callback{
     public void surfaceCreated(SurfaceHolder holder) {
         Canvas canvas = holder.lockCanvas();
         if(canvas != null)holder.unlockCanvasAndPost(canvas);
-
-        int id = getId();
-        switch (id)
-        {
-            case R.id.id_monitor_view_0:
-                m_display_id = 0;
-                break;
-            case R.id.id_monitor_view_1:
-                m_display_id = 1;
-                break;
-            case R.id.id_monitor_view_2:
-                m_display_id = 2;
-                break;
-            case R.id.id_monitor_view_3:
-                m_display_id = 3;
-                break;
-            case R.id.id_monitor_view_4:
-                m_display_id = 4;
-                break;
-            case R.id.id_monitor_view_5:
-                m_display_id = 5;
-                break;
-            case R.id.id_monitor_view_6:
-                m_display_id = 6;
-                break;
-            case R.id.id_monitor_view_7:
-                m_display_id = 7;
-                break;
-            case R.id.id_monitor_view_8:
-                m_display_id = 8;
-                break;
-        }
-
         m_thread_update = new ThreadUpdate(this);
         m_thread_update.start();
     }
@@ -77,22 +47,13 @@ public class MonitorView extends SurfaceView implements SurfaceHolder.Callback{
     }
 
     private void build_bmp() {
-        m_bm_width = ThreadNative.GetBitmapWidth(m_display_id);
-        m_bm_height = ThreadNative.GetBitmapHeight(m_display_id);
-        if(0 >= m_bm_width || 0 >= m_bm_height)
-        {
-            return;
-        }
+        m_bm_width = ThreadNative.UI_WIDHT;
+        m_bm_height = ThreadNative.UI_HEIGHT;
 
         m_bmp = Bitmap.createBitmap(m_bm_width, m_bm_height, Bitmap.Config.RGB_565);
 
         float scaleWidth =((float)getWidth() / m_bm_width);
         float scaleHeight =((float)getHeight() / m_bm_height);
-
-        if(scaleWidth == 1.0f && scaleHeight == 1.0f)
-        {
-            m_is_use_matrix = false;
-        }
 
         m_matrix.reset();
         m_matrix.postScale(scaleWidth, scaleHeight);
@@ -106,18 +67,13 @@ public class MonitorView extends SurfaceView implements SurfaceHolder.Callback{
             build_bmp();
             return;
         }
-
-        ThreadNative.UpdateBitmap(m_bmp, m_display_id, m_bm_width, m_bm_height);
-
+        ThreadNative.updateBitmap(m_bmp, m_bm_width, m_bm_height);
         Canvas canvas = m_holder.lockCanvas();
         if(null == canvas){
             return;
         }
-        if(m_is_use_matrix){
-            canvas.drawBitmap(m_bmp, m_matrix,null);
-        }else{
-            canvas.drawBitmap(m_bmp, 0, 0, null);
-        }
+
+        canvas.drawBitmap(m_bmp, m_matrix,null);
         if(null != canvas)m_holder.unlockCanvasAndPost(canvas);
     }
 
@@ -130,27 +86,21 @@ public class MonitorView extends SurfaceView implements SurfaceHolder.Callback{
         {
             case MotionEvent.ACTION_DOWN:
                 checkDoubleClick(e);
-                ThreadNative.on_action_dwon(logic_x, logic_y, m_display_id);
+                ThreadNative.on_action_down(logic_x, logic_y);
                 break;
             case MotionEvent.ACTION_UP:
-                ThreadNative.on_action_up(logic_x, logic_y, m_display_id);
+            case MotionEvent.ACTION_CANCEL:
+                ThreadNative.on_action_up(logic_x, logic_y);
                 break;
             case MotionEvent.ACTION_MOVE:
-                ThreadNative.on_action_dwon(logic_x, logic_y, m_display_id);
-                break;
-            case MotionEvent.ACTION_CANCEL:
-                ThreadNative.on_action_up(logic_x, logic_y, m_display_id);
+                ThreadNative.on_action_down(logic_x, logic_y);
                 break;
         }
         return true;
     }
 
     private int x2logic(int x){
-        if(m_bm_width == getWidth())
-        {
-            return x;
-        }
-        if(m_is_use_matrix && 0 != getWidth())
+        if(0 != getWidth())
         {
             return (x * m_bm_width / getWidth());
         }
@@ -161,35 +111,27 @@ public class MonitorView extends SurfaceView implements SurfaceHolder.Callback{
     }
 
     private int y2logic(int y){
-        if(m_bm_height == getHeight())
-        {
-            return y;
-        }
-        if(m_is_use_matrix && 0 != getHeight())
+        if(0 != getHeight())
         {
             return (y * m_bm_height / getHeight());
-        }
-        else if(m_bm_height > getHeight())
-        {
-            return y;
         }
         return -1;
     }
 
     private class ThreadUpdate extends Thread{
         ThreadUpdate(MonitorView main_view){
-            m_main_view = main_view;
+            m_view = main_view;
         }
         public void run(){
             while (true) {
                 try {
-                    m_main_view.on_fresh();
+                    m_view.on_fresh();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         }
-        private MonitorView m_main_view;
+        private MonitorView m_view;
     }
 
     private void checkDoubleClick(MotionEvent e)
@@ -201,7 +143,7 @@ public class MonitorView extends SurfaceView implements SurfaceHolder.Callback{
         long time = e.getEventTime();
         if(ms_click_time != 0) {
             if(time - ms_click_time < THRESHOLD_DOUBLE_CLICK){
-                m_activity.ChangeViewState();
+                m_activity.ConnectUsbSerial();
             }
         }
         ms_click_time = time;
@@ -211,8 +153,6 @@ public class MonitorView extends SurfaceView implements SurfaceHolder.Callback{
     private SurfaceHolder 	    m_holder;
     private Matrix              m_matrix = new Matrix();
     private ThreadUpdate        m_thread_update;
-    private boolean			    m_is_use_matrix = true;
-    private int                 m_display_id = 0;
 
     private int	                m_bm_width;
     private int	                m_bm_height;

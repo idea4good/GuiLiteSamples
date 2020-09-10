@@ -35,6 +35,12 @@ android {
             version "3.10.2"
         }
     }
+    task createLink(type:Exec) {
+        println 'create native source(UIcode) link'
+        workingDir '.'
+        commandLine 'cmd', '/c', 'source-link.bat'
+    }
+    preBuild.dependsOn(createLink)
 }
 
 dependencies {

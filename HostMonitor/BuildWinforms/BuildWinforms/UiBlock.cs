@@ -12,10 +12,10 @@ namespace BuildWinforms
     public partial class UiBlock : PictureBox
     {
         [DllImport("HostMonitor.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern IntPtr getHbitmapOfHostMonitorUiFromDll(int display_id, int witdth, int height, bool force_update);
+        public static extern IntPtr getHbitmapOfHostMonitorUiFromDll(bool force_update);
 
         [DllImport("HostMonitor.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern void sendTouch2HostMonitorFromDll(int display_id, int x, int y, bool is_down);
+        public static extern void sendTouch2HostMonitorFromDll(int x, int y, bool is_down);
 
         public void updateUI()
         {
@@ -25,7 +25,7 @@ namespace BuildWinforms
                 Image = null;
             }
 
-            IntPtr bitmap = getHbitmapOfHostMonitorUiFromDll(m_index, m_ui_width, m_ui_height, true);
+            IntPtr bitmap = getHbitmapOfHostMonitorUiFromDll(true);
             if(bitmap != IntPtr.Zero)
             {
                 Image = System.Drawing.Image.FromHbitmap(bitmap);
@@ -41,7 +41,7 @@ namespace BuildWinforms
             }
             int ui_x = (e.Location.X * m_ui_width / this.Width);
             int ui_y = (e.Location.Y * m_ui_height / this.Height);
-            sendTouch2HostMonitorFromDll(m_index, ui_x, ui_y, false);
+            sendTouch2HostMonitorFromDll(ui_x, ui_y, false);
             m_is_mouse_down = false;
         }
 
@@ -54,7 +54,7 @@ namespace BuildWinforms
             }
             int ui_x = (e.Location.X * m_ui_width / this.Width);
             int ui_y = (e.Location.Y * m_ui_height / this.Height);
-            sendTouch2HostMonitorFromDll(m_index, ui_x, ui_y, true);
+            sendTouch2HostMonitorFromDll(ui_x, ui_y, true);
             m_is_mouse_down = true;
         }
 

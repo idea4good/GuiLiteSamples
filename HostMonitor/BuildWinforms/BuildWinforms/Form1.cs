@@ -24,35 +24,35 @@ namespace BuildWinforms
 
             uiBlock1.m_index = 1;
             uiBlock1.m_ui_width = 1024;
-            uiBlock1.m_ui_height = 370;
+            uiBlock1.m_ui_height = 768;
 
             uiBlock2.m_index = 2;
             uiBlock2.m_ui_width = 1024;
-            uiBlock2.m_ui_height = 370;
+            uiBlock2.m_ui_height = 768;
 
             uiBlock3.m_index = 3;
             uiBlock3.m_ui_width = 1024;
-            uiBlock3.m_ui_height = 370;
+            uiBlock3.m_ui_height = 768;
 
             uiBlock4.m_index = 4;
             uiBlock4.m_ui_width = 1024;
-            uiBlock4.m_ui_height = 370;
+            uiBlock4.m_ui_height = 768;
 
             uiBlock5.m_index = 5;
             uiBlock5.m_ui_width = 1024;
-            uiBlock5.m_ui_height = 370;
+            uiBlock5.m_ui_height = 768;
 
             uiBlock6.m_index = 6;
             uiBlock6.m_ui_width = 1024;
-            uiBlock6.m_ui_height = 370;
+            uiBlock6.m_ui_height = 768;
 
             uiBlock7.m_index = 7;
             uiBlock7.m_ui_width = 1024;
-            uiBlock7.m_ui_height = 370;
+            uiBlock7.m_ui_height = 768;
 
             uiBlock8.m_index = 8;
             uiBlock8.m_ui_width = 1024;
-            uiBlock8.m_ui_height = 370;
+            uiBlock8.m_ui_height = 768;
 
             System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
             timer.Interval = 30;

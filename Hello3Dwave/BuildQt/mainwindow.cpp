@@ -53,13 +53,13 @@ void MainWindow::init()
 void MainWindow::paintEvent(QPaintEvent* p)
 {
     (void)p;//kill warning.
-    static bool fore_update = true;
-    void* fb = getUiOfHello3Dwave(NULL, NULL, fore_update);
+    static bool force_update = true;
+    void* fb = getUiOfHello3Dwave(NULL, NULL, force_update);
     if(fb){
         QPainter painter(this);
         QImage img((uchar*)fb, UI_WIDTH, UI_HEIGHT, QImage::Format_RGB16);
         painter.drawImage(0, 0, img);
-        fore_update = false;
+        force_update = false;
     }
 }
 

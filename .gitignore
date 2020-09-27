@@ -64,12 +64,14 @@ Makefile*
 
 # For output
 libUIcode.a
+snap_short.bmp
 
 /Hello3D/BuildLinux/Hello3D
 /Hello3Dwave/BuildLinux/Hello3Dwave
 /HelloAnimation/BuildLinux/HelloAnimation
 /HelloCircle/BuildLinux/HelloCircle
-/HelloFont/BuildLinux/HelloFont
+/HelloFFmpeg/BuildLinux/HelloFFmpeg
+/HelloFont/BuildLinux/HelloFFmpeg
 /HelloGuiLite/BuildLinux/HelloGuiLite
 /HelloLayers/BuildLinux/HelloLayers
 /HelloMario/BuildLinux/HelloMario

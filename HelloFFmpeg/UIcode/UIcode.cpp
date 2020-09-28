@@ -1,5 +1,5 @@
 #define GUILITE_ON  //Do not define this macro once more!!!
-#include "Guilite.h"
+#include "GuiLite.h"
 #include <stdio.h>
 #include "ffmpeg.h"
 

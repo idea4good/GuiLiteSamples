@@ -19,10 +19,10 @@ static void* get_dev_fb(char* path, int &width, int &height, int &color_bytes);
 static const char* s_welcome =
 "--------------------------- Help ---------------------------\n"
 "Run on Linux Desktop:\n"
-"./xWindow 680 512 | ./HelloFFmpeg shared-fb\n\n"
+"./xWindow 640 360 | ./HelloFFmpeg ../test.mp4 shared-fb\n\n"
 
 "Run on ARM Linux:\n"
-"./HelloFFmpeg /dev/fb-path\n"
+"./HelloFFmpeg ../test.mp4 /dev/fb-path\n"
 "------------------------------------------------------------\n";
 
 enum FRAMEBUFFER_MODE

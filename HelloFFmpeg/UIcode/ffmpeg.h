@@ -9,10 +9,11 @@ extern "C" {
 
 class c_player {
 public:
-    c_player(int width, int height)
+    c_player(int width, int height, int color_bytes)
     {
         this->width = width;
         this->height = height;
+        this->color_bytes = color_bytes;
         sws_ctx = 0;
     }
 
@@ -33,8 +34,8 @@ public:
 
         // Find the first valid video stream inside the file
         video_stream_index = -1;
-        AVCodecParameters* av_codec_params;
-        AVCodec* av_codec;
+        AVCodecParameters* av_codec_params = 0;
+        AVCodec* av_codec = 0;
         for (int i = 0; i < av_format_ctx->nb_streams; ++i) {
             av_codec_params = av_format_ctx->streams[i]->codecpar;
             av_codec = avcodec_find_decoder(av_codec_params->codec_id);
@@ -80,7 +81,7 @@ public:
         return true;
     }
 
-    bool ffmpeg_read_frame(void* phy_fb = 0)
+    bool ffmpeg_read_frame(void* phy_fb = 0, AVPixelFormat pixel_format = AV_PIX_FMT_RGB565LE)
     {
         // Decode one frame
         int response;
@@ -115,11 +116,11 @@ public:
         }
         if(!sws_ctx)
         {
-            sws_ctx = sws_getContext(av_codec_ctx->width, av_codec_ctx->height, av_codec_ctx->pix_fmt, width, height, AV_PIX_FMT_RGB565LE, SWS_BILINEAR, NULL, NULL, NULL);
+            sws_ctx = sws_getContext(av_codec_ctx->width, av_codec_ctx->height, av_codec_ctx->pix_fmt, width, height, pixel_format, SWS_BILINEAR, NULL, NULL, NULL);
         }
         
         uint8_t *frame_buffer[4] = { (uint8_t*)phy_fb, 0, 0, 0};
-        int stride[4] = {2 * width, 0, 0, 0};
+        int stride[4] = {color_bytes * width, 0, 0, 0};
         sws_scale(sws_ctx, av_frame->data, av_frame->linesize, 0, av_frame->height, frame_buffer, stride);
         return true;
     }
@@ -170,7 +171,7 @@ public:
     SwsContext *sws_ctx;
     AVFrame* av_frame;
     AVPacket* av_packet;
-    int width, height, video_stream_index;
+    int width, height, video_stream_index, color_bytes;
     AVRational time_base; 
 };
 

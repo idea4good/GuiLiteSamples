@@ -3,9 +3,6 @@
 #include <stdio.h>
 #include "ffmpeg.h"
 
-#define UI_WIDTH 640
-#define UI_HEIGHT 360
-
 static c_display* s_display;
 static c_surface* s_surface;
 
@@ -28,9 +25,9 @@ void render_frame_from_rawdata(c_player* player)
     }
 }
 
-int play_video(const char* file_name)
+int play_video(const char* file_name, int width, int height, int color_bytes)
 {
-    c_player player(UI_WIDTH, UI_HEIGHT);
+    c_player player(width, height, color_bytes);
     if (!player.ffmpeg_open(file_name))
     {
         return printf("ffmpeg_open failed\n");
@@ -46,12 +43,18 @@ int play_video(const char* file_name)
     double last_seconds = 0;
     while (true)
     {
-        if (!player.ffmpeg_read_frame(phy_fb))
+        switch (color_bytes)
         {
-            return printf("Couldn't load video frame\n");
+        case 2:
+            player.ffmpeg_read_frame(phy_fb, AV_PIX_FMT_RGB565LE);//Fix AV_PIX_FMT if you meet color issue.
+        case 4:
+            player.ffmpeg_read_frame(phy_fb, AV_PIX_FMT_BGR0);//Fix AV_PIX_FMT if you meet color issue.
+            break;
+        default:
+            player.ffmpeg_read_frame();
+            render_frame_from_rawdata(&player);
+            break;
         }
-        //player.ffmpeg_read_frame();
-        //render_frame_from_rawdata(&player);
 
         double cur_seconds = player.av_frame->pts * (double)player.time_base.num / (double)player.time_base.den;
         if(cur_seconds <= last_seconds)
@@ -67,12 +70,17 @@ int play_video(const char* file_name)
 
 void startHelloFFmpeg(const char* file_name, void* phy_fb, int width, int height, int color_bytes)
 {
-	s_surface = new c_surface(UI_WIDTH, UI_HEIGHT, color_bytes, Z_ORDER_LEVEL_0);
+	s_surface = new c_surface(width, height, color_bytes, Z_ORDER_LEVEL_0);
 	s_display = new c_display(phy_fb, width, height, s_surface);
 
-    s_surface->fill_rect(0, 0, UI_WIDTH - 1, UI_HEIGHT - 1, 0, Z_ORDER_LEVEL_0);
+    s_surface->fill_rect(0, 0, width - 1, height - 1, 0, Z_ORDER_LEVEL_0);
 
-	play_video(file_name);
+	play_video(file_name, width, height, color_bytes);
+}
+
+void* getUiOfHelloFFmpeg(int* width, int* height, bool force_update)
+{
+	return s_display->get_updated_fb(width, height, force_update);
 }
 
 void captureUiOfHelloFFmpeg()

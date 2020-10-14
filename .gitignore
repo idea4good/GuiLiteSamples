@@ -67,6 +67,7 @@ libUIcode.a
 snap_short.bmp
 
 /Hello3D/BuildLinux/Hello3D
+/Hello3Ddonut/BuildLinux/Hello3Ddonut
 /Hello3Dwave/BuildLinux/Hello3Dwave
 /HelloAnimation/BuildLinux/HelloAnimation
 /HelloCircle/BuildLinux/HelloCircle

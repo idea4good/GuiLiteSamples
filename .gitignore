@@ -66,6 +66,8 @@ Makefile*
 libUIcode.a
 snap_short.bmp
 
+ExternalWindow/X11/xWindow
+
 /Hello3D/BuildLinux/Hello3D
 /Hello3Ddonut/BuildLinux/Hello3Ddonut
 /Hello3Dwave/BuildLinux/Hello3Dwave
@@ -73,6 +75,7 @@ snap_short.bmp
 /HelloCircle/BuildLinux/HelloCircle
 /HelloFFmpeg/BuildLinux/HelloFFmpeg
 /HelloFont/BuildLinux/HelloFFmpeg
+HelloFont/BuildLinux/HelloFont
 /HelloGuiLite/BuildLinux/HelloGuiLite
 /HelloLayers/BuildLinux/HelloLayers
 /HelloMario/BuildLinux/HelloMario
@@ -80,6 +83,7 @@ snap_short.bmp
 /HelloNets/BuildLinux/HelloNets
 /HelloNoTouch/BuildLinux/HelloNoTouch
 /HelloParticle/BuildLinux/HelloParticle
+HelloPendulum/BuildLinux/HelloPendulum
 /HelloScroll/BuildLinux/HelloScroll
 /HelloSlide/BuildLinux/HelloSlide
 /HelloStar/BuildLinux/HelloStar

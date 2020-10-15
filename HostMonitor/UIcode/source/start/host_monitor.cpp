@@ -1,10 +1,9 @@
+#define GUILITE_ON  //Do not define this macro once more!!!
 #include "../include/msg_id.h"
 #include "../manager/value_manager.h"
 #include "../manager/wave_manager.h"
 #include "../modules/module_group.h"
 #include "../data/database.h"
-
-#define GUILITE_ON  //Do not define this macro once more!!!
 #include "../include/GuiLite.h"
 #include <string.h>
 #include <stdlib.h>

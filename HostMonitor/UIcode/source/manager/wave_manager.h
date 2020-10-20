@@ -44,7 +44,7 @@ typedef struct struct_wave_ctrl_discpritor
 }WAVE_CTRL_DISCPRITOR;
 
 class c_wave_ctrl;
-class c_wave_manage : public c_cmd_target
+class c_wave_manage
 {
 public:
 	int register_wave_ctrl(WAVE_TYPE wave_ctrl_type, c_wave_ctrl* p_wave);
@@ -59,11 +59,7 @@ public:
 private:
 	c_wave_buffer	m_waves[WAVE_TYPE_MAX];
     c_wave_ctrl* 	m_wave_ctrls[WAVE_TYPE_MAX][WAVE_CTRL_MAX];
-
 	c_wave_manage();
-	c_wave_manage(const c_wave_manage&);
-	c_wave_manage& operator=(const c_wave_manage&);
-	~c_wave_manage(){}
 };
 
 #endif

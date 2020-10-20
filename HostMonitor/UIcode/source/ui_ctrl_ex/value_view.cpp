@@ -47,13 +47,13 @@ int c_value_view::register_value_view(c_value_view* p_pm_view)
 
 	if (!ms_is_has_timer)
 	{
-		register_timer(1000, c_value_view::refresh_group_value);
+		register_timer(1000, c_value_view::refresh_group_value, 0);
 		ms_is_has_timer = true;
 	}
 	return 1;
 }
 
-void c_value_view::refresh_group_value(void* ptmr, void* parg)
+void c_value_view::refresh_group_value(void* param)
 {
 	static unsigned int s_sequnce;
 	unsigned int flash_color = (s_sequnce++ % 2) ? GL_RGB(255, 0, 0) : GL_RGB(0, 0, 0);

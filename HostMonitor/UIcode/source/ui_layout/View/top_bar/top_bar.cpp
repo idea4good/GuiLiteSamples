@@ -1,17 +1,12 @@
 #include "../include/GuiLite.h"
-#include "../include/msg_id.h"
 #include "../include/ctrl_id.h"
 #include "top_bar.h"
 #include "top_bar_xml.h"
 
-GL_BEGIN_MESSAGE_MAP(c_top_bar)
-ON_GL_USER_MSG(USR_MSG_UPDATE_TIME,c_top_bar::on_refurbish_time)
-GL_END_MESSAGE_MAP()
-
 void c_top_bar::on_init_children(void)
 {
 	m_bg_color = GL_RGB(0,0,0);
-	register_timer(1000, c_top_bar::sysinfo_timer_callback);
+	register_timer(1000, c_top_bar::sysinfo_timer_callback, this);
 }
 
 void c_top_bar::on_paint(void)
@@ -22,21 +17,8 @@ void c_top_bar::on_paint(void)
 	m_surface->draw_hline(rect.m_left,rect.m_right,rect.m_bottom,GL_RGB(74,74,74), m_z_order);
 }
 
-void c_top_bar::on_refurbish_time(int id, int param)
+void c_top_bar::sysinfo_timer_callback(void* param)//tbd
 {
-	c_wnd *p_ctl = get_wnd_ptr(ID_TOP_BAR_TIME_ID);
-    if(p_ctl == 0)
-    {
-       ASSERT(false);
-	   return;
-    }
-    p_ctl->on_paint();
-}
-
-extern int write_usr_msg(MSG_INFO* msg);
-void c_top_bar::sysinfo_timer_callback(void* ptmr, void* parg)
-{
-	MSG_INFO msg_info;
-	msg_info.dwMsgId = USR_MSG_UPDATE_TIME;
-	write_usr_msg(&msg_info);
+	c_top_bar* top_bar = (c_top_bar*)param;
+	top_bar->get_wnd_ptr(ID_TOP_BAR_TIME_ID)->on_paint();
 }

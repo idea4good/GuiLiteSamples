@@ -6,7 +6,7 @@
 class c_value_view : public c_wnd
 {
 public:
-	static void refresh_group_value(void* ptmr, void* parg);
+	static void refresh_group_value(void* param);
 protected:
 	static int register_value_view(c_value_view* p_pm_view);
 	void refresh_value(bool flash_or_not, unsigned int flash_color);

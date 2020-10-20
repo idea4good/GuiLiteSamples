@@ -1,6 +1,5 @@
 #include "../include/GuiLite.h"
 #include "../include/ctrl_id.h"
-#include "../include/msg_id.h"
 
 #include "../source/ui_ctrl_ex/value_view.h"
 #include "../source/ui_ctrl_ex/value_ctrl.h"

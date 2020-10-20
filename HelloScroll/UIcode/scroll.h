@@ -20,8 +20,9 @@ public:
 };
 
 #define MOVE_THRESHOLD	10
-class c_scroll_view : c_wnd
+class c_scroll_view : public c_wnd
 {
+protected:
 	virtual void pre_create_wnd()
 	{
 		m_bg_color = GL_RGB(220, 220, 220);
@@ -154,12 +155,6 @@ class c_scroll_view : c_wnd
 			}
 		}
 	}
-	void on_button_clicked(int ctrl_id, int param)
-	{
-		notify_parent(GL_BN_CLICKED, ctrl_id);
-	}
-
-	GL_DECLARE_MESSAGE_MAP()//delcare message
 private:
 	TOUCH_ACTION m_touch_action = TOUCH_UP;
 	c_display* m_mem_display;
@@ -169,9 +164,3 @@ private:
 	int m_offset_y = 0;
 	int m_down_x, m_down_y;
 };
-
-#ifdef GUILITE_ON
-GL_BEGIN_MESSAGE_MAP(c_scroll_view)
-ON_GL_BN_CLICKED(c_scroll_view::on_button_clicked)
-GL_END_MESSAGE_MAP()
-#endif

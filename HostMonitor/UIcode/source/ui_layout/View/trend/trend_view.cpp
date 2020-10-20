@@ -1,11 +1,10 @@
 #include "../include/GuiLite.h"
 #include "../include/ctrl_id.h"
-#include "../include/msg_id.h"
+#include "../../../manager/value_manager.h"
 #include "../source/data/database.h"
 #include "../source/ui_ctrl_ex/trend_graph.h"
 #include "../source/ui_ctrl_ex/trend_table.h"
 #include "../source/ui_ctrl_ex/time_bar.h"
-#include <stdio.h>
 #include "trend_view.h"
 
 #define HR_COLOR				GL_RGB(148,251,78)
@@ -16,17 +15,13 @@
 #define H_AXIS_MARK_CNT			7
 #define H_AXIS_MARK_INTERVAL	(60 * 10)	//10 minutes between 2 marks
 
-GL_BEGIN_MESSAGE_MAP(c_trend_view)
-ON_ND_SACLE_CLICKED(c_trend_view::on_time_bar_change)
-ON_GL_USER_MSG(USR_MSG_UPDATE_TREND_VIEW, c_trend_view::on_update_trend_view)
-GL_END_MESSAGE_MAP()
-
 void c_trend_view::on_init_children(void)
 {
-	c_trend_graph*	p_trend_graph = (c_trend_graph*)get_wnd_ptr(ID_TREND_SCREEN_VITAL_TREND_CTRL);
+	c_trend_graph* p_trend_graph = (c_trend_graph*)get_wnd_ptr(ID_TREND_SCREEN_VITAL_TREND_CTRL);
 	p_trend_graph->set_type(TREND_TYPE_VITAL);
 	p_trend_graph = (c_trend_graph*)get_wnd_ptr(ID_TREND_SCREEN_PRESSURE_CTRL);
 	p_trend_graph->set_type(TREND_TYPE_NIBP);
+	register_timer((60 * 1000), database_timer_callback, this);
 }
 
 void c_trend_view::on_paint(void)
@@ -38,21 +33,21 @@ void c_trend_view::on_paint(void)
 	m_surface->draw_rect(rect.m_left,   rect.m_top,   rect.m_right-2,  rect.m_bottom-7, GL_RGB(165,166,156), m_z_order);
 	m_surface->draw_rect(rect.m_left+1, rect.m_top+1, rect.m_right-3,	rect.m_bottom-8, GL_RGB(123,125,123), m_z_order);
 	m_surface->draw_rect(rect.m_left+2, rect.m_top+2, rect.m_right-4,	rect.m_bottom-9, GL_RGB(99,101,99), m_z_order);
+
+	static bool first_show=true;
+	if (first_show)
+	{
+		database_timer_callback(this);
+		first_show = false;
+	}
 }
 
-void c_trend_view::on_time_bar_change(int ctrl_id, int param)
+void c_trend_view::update_trend_view()
 {
-	c_time_bar*  p_time_bar = (c_time_bar*)get_wnd_ptr(ID_TREND_SCREEN_TIME_SCALE_BAR_CTRL);
-	refresh_trend_table(p_time_bar->get_start_time(), p_time_bar->get_end_time());
-	refresh_trend_graphic(p_time_bar->get_end_time());
-}
-
-void c_trend_view::on_update_trend_view(int id, int param)
-{
-	//update time bar
 	c_time_bar*  p_time_bar = (c_time_bar*)get_wnd_ptr(ID_TREND_SCREEN_TIME_SCALE_BAR_CTRL);
 	p_time_bar->set_time(get_time_in_second());
-	on_time_bar_change(0, 0);
+	refresh_trend_table(p_time_bar->get_start_time(), p_time_bar->get_end_time());
+	refresh_trend_graphic(p_time_bar->get_end_time());
 }
 
 void c_trend_view::refresh_trend_table(long start_time, long end_time)
@@ -187,6 +182,30 @@ int c_trend_view::read_trend_data(long start_time, long end_time, int hr[], int 
 		}
 		time += detal;
 	}
-
 	return read_cnt;
+}
+
+typedef int(*SYNC_DATA)(int hr, int spo2, int rr, int nibp_sys, int nibp_dia, int nibp_mean);
+extern SYNC_DATA gSyncData;
+void c_trend_view::database_timer_callback(void* param)
+{
+	VALUE_SET data;
+	memset(&data, 0, sizeof(data));
+	c_value_manager* real_data_mgr = c_value_manager::get_instance();
+
+	data.time = get_time_in_second();
+	data.hr = data.pr = real_data_mgr->get_value(VALUE_HR);
+	data.spo2 = real_data_mgr->get_value(VALUE_SPO2);
+	data.rr = real_data_mgr->get_value(VALUE_RESP);
+	data.nibp_sys = real_data_mgr->get_value(VALUE_NIBP_SYS);
+	data.nibp_dia = real_data_mgr->get_value(VALUE_NIBP_DIA);
+	data.nibp_mean = real_data_mgr->get_value(VALUE_NIBP_MEAN);
+	c_database::get_instance()->write(data);
+
+	((c_trend_view*)param)->update_trend_view();
+	
+	if (gSyncData)
+	{
+		gSyncData(data.hr, data.spo2, data.rr, data.nibp_sys, data.nibp_dia, data.nibp_mean);
+	}
 }

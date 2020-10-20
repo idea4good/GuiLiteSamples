@@ -38,7 +38,7 @@ WND_TREE g_page_trend_view_children[] =
 	{0,0,0,0,0,0,0,0 }
 };
 
-static c_trend_view 	s_trend_view;
+static c_trend_view s_trend_view;
 static c_wnd		s_root;
 
 WND_TREE g_trend_page_children[]=

@@ -106,7 +106,9 @@ typedef enum e_ctrlid
 	*   			dialog
 	****************************************/
 	//patient setup dialog
-	IDD_SETUP_DLG,
+	ID_SETUP_BUTTON,
+	ID_ABOUT_BUTTON,
+	ID_SETUP_DLG,
 	ID_SETUP_DLG_EDIT_FIRST_NAME,
 	ID_SETUP_DLG_EDIT_SECOND_NAME,
 	ID_SETUP_DLG_LB_PATIENT_TYPE,

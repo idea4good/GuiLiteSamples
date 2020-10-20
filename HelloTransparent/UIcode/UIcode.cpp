@@ -50,6 +50,10 @@ class c_wave : public c_wave_ctrl
 
 class c_my_dialog : public c_dialog
 {
+	virtual void on_init_children()
+	{
+		((c_button*)get_wnd_ptr(ID_BUTTON))->set_on_click((WND_CALLBACK)&c_my_dialog::on_clicked);
+	}
 	virtual void on_paint(void)
 	{
 		c_rect rect;
@@ -61,14 +65,7 @@ class c_my_dialog : public c_dialog
 		c_dialog::close_dialog(m_surface);
 		((c_surface_transparent*)m_surface)->clear_layer(m_z_order);
 	}
-
-	GL_DECLARE_MESSAGE_MAP()//delcare message
 };
-
-//map message
-GL_BEGIN_MESSAGE_MAP(c_my_dialog)
-ON_GL_BN_CLICKED(c_my_dialog::on_clicked)
-GL_END_MESSAGE_MAP()
 
 class c_my_ui : public c_wnd
 {

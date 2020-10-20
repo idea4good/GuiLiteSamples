@@ -27,6 +27,9 @@ class c_my_ui : public c_wnd
 {
 	virtual void on_init_children() 
 	{
+		c_button* button = (c_button*)get_wnd_ptr(ID_BUTTON);
+		button->set_on_click((WND_CALLBACK)&c_my_ui::on_button_clicked);
+
 		c_edit* edit = (c_edit*)get_wnd_ptr(ID_EDIT_1);
 		edit->set_keyboard_style(STYLE_ALL_BOARD);
 
@@ -34,6 +37,7 @@ class c_my_ui : public c_wnd
 		edit->set_keyboard_style(STYLE_NUM_BOARD);
 
 		c_list_box  *list_box = (c_list_box*)get_wnd_ptr(ID_LIST_BOX);
+		list_box->set_on_change((WND_CALLBACK)&c_my_ui::on_listbox_confirm);
 		list_box->clear_item();
 		list_box->add_item((char*)"Item 0");
 		list_box->add_item((char*)"Item 1");
@@ -41,6 +45,7 @@ class c_my_ui : public c_wnd
 		list_box->select_item(0);
 
 		c_spin_box  *spin_box = (c_spin_box*)get_wnd_ptr(ID_SPIN_BOX);
+		spin_box->set_on_change((WND_CALLBACK)&c_my_ui::on_spinbox_change);
 		spin_box->set_max_min(9, 0);
 		spin_box->set_step(1);
 		spin_box->set_value(5);
@@ -78,17 +83,16 @@ class c_my_ui : public c_wnd
 		label->set_str(str);
 		label->show_window();
 	}
-	GL_DECLARE_MESSAGE_MAP()//delcare message
 };
-
-GL_BEGIN_MESSAGE_MAP(c_my_ui)
-ON_GL_BN_CLICKED(c_my_ui::on_button_clicked)
-ON_SPIN_CHANGE(c_my_ui::on_spinbox_change)
-ON_LIST_CONFIRM(c_my_ui::on_listbox_confirm)
-GL_END_MESSAGE_MAP()
 
 class c_my_dialog : public c_dialog
 {
+	virtual void on_init_children()
+	{
+		c_button* button = (c_button*)get_wnd_ptr(ID_DIALOG_EXIT_BUTTON);
+		button->set_on_click((WND_CALLBACK)&c_my_dialog::on_button_clicked);
+	}
+
 	void on_button_clicked(int ctrl_id, int param)
 	{
 		switch (ctrl_id)
@@ -100,12 +104,7 @@ class c_my_dialog : public c_dialog
 			break;
 		}
 	}
-	GL_DECLARE_MESSAGE_MAP()//delcare message
 };
-
-GL_BEGIN_MESSAGE_MAP(c_my_dialog)
-ON_GL_BN_CLICKED(c_my_dialog::on_button_clicked)
-GL_END_MESSAGE_MAP()
 
 // Layout Widgets
 static c_my_ui s_my_ui;

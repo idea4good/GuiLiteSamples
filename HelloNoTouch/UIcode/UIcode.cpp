@@ -20,6 +20,12 @@ enum WND_ID
 
 class c_myUI : public c_wnd
 {
+	virtual void on_init_children()
+	{
+		((c_button*)get_wnd_ptr(ID_BUTTON1))->set_on_click((WND_CALLBACK)&c_myUI::on_clicked);
+		((c_button*)get_wnd_ptr(ID_BUTTON2))->set_on_click((WND_CALLBACK)&c_myUI::on_clicked);
+		((c_button*)get_wnd_ptr(ID_BUTTON3))->set_on_click((WND_CALLBACK)&c_myUI::on_clicked);
+	}
 	virtual void on_paint(void)
 	{
 		c_rect rect;
@@ -47,13 +53,7 @@ class c_myUI : public c_wnd
 		}
 		button->show_window();
 	}
-	GL_DECLARE_MESSAGE_MAP()//delcare message
 };
-
-//map message
-GL_BEGIN_MESSAGE_MAP(c_myUI)
-ON_GL_BN_CLICKED(c_myUI::on_clicked)
-GL_END_MESSAGE_MAP()
 
 //////////////////////// layout UI ////////////////////////
 static c_myUI s_myUI;

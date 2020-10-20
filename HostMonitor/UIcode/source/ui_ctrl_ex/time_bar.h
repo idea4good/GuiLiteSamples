@@ -3,11 +3,6 @@
 
 #include "GuiLite.h"
 
-#define ND_SCALE_CLICKED							0x2013
-
-#define ON_ND_SACLE_CLICKED(func)           \
-{MSG_TYPE_WND, ND_SCALE_CLICKED, 0, msgCallback(&func)},
-
 class c_time_bar : public c_wnd
 {
 public:
@@ -34,7 +29,6 @@ private:
 	c_button m_fast_backward;
 	c_button m_forward;
 	c_button m_fast_forward;
-	GL_DECLARE_MESSAGE_MAP()
 };
 
 #endif

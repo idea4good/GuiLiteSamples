@@ -27,11 +27,25 @@ enum WND_ID
 
 extern const BITMAP_INFO image1_bmp, image2_bmp, image3_bmp, image4_bmp, image5_bmp, image6_bmp, image7_bmp, image8_bmp, image9_bmp;
 
-class c_my_ui : public c_wnd
+class c_scroll_view_v : public c_scroll_view
 {
+	virtual void on_init_children()
+	{
+		((c_button*)get_wnd_ptr(ID_BUTTON_1))->set_on_click((WND_CALLBACK)&c_scroll_view_v::on_button_clicked);
+		((c_button*)get_wnd_ptr(ID_BUTTON_2))->set_on_click((WND_CALLBACK)&c_scroll_view_v::on_button_clicked);
+		((c_button*)get_wnd_ptr(ID_BUTTON_3))->set_on_click((WND_CALLBACK)&c_scroll_view_v::on_button_clicked);
+		((c_button*)get_wnd_ptr(ID_BUTTON_4))->set_on_click((WND_CALLBACK)&c_scroll_view_v::on_button_clicked);
+		((c_button*)get_wnd_ptr(ID_BUTTON_5))->set_on_click((WND_CALLBACK)&c_scroll_view_v::on_button_clicked);
+		((c_button*)get_wnd_ptr(ID_BUTTON_6))->set_on_click((WND_CALLBACK)&c_scroll_view_v::on_button_clicked);
+		((c_button*)get_wnd_ptr(ID_BUTTON_7))->set_on_click((WND_CALLBACK)&c_scroll_view_v::on_button_clicked);
+		((c_button*)get_wnd_ptr(ID_BUTTON_8))->set_on_click((WND_CALLBACK)&c_scroll_view_v::on_button_clicked);
+		((c_button*)get_wnd_ptr(ID_BUTTON_9))->set_on_click((WND_CALLBACK)&c_scroll_view_v::on_button_clicked);
+
+		c_scroll_view::on_init_children();
+	}
 	void on_button_clicked(int ctrl_id, int param)
 	{
-		switch (param)
+		switch (ctrl_id)
 		{
 		case ID_BUTTON_1:
 			c_bitmap::draw_bitmap(m_surface, m_z_order, &image1_bmp, 230, 10);
@@ -65,16 +79,12 @@ class c_my_ui : public c_wnd
 			break;
 		}
 	}
-	GL_DECLARE_MESSAGE_MAP()//delcare message
 };
 
-GL_BEGIN_MESSAGE_MAP(c_my_ui)
-ON_GL_BN_CLICKED(c_my_ui::on_button_clicked)
-GL_END_MESSAGE_MAP()
-
 // Layout Widgets
-static c_my_ui s_my_ui;
-static c_scroll_view s_scroll_view_1, s_scroll_view_2;
+static c_wnd s_my_ui;
+static c_scroll_view_v s_scroll_view_1;
+static c_scroll_view s_scroll_view_2;
 static c_button s_button_1, s_button_2, s_button_3, s_button_4, s_button_5, s_button_6, s_button_7, s_button_8, s_button_9;
 static c_label label_1;
 
@@ -102,7 +112,7 @@ WND_TREE s_scroll_widgets_2[] =
 
 WND_TREE s_main_widgets[] =
 {
-	{(c_wnd*)&s_scroll_view_1, ID_SCROLL_VIEW_1, 0, 0,	0,		220, 290, s_scroll_widgets_1},
+	{(c_wnd*)&s_scroll_view_1, ID_SCROLL_VIEW_1, 0, 0,	0,		600, 290, s_scroll_widgets_1},
 	{(c_wnd*)&s_scroll_view_2, ID_SCROLL_VIEW_2, 0, 0,	300,	600, 100, s_scroll_widgets_2},
 	{NULL, 0 , 0, 0, 0, 0, 0}
 };

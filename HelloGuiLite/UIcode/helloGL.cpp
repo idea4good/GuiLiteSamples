@@ -42,50 +42,44 @@ class c_start_button : public c_button
 
 class c_desktop : public c_wnd
 {
-	virtual void on_paint(void);
-	void on_clicked(int ctrl_id, int param);
-	GL_DECLARE_MESSAGE_MAP()//delcare message
-};
-
-//map message
-GL_BEGIN_MESSAGE_MAP(c_desktop)
-ON_GL_BN_CLICKED(c_desktop::on_clicked)
-GL_END_MESSAGE_MAP()
-
-void c_desktop::on_clicked(int ctrl_id, int param)
-{
-	static bool is_open = false;
-	(is_open) ? c_dialog::close_dialog(m_surface): c_dialog::open_dialog((c_dialog*)get_wnd_ptr(ID_START_MENU), false);
-	is_open = !is_open;
-}
-
-void c_desktop::on_paint()
-{
-	c_rect rect;
-	get_screen_rect(rect);
-	extern const BITMAP_INFO desktop_bmp;
-	int block_width = 80;
-	int block_height = 60;
-	int block_rows = desktop_bmp.height / block_height;
-	int block_cols = desktop_bmp.width / block_width;
-	int block_sum = block_rows * block_cols;
-	bool* block_map = (bool*)calloc(block_sum, sizeof(bool));
-	if (!block_map)	{ return; }
-	int sum = 0;
-	while (sum < block_sum)
+	virtual void on_init_children()
 	{
-		int x = rand() % block_cols;
-		int y = rand() % block_rows;
-		if (block_map[x + (y * block_cols)] == false)
-		{
-			c_bitmap::draw_bitmap(m_surface, m_z_order, &desktop_bmp, rect.m_left + x * block_width, rect.m_top + y * block_height, x * block_width, y * block_height, block_width, block_height);
-			block_map[x + (y * block_cols)] = true;
-			sum++;
-			thread_sleep(10);
-		}
+		((c_button*)get_wnd_ptr(ID_START_BUTTON))->set_on_click((WND_CALLBACK)&c_desktop::on_clicked);
 	}
-	free(block_map);
-}
+	virtual void on_paint(void)
+	{
+		c_rect rect;
+		get_screen_rect(rect);
+		extern const BITMAP_INFO desktop_bmp;
+		int block_width = 80;
+		int block_height = 60;
+		int block_rows = desktop_bmp.height / block_height;
+		int block_cols = desktop_bmp.width / block_width;
+		int block_sum = block_rows * block_cols;
+		bool* block_map = (bool*)calloc(block_sum, sizeof(bool));
+		if (!block_map) { return; }
+		int sum = 0;
+		while (sum < block_sum)
+		{
+			int x = rand() % block_cols;
+			int y = rand() % block_rows;
+			if (block_map[x + (y * block_cols)] == false)
+			{
+				c_bitmap::draw_bitmap(m_surface, m_z_order, &desktop_bmp, rect.m_left + x * block_width, rect.m_top + y * block_height, x * block_width, y * block_height, block_width, block_height);
+				block_map[x + (y * block_cols)] = true;
+				sum++;
+				thread_sleep(10);
+			}
+		}
+		free(block_map);
+	}
+	void on_clicked(int ctrl_id, int param)
+	{
+		static bool is_open = false;
+		(is_open) ? c_dialog::close_dialog(m_surface) : c_dialog::open_dialog((c_dialog*)get_wnd_ptr(ID_START_MENU), false);
+		is_open = !is_open;
+	}
+};
 
 class c_start_menu : public c_dialog
 {

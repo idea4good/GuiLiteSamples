@@ -15,10 +15,6 @@
 #define	ID_FORWARD_BTN			3
 #define	ID_FAST_FORWARD_BTN		4
 
-GL_BEGIN_MESSAGE_MAP(c_time_bar)
-ON_GL_BN_CLICKED(c_time_bar::on_btn_click)
-GL_END_MESSAGE_MAP()
-
 void c_time_bar::on_init_children()
 {
 	set_time(get_time_in_second());
@@ -30,6 +26,11 @@ void c_time_bar::on_init_children()
 	m_backward.connect(this, ID_BACKWARD_BTN, "<", (BUTTON_LENGTH + 1), 0, BUTTON_LENGTH, rect.height());
 	m_forward.connect(this, ID_FORWARD_BTN, ">", (rect.width() - 2 * BUTTON_LENGTH - 6), 0, BUTTON_LENGTH, rect.height());
 	m_fast_forward.connect(this, ID_FAST_FORWARD_BTN, ">>", (rect.width() - BUTTON_LENGTH - 5), 0, BUTTON_LENGTH, rect.height());
+
+	((c_button*)get_wnd_ptr(ID_FAST_BACKWARD_BTN))->set_on_click((WND_CALLBACK)&c_time_bar::on_btn_click);
+	((c_button*)get_wnd_ptr(ID_BACKWARD_BTN))->set_on_click((WND_CALLBACK)&c_time_bar::on_btn_click);
+	((c_button*)get_wnd_ptr(ID_FORWARD_BTN))->set_on_click((WND_CALLBACK)&c_time_bar::on_btn_click);
+	((c_button*)get_wnd_ptr(ID_FAST_FORWARD_BTN))->set_on_click((WND_CALLBACK)&c_time_bar::on_btn_click);
 }
 
 void c_time_bar::on_paint(void)
@@ -168,5 +169,4 @@ void c_time_bar::on_btn_click(int ctrl_id, int param)
 	m_end_seconds += increment;
 	m_start_seconds += increment;
 	draw_mark();
-	notify_parent(ND_SCALE_CLICKED, 0);
 }

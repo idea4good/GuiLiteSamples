@@ -46,6 +46,8 @@ enum WND_ID
 class c_myUI : public c_wnd
 {
 	virtual void on_init_children(void) {
+		((c_button*)get_wnd_ptr(ID_BUTTON))->set_on_click((WND_CALLBACK)&c_myUI::on_clicked);
+
 		c_wave_ctrl *p_wave = (c_wave_ctrl*)get_wnd_ptr(ID_WAVE1);
 		p_wave->set_wave_speed(1);
 		p_wave->set_wave_color(GL_RGB(0, 255, 0));
@@ -96,13 +98,7 @@ public:
 	c_wave_buffer m_wave_buffer1;
 	c_wave_buffer m_wave_buffer2;
 	c_wave_buffer m_wave_buffer3;
-	GL_DECLARE_MESSAGE_MAP()//delcare message
 };
-
-//map message
-GL_BEGIN_MESSAGE_MAP(c_myUI)
-ON_GL_BN_CLICKED(c_myUI::on_clicked)
-GL_END_MESSAGE_MAP()
 
 //////////////////////// layout UI ////////////////////////
 static c_myUI s_myUI;

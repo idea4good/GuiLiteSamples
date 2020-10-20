@@ -28,4 +28,8 @@ void startHostMonitor(void* phy_fb, int screen_width, int screen_height, int col
 	load_ui_single(phy_fb, screen_width, screen_height, color_bytes);
 	//Start system.
 	start_real_timer(wave_refresh_timer_callback);
+    while(1)
+    {
+        thread_sleep(1000000);
+    }
 }

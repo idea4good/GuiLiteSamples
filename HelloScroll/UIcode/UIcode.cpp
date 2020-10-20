@@ -66,13 +66,13 @@ class c_scroll_view_v : public c_scroll_view
 			c_bitmap::draw_bitmap(m_surface, m_z_order, &image6_bmp, 410, 150);
 			break;
 		case ID_BUTTON_7:
-			c_bitmap::draw_bitmap(m_surface, m_z_order, &image7_bmp, 230, 10);
+			c_bitmap::draw_bitmap(m_surface, m_z_order, &image7_bmp, 230, 290);
 			break;
 		case ID_BUTTON_8:
-			c_bitmap::draw_bitmap(m_surface, m_z_order, &image8_bmp, 230, 10);
+			c_bitmap::draw_bitmap(m_surface, m_z_order, &image8_bmp, 230, 290);
 			break;
 		case ID_BUTTON_9:
-			c_bitmap::draw_bitmap(m_surface, m_z_order, &image9_bmp, 230, 10);
+			c_bitmap::draw_bitmap(m_surface, m_z_order, &image9_bmp, 230, 290);
 			break;
 		default:
 			ASSERT(false);

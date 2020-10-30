@@ -58,7 +58,7 @@ void render_frame()
 	{
 		char tmp = frame_buffer[(i + 1) * WIDTH];
 		frame_buffer[(i + 1) * WIDTH] = 0;
-		c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, &frame_buffer[i * WIDTH], 0, i * 13, c_theme::get_font(FONT_DEFAULT), GL_RGB(255, 255, 255), GL_RGB(0, 0, 0));
+		c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, &frame_buffer[i * WIDTH], 0, i * 13, c_theme::get_font(FONT_DEFAULT), GL_RGB(245, 192, 86), GL_RGB(0, 0, 0));
 		frame_buffer[(i + 1) * WIDTH] = tmp;
 	}
 }

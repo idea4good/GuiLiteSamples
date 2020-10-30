@@ -88,8 +88,12 @@ protected:
 		//TOUCH_UP
 		if (action == TOUCH_UP)
 		{
-			c_wnd::on_touch(x + m_offset_x, y + m_offset_y, TOUCH_DOWN);
-			c_wnd::on_touch(x + m_offset_x, y + m_offset_y, TOUCH_UP);
+			if (!m_is_dragging)
+			{
+				c_wnd::on_touch(x + m_offset_x, y + m_offset_y, TOUCH_DOWN);
+				c_wnd::on_touch(x + m_offset_x, y + m_offset_y, TOUCH_UP);
+			}
+			m_is_dragging = false;
 			goto EXIT;
 		}
 
@@ -98,8 +102,9 @@ protected:
 		{
 			m_down_x = x;
 			m_down_y = y;
+			goto EXIT;
 		}
-		else if (abs(m_down_y - y) > MOVE_THRESHOLD)
+		if (m_is_dragging || abs(m_down_y - y) > MOVE_THRESHOLD)
 		{
 			int offset_y = m_offset_y;
 			offset_y += (m_down_y - y);
@@ -113,8 +118,9 @@ protected:
 				force_update = true;
 				m_offset_y = offset_y;
 			}
+			m_is_dragging = true;
 		}
-		else if (abs(m_down_x - x) > MOVE_THRESHOLD)
+		if (m_is_dragging || abs(m_down_x - x) > MOVE_THRESHOLD)
 		{
 			int offset_x = m_offset_x;
 			offset_x += (m_down_x - x);
@@ -128,6 +134,7 @@ protected:
 				force_update = true;
 				m_offset_x = offset_x;
 			}
+			m_is_dragging = true;
 		}
 	EXIT:
 		m_touch_action = action;
@@ -163,4 +170,5 @@ private:
 	int m_offset_x = 0;
 	int m_offset_y = 0;
 	int m_down_x, m_down_y;
+	bool m_is_dragging = false;
 };

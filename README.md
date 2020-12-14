@@ -129,8 +129,9 @@ Looks complex? Trust me that you can do everything we did because we are the sam
 Thanks the help from QQ group, you guys make GuiLite better! And welcome to join us.
 <table>
   <tr>
-    <td align="center"><a href="https://jq.qq.com/?_wv=1027&k=qfvGGAa7"><img src="doc/qq.group-1.jpg" width="240px;"/><br /><sub><b>超级群：527251257</b></sub></a>
-    <td align="center"><a href="https://jq.qq.com/?_wv=1027&k=yKnUJj1B"><img src="doc/qq.group-2.jpg" width="240px;"/><br /><sub><b>超级群：841031761</b></sub></a>
-    <td align="center"><a href="https://jq.qq.com/?_wv=1027&k=5hc3qwj"><img src="doc/qq.group-3.jpg" width="240px;"/><br /><sub><b>免费群：717471210</b></sub></a>
+    <td align="center"><a href="https://jq.qq.com/?_wv=1027&k=qfvGGAa7"><img src="doc/qq.group-1.jpg" width="240px;"/><br /><sub><b>超级群🥇：527251257</b></sub></a>
+    <td align="center"><a href="https://jq.qq.com/?_wv=1027&k=yKnUJj1B"><img src="doc/qq.group-2.jpg" width="240px;"/><br /><sub><b>超级群🥈：841031761</b></sub></a>
+    <td align="center"><a href="https://jq.qq.com/?_wv=1027&k=5hc3qwj"><img src="doc/qq.group-3.jpg" width="240px;"/><br /><sub><b>免费群🥉：717471210</b></sub></a>
   </tr>
 </table>
+欢迎有条件的同学加入“超级群”🚄⏪⏪⏪，一同打造全球最强Lite GUI👑

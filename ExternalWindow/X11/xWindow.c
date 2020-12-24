@@ -47,13 +47,15 @@ void parseArgument(int argc, char **argv)
 
     int fb_size = (WINDOW_WIDTH * WINDOW_HEIGHT * 2);
     int shmid = shmget(share_id, fb_size, SHM_R | SHM_W | IPC_CREAT );
+
+    if((-1 == shmid) && (22 == errno))
+    {
+        system("ipcrm -M 1");
+        shmid = shmget(share_id, fb_size, SHM_R | SHM_W | IPC_CREAT );
+    }
     if(-1 == shmid)
     {
-        if(22 == errno)
-        {
-            printf("ipcrm -M 1\nand restart.\n");
-        }
-        printf("shmget failed shmid:%d",shmid);
+        printf("shmget failed shmid: %d, error = %d", shmid, errno);
     }
 
     GuiLiteFb = shmat(shmid, 0, 0);
@@ -63,7 +65,7 @@ void parseArgument(int argc, char **argv)
     }
     else
     {
-        printf("shmat failed");
+        printf("shmat failed, error = %d", errno);
     }
     fflush(stdout);
 }

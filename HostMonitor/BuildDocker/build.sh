@@ -37,6 +37,6 @@ docker manifest push idea4good/$image_all --purge
 
 # check & testing
 docker image inspect $image_x64
-docker run -it $image_x64
+docker run -it --privileged -v /dev:/dev $image_x64
 docker image inspect $image_arm
-docker run -it $image_arm
+docker run -it --privileged -v /dev:/dev $image_arm

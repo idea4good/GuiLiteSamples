@@ -1,0 +1,19 @@
+provisioning:
+  source: "manual"
+  device_connection_string: "HostName=iotHubYou.azure-devices.net;DeviceId=edgeDeviceAmd64;SharedAccessKey=5ulKfZDTmBdagaITFwUHojapcgc2bcgSQcS79hAvr3Y="
+
+agent:
+  name: "edgeAgent"
+  type: "docker"
+  env: {}
+  config:
+    image: "mcr.microsoft.com/azureiotedge-agent:1.0"
+    auth: {}
+
+connect:
+  management_uri: "unix:///var/run/iotedge/mgmt.sock"
+  workload_uri: "unix:///var/run/iotedge/workload.sock"
+
+listen:
+  management_uri: "unix:///var/run/iotedge/mgmt.sock"
+  workload_uri: "unix:///var/run/iotedge/workload.sock"

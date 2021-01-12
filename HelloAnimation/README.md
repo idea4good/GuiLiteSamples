@@ -11,10 +11,7 @@
     - `chmod 777 *`
 2. Run locally(e.g, Ubuntu):
     - Run with framebuffer: `sudo ./HelloAnimation /dev/fb0`&nbsp;&nbsp;&nbsp;&nbsp;/dev/fb0: The path of framebuffer device file.
-    - Run inside X Window:
-        1. `sudo su`
-        2. `sudo ipcrm -M 1`
-        3. `sudo ./xWindow 238 169 | ./HelloAnimation shared-fb`
+    - Run inside X Window: `sudo ./xWindow 238 169 | ./HelloAnimation shared-fb`
 
 ## Cross compiler & Run on target:
 1. install compiler:

@@ -7,6 +7,11 @@
 #include "pnp_dps_ll.h"
 #include "parson/parson.h"
 
+//#define USING_CONNECTION_STRING
+#ifdef USING_CONNECTION_STRING
+static const char* s_ConnectionString = "HostName=iotHubYou.azure-devices.net;DeviceId=pnp-GuiLite;SharedAccessKey=tE8TV+Ptk2A47Yh7SIGu3G8lflJuKpLLAqskvWYX0zk=";
+#endif
+
 static const PNP_DEVICE_CONFIGURATION s_Configuration = {
     // Config from Device Provision Service:
     .u.dpsConnectionAuth.idScope = "0ne001E32DA",// from DPS ID Scope,
@@ -72,6 +77,7 @@ void SendTelemetry(IOTHUB_DEVICE_CLIENT_LL_HANDLE deviceClientLL)
     IoTHubMessage_Destroy(messageHandle);
 }
 
+extern const TRANSPORT_PROVIDER* MQTT_Protocol(void);
 static IOTHUB_DEVICE_CLIENT_LL_HANDLE CreateAndConfigureDeviceClientHandleForPnP(void)
 {
     IOTHUB_DEVICE_CLIENT_LL_HANDLE deviceHandle = NULL;
@@ -83,10 +89,17 @@ static IOTHUB_DEVICE_CLIENT_LL_HANDLE CreateAndConfigureDeviceClientHandleForPnP
     {
         LogError("Failure to initialize client, error=%d", iothubInitResult);
     }
+#ifdef USING_CONNECTION_STRING
+    else if ((deviceHandle = IoTHubDeviceClient_LL_CreateFromConnectionString(s_ConnectionString, MQTT_Protocol)) == NULL)
+    {
+        LogError("Failure creating IotHub client.  Hint: Check your connection string or DPS configuration");
+    }
+#else
     else if ((deviceHandle = PnP_CreateDeviceClientLLHandle_ViaDps(&s_Configuration)) == NULL)
     {
         LogError("Failure creating IotHub client.  Hint: Check your connection string or DPS configuration");
     }
+#endif
     else if ((iothubResult = IoTHubDeviceClient_LL_SetOption(deviceHandle, OPTION_MODEL_ID, s_Configuration.modelId)) != IOTHUB_CLIENT_OK)
     {
         LogError("Unable to set the ModelID, error=%d", iothubResult);

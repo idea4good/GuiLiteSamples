@@ -46,19 +46,17 @@ int MainWindow::init(unsigned int id, int width, int height)
     int fb_size = (width * height * 2);
 
     int shmid = shmget(m_share_id, fb_size, SHM_R | SHM_W | IPC_CREAT );
+    
+    if((-1 == shmid) && (22 == errno))
+    {
+        system("ipcrm -M 1");
+        shmid = shmget(m_share_id, fb_size, SHM_R | SHM_W | IPC_CREAT );
+    }
     if(-1 == shmid)
     {
-        if(22 == errno)
-        {
-            printf("The segment is already there - these segment are persistent - and it has size 2048.\n"
-                   "You can see it among the other ones with:\n"
-                   "$ ipcs -m\n"
-                   "and you can remove your segment (beware: remove your one only) with:\n"
-                   "$ ipcrm -M <key>\n"
-                   "After that you should be able to create it larger.\n");
-        }
-        return -1;
+        printf("shmget failed shmid: %d, error = %d", shmid, errno);
     }
+    
     m_fb = shmat(shmid, 0, 0);
     if((void*)-1 != m_fb)
     {

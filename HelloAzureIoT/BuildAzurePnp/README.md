@@ -1,10 +1,17 @@
-## Prerequisite
+You can choose DPS or Connection string method for IoT Hub connection
+## Prerequisite for DPS
 1. Create IoT Hub
 2. Create IoT Device Provision Service(DPS), and link to IoT Hub
 3. Create individual enrollment
 4. Update main.c::s_Configuration with ID Scope/REGISTRATION ID/key you created above
 
 Note: **No capital** letter for DPS enrollment ID/name.
+
+## Prerequisite for Connection string
+1. Create IoT Hub
+2. Create IoT Device in IoT Hub
+3. Enable macro main.c::USING_CONNECTION_STRING
+4. Update main.c::s_ConnectionString with `connection string` of IoT Device
 
 ## How to build/run on Linux-X86
 ```bash

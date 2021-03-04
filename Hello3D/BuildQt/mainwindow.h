@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QLabel>
 
 namespace Ui {
 class MainWindow;
@@ -23,6 +24,8 @@ public:
 private:
     bool            m_is_pressed;
     Ui::MainWindow *ui;
+
+    QLabel         *label;
 };
 
 #endif // MAINWINDOW_H

@@ -48,6 +48,11 @@ void MainWindow::init()
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(update()));
     timer->start(30);//30ms
+
+    label = new QLabel;
+    label->setParent(this);
+    label->setFixedWidth(UI_WIDTH);
+    label->setFixedHeight(UI_HEIGHT);
 }
 
 void MainWindow::paintEvent(QPaintEvent* p)
@@ -56,9 +61,8 @@ void MainWindow::paintEvent(QPaintEvent* p)
     static bool force_update = true;
     void* fb = getUiOfHello3D(NULL, NULL, force_update);
     if(fb){
-        QPainter painter(this);
         QImage img((uchar*)fb, UI_WIDTH, UI_HEIGHT, QImage::Format_RGB16);
-        painter.drawImage(0, 0, img);
+        label->setPixmap(QPixmap::fromImage(img));
         force_update = false;
     }
 }

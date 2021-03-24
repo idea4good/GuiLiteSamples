@@ -76,7 +76,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);libs</LibraryPath>
+    <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -98,8 +98,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <AdditionalDependencies>freetype.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>
-      </AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\UIcode\libs\win</AdditionalLibraryDirectories>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>

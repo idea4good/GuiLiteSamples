@@ -23,7 +23,7 @@
     <ClCompile Include="UIcode.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="freetype.h" />
+    <ClInclude Include="freetype_operator.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

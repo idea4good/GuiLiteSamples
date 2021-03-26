@@ -5,6 +5,6 @@
     <ClCompile Include="guilite_map_bmp.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="freetype.h" />
+    <ClInclude Include="freetype_operator.h" />
   </ItemGroup>
 </Project>

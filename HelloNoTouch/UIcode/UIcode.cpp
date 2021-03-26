@@ -72,7 +72,7 @@ static WND_TREE s_myUI_children[] =
 };
 
 //////////////////////// start UI ////////////////////////
-extern const FONT_INFO Consolas_28;
+extern const LATTICE_FONT_INFO Consolas_28;
 void load_resource()
 {
 	c_theme::add_font(FONT_DEFAULT, &Consolas_28);

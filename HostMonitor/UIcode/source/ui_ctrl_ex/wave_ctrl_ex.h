@@ -14,11 +14,11 @@ protected:
 class c_bitmap_wave_ctrl : public c_wave_ctrl
 {
 public:
-	void set_bitmap(BITMAP_TYPE type) { m_bitmap_type = type; }
+	void set_bitmap(BITMAP_LIST type) { m_bitmap_type = type; }
 protected:
 	virtual void on_paint(void);
 private:
-	BITMAP_TYPE m_bitmap_type;
+	BITMAP_LIST m_bitmap_type;
 };
 
 #endif /* _WAVE_CTRL_EX_H_ */

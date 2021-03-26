@@ -68,8 +68,8 @@ static  LATTICE lattice_array[] = {
         {15711372, 21, _15711372},
         {15711386, 21, _15711386},
 };
-extern const FONT_INFO Microsoft_YaHei_28;
-const FONT_INFO Microsoft_YaHei_28 ={
+extern const LATTICE_FONT_INFO Microsoft_YaHei_28;
+const LATTICE_FONT_INFO Microsoft_YaHei_28 ={
     28,
     22,
     lattice_array

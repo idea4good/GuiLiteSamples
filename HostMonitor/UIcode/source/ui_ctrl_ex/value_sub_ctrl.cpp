@@ -22,7 +22,7 @@ void c_value_sub_ctrl::on_paint(void)
 	}
 
 	char buf[16];
-	c_word::value_2_string(m_high_limit, m_limit_dot_position, buf, sizeof(buf));
+	value_2_string(m_high_limit, m_limit_dot_position, buf, sizeof(buf));
 	int strWidth, strHeight;
 	c_word::get_str_size(buf, m_value_font_type, strWidth, strHeight);
 	m_value_rect.m_right = m_value_rect.m_left + strWidth;
@@ -37,6 +37,6 @@ void c_value_sub_ctrl::on_paint(void)
 		m_value_rect.m_bottom = rect.m_bottom - 2;
 	}
 
-	c_word::value_2_string(m_value, m_limit_dot_position, m_value_in_str, sizeof(m_value_in_str));
+	value_2_string(m_value, m_limit_dot_position, m_value_in_str, sizeof(m_value_in_str));
 	c_word::draw_string_in_rect(m_surface, m_z_order, m_value_in_str, m_value_rect, m_value_font_type, m_name_color, m_bg_color, m_value_align_type);
 }

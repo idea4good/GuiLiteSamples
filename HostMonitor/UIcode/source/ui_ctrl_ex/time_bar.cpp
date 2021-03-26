@@ -44,11 +44,11 @@ void c_time_bar::on_paint(void)
 
 void c_time_bar::set_time(long time)
 {
-	set_scale_bar_atrrs((time - ((TIME_MARK_CNT - 1) * 60)), time, GL_RGB(255, 255, 255), c_theme::get_font(FONT_DEFAULT));
+	set_scale_bar_atrrs((time - ((TIME_MARK_CNT - 1) * 60)), time, GL_RGB(255, 255, 255), (const LATTICE_FONT_INFO*)c_theme::get_font(FONT_DEFAULT));
 	draw_mark();
 }
 
-int c_time_bar::set_scale_bar_atrrs(long start_time, long end_time, unsigned int color, const FONT_INFO* font)
+int c_time_bar::set_scale_bar_atrrs(long start_time, long end_time, unsigned int color, const LATTICE_FONT_INFO* font)
 {
 	if ( !font ||  end_time <= start_time)
 	{

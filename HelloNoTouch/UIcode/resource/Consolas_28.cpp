@@ -65,8 +65,8 @@ static  LATTICE lattice_array[] = {
         {108, 13, _108},
         {115, 13, _115},
 };
-extern const FONT_INFO Consolas_28;
-const FONT_INFO Consolas_28 ={
+extern const LATTICE_FONT_INFO Consolas_28;
+const LATTICE_FONT_INFO Consolas_28 ={
     28,
     21,
     lattice_array

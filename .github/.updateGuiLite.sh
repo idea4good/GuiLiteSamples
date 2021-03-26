@@ -7,6 +7,10 @@ declare -i sum=0
 for file in ./Hello*
 do
     echo -e "\e[44m $file sync up...\e[49m"
+	if [ "$file" == "./HelloAzureIoT" ]; then
+		echo "skip $file"
+		continue
+	fi
     cd $file
     cp $src/GuiLite.h UIcode/GuiLite.h
     cd ..

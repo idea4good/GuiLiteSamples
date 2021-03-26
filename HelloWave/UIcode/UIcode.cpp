@@ -116,7 +116,7 @@ static WND_TREE s_myUI_children[] =
 };
 
 //////////////////////// start UI ////////////////////////
-extern const FONT_INFO Lucida_Console_27;
+extern const LATTICE_FONT_INFO Lucida_Console_27;
 void load_resource()
 {
 	c_theme::add_font(FONT_DEFAULT, &Lucida_Console_27);

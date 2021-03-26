@@ -32,8 +32,8 @@ static  LATTICE lattice_array[] = {
         {15113402, 22, _15113402},
         {15174023, 22, _15174023},
 };
-extern const FONT_INFO Lucida_Console_27;
-const FONT_INFO Lucida_Console_27 ={
+extern const LATTICE_FONT_INFO Lucida_Console_27;
+const LATTICE_FONT_INFO Lucida_Console_27 ={
     27,
     10,
     lattice_array

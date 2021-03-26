@@ -254,8 +254,8 @@ static  LATTICE lattice_array[] = {
         {14849714, 12, _14849714},
         {14849724, 12, _14849724},
 };
-extern const FONT_INFO Consolas_24B;
-const FONT_INFO Consolas_24B ={
+extern const LATTICE_FONT_INFO Consolas_24B;
+const LATTICE_FONT_INFO Consolas_24B ={
     24,
     84,
     lattice_array

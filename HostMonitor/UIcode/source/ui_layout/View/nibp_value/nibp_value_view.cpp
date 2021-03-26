@@ -21,7 +21,7 @@ void c_nibp_value_view::on_init_children(void)
 		return;
 	}
 
-	p_name->set_font_type(c_theme::get_font(FONT_DEFAULT));
+	p_name->set_font_type((const LATTICE_FONT_INFO*)c_theme::get_font(FONT_DEFAULT));
 	p_name->set_font_color(GL_RGB(255, 255, 255));
 
 	c_value_ctrl_manage::get_instance()->config_param_ctrl_att(VALUE_NIBP_SYS, p_sys_value);

@@ -1,10 +1,10 @@
 #include "../include/GuiLite.h"
 
 //fonts
-extern const FONT_INFO Arial_16B;
-extern const FONT_INFO Arial_32B;
-extern const FONT_INFO Arial_56B;
-extern const FONT_INFO Arial_62B;
+extern const LATTICE_FONT_INFO Arial_16B;
+extern const LATTICE_FONT_INFO Arial_32B;
+extern const LATTICE_FONT_INFO Arial_56B;
+extern const LATTICE_FONT_INFO Arial_62B;
 
 //icons
 extern const BITMAP_INFO bmspin_up_button_normal;
@@ -13,16 +13,6 @@ extern const BITMAP_INFO bmspin_down_button_normal;
 extern const BITMAP_INFO bmspin_down_button_focus;
 extern const BITMAP_INFO wave_background_1_bmp;
 extern const BITMAP_INFO wave_background_2_bmp;
-
-//shapes
-extern COLOR_RECT shape_bt_normal[];
-extern COLOR_RECT shape_bt_focus[];
-extern COLOR_RECT shape_bt_push[];
-extern COLOR_RECT shape_listbox_select[];
-extern COLOR_RECT shape_listbox_push[];
-extern COLOR_RECT shape_listbox_extend[];
-extern COLOR_RECT shape_keyboard_bt_normal[];
-extern COLOR_RECT shape_keyboard_bt_push[];
 
 void load_theme(int index)
 {

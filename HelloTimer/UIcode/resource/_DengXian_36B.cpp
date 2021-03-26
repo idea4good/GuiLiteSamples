@@ -254,8 +254,8 @@ static  LATTICE lattice_array[] = {
         {14849714, 35, _14849714},
         {14849724, 35, _14849724},
 };
-extern const FONT_INFO _DengXian_36B;
-const FONT_INFO _DengXian_36B ={
+extern const LATTICE_FONT_INFO _DengXian_36B;
+const LATTICE_FONT_INFO _DengXian_36B ={
     36,
     84,
     lattice_array

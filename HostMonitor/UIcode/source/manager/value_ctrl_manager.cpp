@@ -48,10 +48,10 @@ void c_value_ctrl_manage::config_param_ctrl_att(E_VALUE_TYPE value_id, c_value_c
 			p_value_ctrl->set_high_limit(200, 0);
 			p_value_ctrl->set_low_limit(0, 0);
 
-			p_value_ctrl->set_name_font_type(c_theme::get_font(p_cur_disc->name_font_type));
-			p_value_ctrl->set_unit_font_type(c_theme::get_font(p_cur_disc->unit_font_type));
-			p_value_ctrl->set_limit_font_type(c_theme::get_font(p_cur_disc->limit_font_type));
-			p_value_ctrl->set_value_font_type(c_theme::get_font(p_cur_disc->value_font_type));
+			p_value_ctrl->set_name_font_type((const LATTICE_FONT_INFO*)c_theme::get_font(p_cur_disc->name_font_type));
+			p_value_ctrl->set_unit_font_type((const LATTICE_FONT_INFO*)c_theme::get_font(p_cur_disc->unit_font_type));
+			p_value_ctrl->set_limit_font_type((const LATTICE_FONT_INFO*)c_theme::get_font(p_cur_disc->limit_font_type));
+			p_value_ctrl->set_value_font_type((const LATTICE_FONT_INFO*)c_theme::get_font(p_cur_disc->value_font_type));
 			
 			p_value_ctrl->set_name_color(p_cur_disc->name_color);
 			p_value_ctrl->set_unit_color(p_cur_disc->unit_color);

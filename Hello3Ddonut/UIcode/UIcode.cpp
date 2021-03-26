@@ -63,7 +63,7 @@ void render_frame()
 	}
 }
 
-extern const FONT_INFO Consolas_13;
+extern const LATTICE_FONT_INFO Consolas_13;
 // Demo
 void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op) {
 	if (phy_fb)

@@ -142,7 +142,7 @@ WND_TREE s_main_widgets[] =
 };
 
 // Create GUI
-extern const FONT_INFO Consolas_24B;
+extern const LATTICE_FONT_INFO Consolas_24B;
 void load_resource()
 {
 	c_theme::add_font(FONT_DEFAULT, &Consolas_24B);

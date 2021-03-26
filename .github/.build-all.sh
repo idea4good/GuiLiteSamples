@@ -10,6 +10,10 @@ cd ../..
 for file in ./Hello*
 do
     echo -e "\e[44m $file building...\e[49m"
+	if [ "$file" == "./HelloAzureIoT" ]; then
+		echo "skip $file"
+		continue
+	fi
     cd $file
     cmake .
     make -j4

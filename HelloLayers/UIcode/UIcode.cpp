@@ -56,7 +56,7 @@ void clear_layer_1()
 #endif
 }
 
-extern const FONT_INFO Consolas_19;
+extern const LATTICE_FONT_INFO Consolas_19;
 void load_resource()
 {
 	c_theme::add_font(FONT_DEFAULT, &Consolas_19);

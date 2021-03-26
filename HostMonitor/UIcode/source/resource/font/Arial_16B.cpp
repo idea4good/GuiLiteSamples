@@ -365,8 +365,8 @@ static  LATTICE lattice_array[] = {
         {15182001, 16, _15182001},
         {15500465, 11, _15500465},
 };
-extern const FONT_INFO Arial_16B;
-const FONT_INFO Arial_16B ={
+extern const LATTICE_FONT_INFO Arial_16B;
+const LATTICE_FONT_INFO Arial_16B ={
     16,
     121,
     lattice_array

@@ -6,8 +6,8 @@ const int UI_WIDTH = 240;
 const int UI_HEIGHT = 320;
 const int FRAME_COUNT = 32;
 
-extern const FONT_INFO Consolas_19;
-extern const FONT_INFO _DengXian_36B;
+extern const LATTICE_FONT_INFO Consolas_19;
+extern const LATTICE_FONT_INFO _DengXian_36B;
 extern const BITMAP_INFO humidity_bmp;
 extern const BITMAP_INFO temperature_bmp;
 extern const BITMAP_INFO weather_bmp;

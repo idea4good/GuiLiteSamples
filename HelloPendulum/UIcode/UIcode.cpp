@@ -55,8 +55,8 @@ namespace pendulum
 
 		if (text1 && text2)
 		{
-			c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, text1, x1 + x - 14, y1 + y - 10, c_theme::get_font(FONT_DEFAULT), 0, 0, ALIGN_HCENTER);
-			c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, text2, x2 + x - 18, y2 + y - 10, c_theme::get_font(FONT_DEFAULT), 0, 0, ALIGN_HCENTER);
+			c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, text1, x1 + x - 14, y1 + y - 10, c_theme::get_font(FONT_DEFAULT), 0, 0);
+			c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, text2, x2 + x - 18, y2 + y - 10, c_theme::get_font(FONT_DEFAULT), 0, 0);
 		}
 		else
 		{
@@ -74,8 +74,8 @@ namespace pendulum
 
 		if (text1 && text2)
 		{
-			c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, text1, x1 + x - 14, y1 + y - 10, c_theme::get_font(FONT_DEFAULT), GL_RGB(255, 255, 255), 0, ALIGN_HCENTER);
-			c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, text2, x2 + x - 18, y2 + y - 10, c_theme::get_font(FONT_DEFAULT), GL_RGB(255, 255, 255), 0, ALIGN_HCENTER);
+			c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, text1, x1 + x - 14, y1 + y - 10, c_theme::get_font(FONT_DEFAULT), GL_RGB(255, 255, 255), 0);
+			c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, text2, x2 + x - 18, y2 + y - 10, c_theme::get_font(FONT_DEFAULT), GL_RGB(255, 255, 255), 0);
 		}
 		else
 		{
@@ -85,7 +85,7 @@ namespace pendulum
 	}
 }
 
-extern const FONT_INFO Consolas_19;
+extern const LATTICE_FONT_INFO Consolas_19;
 void load_resource()
 {
 	c_theme::add_font(FONT_DEFAULT, &Consolas_19);

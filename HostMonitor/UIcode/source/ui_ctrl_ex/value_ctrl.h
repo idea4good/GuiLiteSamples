@@ -11,10 +11,10 @@ typedef struct
 	char*			unit;
 	unsigned short	value_id;
 
-	FONT_TYPE name_font_type;
-	FONT_TYPE unit_font_type;
-	FONT_TYPE limit_font_type;
-	FONT_TYPE value_font_type;
+	FONT_LIST name_font_type;
+	FONT_LIST unit_font_type;
+	FONT_LIST limit_font_type;
+	FONT_LIST value_font_type;
 
 	unsigned int	name_color;
 	unsigned int	unit_color;
@@ -36,15 +36,16 @@ public:
 	void set_value_dot_position(unsigned short dot_position){m_value_dot_position = m_limit_dot_position = dot_position;}
 	virtual void refresh_value(short value, unsigned short dot_position, bool flash_or_not, unsigned int flash_color);
 
-	void set_name_font_type(const FONT_INFO *name_font_type){m_name_font_type = name_font_type;}
-	void set_unit_font_type(const FONT_INFO *unit_font_type){m_unit_font_type = unit_font_type;}
-	void set_limit_font_type(const FONT_INFO *limit_font_type){m_limit_font_type = limit_font_type;}
-	void set_value_font_type(const FONT_INFO *value_font_type){m_value_font_type = value_font_type;}
+	void set_name_font_type(const LATTICE_FONT_INFO*name_font_type){m_name_font_type = (const LATTICE_FONT_INFO*)name_font_type;}
+	void set_unit_font_type(const LATTICE_FONT_INFO*unit_font_type){m_unit_font_type = (const LATTICE_FONT_INFO*)unit_font_type;}
+	void set_limit_font_type(const LATTICE_FONT_INFO*limit_font_type){m_limit_font_type = (const LATTICE_FONT_INFO*)limit_font_type;}
+	void set_value_font_type(const LATTICE_FONT_INFO*value_font_type){m_value_font_type = (const LATTICE_FONT_INFO*)value_font_type;}
 
 	void set_name_color(unsigned int color){m_name_color = color;}
 	void set_unit_color(unsigned int color){m_unit_color = color;}
 	void set_limit_color(unsigned int color){m_limit_color = color;}
 protected:
+	void value_2_string(int value, int dot_position, char* buf, int len);
 	virtual void on_paint(void);
 
 	short			m_value;
@@ -64,10 +65,10 @@ protected:
 	short			m_limit_dot_position;
 	c_rect			m_limit_rect;
 
-	const FONT_INFO *m_value_font_type;
-	const FONT_INFO *m_name_font_type;
-	const FONT_INFO *m_unit_font_type;
-	const FONT_INFO *m_limit_font_type;
+	const LATTICE_FONT_INFO*m_value_font_type;
+	const LATTICE_FONT_INFO*m_name_font_type;
+	const LATTICE_FONT_INFO*m_unit_font_type;
+	const LATTICE_FONT_INFO*m_limit_font_type;
 
 	unsigned int	m_name_color;
 	unsigned int	m_unit_color;

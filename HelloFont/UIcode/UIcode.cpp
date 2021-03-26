@@ -70,7 +70,7 @@ static WND_TREE s_myUI_children[] =
 
 //////////////////////// start UI ////////////////////////
 extern const BITMAP_INFO background_bmp;
-extern const FONT_INFO KaiTi_33B;
+extern const LATTICE_FONT_INFO KaiTi_33B;
 static c_display* s_display;
 void load_resource()
 {

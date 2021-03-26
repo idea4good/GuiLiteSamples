@@ -42,7 +42,7 @@ public:
 };
 
 //////////////////////// start UI ////////////////////////
-extern const FONT_INFO Microsoft_YaHei_28;
+extern const LATTICE_FONT_INFO Microsoft_YaHei_28;
 void load_resource() {
 	c_theme::add_font(FONT_DEFAULT, &Microsoft_YaHei_28);
 }

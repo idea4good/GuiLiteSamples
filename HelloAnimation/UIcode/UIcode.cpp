@@ -56,7 +56,7 @@ static WND_TREE s_myUI_children[] =
 };
 
 //////////////////////// start UI ////////////////////////
-extern const FONT_INFO KaiTi_19;
+extern const LATTICE_FONT_INFO KaiTi_19;
 static c_display* s_display;
 void load_resource()
 {

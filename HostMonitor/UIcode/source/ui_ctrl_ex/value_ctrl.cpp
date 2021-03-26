@@ -25,7 +25,7 @@ void c_value_ctrl::refresh_value(short value, unsigned short dot_position, bool 
 		c_word::draw_string_in_rect(m_surface, m_z_order, m_value_in_str, m_value_rect, m_value_font_type, m_bg_color, GL_ARGB(0, 0, 0, 0), m_value_align_type);
 		
 		memset(m_value_in_str, 0, sizeof(m_value_in_str));
-		c_word::value_2_string(value, dot_position, m_value_in_str, sizeof(m_value_in_str));
+		value_2_string(value, dot_position, m_value_in_str, sizeof(m_value_in_str));
 		if (flash_color)
 		{
 			c_word::draw_string_in_rect(m_surface, m_z_order, m_value_in_str, m_value_rect, m_value_font_type, m_bg_color, flash_color, m_value_align_type);
@@ -43,7 +43,7 @@ void c_value_ctrl::refresh_value(short value, unsigned short dot_position, bool 
 		c_word::draw_string_in_rect(m_surface, m_z_order, m_value_in_str, m_value_rect, m_value_font_type, m_bg_color, GL_ARGB(0, 0, 0, 0), m_value_align_type);
 		
 		memset(m_value_in_str, 0, sizeof(m_value_in_str));
-		c_word::value_2_string(value, dot_position, m_value_in_str, sizeof(m_value_in_str));
+		value_2_string(value, dot_position, m_value_in_str, sizeof(m_value_in_str));
 		c_word::draw_string_in_rect(m_surface, m_z_order, m_value_in_str, m_value_rect, m_value_font_type, m_name_color, m_bg_color, m_value_align_type);
 	}
 EXIT:
@@ -94,7 +94,7 @@ void c_value_ctrl::on_paint(void)
 	m_value_rect.m_left = rect.m_left + 50;
 	m_value_rect.m_top = rect.m_top +(height - (m_value_font_type->height)) / 2;
 
-	c_word::value_2_string(m_value, m_limit_dot_position, m_value_in_str, sizeof(m_value_in_str));
+	value_2_string(m_value, m_limit_dot_position, m_value_in_str, sizeof(m_value_in_str));
 	int strWidth, strHeight;
 	c_word::get_str_size(m_value_in_str, m_value_font_type, strWidth, strHeight);
 
@@ -102,4 +102,27 @@ void c_value_ctrl::on_paint(void)
 	m_value_rect.m_bottom = m_value_rect.m_top + (m_value_font_type->height);
 
 	c_word::draw_string_in_rect(m_surface, m_z_order, m_value_in_str, m_value_rect, m_value_font_type, m_name_color, m_bg_color, m_value_align_type);
+}
+
+void c_value_ctrl::value_2_string(int value, int dot_position, char* buf, int len)
+{
+	memset(buf, 0, len);
+	switch (dot_position)
+	{
+	case 0:
+		sprintf(buf, "%d", value);
+		break;
+	case 1:
+		sprintf(buf, "%.1f", value * 1.0 / 10);
+		break;
+	case 2:
+		sprintf(buf, "%.2f", value * 1.0 / 100);
+		break;
+	case 3:
+		sprintf(buf, "%.3f", value * 1.0 / 1000);
+		break;
+	default:
+		ASSERT(false);
+		break;
+	}
 }

@@ -107,7 +107,7 @@ WND_TREE s_main_widgets[] =
 };
 
 // Create GUI
-extern const FONT_INFO Consolas_24B;
+extern const LATTICE_FONT_INFO Consolas_24B;
 extern const BITMAP_INFO background_bmp;
 void load_resource()
 {

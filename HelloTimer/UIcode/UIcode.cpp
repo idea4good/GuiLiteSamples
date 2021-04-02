@@ -161,14 +161,14 @@ public:
 			//show at new position
 			c_word::draw_string_in_rect(s_surface, Z_ORDER_LEVEL_0, "Today", c_rect(m_day_x, m_day_y - distance, 240, 48), c_theme::get_font(FONT_DEFAULT), GL_RGB(0, 163, 233), 0, ALIGN_HCENTER);
 
-			c_bitmap::draw_bitmap(s_surface, Z_ORDER_LEVEL_0, &weather_bmp, m_weather_x - distance, m_weather_y);
+			c_image::draw_image(s_surface, Z_ORDER_LEVEL_0, &weather_bmp, m_weather_x - distance, m_weather_y);
 
-			c_bitmap::draw_bitmap(s_surface, Z_ORDER_LEVEL_0, &temperature_bmp, m_temperature_x + distance, m_temperature_y);
+			c_image::draw_image(s_surface, Z_ORDER_LEVEL_0, &temperature_bmp, m_temperature_x + distance, m_temperature_y);
 			c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, "25C", m_temp_value_x + distance, m_temp_value_y, c_theme::get_font(FONT_DEFAULT), GL_RGB(0, 163, 233), 0);
 
 			s_surface->draw_hline(156, 240, 132, GL_RGB(0, 163, 233), Z_ORDER_LEVEL_0);
 
-			c_bitmap::draw_bitmap(s_surface, Z_ORDER_LEVEL_0, &humidity_bmp, m_humidity_x + distance, m_humidity_y);
+			c_image::draw_image(s_surface, Z_ORDER_LEVEL_0, &humidity_bmp, m_humidity_x + distance, m_humidity_y);
 			c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, "75%", m_humidity_value_x + distance, m_humidity_value_y, c_theme::get_font(FONT_DEFAULT), GL_RGB(0, 163, 233), 0);
 
 			thread_sleep(20);
@@ -197,14 +197,14 @@ public:
 			//show at new position
 			c_word::draw_string_in_rect(s_surface, Z_ORDER_LEVEL_0, "Today", c_rect(m_day_x, m_day_y - distance, 240, 48), c_theme::get_font(FONT_DEFAULT), GL_RGB(0, 163, 233), 0, ALIGN_HCENTER);
 
-			c_bitmap::draw_bitmap(s_surface, Z_ORDER_LEVEL_0, &weather_bmp, m_weather_x - distance, m_weather_y);
+			c_image::draw_image(s_surface, Z_ORDER_LEVEL_0, &weather_bmp, m_weather_x - distance, m_weather_y);
 
-			c_bitmap::draw_bitmap(s_surface, Z_ORDER_LEVEL_0, &temperature_bmp, m_temperature_x + distance, m_temperature_y);
+			c_image::draw_image(s_surface, Z_ORDER_LEVEL_0, &temperature_bmp, m_temperature_x + distance, m_temperature_y);
 			c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, "25C", m_temp_value_x + distance, m_temp_value_y, c_theme::get_font(FONT_DEFAULT), GL_RGB(0, 163, 233), 0);
 
 			s_surface->draw_hline(156, 240, 132, GL_RGB(0, 163, 233), Z_ORDER_LEVEL_0);
 
-			c_bitmap::draw_bitmap(s_surface, Z_ORDER_LEVEL_0, &humidity_bmp, m_humidity_x + distance, m_humidity_y);
+			c_image::draw_image(s_surface, Z_ORDER_LEVEL_0, &humidity_bmp, m_humidity_x + distance, m_humidity_y);
 			c_word::draw_string(s_surface, Z_ORDER_LEVEL_0, "75%", m_humidity_value_x + distance, m_humidity_value_y, c_theme::get_font(FONT_DEFAULT), GL_RGB(0, 163, 233), 0);
 
 			thread_sleep(20);
@@ -323,7 +323,7 @@ void create_ui(void* phy_fb, int screen_width, int screen_height, int color_byte
 
 	//background
 	s_surface->fill_rect(0, 0, UI_WIDTH, UI_HEIGHT, 0, Z_ORDER_LEVEL_0);
-	c_bitmap::draw_bitmap(s_surface, Z_ORDER_LEVEL_0, &grass_bmp, 0, 271);
+	c_image::draw_image(s_surface, Z_ORDER_LEVEL_0, &grass_bmp, 0, 271);
 
 	while(1)
 	{

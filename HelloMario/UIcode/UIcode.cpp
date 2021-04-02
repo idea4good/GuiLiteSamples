@@ -24,8 +24,8 @@ void do_shoryuken()
 {
 	for (int i = 0; i < sizeof(s_frames) / sizeof(BITMAP_INFO); i++)
 	{
-		c_theme::add_bitmap(BITMAP_CUSTOM1, &s_frames[i]);
-		c_bitmap::draw_bitmap(s_surface, Z_ORDER_LEVEL_0, c_theme::get_bmp(BITMAP_CUSTOM1), RYU_X, RYU_Y, GL_RGB(85, 136, 221));
+		c_theme::add_image(IMAGE_CUSTOM1, &s_frames[i]);
+		c_image::draw_image(s_surface, Z_ORDER_LEVEL_0, c_theme::get_image(IMAGE_CUSTOM1), RYU_X, RYU_Y, GL_RGB(85, 136, 221));
 		thread_sleep(20);
 	}
 	s_surface->fill_rect(RYU_X, RYU_Y, RYU_X + frame_00_bmp.width - 1, RYU_Y + frame_00_bmp.height - 1, GL_RGB(131, 110, 83), Z_ORDER_LEVEL_0);
@@ -93,7 +93,7 @@ public:
 		}
 		else
 		{
-			c_bitmap::draw_bitmap(s_surface, Z_ORDER_LEVEL_1, mario_bmp, m_x, m_y - mario_bmp->height, GL_RGB(255, 255, 255));
+			c_image::draw_image(s_surface, Z_ORDER_LEVEL_1, mario_bmp, m_x, m_y - mario_bmp->height, GL_RGB(255, 255, 255));
 		}		
 	}
 	int m_x, m_y, m_x_velocity, m_y_velocity;
@@ -120,8 +120,8 @@ void create_ui(void* phy_fb, int screen_width, int screen_height, int color_byte
 	}
 
 	s_surface->fill_rect(0, 0, UI_WIDTH - 1, UI_HEIGHT - 1, GL_RGB(131, 110, 83), Z_ORDER_LEVEL_0);
-	c_bitmap::draw_bitmap(s_surface, Z_ORDER_LEVEL_0, &title_bmp, 30, 20);
-	c_bitmap::draw_bitmap(s_surface, Z_ORDER_LEVEL_0, &background_bmp, 3, UI_HEIGHT - background_bmp.height);
+	c_image::draw_image(s_surface, Z_ORDER_LEVEL_0, &title_bmp, 30, 20);
+	c_image::draw_image(s_surface, Z_ORDER_LEVEL_0, &background_bmp, 3, UI_HEIGHT - background_bmp.height);
 
 	while(1) {
 		the_mario.draw(true);

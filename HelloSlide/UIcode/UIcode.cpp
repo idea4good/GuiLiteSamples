@@ -30,24 +30,24 @@ void c_page::on_paint()
 	switch (m_id)
 	{
 	case ID_PAGE1:
-		bmp = c_theme::get_bmp(BITMAP_CUSTOM1);
+		bmp = (const BITMAP_INFO*)c_theme::get_image(IMAGE_CUSTOM1);
 		break;
 	case ID_PAGE2:
-		bmp = c_theme::get_bmp(BITMAP_CUSTOM2);
+		bmp = (const BITMAP_INFO*)c_theme::get_image(IMAGE_CUSTOM2);
 		break;
 	case ID_PAGE3:
-		bmp = c_theme::get_bmp(BITMAP_CUSTOM3);
+		bmp = (const BITMAP_INFO*)c_theme::get_image(IMAGE_CUSTOM3);
 		break;
 	case ID_PAGE4:
-		bmp = c_theme::get_bmp(BITMAP_CUSTOM4);
+		bmp = (const BITMAP_INFO*)c_theme::get_image(IMAGE_CUSTOM4);
 		break;
 	case ID_PAGE5:
-		bmp = c_theme::get_bmp(BITMAP_CUSTOM5);
+		bmp = (const BITMAP_INFO*)c_theme::get_image(IMAGE_CUSTOM5);
 		break;
 	default:
 		break;
 	}
-	c_bitmap::draw_bitmap(m_surface, m_z_order, bmp, rect.m_left, rect.m_top);
+	c_image::draw_image(m_surface, m_z_order, bmp, rect.m_left, rect.m_top);
 }
 
 //////////////////////// layout UI ////////////////////////
@@ -63,11 +63,11 @@ extern const BITMAP_INFO ten_bmp, jack_bmp, queen_bmp, king_bmp, ace_bmp;
 static c_display* s_display;
 void load_resource()
 {
-	c_theme::add_bitmap(BITMAP_CUSTOM1, &ten_bmp);
-	c_theme::add_bitmap(BITMAP_CUSTOM2, &jack_bmp);
-	c_theme::add_bitmap(BITMAP_CUSTOM3, &queen_bmp);
-	c_theme::add_bitmap(BITMAP_CUSTOM4, &king_bmp);
-	c_theme::add_bitmap(BITMAP_CUSTOM5, &ace_bmp);
+	c_theme::add_image(IMAGE_CUSTOM1, &ten_bmp);
+	c_theme::add_image(IMAGE_CUSTOM2, &jack_bmp);
+	c_theme::add_image(IMAGE_CUSTOM3, &queen_bmp);
+	c_theme::add_image(IMAGE_CUSTOM4, &king_bmp);
+	c_theme::add_image(IMAGE_CUSTOM5, &ace_bmp);
 }
 
 void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes)

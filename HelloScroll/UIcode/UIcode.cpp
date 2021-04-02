@@ -48,31 +48,31 @@ class c_scroll_view_v : public c_scroll_view
 		switch (ctrl_id)
 		{
 		case ID_BUTTON_1:
-			c_bitmap::draw_bitmap(m_surface, m_z_order, &image1_bmp, 230, 10);
+			c_image::draw_image(m_surface, m_z_order, &image1_bmp, 230, 10);
 			break;
 		case ID_BUTTON_2:
-			c_bitmap::draw_bitmap(m_surface, m_z_order, &image2_bmp, 230, 10);
+			c_image::draw_image(m_surface, m_z_order, &image2_bmp, 230, 10);
 			break;
 		case ID_BUTTON_3:
-			c_bitmap::draw_bitmap(m_surface, m_z_order, &image3_bmp, 230, 10);
+			c_image::draw_image(m_surface, m_z_order, &image3_bmp, 230, 10);
 			break;
 		case ID_BUTTON_4:
-			c_bitmap::draw_bitmap(m_surface, m_z_order, &image4_bmp, 410, 10);
+			c_image::draw_image(m_surface, m_z_order, &image4_bmp, 410, 10);
 			break;
 		case ID_BUTTON_5:
-			c_bitmap::draw_bitmap(m_surface, m_z_order, &image5_bmp, 230, 150);
+			c_image::draw_image(m_surface, m_z_order, &image5_bmp, 230, 150);
 			break;
 		case ID_BUTTON_6:
-			c_bitmap::draw_bitmap(m_surface, m_z_order, &image6_bmp, 410, 150);
+			c_image::draw_image(m_surface, m_z_order, &image6_bmp, 410, 150);
 			break;
 		case ID_BUTTON_7:
-			c_bitmap::draw_bitmap(m_surface, m_z_order, &image7_bmp, 230, 290);
+			c_image::draw_image(m_surface, m_z_order, &image7_bmp, 230, 290);
 			break;
 		case ID_BUTTON_8:
-			c_bitmap::draw_bitmap(m_surface, m_z_order, &image8_bmp, 230, 290);
+			c_image::draw_image(m_surface, m_z_order, &image8_bmp, 230, 290);
 			break;
 		case ID_BUTTON_9:
-			c_bitmap::draw_bitmap(m_surface, m_z_order, &image9_bmp, 230, 290);
+			c_image::draw_image(m_surface, m_z_order, &image9_bmp, 230, 290);
 			break;
 		default:
 			ASSERT(false);

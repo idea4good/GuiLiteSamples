@@ -12,7 +12,7 @@ void c_resp_wave_view::on_init_children(void)
 		ASSERT(false);
 		return;
 	}
-	p_resp_wav->set_bitmap(BITMAP_CUSTOM2);
+	p_resp_wav->set_bitmap(IMAGE_CUSTOM2);
 	p_resp_wav->set_wave_speed(SPEED_X3);
 	c_wave_manage::get_instance()->register_wave_ctrl(WAVE_RESP, p_resp_wav);
 }

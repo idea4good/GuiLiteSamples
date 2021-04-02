@@ -33,7 +33,7 @@ class c_myUI : public c_wnd
 
 	virtual void on_paint(void)
 	{
-		c_bitmap::draw_bitmap(m_surface, m_z_order, c_theme::get_bmp(BITMAP_CUSTOM1), 0, 200);
+		c_image::draw_image(m_surface, m_z_order, c_theme::get_image(IMAGE_CUSTOM1), 0, 200);
 		on_clicked(ID_BUTTON, 0);
 	}
 
@@ -61,7 +61,7 @@ void load_resource()
 {
 	c_word::fontOperator = &the_freetype_font_op;
 	c_theme::add_font(FONT_DEFAULT, the_freetype_font_op.set_font(TTF_FILE_PATH, 32, 32));
-	c_theme::add_bitmap(BITMAP_CUSTOM1, &guilite_map_bmp);
+	c_theme::add_image(IMAGE_CUSTOM1, &guilite_map_bmp);
 	c_theme::add_color(COLOR_WND_FONT, GL_RGB(255, 255, 255));
 	c_theme::add_color(COLOR_WND_NORMAL, GL_RGB(59, 75, 94));
 	c_theme::add_color(COLOR_WND_PUSHED, GL_RGB(33, 42, 53));

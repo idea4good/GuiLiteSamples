@@ -35,7 +35,7 @@ class c_wave : public c_wave_ctrl
 	{
 		c_rect rect;
 		get_screen_rect(rect);
-		c_bitmap::draw_bitmap(s_surface, Z_ORDER_LEVEL_0, c_theme::get_bmp(BITMAP_CUSTOM1), rect.m_left, rect.m_top);
+		c_image::draw_image(s_surface, Z_ORDER_LEVEL_0, c_theme::get_image(IMAGE_CUSTOM1), rect.m_left, rect.m_top);
 		save_background();
 	}
 	virtual void on_init_children()//should be pre_create
@@ -72,7 +72,7 @@ class c_my_ui : public c_wnd
 public:
 	void on_paint()
 	{
-		c_bitmap::draw_bitmap(s_surface, Z_ORDER_LEVEL_0, c_theme::get_bmp(BITMAP_CUSTOM1), 0, 0);
+		c_image::draw_image(s_surface, Z_ORDER_LEVEL_0, c_theme::get_image(IMAGE_CUSTOM1), 0, 0);
 	}
 	virtual void on_init_children(void)
 	{
@@ -112,7 +112,7 @@ extern const BITMAP_INFO background_bmp;
 void load_resource()
 {
 	c_theme::add_font(FONT_DEFAULT, &Consolas_24B);
-	c_theme::add_bitmap(BITMAP_CUSTOM1, &background_bmp);
+	c_theme::add_image(IMAGE_CUSTOM1, &background_bmp);
 	c_theme::add_color(COLOR_WND_FONT, GL_RGB(255, 255, 255));
 	c_theme::add_color(COLOR_WND_NORMAL, GL_RGB(0, 117, 107));
 	c_theme::add_color(COLOR_WND_FOCUS, GL_RGB(0, 117, 107));

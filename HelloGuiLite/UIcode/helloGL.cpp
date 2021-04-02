@@ -25,13 +25,13 @@ class c_start_button : public c_button
 		switch (m_status)
 		{
 		case STATUS_NORMAL:
-			c_bitmap::draw_bitmap(m_surface, m_z_order, &start_icon_bmp, rect.m_left, rect.m_top);
+			c_image::draw_image(m_surface, m_z_order, &start_icon_bmp, rect.m_left, rect.m_top);
 			break;
 		case STATUS_FOCUSED:
-			c_bitmap::draw_bitmap(m_surface, m_z_order, &start_icon_bmp, rect.m_left, rect.m_top);
+			c_image::draw_image(m_surface, m_z_order, &start_icon_bmp, rect.m_left, rect.m_top);
 			break;
 		case STATUS_PUSHED:
-			c_bitmap::draw_bitmap(m_surface, m_z_order, &start_icon_click_bmp, rect.m_left, rect.m_top);
+			c_image::draw_image(m_surface, m_z_order, &start_icon_click_bmp, rect.m_left, rect.m_top);
 			break;
 		default:
 			ASSERT(false);
@@ -65,7 +65,7 @@ class c_desktop : public c_wnd
 			int y = rand() % block_rows;
 			if (block_map[x + (y * block_cols)] == false)
 			{
-				c_bitmap::draw_bitmap(m_surface, m_z_order, &desktop_bmp, rect.m_left + x * block_width, rect.m_top + y * block_height, x * block_width, y * block_height, block_width, block_height);
+				c_image::draw_image(m_surface, m_z_order, &desktop_bmp, rect.m_left + x * block_width, rect.m_top + y * block_height, x * block_width, y * block_height, block_width, block_height);
 				block_map[x + (y * block_cols)] = true;
 				sum++;
 				thread_sleep(10);
@@ -95,7 +95,7 @@ void c_start_menu::on_paint(void)
 	for (int i = 0; i < start_menu_bmp.height; i += step)
 	{
 		thread_sleep(10);
-		c_bitmap::draw_bitmap(m_surface, m_z_order, &start_menu_bmp, rect.m_left, rect.m_top + i, 0, i, start_menu_bmp.width, step, GL_RGB(0, 0, 0));
+		c_image::draw_image(m_surface, m_z_order, &start_menu_bmp, rect.m_left, rect.m_top + i, 0, i, start_menu_bmp.width, step, GL_RGB(0, 0, 0));
 	}
 }
 

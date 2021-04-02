@@ -12,7 +12,7 @@ void c_spo2_wave_view::on_init_children(void)
 		ASSERT(false);
 		return;
 	}
-	p_spo2_wav->set_bitmap(BITMAP_CUSTOM1);
+	p_spo2_wav->set_bitmap(IMAGE_CUSTOM1);
 	p_spo2_wav->set_wave_speed(SPEED_X3);
 	c_wave_manage::get_instance()->register_wave_ctrl(WAVE_SPO2, p_spo2_wav);
 }

@@ -28,8 +28,8 @@ class c_myUI : public c_wnd
 	{
 		c_rect rect;
 		get_screen_rect(rect);
-		c_theme::add_bitmap(BITMAP_CUSTOM1, &frame_00_bmp);
-		c_bitmap::draw_bitmap(m_surface, m_z_order, c_theme::get_bmp(BITMAP_CUSTOM1), rect.m_left, rect.m_top);
+		c_theme::add_image(IMAGE_CUSTOM1, &frame_00_bmp);
+		c_image::draw_image(m_surface, m_z_order, c_theme::get_image(IMAGE_CUSTOM1), rect.m_left, rect.m_top);
 	}
 	void on_clicked(int ctrl_id, int param)
 	{
@@ -38,8 +38,8 @@ class c_myUI : public c_wnd
 
 		for (int i = 0; i < sizeof(s_frames) / sizeof(BITMAP_INFO); i++)
 		{
-			c_theme::add_bitmap(BITMAP_CUSTOM1, &s_frames[i]);
-			c_bitmap::draw_bitmap(m_surface, m_z_order, c_theme::get_bmp(BITMAP_CUSTOM1), rect.m_left, rect.m_top);
+			c_theme::add_image(IMAGE_CUSTOM1, &s_frames[i]);
+			c_image::draw_image(m_surface, m_z_order, c_theme::get_image(IMAGE_CUSTOM1), rect.m_left, rect.m_top);
 			thread_sleep(60);
 		}
 	}

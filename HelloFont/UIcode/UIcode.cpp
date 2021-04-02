@@ -36,13 +36,13 @@ class c_myUI : public c_wnd
 	{
 		c_rect rect;
 		get_screen_rect(rect);
-		c_bitmap::draw_bitmap(m_surface, m_z_order, c_theme::get_bmp(BITMAP_CUSTOM1), rect.m_left, rect.m_top);
+		c_image::draw_image(m_surface, m_z_order, c_theme::get_image(IMAGE_CUSTOM1), rect.m_left, rect.m_top);
 	}
 	void on_clicked(int ctrl_id, int param)
 	{
 		c_rect rect;
 		get_screen_rect(rect);
-		c_bitmap::draw_bitmap(m_surface, m_z_order, c_theme::get_bmp(BITMAP_CUSTOM1), rect.m_left, rect.m_top);
+		c_image::draw_image(m_surface, m_z_order, c_theme::get_image(IMAGE_CUSTOM1), rect.m_left, rect.m_top);
 
 		char one_word[4];
 		const char* tmp = s_text;
@@ -74,7 +74,7 @@ extern const LATTICE_FONT_INFO KaiTi_33B;
 static c_display* s_display;
 void load_resource()
 {
-	c_theme::add_bitmap(BITMAP_CUSTOM1, &background_bmp);
+	c_theme::add_image(IMAGE_CUSTOM1, &background_bmp);
 	//for button
 	c_theme::add_font(FONT_DEFAULT, &KaiTi_33B);
 	c_theme::add_color(COLOR_WND_FONT, GL_RGB(255, 255, 255));

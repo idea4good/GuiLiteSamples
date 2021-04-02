@@ -70,7 +70,7 @@ void c_bitmap_wave_ctrl::on_paint()
 	get_screen_rect(rect);
 
 	m_surface->fill_rect(rect.m_left, rect.m_top, rect.m_right, rect.m_bottom, m_back_color, m_z_order);
-	c_bitmap::draw_bitmap(m_surface, m_z_order, c_theme::get_bmp(m_bitmap_type), rect.m_left, rect.m_top);
+	c_image::draw_image(m_surface, m_z_order, c_theme::get_image(m_bitmap_type), rect.m_left, rect.m_top);
 
 	//show name
 	c_word::draw_string(m_surface, m_z_order, m_wave_name, m_wave_left + 10, rect.m_top, m_wave_name_font, m_wave_name_color, GL_ARGB(0, 0, 0, 0));

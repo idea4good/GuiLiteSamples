@@ -10,7 +10,7 @@
 #include <errno.h>
 #include <sys/stat.h>
 
-extern void startHelloTransparent(void* phy_fb, int width, int height, int color_bytes);
+extern void startHelloWindows(void* phy_fb, int width, int height, int color_bytes);
 extern void init_std_io();
 
 static void* get_embeded_fb_in_display_app(int shared_id);
@@ -19,10 +19,13 @@ static void* get_dev_fb(char* path, int &width, int &height, int &color_bytes);
 static const char* s_welcome =
 "--------------------------- Help ---------------------------\n"
 "Run on Linux Desktop:\n"
-"./xWindow 522 657 | ./HelloTransparent shared-fb\n\n"
+"./xWindow 1280 720 | ./HelloWindows shared-fb\n\n"
 
 "Run on ARM Linux:\n"
-"./HelloTransparent /dev/fb-path\n"
+"./HelloWindows /dev/fb-path\n\n"
+
+"ss: Snapshot UI in snapshot_0.bmp.\n"
+"bb: Press start button.\n"
 "------------------------------------------------------------\n";
 
 enum FRAMEBUFFER_MODE
@@ -36,11 +39,11 @@ int main(int argc, char** argv)
 {
 	printf(s_welcome);
 	system("chmod 777 .sync_build.sh");
-	system("./.sync_build.sh HelloTransparent &");
+	system("./.sync_build.sh HelloWindows &");
 
 	int color_bytes = 2;
-	int screen_width = 522;
-	int screen_height = 657;
+	int screen_width = 1280;
+	int screen_height = 720;
 
 	FRAMEBUFFER_MODE fb_mode = FB_NULL_MODE;
 	char *fb_dev_path = NULL;
@@ -80,7 +83,7 @@ int main(int argc, char** argv)
 	}
 
 	init_std_io();
-	startHelloTransparent(phy_fb, screen_width, screen_height, color_bytes);//never return;
+	startHelloWindows(phy_fb, screen_width, screen_height, color_bytes);//never return;
     return 0;
 }
 

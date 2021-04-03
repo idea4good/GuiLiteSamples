@@ -1,9 +1,9 @@
-// HelloTransparent.cpp : Defines the entry point for the application.
+// HelloWindows.cpp : Defines the entry point for the application.
 //
 
 #include "stdafx.h"
 #include "UiBlock.h"
-#include "HelloTransparent.h"
+#include "HelloWindows.h"
 #include <windowsx.h>
 #include <shellapi.h>
 
@@ -19,7 +19,7 @@ CUiBlock UIblock(0, COLOR_BYTES);
 ATOM                MyRegisterClass(HINSTANCE hInstance);
 BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
-DWORD WINAPI ThreadHelloTransparent(LPVOID pParam);
+DWORD WINAPI ThreadHelloWindows(LPVOID pParam);
 DWORD WINAPI ThreadUpdateUI(LPVOID pParam);
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
@@ -34,7 +34,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     // Initialize global strings
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
-    LoadStringW(hInstance, IDC_HelloTransparent, szWindowClass, MAX_LOADSTRING);
+    LoadStringW(hInstance, IDC_HelloWindows, szWindowClass, MAX_LOADSTRING);
     MyRegisterClass(hInstance);
 
     // Perform application initialization:
@@ -43,7 +43,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         return FALSE;
     }
 
-    HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_HelloTransparent));
+    HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_HelloWindows));
 
     MSG msg;
 
@@ -76,10 +76,10 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     wcex.cbClsExtra     = 0;
     wcex.cbWndExtra     = 0;
     wcex.hInstance      = hInstance;
-    wcex.hIcon          = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_HelloTransparent));
+    wcex.hIcon          = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_HelloWindows));
     wcex.hCursor        = LoadCursor(nullptr, IDC_ARROW);
     wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
-    wcex.lpszMenuName   = MAKEINTRESOURCEW(IDC_HelloTransparent);
+    wcex.lpszMenuName   = MAKEINTRESOURCEW(IDC_HelloWindows);
     wcex.lpszClassName  = szWindowClass;
     wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
@@ -112,7 +112,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    UpdateWindow(hWnd);
    
    DWORD threadID;
-   CreateThread(NULL, 0, ThreadHelloTransparent, NULL, 0, &threadID);
+   CreateThread(NULL, 0, ThreadHelloWindows, NULL, 0, &threadID);
    CreateThread(NULL, 0, ThreadUpdateUI, hWnd, 0, &threadID);
 
    return TRUE;
@@ -160,12 +160,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     return 0;
 }
 
-//////////////////////// HelloTransparent Interface ////////////////////////
-extern void startHelloTransparent(void* phy_fb, int width, int height, int color_bytes);
+//////////////////////// HelloWindows Interface ////////////////////////
+void startHelloWindows(void* phy_fb, int width, int height, int color_bytes);
 
-DWORD WINAPI ThreadHelloTransparent(LPVOID pParam)
+DWORD WINAPI ThreadHelloWindows(LPVOID pParam)
 {
-	startHelloTransparent(calloc(522 * 657, COLOR_BYTES), 522, 657, COLOR_BYTES);
+    startHelloWindows(calloc(1280 * 720, COLOR_BYTES), 1280, 720, COLOR_BYTES);
 	return 0;
 }
 

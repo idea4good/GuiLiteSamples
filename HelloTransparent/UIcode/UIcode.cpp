@@ -4,7 +4,7 @@
 #include "surface_transparent.h"
 
 #define UI_WIDTH	522
-#define UI_HEIGHT	957
+#define UI_HEIGHT	657
 
 static const unsigned char	s_wave_data1[] =
 {

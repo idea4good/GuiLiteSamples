@@ -15,7 +15,7 @@
     - `chmod 777 *`
 2. Run locally(e.g, Ubuntu):
     - Run with framebuffer: `sudo ./HelloTransparent /dev/fb0`&nbsp;&nbsp;&nbsp;&nbsp;/dev/fb0: The path of framebuffer device file.
-    - Run inside X Window: `sudo ./xWindow 522 957 | ./HelloTransparent shared-fb`
+    - Run inside X Window: `sudo ./xWindow 522 657 | ./HelloTransparent shared-fb`
 
 ## Cross compiler & Run on target:
 1. install compiler:

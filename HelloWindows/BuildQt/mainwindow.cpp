@@ -10,17 +10,17 @@
 #include <unistd.h>
 #include <sys/stat.h>
 
-extern void startHelloTransparent(void* phy_fb, int width, int height, int color_bytes);
-extern void sendTouch2HelloTransparent(int x, int y, bool is_down);
-extern void* getUiOfHelloTransparent(int* width, int* height, bool force_update);
+extern void startHelloWindows(void* phy_fb, int width, int height, int color_bytes);
+extern void sendTouch2HelloWindows(int x, int y, bool is_down);
+extern void* getUiOfHelloWindows(int* width, int* height, bool force_update);
 
-#define UI_WIDTH    522
-#define UI_HEIGHT   657
+#define UI_WIDTH 1280
+#define UI_HEIGHT 720
 class GuiLiteThread: public QThread
 {
     void run()
     {
-        startHelloTransparent(calloc(UI_WIDTH * UI_HEIGHT, 2), UI_WIDTH, UI_HEIGHT, 2);
+        startHelloWindows(calloc(UI_WIDTH * UI_HEIGHT, 2), UI_WIDTH, UI_HEIGHT, 2);
     }
 };
 
@@ -55,7 +55,7 @@ void MainWindow::paintEvent(QPaintEvent* p)
 {
     (void)p;//kill warning.
     static bool force_update = true;
-    void* fb = getUiOfHelloTransparent(NULL, NULL, force_update);
+    void* fb = getUiOfHelloWindows(NULL, NULL, force_update);
     if(fb){
         QPainter painter(this);
         QImage img((uchar*)fb, UI_WIDTH, UI_HEIGHT, QImage::Format_RGB16);
@@ -67,13 +67,13 @@ void MainWindow::paintEvent(QPaintEvent* p)
 void MainWindow::mousePressEvent(QMouseEvent *e)
 {
     m_is_pressed = true;
-    sendTouch2HelloTransparent(e->pos().x(), e->pos().y(), m_is_pressed);
+    sendTouch2HelloWindows(e->pos().x(), e->pos().y(), m_is_pressed);
 }
 
 void MainWindow::mouseReleaseEvent(QMouseEvent *e)
 {
     m_is_pressed = false;
-    sendTouch2HelloTransparent(e->pos().x(), e->pos().y(), m_is_pressed);
+    sendTouch2HelloWindows(e->pos().x(), e->pos().y(), m_is_pressed);
 }
 
 void MainWindow::mouseMoveEvent(QMouseEvent *e)

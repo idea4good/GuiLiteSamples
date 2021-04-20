@@ -7,11 +7,21 @@ include_directories(pnp/common)
 
 link_directories(libs)
 
+option(ADU "ADU feature" OFF)
+
+if(ADU)
+set(source_files
+    main-adu.c
+    func.cpp
+    pnp/common/pnp_dps_ll.c
+)
+else()
 set(source_files
     main.c
     func.cpp
     pnp/common/pnp_dps_ll.c
-)
+)    
+endif()
 
 add_definitions(-DUSE_PROV_MODULE_FULL)
 

@@ -13,11 +13,27 @@ Note: **No capital** letter for DPS enrollment ID/name.
 3. Enable macro main.c::USING_CONNECTION_STRING
 4. Update main.c::s_ConnectionString with `connection string` of IoT Device
 
-## How to build/run on Linux-X86
+## How to build/run on Linux-x86
 ```bash
 cmake . && make
 ./pnpGuiLite
 ```
+
+## How to ADU on Linux-x86
+1. Build ADU agent:
+    ```bash
+    cmake -DADU=ON .
+    make
+    ./pnpGuiLite
+    ```
+2. Build Manifest:
+    ```ps
+    cd adu
+    ./buildManifest.ps1
+    ```
+3. Go to your Azure IoT Hub resource with browser
+4. Click "Device updates"
+5. Click "Import a new update"
 
 ## How to update libs
 ```bash

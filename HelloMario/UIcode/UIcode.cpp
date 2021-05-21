@@ -106,14 +106,14 @@ c_mario the_mario;
 void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op) {
 	if (phy_fb)
 	{
-		static c_surface surface(UI_WIDTH, UI_HEIGHT, color_bytes, Z_ORDER_LEVEL_1);
+		static c_surface surface(UI_WIDTH, UI_HEIGHT, color_bytes, Z_ORDER_LEVEL_1, c_rect(0, UI_HEIGHT - background_bmp.height, UI_WIDTH, background_bmp.height));
 		static c_display display(phy_fb, screen_width, screen_height, &surface);
 		s_surface = &surface;
 		s_display = &display;
 	}
 	else
 	{//for MCU without framebuffer
-		static c_surface_no_fb surface_no_fb(UI_WIDTH, UI_HEIGHT, color_bytes, gfx_op, Z_ORDER_LEVEL_1, c_rect(0, UI_HEIGHT - background_bmp.height, UI_WIDTH - 1, UI_HEIGHT - 1));
+		static c_surface_no_fb surface_no_fb(UI_WIDTH, UI_HEIGHT, color_bytes, gfx_op, Z_ORDER_LEVEL_1, c_rect(0, UI_HEIGHT - background_bmp.height, UI_WIDTH, background_bmp.height));
 		static c_display display(phy_fb, screen_width, screen_height, &surface_no_fb);
 		s_surface = &surface_no_fb;
 		s_display = &display;

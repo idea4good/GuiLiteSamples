@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 
+import org.apache.tools.ant.taskdefs.condition.Os
+
 android {
     compileSdkVersion 29
 
@@ -38,7 +40,10 @@ android {
     task createLink(type:Exec) {
         println 'create native source(UIcode) link'
         workingDir '.'
-        commandLine 'cmd', '/c', 'source-link.bat'
+        if (Os.isFamily(Os.FAMILY_WINDOWS))
+            commandLine 'cmd', '/c', 'source-link.bat'
+        else
+            commandLine 'sh', 'unix-link.sh'
     }
     preBuild.dependsOn(createLink)
 }

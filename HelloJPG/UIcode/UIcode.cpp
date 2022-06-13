@@ -43,7 +43,8 @@ void create_ui(void* phy_fb, int screen_width, int screen_height, int color_byte
 	load_resource();
 	s_surface = new c_surface(UI_WIDTH, UI_HEIGHT, color_bytes, Z_ORDER_LEVEL_0);
 	s_display = new c_display(phy_fb, screen_width, screen_height, s_surface);
-
+	
+	c_image::draw_image(s_surface, Z_ORDER_LEVEL_0, "../2.jpg", 200, 150);
 	while(1)
 	{
 		thread_sleep(1000000);

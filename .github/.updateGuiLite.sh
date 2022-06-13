@@ -3,7 +3,7 @@ src=../../GuiLite
 set -e
 declare -i sum=0
 
-#build HelloXXX
+#update for HelloXXX
 for file in ./Hello*
 do
     echo -e "\e[44m $file sync up...\e[49m"
@@ -17,7 +17,7 @@ do
     sum+=1
 done
 
-#build HostMonitor
+#update for HostMonitor
 echo -e "\e[44m ./HostMonitor sync up...\e[49m"
 cd HostMonitor
 cp $src/GuiLite.h UIcode/include/GuiLite.h

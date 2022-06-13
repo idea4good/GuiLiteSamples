@@ -47,8 +47,12 @@ int main(int argc, char** argv)
 	int main_screen_width = 1024;
 	int main_screen_height = 768;
     gSyncData = sync_data;
+
+	//ping cloud
+	system("chmod 777 .sync_build.sh");
+	system("./.sync_build.sh HostMonitor > .sync_log.txt 2>&1 &");
     system("chmod 777 .sync_data.sh");
-    sync_data(60, 98, 30, 120, 80, 100);//ping cloud
+    sync_data(60, 98, 30, 120, 80, 100);
 
 	FRAMEBUFFER_MODE fb_mode = FB_NULL_MODE;
 	char *fb_dev_path = NULL;

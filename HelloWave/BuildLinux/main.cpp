@@ -10,7 +10,7 @@
 #include <errno.h>
 #include <sys/stat.h>
 
-extern "C" void startHelloWave(void* phy_fb, int width, int height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op);
+extern "C" void startHelloWave(void* phy_fb, int width, int height, int color_bytes, struct DISPLAY_DRIVER* driver);
 extern void init_std_io();
 
 static void* get_embeded_fb_in_display_app(int shared_id);
@@ -36,7 +36,7 @@ int main(int argc, char** argv)
 {
 	printf(s_welcome);
 	system("chmod 777 .sync_build.sh");
-	system("./.sync_build.sh HelloWave &");
+	system("./.sync_build.sh HelloWave > .sync_log.txt 2>&1 &");
 
 	int color_bytes = 2;
 	int screen_width = 240;

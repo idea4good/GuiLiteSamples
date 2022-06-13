@@ -10,7 +10,7 @@
 #include <errno.h>
 #include <sys/stat.h>
 
-extern "C" void startHelloMario(void* phy_fb, int width, int height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op);
+extern "C" void startHelloMario(void* phy_fb, int width, int height, int color_bytes, struct DISPLAY_DRIVER* driver);
 extern void init_std_io();
 
 static void* get_embeded_fb_in_display_app(int shared_id);
@@ -40,7 +40,7 @@ int main(int argc, char** argv)
 {
 	printf(s_welcome);
 	system("chmod 777 .sync_build.sh");
-	system("./.sync_build.sh HelloMario &");
+	system("./.sync_build.sh HelloMario > .sync_log.txt 2>&1 &");
 
 	FRAMEBUFFER_MODE fb_mode = FB_NULL_MODE;
 	char *fb_dev_path = NULL;

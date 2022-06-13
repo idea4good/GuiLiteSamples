@@ -1,6 +1,6 @@
 class c_surface_offset : public c_surface {
 public:
-	c_surface_offset(unsigned int width, unsigned int height, unsigned int color_bytes, int offset_x, int offset_y) :	c_surface(width, height, color_bytes), m_offset_x(offset_x), m_offset_y(offset_y) {}
+	c_surface_offset(unsigned int width, unsigned int height, unsigned int color_bytes, int offset_x, int offset_y) : c_surface(width, height, color_bytes), m_offset_x(offset_x), m_offset_y(offset_y) {}
 	virtual void draw_pixel(int x, int y, unsigned int rgb, unsigned int z_order)
 	{
 		x -= m_offset_x;
@@ -17,6 +17,16 @@ public:
 	}
 	int m_offset_x;
 	int m_offset_y;
+
+	int get_width() { return m_width; }
+	int get_height() { return m_height; }
+};
+
+class mem_display : public c_display
+{
+public:
+	mem_display(void* phy_fb, int display_width, int display_height, c_surface* surface, DISPLAY_DRIVER* driver = 0) : c_display(phy_fb, display_width, display_height, surface, driver) {}
+	int get_width() { return m_width; }
 };
 
 #define MOVE_THRESHOLD	10
@@ -59,7 +69,7 @@ protected:
 		}
 		
 		m_mem_surface = new c_surface_offset(width, height, 2, rect.m_left, rect.m_top);
-		m_mem_display = new c_display(calloc(width * height, 2), width, height, m_mem_surface);
+		m_mem_display = new mem_display(calloc(width * height, 2), width, height, m_mem_surface);
 
 		//change surface
 		set_surface(m_mem_surface);
@@ -164,7 +174,7 @@ protected:
 	}
 private:
 	TOUCH_ACTION m_touch_action = TOUCH_UP;
-	c_display* m_mem_display;
+	mem_display* m_mem_display;
 	c_surface_offset* m_mem_surface;
 	c_surface* m_parent_surface;
 	int m_offset_x = 0;

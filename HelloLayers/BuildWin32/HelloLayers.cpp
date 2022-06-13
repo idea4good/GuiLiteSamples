@@ -161,7 +161,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 }
 
 //////////////////////// HelloLayers Interface ////////////////////////
-extern "C" void startHelloLayers(void* phy_fb, int width, int height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op);
+extern "C" void startHelloLayers(void* phy_fb, int width, int height, int color_bytes, struct DISPLAY_DRIVER* driver);
 
 DWORD WINAPI ThreadHelloLayers(LPVOID pParam)
 {

@@ -201,21 +201,11 @@ public:
 Circle theSmallCircle(CIRCLE_X, CIRCLE_Y, SMALL_RADIUS, GL_RGB(25, 68, 97), 8);
 Circle theBigCircle(CIRCLE_X, CIRCLE_Y, BIG_RADIUS, GL_RGB(59, 152, 215), 8, false);
 
-void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op) {
-	if (phy_fb)
-	{
-		static c_surface surface(UI_WIDTH, UI_HEIGHT, color_bytes, Z_ORDER_LEVEL_0);
-		static c_display display(phy_fb, screen_width, screen_height, &surface);
-		s_surface = &surface;
-		s_display = &display;
-	}
-	else
-	{//for MCU without framebuffer
-		static c_surface_no_fb surface_no_fb(UI_WIDTH, UI_HEIGHT, color_bytes, gfx_op, Z_ORDER_LEVEL_0);
-		static c_display display(phy_fb, screen_width, screen_height, &surface_no_fb);
-		s_surface = &surface_no_fb;
-		s_display = &display;
-	}
+void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes, struct DISPLAY_DRIVER* driver) {
+	static c_surface surface(UI_WIDTH, UI_HEIGHT, color_bytes, Z_ORDER_LEVEL_0);
+	static c_display display(phy_fb, screen_width, screen_height, &surface, driver);
+	s_surface = &surface;
+	s_display = &display;
 	
 	s_surface->fill_rect(0, 0, UI_WIDTH - 1, UI_HEIGHT - 1, 0, Z_ORDER_LEVEL_0);
 	double time = 0.0;
@@ -253,8 +243,8 @@ void create_ui(void* phy_fb, int screen_width, int screen_height, int color_byte
 }
 
 //////////////////////// interface for all platform ////////////////////////
-extern "C" void startHelloCircle(void* phy_fb, int width, int height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op) {
-	create_ui(phy_fb, width, height, color_bytes, gfx_op);
+extern "C" void startHelloCircle(void* phy_fb, int width, int height, int color_bytes, struct DISPLAY_DRIVER* driver) {
+	create_ui(phy_fb, width, height, color_bytes, driver);
 }
 
 extern "C" void* getUiOfHelloCircle(int* width, int* height, bool force_update)

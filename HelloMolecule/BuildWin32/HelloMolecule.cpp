@@ -161,7 +161,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 }
 
 //////////////////////// HelloMolecule Interface ////////////////////////
-extern "C" void startHelloMolecule(void* phy_fb, int width, int height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op);
+extern "C" void startHelloMolecule(void* phy_fb, int width, int height, int color_bytes, struct DISPLAY_DRIVER* driver);
 
 DWORD WINAPI ThreadHelloMolecule(LPVOID pParam)
 {

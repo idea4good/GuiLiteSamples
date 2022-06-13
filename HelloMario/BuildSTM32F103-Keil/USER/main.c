@@ -16,13 +16,13 @@ void gfx_draw_pixel(int x, int y, unsigned int rgb)
 //void gfx_fill_rect(int x0, int y0, int x1, int y1, unsigned int rgb){}
 
 //UI entry
-struct EXTERNAL_GFX_OP
+struct DISPLAY_DRIVER
 {
 	void (*draw_pixel)(int x, int y, unsigned int rgb);
 	void (*fill_rect)(int x0, int y0, int x1, int y1, unsigned int rgb);
-} my_gfx_op;
+} my_driver;
 
-extern void startHelloMario(void* phy_fb, int width, int height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op);
+extern void startHelloMario(void* phy_fb, int width, int height, int color_bytes, struct DISPLAY_DRIVER* driver);
 int main(void)
 {
 	//Hardware initialization:
@@ -31,8 +31,8 @@ int main(void)
 	LCD_Init();
 
 	//Link your LCD driver & start UI:
-	my_gfx_op.draw_pixel = gfx_draw_pixel;
-	my_gfx_op.fill_rect = NULL;//gfx_fill_rect;
-	startHelloMario(NULL, 240, 320, 2, &my_gfx_op);
+	my_driver.draw_pixel = gfx_draw_pixel;
+	my_driver.fill_rect = NULL;//gfx_fill_rect;
+	startHelloMario(NULL, 240, 320, 2, &my_driver);
 	while(1);
 }

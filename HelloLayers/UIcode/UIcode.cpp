@@ -33,7 +33,7 @@ void draw_on_layer_1()
 {
 	s_surface->fill_rect(c_rect(LAYER_1_X, LAYER_1_Y, LAYER_1_WIDTH, LAYER_1_HEIGHT), GL_RGB(0, 122, 204), Z_ORDER_LEVEL_1);
 	c_word::draw_string(s_surface, Z_ORDER_LEVEL_1, "GuiLite", LAYER_1_X + 5, LAYER_1_Y + 20, c_theme::get_font(FONT_DEFAULT), GL_RGB(255, 255, 255), GL_RGB(0, 122, 204));
-	c_word::draw_string(s_surface, Z_ORDER_LEVEL_1, " 5KLOC", LAYER_1_X + 5, LAYER_1_Y + 60, c_theme::get_font(FONT_DEFAULT), GL_RGB(255, 255, 255), GL_RGB(0, 122, 204));
+	c_word::draw_string(s_surface, Z_ORDER_LEVEL_1, "4 KLOC", LAYER_1_X + 5, LAYER_1_Y + 60, c_theme::get_font(FONT_DEFAULT), GL_RGB(255, 255, 255), GL_RGB(0, 122, 204));
 }
 
 void clear_layer_1()
@@ -62,21 +62,11 @@ void load_resource()
 	c_theme::add_font(FONT_DEFAULT, &Consolas_19);
 }
 
-void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op) {
-	if (phy_fb)
-	{
-		static c_surface surface(UI_WIDTH, UI_HEIGHT, color_bytes, Z_ORDER_LEVEL_1, c_rect(LAYER_1_X, LAYER_1_Y, LAYER_1_X + LAYER_1_WIDTH - 1, LAYER_1_Y + LAYER_1_HEIGHT - 1));
-		static c_display display(phy_fb, screen_width, screen_height, &surface);
-		s_surface = &surface;
-		s_display = &display;
-	}
-	else
-	{//for MCU without framebuffer
-		static c_surface_no_fb surface_no_fb(UI_WIDTH, UI_HEIGHT, color_bytes, gfx_op, Z_ORDER_LEVEL_1, c_rect(LAYER_1_X, LAYER_1_Y, LAYER_1_X + LAYER_1_WIDTH - 1, LAYER_1_Y + LAYER_1_HEIGHT - 1));
-		static c_display display(phy_fb, screen_width, screen_height, &surface_no_fb);
-		s_surface = &surface_no_fb;
-		s_display = &display;
-	}
+void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes, struct DISPLAY_DRIVER* driver) {
+	static c_surface surface(UI_WIDTH, UI_HEIGHT, color_bytes, Z_ORDER_LEVEL_1, c_rect(LAYER_1_X, LAYER_1_Y, LAYER_1_X + LAYER_1_WIDTH - 1, LAYER_1_Y + LAYER_1_HEIGHT - 1));
+	static c_display display(phy_fb, screen_width, screen_height, &surface, driver);
+	s_surface = &surface;
+	s_display = &display;
 
 	load_resource();
 	draw_on_layer_0();
@@ -89,8 +79,8 @@ void create_ui(void* phy_fb, int screen_width, int screen_height, int color_byte
 }
 
 //////////////////////// interface for all platform ////////////////////////
-extern "C" void startHelloLayers(void* phy_fb, int width, int height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op) {
-	create_ui(phy_fb, width, height, color_bytes, gfx_op);
+extern "C" void startHelloLayers(void* phy_fb, int width, int height, int color_bytes, struct DISPLAY_DRIVER* driver) {
+	create_ui(phy_fb, width, height, color_bytes, driver);
 }
 
 void* getUiOfHelloLayers(int* width, int* height, bool force_update)

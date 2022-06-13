@@ -1,21 +1,29 @@
+#define SURFACE_COLOR_BYTES 4
+
 class c_surface_transparent : public c_surface {
 public:
-	c_surface_transparent(unsigned int width, unsigned int height, unsigned int color_bytes, Z_ORDER_LEVEL max_zorder) : c_surface(width, height, 4)
+	c_surface_transparent(unsigned int width, unsigned int height, unsigned int color_bytes, Z_ORDER_LEVEL max_zorder) : c_surface(width, height, color_bytes, max_zorder)
 	{
-		m_max_zorder = max_zorder;
-		m_display_color_bytes = color_bytes;
-		
 		c_rect layer_rect(0, 0, width, height);
 		for (int i = Z_ORDER_LEVEL_0; i <= m_max_zorder; i++)
 		{
-			ASSERT(m_layers[i].fb = calloc(layer_rect.width() * layer_rect.height(), m_color_bytes));
+			ASSERT(m_layers[i].fb = calloc(layer_rect.width() * layer_rect.height(), SURFACE_COLOR_BYTES));
 			m_layers[i].rect = layer_rect;
+		}
+	}
+
+	void correct_color_after_display()
+	{
+		m_display_color_bytes = m_color_bytes;
+		if (m_color_bytes != SURFACE_COLOR_BYTES)
+		{
+			m_color_bytes = SURFACE_COLOR_BYTES;
 		}
 	}
 
 	void clear_layer(unsigned int z_order)
 	{
-		memset(m_layers[z_order].fb, 0, m_layers[z_order].rect.width() * m_layers[z_order].rect.height() * m_color_bytes);
+		memset(m_layers[z_order].fb, 0, m_layers[z_order].rect.width() * m_layers[z_order].rect.height() * SURFACE_COLOR_BYTES);
 	}
 
 	virtual void draw_pixel(int x, int y, unsigned int rgb, unsigned int z_order)
@@ -54,13 +62,15 @@ public:
 			unsigned int alpha_b = (b_ * a_ + b * (255 - a_)) / 255;
 			rgb = GL_RGB(alpha_r, alpha_g, alpha_b);
 		}
+
+		void* phy_fb = m_display->get_phy_fb();
 		if (m_display_color_bytes == 4)
 		{
-			((unsigned int*)m_phy_fb)[y * (m_display->get_width()) + x] = rgb;
+			((unsigned int*)phy_fb)[y * (m_display->get_width()) + x] = rgb;
 		}
 		else
 		{
-			((unsigned short*)m_phy_fb)[y * (m_display->get_width()) + x] = GL_RGB_32_to_16(rgb);
+			((unsigned short*)phy_fb)[y * (m_display->get_width()) + x] = GL_RGB_32_to_16(rgb);
 		}
 	}
 
@@ -104,10 +114,11 @@ public:
 			lower_rect = m_layers[z_order - 1].rect;
 		}
 
+		void* phy_fb = m_display->get_phy_fb();
 		for (int y = y0; y <= y1; y++)
 		{
-			unsigned int* phy_fb_32 = &((unsigned int*)m_phy_fb)[y * display_width + x0];
-			unsigned short* phy_fb_16 = &((unsigned short*)m_phy_fb)[y * display_width + x0];
+			unsigned int* phy_fb_32 = &((unsigned int*)phy_fb)[y * display_width + x0];
+			unsigned short* phy_fb_16 = &((unsigned short*)phy_fb)[y * display_width + x0];
 			*m_phy_write_index = *m_phy_write_index + 1;
 			for (int x = x0; x <= x1; x++)
 			{
@@ -149,16 +160,5 @@ public:
 		}
 	}
 
-	void fill_rect(c_rect rect, unsigned int rgb, unsigned int z_order)
-	{
-		fill_rect(rect.m_left, rect.m_top, rect.m_right, rect.m_bottom, rgb, z_order);
-	}
-
-	virtual void draw_pixel_on_fb(int x, int y, unsigned int rgb)
-	{
-		m_color_bytes = m_display_color_bytes;
-		c_surface::draw_pixel_on_fb(x, y, rgb);
-		m_color_bytes = 4;
-	}
 	int m_display_color_bytes;
 };

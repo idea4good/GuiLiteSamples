@@ -1,6 +1,6 @@
 if [ "$#" -ne 1 ]; then
     echo "Do testing"
-    ./xWindow 240 320 | ./HelloPendulum shared-fb
+    ./xWindow 1024 768 | ./HostMonitor shared-fb
     exit -1
 fi
 

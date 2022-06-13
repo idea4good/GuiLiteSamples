@@ -58,7 +58,7 @@ class c_my_dialog : public c_dialog
 	{
 		c_rect rect;
 		get_screen_rect(rect);
-		s_surface->fill_rect(rect, GL_ARGB(220, 0, 0, 0), m_z_order);
+		s_surface->fill_rect(rect.m_left, rect.m_top, rect.m_right, rect.m_bottom, GL_ARGB(220, 0, 0, 0), m_z_order);
 	}
 	void on_clicked(int ctrl_id, int param)
 	{
@@ -125,6 +125,7 @@ void create_ui(void* phy_fb, int screen_width, int screen_height, int color_byte
 
 	s_surface = new c_surface_transparent(UI_WIDTH, UI_HEIGHT, color_bytes, Z_ORDER_LEVEL_1);
 	s_display = new c_display(phy_fb, screen_width, screen_height, s_surface);
+	s_surface->correct_color_after_display();
 	s_my_ui.set_surface(s_surface);
 
 	s_my_ui.connect(NULL, ID_ROOT, 0, 0, 0, UI_WIDTH, UI_HEIGHT, s_main_widgets);

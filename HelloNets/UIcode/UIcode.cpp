@@ -112,22 +112,12 @@ void trigger(int x, int y, bool is_down)
 	}
 }
 
-void run(void* phy_fb, int screen_width, int screen_height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op)
+void run(void* phy_fb, int screen_width, int screen_height, int color_bytes, struct DISPLAY_DRIVER* driver)
 {
-	if (phy_fb)
-	{
-		static c_surface surface(screen_width, screen_height, color_bytes, Z_ORDER_LEVEL_0);
-		static c_display display(phy_fb, screen_width, screen_height, &surface);
-		s_surface = &surface;
-		s_display = &display;
-	}
-	else
-	{//for MCU without framebuffer
-		static c_surface_no_fb surface_no_fb(screen_width, screen_height, color_bytes, gfx_op, Z_ORDER_LEVEL_0);
-		static c_display display(phy_fb, screen_width, screen_height, &surface_no_fb);
-		s_surface = &surface_no_fb;
-		s_display = &display;
-	}
+	static c_surface surface(screen_width, screen_height, color_bytes, Z_ORDER_LEVEL_0);
+	static c_display display(phy_fb, screen_width, screen_height, &surface, driver);
+	s_surface = &surface;
+	s_display = &display;
 
 	s_surface->fill_rect(0, 0, screen_width - 1, screen_height - 1, GL_RGB(0, 0, 0), Z_ORDER_LEVEL_0);
 
@@ -194,8 +184,8 @@ void run(void* phy_fb, int screen_width, int screen_height, int color_bytes, str
 	}
 }
 //////////////////////// interface for all platform ////////////////////////
-extern "C" void startHelloNets(void* phy_fb, int width, int height, int color_bytes, struct EXTERNAL_GFX_OP* gfx_op) {
-	run(phy_fb, width, height, color_bytes, gfx_op);
+extern "C" void startHelloNets(void* phy_fb, int width, int height, int color_bytes, struct DISPLAY_DRIVER* driver) {
+	run(phy_fb, width, height, color_bytes, driver);
 }
 
 void sendTouch2HelloNets(int x, int y, bool is_down)

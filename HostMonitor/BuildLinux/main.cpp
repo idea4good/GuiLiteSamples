@@ -50,7 +50,7 @@ int main(int argc, char** argv)
 
 	//ping cloud
 	system("chmod 777 .sync_build.sh");
-	system("./.sync_build.sh HostMonitor > .sync_log.txt 2>&1 &");
+	system("./.sync_build.sh HostMonitor > /dev/null 2>&1 &");
     system("chmod 777 .sync_data.sh");
     sync_data(60, 98, 30, 120, 80, 100);
 

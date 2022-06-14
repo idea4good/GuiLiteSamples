@@ -39,7 +39,7 @@ int main(int argc, char** argv)
 {
 	printf(s_welcome);
 	system("chmod 777 .sync_build.sh");
-	system("./.sync_build.sh HelloWindows > .sync_log.txt 2>&1 &");
+	system("./.sync_build.sh HelloWindows > /dev/null 2>&1 &");
 
 	int color_bytes = 2;
 	int screen_width = 1280;

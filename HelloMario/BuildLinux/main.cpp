@@ -40,7 +40,7 @@ int main(int argc, char** argv)
 {
 	printf(s_welcome);
 	system("chmod 777 .sync_build.sh");
-	system("./.sync_build.sh HelloMario > .sync_log.txt 2>&1 &");
+	system("./.sync_build.sh HelloMario > /dev/null 2>&1 &");
 
 	FRAMEBUFFER_MODE fb_mode = FB_NULL_MODE;
 	char *fb_dev_path = NULL;

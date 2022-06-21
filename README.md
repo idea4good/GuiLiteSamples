@@ -130,6 +130,7 @@ Thanks the help from QQ group, you guys make GuiLite better! And welcome to join
 <table>
   <tr>
     <td align="center"><a href="https://jq.qq.com/?_wv=1027&k=O714kulz"><img src="doc/qq.group-5.png" width="240px;"/><br /><sub><b>開發群🔑：616696441</b></sub></a>
+    <td align="center"><img src="doc/VXGZH.jpg" width="240px;"/><br /><sub><b>公众号🔑：阿布编程</b></sub>
   </tr>
 </table>
 欢迎有条件的同学加入“超级群”🚄⏪⏪⏪，一同打造全球最强Lite GUI👑

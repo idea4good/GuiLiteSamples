@@ -13,18 +13,7 @@
 3. Build HelloTimer.
 4. Connect your hardware with your host PC, and flash/run HEX file on it.
 
-# How to port on any type of MCU?
-## Prerequisite:
-- You have Keil/IAR project which can enable LCD
-- Your project should implement function `void delay_ms(unsigned short nms)`, which would be used by core/src/adapter/api_none.cpp::thread_sleep
-
-## Porting
-![HowToPorting](../doc/HowToPorting.png)
-1. Open your Keil/IAR project
-2. Import all cpp files from `UIcode` in your project
-3. Encapsulate draw piexel driver in `main.c`
-4. Link your LCD driver with GuiLite, and call UI entry function(e.g, startHelloTimer)
-5. Build & Run
+# [How to port on any type of MCU?](../doc/how-to-port-on-mcu.md)
 
 # How to build for Linux?
 ## Compile & Run locally:

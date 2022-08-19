@@ -19,7 +19,7 @@
     <td align="center"><a href="HelloStar/UIcode/UIcode.cpp"><img src="doc/HelloStar.gif" width="200px;"/><br /><sub><b>star field effect</b></sub></a>
     <td align="center"><a href="HelloParticle/UIcode/UIcode.cpp"><img src="doc/HelloParticle.gif" width="200px;"/><br /><sub><b>particle effect</b></sub></a>
     <td align="center"><a href="HelloWave/UIcode/UIcode.cpp"><img src="doc/HelloWave.gif" width="200px;"/><br /><sub><b>wave widget</b></sub></a>
-    <td align="center"><a href="HelloNoTouch/UIcode/UIcode.cpp"><img src="doc/HelloNoTouch.gif" width="200px;"/><br /><sub><b>navigate/click widgets</b></sub></a>
+    <td align="center"><a href="HelloKeypad/UIcode/UIcode.cpp"><img src="doc/HelloKeypad.gif" width="200px;"/><br /><sub><b>navigate/click widgets</b></sub></a>
   </tr>
 
   <tr>
@@ -39,7 +39,7 @@
 
 - MCU Hardware: STM32F103ZET6(512K ROM, 64K RAM) + 240 * 320 16bits color TFT LCD
 - MCU Software: No OS, Only GuiLite
-- [How to porting for any MCU?](HelloWave/README.md#how-to-port-on-any-type-of-mcu)
+- [How to port on any type of MCU?](doc/how-to-port-on-mcu.md)
 - Also support: Windows / Linux / Qt
 
 ## Hello Transparent

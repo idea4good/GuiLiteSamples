@@ -17,7 +17,7 @@
     <td align="center"><a href="HelloStar/UIcode/UIcode.cpp"><img src="doc/HelloStar.gif" width="200px;"/><br /><sub><b>星空效果</b></sub></a>
     <td align="center"><a href="HelloParticle/UIcode/UIcode.cpp"><img src="doc/HelloParticle.gif" width="200px;"/><br /><sub><b>粒子效果</b></sub></a>
     <td align="center"><a href="HelloWave/UIcode/UIcode.cpp"><img src="doc/HelloWave.gif" width="200px;"/><br /><sub><b>波形控件</b></sub></a>
-    <td align="center"><a href="HelloNoTouch/UIcode/UIcode.cpp"><img src="doc/HelloNoTouch.gif" width="200px;"/><br /><sub><b>按键导航、点击窗体</b></sub></a>
+    <td align="center"><a href="HelloKeypad/UIcode/UIcode.cpp"><img src="doc/HelloKeypad.gif" width="200px;"/><br /><sub><b>按键导航、点击窗体</b></sub></a>
   </tr>
 
   <tr>
@@ -37,7 +37,7 @@
 
 - 单片机硬件配置：STM32F103ZET6(512K ROM，64K RAM) + 240 * 320 16位TFT屏
 - 单片机软件配置：无操作系统 + GuiLite
-- [移植方法 -- 适用于任意单片机平台？](HelloWave/README.md#how-to-port-on-any-type-of-mcu)
+- [移植方法 -- 适用于任意单片机平台](doc/how-to-port-on-mcu.md)
 - 该实例亦可支持Windows和Linux平台
 
 ## Hello Transparent

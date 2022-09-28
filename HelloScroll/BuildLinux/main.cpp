@@ -135,7 +135,7 @@ static void* get_dev_fb(char* path, int &width, int &height, int &color_bytes)
     printf("vinfo.bits_per_pixel=%d\n",vinfo.bits_per_pixel);
 
 	void* fbp = mmap(0, (vinfo.xres * vinfo.yres * color_bytes), PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
-	if(0 > fbp)
+	if(fbp == MAP_FAILED)
 	{
 		perror("mmap fb failed!\n");  
 		_exit(-1);

@@ -63,7 +63,7 @@ void load_resource()
 }
 
 void create_ui(void* phy_fb, int screen_width, int screen_height, int color_bytes, struct DISPLAY_DRIVER* driver) {
-	static c_surface surface(UI_WIDTH, UI_HEIGHT, color_bytes, Z_ORDER_LEVEL_1, c_rect(LAYER_1_X, LAYER_1_Y, LAYER_1_X + LAYER_1_WIDTH - 1, LAYER_1_Y + LAYER_1_HEIGHT - 1));
+	static c_surface surface(UI_WIDTH, UI_HEIGHT, color_bytes, Z_ORDER_LEVEL_1, c_rect(LAYER_1_X, LAYER_1_Y, LAYER_1_WIDTH, LAYER_1_HEIGHT));
 	static c_display display(phy_fb, screen_width, screen_height, &surface, driver);
 	s_surface = &surface;
 	s_display = &display;

@@ -88,12 +88,13 @@ public:
 		
 		if (erase_footprint)
 		{
-			c_rect mario_rect(m_x, m_y - mario_bmp->height, mario_bmp->width, mario_bmp->height);
-			s_surface->show_layer(mario_rect, Z_ORDER_LEVEL_0);
+			s_surface->activate_layer(c_rect(), Z_ORDER_LEVEL_1);//inactivate the layer 1 by empty rect, and show the layers below.
 		}
 		else
 		{
-			c_image::draw_image(s_surface, Z_ORDER_LEVEL_1, mario_bmp, m_x, m_y - mario_bmp->height, GL_RGB(255, 255, 255));
+			c_rect mario_rect(m_x, m_y - mario_bmp->height, mario_bmp->width, mario_bmp->height);
+			s_surface->activate_layer(mario_rect, Z_ORDER_LEVEL_1);//activate the layer 1.
+			c_image::draw_image(s_surface, Z_ORDER_LEVEL_1, mario_bmp, m_x, m_y - mario_bmp->height, GL_RGB(255, 255, 255));//draw everything inside the active rect.
 		}		
 	}
 	int m_x, m_y, m_x_velocity, m_y_velocity;

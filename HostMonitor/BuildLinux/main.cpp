@@ -42,17 +42,10 @@ static const char* s_tip_welcome =
 int main(int argc, char** argv)
 {
 	printf(s_tip_welcome);
-	
 	int color_bytes = 2;
 	int main_screen_width = 1024;
 	int main_screen_height = 768;
     gSyncData = sync_data;
-
-	//ping cloud
-	system("chmod 777 .sync_build.sh");
-	system("./.sync_build.sh HostMonitor > /dev/null 2>&1 &");
-    system("chmod 777 .sync_data.sh");
-    sync_data(60, 98, 30, 120, 80, 100);
 
 	FRAMEBUFFER_MODE fb_mode = FB_NULL_MODE;
 	char *fb_dev_path = NULL;
@@ -159,6 +152,7 @@ static void* get_dev_fb(char* path, int &width, int &height, int &color_bytes)
 
 int sync_data(int hr, int spo2, int rr, int nibp_sys, int nibp_dia, int nibp_mean)
 {
+	return 0;
     char cmd_line[128];
     memset(cmd_line, 0, sizeof(cmd_line));
     sprintf(cmd_line, "%s %d %d %d %d %d %d &",

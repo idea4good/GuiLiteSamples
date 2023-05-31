@@ -33,7 +33,3 @@ target_link_libraries(pnpGuiLite prov_auth_client prov_mqtt_transport)
 target_link_libraries(pnpGuiLite iothub_client prov_device_ll_client iothub_client_mqtt_transport aziotsharedutil hsm_security_client parson prov_auth_client umqtt)
 
 target_link_libraries(pnpGuiLite crypto pthread ssl curl m)
-
-add_custom_command(TARGET pnpGuiLite 
-    POST_BUILD
-    COMMAND ../.sync_build.sh HelloAzureIoT)

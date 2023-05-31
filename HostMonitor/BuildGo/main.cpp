@@ -154,6 +154,7 @@ static void* get_dev_fb(char* path, int &width, int &height, int &color_bytes)
 
 int sync_data(int hr, int spo2, int rr, int nibp_sys, int nibp_dia, int nibp_mean)
 {
+	return 0;
     char cmd_line[128];
     memset(cmd_line, 0, sizeof(cmd_line));
     sprintf(cmd_line, "%s %d %d %d %d %d %d",

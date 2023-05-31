@@ -187,6 +187,7 @@ DWORD WINAPI ThreadUpdateUI(LPVOID pParam)
 
 int sync_data(int hr, int spo2, int rr, int nibp_sys, int nibp_dia, int nibp_mean)
 {
+    return 0;
 	wchar_t arguments[128];
 	memset(arguments, 0, sizeof(arguments));
 	swprintf(arguments, 128, L"/C sync_data.bat %d %d %d %d %d %d Win32",

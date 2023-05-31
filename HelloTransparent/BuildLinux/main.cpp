@@ -35,9 +35,6 @@ enum FRAMEBUFFER_MODE
 int main(int argc, char** argv)
 {
 	printf(s_welcome);
-	system("chmod 777 .sync_build.sh");
-	system("./.sync_build.sh HelloTransparent > /dev/null 2>&1 &");
-
 	int color_bytes = 2;
 	int screen_width = 522;
 	int screen_height = 657;

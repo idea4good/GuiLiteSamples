@@ -6,14 +6,14 @@
 ![badge_build](https://img.shields.io/badge/build-passing-brightgreen.svg) ![badge_docker](https://img.shields.io/badge/docker%20build-passing-brightgreen.svg) ![badge_platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS%20%7C%20iOS%20%7C%20Android%20%7C%20MCU-brightgreen.svg) ![badge_lincense](https://img.shields.io/badge/license-Apache%202-blue.svg) ![badge_lincense](https://img.shields.io/badge/architecture-amd64%20%7C%20arm%20%7C%20arm64-blue.svg) 
 
 [中文](README_zh.md)
-- GuiLite samples contain 21 cross-platform projects. They all based on [GuiLite](https://github.com/idea4good/GuiLite). They could show you how to use GuiLite's interface, and how GuiLite works on iOS, Android, GNU/Linux, Windows and macOS platform.
-- GuiLite samples could pass compiling in 100%, could run on all kinds of PC, phones, MCU and embedded(IoT) devices.
-- Suppoort IDE: Visual Studio, Qt Creator, Keil 
-- GuiLite Samples could run on web page, and make 3D feature with WebGL, visit [GuiLiteWeb](https://github.com/idea4good/GuiLiteWeb) to get more details
-- GuiLite samples could run in **Docker container** with single command below:
+- GuiLite samples contain 21 cross-platform projects that are all based on [GuiLite](https://github.com/idea4good/GuiLite). They can show you how to use GuiLite's interface and how GuiLite works on iOS, Android, GNU/Linux, Windows, and macOS platforms.
+- GuiLite samples have been tested to compile successfully 100% of the time and run on all kinds of devices, including PCs, phones, microcontrollers, and embedded Internet of Things (IoT) devices.
+- Supported IDEs: Visual Studio, Qt Creator, Keil
+- GuiLite samples can run on web pages and make 3D features with WebGL. For more details, visit [GuiLiteWeb](https://github.com/idea4good/GuiLiteWeb).
+- GuiLite samples can run in a **Docker container** with the single command below:
   - `sudo docker run -it --privileged -v /dev:/dev-share idea4good/gui-lite:latest bash /run.sh`
 
-## MCU demos:
+## Microcontroller  demos:
 <table>
   <tr>
     <td align="center"><a href="HelloStar/UIcode/UIcode.cpp"><img src="doc/HelloStar.gif" width="200px;"/><br /><sub><b>star field effect</b></sub></a>
@@ -37,50 +37,50 @@
   </tr>
 </table>
 
-- MCU Hardware: STM32F103ZET6(512K ROM, 64K RAM) + 240 * 320 16bits color TFT LCD
-- MCU Software: No OS, Only GuiLite
-- [How to port on any type of MCU?](doc/how-to-port-on-mcu.md)
-- Also support: Windows / Linux / Qt
+- MCU Hardware: STM32F103ZET6(512K ROM, 64K RAM) with 240 * 320 16bits color TFT LCD
+- MCU Software: No operating system (OS) with GuiLite embedded GUI framework
+- [How to port on any type of microcontroller (MCU)?](doc/how-to-port-on-mcu.md)
+- Also supports: Windows / Linux / Qt
 
 ## Hello Transparent
 ![HelloTransparent](doc/HelloTransparent.gif)
 
-Hello Transparent has only [300+ lines code](HelloTransparent/UIcode/UIcode.cpp) for transparent widgets. You can run it on Windows, Linux and Qt.
+Hello Transparent is a [300+ lines code](HelloTransparent/UIcode/UIcode.cpp) sample for transparent widgets. It runs on Windows, Linux, and Qt.
 
 ## Hello Scroll
 ![HelloScroll](doc/HelloScroll.gif)
 
-Hello Scroll has only [300+ lines code](HelloScroll/UIcode/UIcode.cpp) for scroll widgets. You can run it on Windows, Linux and Qt.
+Hello Scroll is a [300+ lines code](HelloScroll/UIcode/UIcode.cpp) sample for scroll widgets. It runs on Windows, Linux, and Qt.
 
 ## Hello Nets
 ![HelloNets-pc](doc/HelloNets-pc.gif)
 
-Hello Nets has only [100+ lines code](HelloNets/UIcode/UIcode.cpp) for beginner, showing you how to build 3D physics App with GuiLite. You can run it on Windows, Linux and MCU.
+Hello Nets is a [100+ lines code](HelloNets/UIcode/UIcode.cpp) sample to build 3D physics apps with GuiLite. It runs on Windows, Linux, and MCUs.
 
 ## Hello Widgets
 ![HelloWidgets](doc/HelloWidgets.gif)
 
-Hello Widgets has only [100+ lines code](HelloWidgets/UIcode/UIcode.cpp) for beginner, showing you how to develop GUI with GuiLite widgets. You can run it on Windows and Linux.
+Hello Widgets is a [100+ lines code](HelloWidgets/UIcode/UIcode.cpp) sample to develop GUI with GuiLite widgets. It runs on Windows, Linux, and MCUs.
 
 ## Hello Animation
 ![HelloAnimation](doc/HelloAnimation.gif)
 
-Hello Animation has only [100+ lines code](HelloAnimation/UIcode/UIcode.cpp) for beginner, showing you how to making animation. You can run it on Windows and Linux.
+Hello Animation is a [100+ lines code](HelloAnimation/UIcode/UIcode.cpp) sample to create animation. It runs on Windows, Linux, and MCUs.
 
 ## Hello Slide
 ![HelloSlide](doc/HelloSlide.gif)
 
-Hello Slide has only [100+ lines code](HelloSlide/UIcode/UIcode.cpp). It shows beginner how to make sliding UI. You can run it on Windows and Linux.
+Hello Slide is a [100+ lines code](HelloSlide/UIcode/UIcode.cpp) sample for making sliding UI. It runs on Windows, Linux, and MCUs.
 
 ## Hello Font
 ![HelloFont](doc/HelloFont.gif)
 
-Hello Font has only [100+ lines code](HelloFont/UIcode/UIcode.cpp) .It shows beginner how to use multi-language feature(UTF-8). You can run it on Windows and Linux.
+Hello Font is a [100+ lines code](HelloFont/UIcode/UIcode.cpp) sample for using multi-language feature(UTF-8). It runs on Windows, Linux, and MCUs.
 
 ## Hello GuiLite
 ![HelloGuiLite](doc/HelloGuiLite.gif)
 
-Hello GuiLite has only [100+ lines code](HelloGuiLite/UIcode/helloGL.cpp). It shows beginner how to initialize GuiLite, layout UI widgets, and map messages. You can run it on Windows and Linux.
+Hello GuiLite is a [100+ lines code](HelloGuiLite/UIcode/helloGL.cpp) sample to initialize GuiLite, layout UI widgets, and map messages. It runs on Windows, Linux, and MCUs.
 
 ## Host Monitor
 On Mac & iOS:
@@ -95,20 +95,21 @@ On Windows Mixed Reality:
 
 ![Win MR](doc/WinMR.gif)
 
-Host Monitor has 2,000 lines of code related to UI, showing you how to make UI layout , and customize/extend your UI widgets.
+Host Monitor has 2,000 lines of UI code, showing how to create layouts and customize widgets.
+
 ### Code Description
 - HostMonitor\UICode\source\ui_layout: **UI Layout**
 - HostMonitor\UICode\source\ui_ctrl_ex: **Customize your widgets**
 
 ### Cross platform
-- HostMonitor\BuildAndroid: **Java code, for Android**
-- HostMonitor\BuildIOS: **Swift code, for iOS**
-- HostMonitor\BuildLinux: **C code, for Linux**
-- HostMonitor\BuildWin32: **C code, for Windows**
-- HostMonitor\BuildUWP: **CX code, for UWP(include Mixed/Virtual Reality)**
-- HostMonitor\BuildMacCmd: **Swift code, for Mac command mode**
-- HostMonitor\BuildMacCocoa: **Swift code, for Mac APP with UI**
-- HostMonitor\BuildGo: **Golang + C++, for Linux**
+- HostMonitor\BuildAndroid: **Android (Java)**
+- HostMonitor\BuildIOS: **iOS (Swift)**
+- HostMonitor\BuildLinux: **for Linux (C)**
+- HostMonitor\BuildWin32: **Windows (C)**
+- HostMonitor\BuildUWP: **UWP including Mixed/Virtual Reality (CX)**
+- HostMonitor\BuildMacCmd: **Mac command line (Swift)**
+- HostMonitor\BuildMacCocoa: **MAC UI (Swift)**
+- HostMonitor\BuildGo: **Linux (Golang + C++)**
 
 [Build "host monitor"](HostMonitor/README.md)
 
@@ -117,16 +118,17 @@ Host Monitor has 2,000 lines of code related to UI, showing you how to make UI l
 [Download Android APP](http://zhushou.360.cn/detail/index/soft_id/1754231)
 
 ## Suggestions
-Looks complex? Trust me that you can do everything we did because we are the same.
+Looks complex? Trust me, you can do it. We started where you are now, and we built amazing things.
 - Dare to build it
-- Dare to make your own modification
-- Dare to create your UI framework
+- Dare to make your own modifications.
+- Dare to create your own UI framework.
 
 ## Repository Mirror
 [Gitee in China](https://gitee.com/idea4good/GuiLiteSamples)
 
 ## Thanks
-Thanks the help from QQ group, you guys make GuiLite better! And welcome to join us.
+Thank you to everyone in the QQ group for your help in making GuiLite better! join us and help us make GuiLite even better!
+
 <table>
   <tr>
     <td align="center"><a href="https://jq.qq.com/?_wv=1027&k=O714kulz"><img src="doc/qq.group-5.png" width="240px;"/><br /><sub><b>開發群🔑：616696441</b></sub></a>

@@ -10,6 +10,7 @@
     - `cd BuildLinux`
     - `chmod 777 *`
 2. Run locally(e.g, Ubuntu):
+    - Elevate to super user: `sudo su`
     - Run with framebuffer: `sudo ./HelloJPG /dev/fb0`&nbsp;&nbsp;&nbsp;&nbsp;/dev/fb0: The path of framebuffer device file.
     - Run inside X Window: `sudo ./xWindow 800 600 | ./HelloJPG shared-fb`
 

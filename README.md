@@ -131,7 +131,7 @@ Thank you to everyone in the QQ group for your help in making GuiLite better! jo
 
 <table>
   <tr>
-    <td align="center"><a href="https://jq.qq.com/?_wv=1027&k=O714kulz"><img src="doc/qq.group-5.png" width="240px;"/><br /><sub><b>開發群🔑：616696441</b></sub></a>
+    <td align="center"><a href="https://jq.qq.com/?_wv=1027&k=O714kulz"><img src="doc/qq.group-7.png" width="240px;"/><br /><sub><b>開發群🔑：875721211</b></sub></a>
     <td align="center"><img src="doc/VXGZH.jpg" width="240px;"/><br /><sub><b>公众号🔑：阿布编程</b></sub>
   </tr>
 </table>
